@@ -28,7 +28,7 @@
   "origin": 7,
   "parent": {
     "name": "SprSwordEffects",
-    "path": "folders/Sprites/sprItens/Sword/SprSwordEffects.yy",
+    "path": "folders/Sprites/sprItens/sprSword/SprSwordEffects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

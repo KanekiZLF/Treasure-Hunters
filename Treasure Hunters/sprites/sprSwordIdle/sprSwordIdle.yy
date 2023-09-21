@@ -32,8 +32,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "Sword",
-    "path": "folders/Sprites/sprItens/Sword.yy",
+    "name": "sprSword",
+    "path": "folders/Sprites/sprItens/sprSword.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
