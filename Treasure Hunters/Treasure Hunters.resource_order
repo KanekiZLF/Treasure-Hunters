@@ -1,0 +1,26 @@
+{
+  "FolderOrderSettings": [
+    {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
+    {"name":"Conjuntos de tiles","order":4,"path":"folders/Conjuntos de tiles.yy",},
+    {"name":"Sons","order":5,"path":"folders/Sons.yy",},
+    {"name":"Caminhos","order":6,"path":"folders/Caminhos.yy",},
+    {"name":"Scripts","order":3,"path":"folders/Scripts.yy",},
+    {"name":"Shaders","order":7,"path":"folders/Shaders.yy",},
+    {"name":"Fontes","order":8,"path":"folders/Fontes.yy",},
+    {"name":"Linhas do tempo","order":9,"path":"folders/Linhas do tempo.yy",},
+    {"name":"Cenas","order":2,"path":"folders/Cenas.yy",},
+    {"name":"Sequências","order":10,"path":"folders/Sequências.yy",},
+    {"name":"Curvas da animação","order":11,"path":"folders/Curvas da animação.yy",},
+    {"name":"Anotações","order":12,"path":"folders/Anotações.yy",},
+    {"name":"Extensões","order":13,"path":"folders/Extensões.yy",},
+    {"name":"Particle Systems","order":14,"path":"folders/Particle Systems.yy",},
+    {"name":"objConfiguracoes","order":1,"path":"folders/Objetos/objConfiguracoes.yy",},
+    {"name":"sprBlocos","order":1,"path":"folders/Sprites/sprBlocos.yy",},
+    {"name":"objBlocos","order":2,"path":"folders/Objetos/objBlocos.yy",},
+    {"name":"objInimigos","order":3,"path":"folders/Objetos/objInimigos.yy",},
+  ],
+  "ResourceOrderSettings": [
+    {"name":"objCamera","order":2,"path":"objects/objCamera/objCamera.yy",},
+    {"name":"objEntidade","order":1,"path":"objects/objEntidade/objEntidade.yy",},
+  ],
+}
