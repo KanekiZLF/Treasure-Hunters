@@ -30,8 +30,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "sprEnemys",
-    "path": "folders/Sprites/sprEnemys.yy",
+    "name": "SealShell",
+    "path": "folders/Sprites/sprEnemys/SealShell.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
