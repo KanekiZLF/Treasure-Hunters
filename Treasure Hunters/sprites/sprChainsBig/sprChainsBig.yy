@@ -32,8 +32,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "sprPirateShip",
-    "path": "folders/Sprites/sprPirateShip.yy",
+    "name": "sprDecorations",
+    "path": "folders/Sprites/sprDecorations.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
