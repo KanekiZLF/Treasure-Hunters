@@ -1,0 +1,60 @@
+	Player:
+Movimentação: OK
+Ataque1:
+Ataque2:
+Hit:
+Morte:
+Vida:
+Estamina:
+Inventario:
+
+	Sprites:
+Player: OK
+Inimigos: OK
+Armadilhas:	
+Cenario: 
+Itens: OK
+
+	Scripts:
+Interface do Usuário (UI):
+Movimentação: OK
+IA Inimiga:
+Sprites: OK
+Ataque1: 
+Ataque2:
+Hit:
+Morte:
+Vida:
+Estamina:
+Inventario:
+Colisores: OK
+Pontuação: 
+Interação: 
+
+
+	Armadilhas:
+Movimentação: NÃO TEM
+Ataque1:
+Ataque1:
+Hit:
+Morte:
+Dano:
+Colisores: OK
+
+	Inimigos:
+Movimentação:
+Ataque1:
+Ataque1:
+Hit:
+Morte:
+Dano:
+Colisores:
+
+	Cenario:
+Background:
+Tiles: OK
+
+Musicas:
+
+Efeitos Sonoros:
+

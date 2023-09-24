@@ -30,7 +30,7 @@
   "origin": 7,
   "parent": {
     "name": "sprDustParticles",
-    "path": "folders/Sprites/sprParticulas/sprDustParticles.yy",
+    "path": "folders/Sprites/sprParticles/sprDustParticles.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

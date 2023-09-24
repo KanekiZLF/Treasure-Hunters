@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "SealShell",
-    "path": "folders/Sprites/sprEnemys/SealShell.yy",
+    "name": "sprSealShell",
+    "path": "folders/Sprites/sprEnemys/sprSealShell.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
