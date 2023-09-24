@@ -16,7 +16,7 @@ Cenario:
 Itens: OK
 
 	Scripts:
-Interface do Usuário (UI):
+Interface do Usuário (UI): OK
 Movimentação: OK
 IA Inimiga:
 Sprites: OK
@@ -54,7 +54,19 @@ Colisores:
 Background:
 Tiles: OK
 
-Musicas:
+	Musicas:
+Ambiente:
 
-Efeitos Sonoros:
+	Efeitos Sonoros:
+Inimigos:
+Portas:
+Agua:
+Vento:
+Navio:
+Tochas:
+Explosoes:
+Ataque:
+
+	Outras Config:
+Fontes: OK
 
