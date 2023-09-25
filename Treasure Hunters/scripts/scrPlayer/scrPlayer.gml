@@ -55,13 +55,25 @@ function scrPlayer() {
 		//Define as sprites de acordo com o direc
 	
 		//Define a Sprite Parado
-		if velocidadeH = 0 {
+		if velocidadeH = 0 && !toThrow {
 			if direc = 2 || direc = 4 || direc = 8 || direc = 18 {
 				direc = 0; //<-- Idle Direita
 			}
 		
 			if direc = 3 || direc = 5 || direc = 9 || direc = 19 {
 				direc = 1; //<-- Idle Esquerda
+			}
+		}
+		
+		//Define a sprite de lançando a espada
+		if toThrow {
+			velocidadeH = 0;
+			if direc = 0 || direc = 2 {
+				direc = 26;
+			}
+			
+			if direc = 1 || direc = 3 {
+				direc = 27
 			}
 		}
 	

@@ -50,6 +50,8 @@ function scrDirec() {
 		sprPlayerSwordAirAtack1, // 23: Esquerda
 		sprPlayerSwordAirAtack2, // 24: Direita
 		sprPlayerSwordAirAtack2, // 25: Esquerda
+		sprPlayerSwordThowSword, // 26: Direita
+		sprPlayerSwordThowSword, // 27: Esquerda
 	]
 
     // Defina a imagem_xscale com base na direção

@@ -12,6 +12,10 @@ if global.lifes <= 0 {
 	global.gameover = true;
 }
 
+if keyboard_check_pressed(ord("G")) {
+	arraySprite = 1;
+}
+
 if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	ds_list_clear(inimigos_atingidos);
 	isAttacking = true;
@@ -26,6 +30,7 @@ if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	}
 }
 
-if keyboard_check_pressed(ord("G")) {
-	attackCombo += 1;
+if mouse_check_button_pressed(mb_right) && arraySprite == 1 {
+	toThrow = true;
+	if scrFimAnimacao()
 }

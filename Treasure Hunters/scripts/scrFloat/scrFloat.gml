@@ -13,8 +13,8 @@ function scrFloat() {
 	    floatSpeed = 1;
 	}
 	
-	if !variable_instance_exists(id, "direc") {
-	    direc = 0;
+	if !variable_instance_exists(id, "position") {
+	    position = 0;
 	}
 	
 	if !variable_instance_exists(id, "hight") {
@@ -22,12 +22,12 @@ function scrFloat() {
 	}
 	
 // Inicia a aniação
-	if (direc == 0) // Direção inicial para cima
+	if (position == 0) // Direção inicial para cima
 	{
 	    y -= floatSpeed;
 	    if (y <= initialPositionY - hight) // Altura máxima de flutuação
 	    {
-	        direc = 1; // Alterna a direção para baixo
+	        position = 1; // Alterna a direção para baixo
 	    }
 	}
 	else // Direção inicial para baixo
@@ -35,7 +35,7 @@ function scrFloat() {
 	    y += floatSpeed;
 	    if (y >= initialPositionY + hight) // Altura mínima de flutuação
 	    {
-	        direc = 0; // Alterna a direção para cima
+	        position = 0; // Alterna a direção para cima
 	    }
 	}
 }
