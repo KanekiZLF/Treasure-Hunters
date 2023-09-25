@@ -56,11 +56,11 @@ function scrPlayer() {
 	
 		//Define a Sprite Parado
 		if velocidadeH = 0 {
-			if direc = 2 || direc = 8 {
+			if direc = 2 || direc = 4 || direc = 8 || direc = 18 {
 				direc = 0; //<-- Idle Direita
 			}
 		
-			if direc = 3 || direc = 9 {
+			if direc = 3 || direc = 5 || direc = 9 || direc = 19 {
 				direc = 1; //<-- Idle Esquerda
 			}
 		}
@@ -80,6 +80,8 @@ function scrPlayer() {
 		//Define se esta caindo ou não
 		if velocidadeV >= 0.03 {
 			isFall = true;
+		} else if velocidadeV <= .03 {
+			isFall = false;
 		}
 	
 		//Define a sprite do FALL, caindo
@@ -109,11 +111,23 @@ function scrPlayer() {
 	if isAttacking && !isJumping && !isFall && !isDead {
 			
 		if direita || direc = 0 || direc = 2 {
-			direc = 4;
+			if (attackCombo = 0) {
+				direc = 4; //<<-- Ataque1 Direita
+			} else if (attackCombo = 1) {
+				direc = 18; //<<-- Ataque2 Direita
+			} else if (attackCombo = 2) {
+				direc = 20; //<<-- Ataque3 Direita
+			}
 		}
 		
 		if esquerda || direc = 1 || direc = 3 {
-			direc = 5;		
+			if (attackCombo = 0) {
+				direc = 5;	//<<-- Ataque1 Esquerda
+			} else if (attackCombo = 1) {
+				direc = 19; //<<-- Ataque2 Esquerda
+			} else if (attackCombo = 2) {
+				direc = 21; //<<-- Ataque3 Esquerda
+			}
 		}
 		estado = scrAtacando;
 	}
@@ -132,7 +146,7 @@ function scrPlayer() {
 
 // Define o estado como atacando
 function scrAtacando() {
-	velocidade = 0;
+	velocidadeH = 0;
 
 	//Criando uma lista para checar os inimigos atingidos em cada frame
 	var inimigosHB = ds_list_create();
@@ -165,9 +179,7 @@ function scrAtacando() {
 	ds_list_destroy(inimigosHB);
 	
 // Define oque sera feito ao fim da animação
-	if scrFimAnimacao(){
-		velocidade = 2;
-		mask_index = sprPlayerSwordIdle;
+	if scrFimAnimacao() {
 		estado = scrPlayer;
 	}
 }

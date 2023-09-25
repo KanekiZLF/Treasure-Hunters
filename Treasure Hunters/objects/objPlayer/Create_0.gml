@@ -19,12 +19,14 @@ estado = scrPlayer;
 direc = 1; //<-- Define qual sprite usar
 isJumping = false; //<-- Define se estou pulando
 isAttacking = false; //<-- Define se estou atacando
-attack = true; //<-- Define se posso atacar
+attack = true; //<-- Define um intervalo para atacar
+attackCombo = -1; //<-- Define o combo de ataque
 isFall = false; //<-- Define se estou caindo
 isDead = false; //<-- Define se estou morto ou vivo
 moveOn = true; //<-- Define se posso ou não andar
 inimigos_atingidos = ds_list_create(); //<-- Cria uma lista
 objColisParede = objParede; //<-- Define qual é o objeto de parede
+arraySprite = 0; //<-- Define qual array de sprites ira usar
 
 //Variaves de combate
 danoAlpha = -1; //<-- Define o alpha para dar efeito de pisca
