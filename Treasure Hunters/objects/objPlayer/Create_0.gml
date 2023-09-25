@@ -28,6 +28,7 @@ inimigos_atingidos = ds_list_create(); //<-- Cria uma lista
 objColisParede = objParede; //<-- Define qual é o objeto de parede
 arraySprite = 0; //<-- Define qual array de sprites ira usar
 toThrow = false; //<-- Define se joguei ou não a espada
+noTake = false; //<-- Impede de pegar a espada lançada até tocar na parede
 
 //Variaves de combate
 danoAlpha = -1; //<-- Define o alpha para dar efeito de pisca

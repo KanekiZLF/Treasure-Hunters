@@ -32,5 +32,5 @@ if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 
 if mouse_check_button_pressed(mb_right) && arraySprite == 1 {
 	toThrow = true;
-	if scrFimAnimacao()
+	alarm[4] = 10; //<-- Lança a espada
 }

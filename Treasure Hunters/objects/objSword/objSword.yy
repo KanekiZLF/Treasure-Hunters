@@ -34,8 +34,8 @@
     "path": "sprites/sprSwordIdle/sprSwordIdle.yy",
   },
   "spriteMaskId": {
-    "name": "sprSwordIdle",
-    "path": "sprites/sprSwordIdle/sprSwordIdle.yy",
+    "name": "sprSwordEmbeded",
+    "path": "sprites/sprSwordEmbeded/sprSwordEmbeded.yy",
   },
   "visible": true,
 }

@@ -1,7 +1,9 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-scrFloat();
 scrSword();
+if (!place_meeting(x, y, objParede)) && !toThrow {
+	scrFloat();
+}
 
 
 

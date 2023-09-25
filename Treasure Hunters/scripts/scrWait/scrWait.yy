@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Script8",
+  "name": "scrWait",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

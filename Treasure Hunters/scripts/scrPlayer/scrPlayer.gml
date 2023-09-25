@@ -31,10 +31,9 @@ function scrPlayer() {
 		esquerda = keyboard_check(ord("A"));
 		cima = keyboard_check_pressed(ord("W"));
 	}
-	
-	//Gravidade
 	velocidadeH = (direita - esquerda) * velocidade;
 
+	//Gravidade
 	if !place_meeting(x, y + 1, objColisParede) {
 		velocidadeV += gravidade;
 	}

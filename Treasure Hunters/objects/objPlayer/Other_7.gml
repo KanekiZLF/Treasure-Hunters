@@ -21,6 +21,7 @@ if toThrow {
 	//Retorna as Sprites de parado
 	toThrow = false; //<-- Reseta o lançar espada
 	arraySprite = 0; //<-- Fica sem espada POOW !
+	velocidade = 2; //<-- Devolve a velocidade
 	
 	//Verifica qual lado esta atacando e qual combo é !
 	if direita || direc = 4 || direc = 18 || direc = 20 || direc = 26 {
@@ -31,3 +32,4 @@ if toThrow {
 		direc = 1; //<<-- Parado Esquerda
 	}
 }
+

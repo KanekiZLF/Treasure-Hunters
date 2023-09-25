@@ -5,9 +5,9 @@ function scrSword(){
 		sprSwordIdle, // 0: Direita
 		sprSwordIdle, // 1: Esquerda
 		sprSwordSpinig, // 2: Direita
-		sprSwordSpinig, // 2: Esquerda
-		sprSwordEmbeded, // 3: Direita
-		sprSwordEmbeded // 3: Esquerda
+		sprSwordSpinig, // 3: Esquerda
+		sprSwordEmbeded, // 4: Direita
+		sprSwordEmbeded // 5: Esquerda
 	]
 	
 	// Defina a imagem_xscale com base na direção
