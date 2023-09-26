@@ -11,6 +11,7 @@
     {"name":"objBlocos","order":2,"path":"folders/Objetos/objBlocos.yy",},
     {"name":"objConfiguracoes","order":1,"path":"folders/Objetos/objConfiguracoes.yy",},
     {"name":"objInimigos","order":3,"path":"folders/Objetos/objInimigos.yy",},
+    {"name":"objItens","order":4,"path":"folders/Objetos/objItens.yy",},
     {"name":"Particle Systems","order":14,"path":"folders/Particle Systems.yy",},
     {"name":"Scripts","order":1,"path":"folders/Scripts.yy",},
     {"name":"Sequências","order":11,"path":"folders/Sequências.yy",},
@@ -63,7 +64,6 @@
     {"name":"sprMobileButtons","order":1,"path":"folders/Sprites/sprUI/sprMobileButtons.yy",},
     {"name":"sprSliders","order":4,"path":"folders/Sprites/sprUI/sprSliders.yy",},
     {"name":"sprWater","order":8,"path":"folders/Sprites/sprWater.yy",},
-    {"name":"objItens","order":4,"path":"folders/Objetos/objItens.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprPlayerIdle","order":1,"path":"sprites/sprPlayerIdle/sprPlayerIdle.yy",},

@@ -13,7 +13,7 @@ function toThrowSword() {
         var _newSword = instance_create_layer(sword_x, sword_y, layer, objSword);
 
         // Define as propriedades da nova espada
-        _newSword.speed = objPlayer.image_xscale * 2;
+        _newSword.speed = objPlayer.image_xscale * 4;
         _newSword.direc = (objPlayer.image_xscale == 1) ? 2 : 3;
 		_newSword.toThrow = true;
     }
