@@ -8,11 +8,11 @@ if isAttacking {
 	isAttacking = false;
 	
 	//Verifica qual lado esta atacando e qual combo é !
-	if direita || direc = 4 || direc = 18 || direc = 20 {
+	if direita || direc = 4 || direc = 18 || direc = 20 || direc = 22 || direc = 24 {
 		direc = 0; //<<-- Parado Direita
 	}
 	
-	if esquerda || direc = 5 || direc = 19 || direc = 21 {
+	if esquerda || direc = 5 || direc = 19 || direc = 21 || direc = 23 || direc = 25 {
 		direc = 1; //<<-- Parado Esquerda
 	}
 }

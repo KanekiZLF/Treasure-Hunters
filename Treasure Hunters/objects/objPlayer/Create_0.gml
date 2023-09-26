@@ -19,6 +19,7 @@ estado = scrPlayer;
 direc = 1; //<-- Define qual sprite usar
 isJumping = false; //<-- Define se estou pulando
 isAttacking = false; //<-- Define se estou atacando
+isAirAttacking = false; //<-- Define se esta atacando no ar
 attack = true; //<-- Define um intervalo para atacar
 attackCombo = -1; //<-- Define o combo de ataque
 isFall = false; //<-- Define se estou caindo

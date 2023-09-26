@@ -1,5 +1,12 @@
 // Script desenvolvido por Luiz F. R. Pimentel
 // https://github.com/KanekiZLF
+
+// Função para verificar se a animação chegou ao fim
+function endAnimation() {
+    return (image_index >= image_number - 1);
+}
+
+
 function scrPlayer() {
 	scrDirec();
 	//Colisao X
@@ -118,6 +125,25 @@ function scrPlayer() {
 		}
 	}
 	
+	if(isAttacking && isAirAttacking && !isDead) {
+		if direita || direc = 6 || direc = 8 {
+			if (attackCombo = 0) {
+				direc = 22; //<<-- Ataque1 Direita
+			} else if (attackCombo = 1) {
+				direc = 24; //<<-- Ataque2 Direita
+			}
+		}
+		
+		if esquerda || direc = 7 || direc = 9 {
+			if (attackCombo = 0) {
+				direc = 23;	//<<-- Ataque1 Esquerda
+			} else if (attackCombo = 1) {
+				direc = 25; //<<-- Ataque2 Esquerda
+			}
+		}
+		estado = scrAtacandoAr;
+	}
+	
 	//Define sprite de atacando e altera o script/estado
 	if isAttacking && !isJumping && !isFall && !isDead {
 			
@@ -190,6 +216,16 @@ function scrAtacando() {
 	ds_list_destroy(inimigosHB);
 	
 // Define oque sera feito ao fim da animação
+	if scrFimAnimacao() && isAttacking {
+		estado = scrPlayer;
+	}
+}
+
+function scrAtacandoAr() {
+	velocidadeV = 0;
+	velocidadeH = 0;
+	scrDirec();
+	scrAtacando();
 	if scrFimAnimacao() {
 		estado = scrPlayer;
 	}

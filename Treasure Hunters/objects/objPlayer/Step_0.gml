@@ -15,10 +15,12 @@ if global.lifes <= 0 {
 if keyboard_check_pressed(ord("G")) {
 	arraySprite = 1;
 }
-
 if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	ds_list_clear(inimigos_atingidos);
-	isAttacking = true;
+	if velocidadeV <= 0.3 {
+		isAttacking = true;
+	}
+	isAirAttacking = true;
 	attack = false;
 	alarm[2] = 30;
 	alarm[3] = game_get_speed(gamespeed_fps) * 1;
@@ -28,9 +30,13 @@ if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	if (attackCombo == 3) {
 		attackCombo = 0;
 	}
+	
+	if (isAttacking && isJumping && attackCombo == 2) {
+		attackCombo = 0;
+	}
 }
 
-if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 {
+if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 && !isJumping {
 	toThrow = true;
 	alarm[4] = 10; //<-- Lança a espada
 }
