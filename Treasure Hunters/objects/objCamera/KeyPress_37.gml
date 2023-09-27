@@ -1,9 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-
-scrMoveCamera(1, 5, 20)
-
-
+direcaoX = 1; // Comece indo para a direita
+cameraMovingX = true;
 
 
 

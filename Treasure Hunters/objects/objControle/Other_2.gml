@@ -3,6 +3,3 @@
 
 global.lifes = 3;
 global.gameover = false;
-
-
-
