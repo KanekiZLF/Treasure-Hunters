@@ -125,7 +125,7 @@ function scrPlayer() {
 		}
 	}
 	
-	if(isAttacking && isAirAttacking && !isDead) {
+	if(isAirAttacking && !isDead) {
 		if direita || direc = 6 || direc = 8 {
 			if (attackCombo = 0) {
 				direc = 22; //<<-- Ataque1 Direita
@@ -226,7 +226,8 @@ function scrAtacandoAr() {
 	velocidadeH = 0;
 	scrDirec();
 	scrAtacando();
-	if scrFimAnimacao() {
+	
+	if (image_index >= image_number - 1) {
 		estado = scrPlayer;
 	}
 }

@@ -14,26 +14,33 @@ if global.lifes <= 0 {
 
 if keyboard_check_pressed(ord("G")) {
 	arraySprite = 1;
+	global.screenShakeIntensity = 5; // Ajuste o valor conforme necessário
+	show_debug_message(global.screenShakeIntensity)
 }
+
 if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	ds_list_clear(inimigos_atingidos);
 	if velocidadeV <= 0.3 {
 		isAttacking = true;
 	}
-	isAirAttacking = true;
-	attack = false;
-	alarm[2] = 30;
-	alarm[3] = game_get_speed(gamespeed_fps) * 1;
+	
+	if isJumping || isFall { 
+		isAirAttacking = true; 
+	}
+	
 	attackCombo += 1;
+	alarm[2] = 20; //<-- Intervalo entre ataques 
+	alarm[3] = game_get_speed(gamespeed_fps) * 1; //<-- Intervalo para resetar os combos
 	
 	//Reseta os combos caso chegue no limite
 	if (attackCombo == 3) {
 		attackCombo = 0;
 	}
 	
-	if (isAttacking && isJumping && attackCombo == 2) {
+	if (isAirAttacking && attackCombo == 2) {
 		attackCombo = 0;
 	}
+	attack = false;
 }
 
 if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 && !isJumping {

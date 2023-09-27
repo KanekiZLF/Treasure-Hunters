@@ -15,6 +15,7 @@
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"fffb843b-337b-4aa2-ba77-deeee2da6653",},
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"afa9d5b9-de63-4762-8289-abbff622c690",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"5d9b4b79-a517-4c36-89c0-ec37e0927465",},
   ],
   "gridX": 0,
   "gridY": 0,
@@ -44,7 +45,7 @@
     "events": {"resourceType":"KeyframeStore<MessageEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "eventStubScript": null,
     "eventToFunction": {},
-    "length": 2.0,
+    "length": 3.0,
     "lockOrigin": false,
     "moments": {"resourceType":"KeyframeStore<MomentsEventKeyframe>","resourceVersion":"1.0","Keyframes":[],},
     "playback": 1,
@@ -57,6 +58,7 @@
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"fffb843b-337b-4aa2-ba77-deeee2da6653","path":"sprites/sprSwordAttackAir1/sprSwordAttackAir1.yy",},},},"Disabled":false,"id":"8ca73e95-c459-442f-9040-2214e6cb94d7","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
             {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"afa9d5b9-de63-4762-8289-abbff622c690","path":"sprites/sprSwordAttackAir1/sprSwordAttackAir1.yy",},},},"Disabled":false,"id":"17f5c584-b779-4070-8a04-db0eb12e456b","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"5d9b4b79-a517-4c36-89c0-ec37e0927465","path":"sprites/sprSwordAttackAir1/sprSwordAttackAir1.yy",},},},"Disabled":false,"id":"58f0ec96-7f05-477a-9c3f-435c86133408","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
