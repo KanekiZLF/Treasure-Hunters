@@ -218,6 +218,7 @@
     {"id":{"name":"sprHead3Destroy","path":"sprites/sprHead3Destroy/sprHead3Destroy.yy",},},
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},},
     {"id":{"name":"sprBigClouds","path":"sprites/sprBigClouds/sprBigClouds.yy",},},
+    {"id":{"name":"scrMoveCamera","path":"scripts/scrMoveCamera/scrMoveCamera.yy",},},
     {"id":{"name":"sprWatterReflectionBig","path":"sprites/sprWatterReflectionBig/sprWatterReflectionBig.yy",},},
     {"id":{"name":"sprDialogueDead","path":"sprites/sprDialogueDead/sprDialogueDead.yy",},},
     {"id":{"name":"sprShipHelmIdle","path":"sprites/sprShipHelmIdle/sprShipHelmIdle.yy",},},

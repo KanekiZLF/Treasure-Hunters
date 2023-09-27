@@ -14,8 +14,7 @@ if global.lifes <= 0 {
 
 if keyboard_check_pressed(ord("G")) {
 	arraySprite = 1;
-	global.screenShakeIntensity = 5; // Ajuste o valor conforme necessário
-	show_debug_message(global.screenShakeIntensity)
+
 }
 
 if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {

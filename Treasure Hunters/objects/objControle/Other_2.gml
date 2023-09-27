@@ -3,7 +3,6 @@
 
 global.lifes = 3;
 global.gameover = false;
-global.screenShakeIntensity = 0; // Inicialmente, a intensidade da trepidação é zero
 
 
 

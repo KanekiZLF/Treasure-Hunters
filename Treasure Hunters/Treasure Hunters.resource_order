@@ -182,6 +182,7 @@
     {"name":"sprHead3Destroy","order":3,"path":"sprites/sprHead3Destroy/sprHead3Destroy.yy",},
     {"name":"objCamera","order":2,"path":"objects/objCamera/objCamera.yy",},
     {"name":"sprBigClouds","order":2,"path":"sprites/sprBigClouds/sprBigClouds.yy",},
+    {"name":"scrMoveCamera","order":9,"path":"scripts/scrMoveCamera/scrMoveCamera.yy",},
     {"name":"sprWatterReflectionBig","order":4,"path":"sprites/sprWatterReflectionBig/sprWatterReflectionBig.yy",},
     {"name":"sprDialogueDead","order":1,"path":"sprites/sprDialogueDead/sprDialogueDead.yy",},
     {"name":"sprShipHelmIdle","order":1,"path":"sprites/sprShipHelmIdle/sprShipHelmIdle.yy",},
