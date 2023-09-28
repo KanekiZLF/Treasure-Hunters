@@ -46,3 +46,4 @@ if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 &
 	toThrow = true;
 	alarm[4] = 10; //<-- Lança a espada
 }
+

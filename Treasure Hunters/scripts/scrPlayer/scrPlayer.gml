@@ -227,7 +227,7 @@ function scrAtacandoAr() {
 	scrDirec();
 	scrAtacando();
 	
-	if (image_index >= image_number - 1) {
+	if endAnimation() {
 		estado = scrPlayer;
 	}
 }
