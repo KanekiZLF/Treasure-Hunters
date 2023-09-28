@@ -7,21 +7,30 @@ function scrMoveCameraX() {
 
 	var _distancia = argument0;
 	var _direcao = argument1;
+	var _velocidade = 0.2
+	var _posAtualX = camera_get_view_x(view_camera[0])
+	var _posAtualY = camera_get_view_y(view_camera[0])
 	
-	switch(_direcao){
-		case 0:
-			camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]) - _distancia, camera_get_view_y(view_camera[0]));
-		break;
-		
+	if _posAtualX >= _distancia {
+		show_debug_message("PASSOU " + string(_posAtualX))
+	} else if _posAtualX <= _distancia {
+		show_debug_message("PASSOU AQUI EU" + string(_posAtualX))
+	}
+	
+	switch(_direcao) {
 		case 1:
-			camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]) + _distancia, camera_get_view_y(view_camera[0]));
+			camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]) - _velocidade * _distancia, camera_get_view_y(view_camera[0]));
 		break;
 		
 		case 2:
-			camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]) - _distancia);
+			camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]) +  _velocidade * _distancia, camera_get_view_y(view_camera[0]));
 		break;
 		
 		case 3:
+			camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]) - _distancia);
+		break;
+		
+		case 4:
 			camera_set_view_pos(view_camera[0], camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]) + _distancia);
 		break;
 	}

@@ -3,3 +3,4 @@
 
 global.lifes = 3;
 global.gameover = false;
+global.cameraActive = true; //<-- Ativa ou desativa a camera do PLAYER !!
