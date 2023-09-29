@@ -1,8 +1,10 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-// Defina a velocidade da câmera quando a tecla for pressionada
-camera_speed = 5; // Ajuste conforme necessário
-move_camera = false; // Flag para controlar o movimento da câmera
+
+// Variaveis da camera
+posCamX = 0;
+posCamY = 0;
+camDirec = 0;
 
 
 //Variaveis de movimentação

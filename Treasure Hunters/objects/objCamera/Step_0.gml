@@ -7,8 +7,8 @@ if (instance_exists(objPlayer)) {
 if global.cameraActive {
 	//Seguir o player
 
-	x = lerp(x, alvo.x, 0.1);
-	y = lerp(y, alvo.y, 0.1);
+	x = alvo.x;
+	y =  alvo.y;
 
 	//Pegando os valores da camera
 	var largCamera = camera_get_view_width(view_camera[0])
@@ -23,38 +23,3 @@ if global.cameraActive {
 	// Camera que segue
 	camera_set_view_pos(view_camera[0], camX, camY);
 }
-
-// Velocidade de movimento da câmera
-var cameraSpeed = 2;
-
-// Verifique se a tecla esquerda (<Left> Key) está sendo pressionada
-if keyboard_check(vk_left) {
-    // Mova a câmera para a esquerda
-   scrMoveCameraX(1, 1);
-}
-
-// Verifique se a tecla direita (<Right> Key) está sendo pressionada
-if keyboard_check(vk_right) {
-    // Mova a câmera para a direita
-    scrMoveCameraX(10, 1);
-	global.cameraActive = false;
-} else {
-	global.cameraActive = true;
-}
-
-
-if keyboard_check(vk_up) {
-    // Mova a câmera para a esquerda
-    	scrMoveCameraX(1, 3);
-}
-
-// Verifique se a tecla direita (<Right> Key) está sendo pressionada
-if keyboard_check(vk_down) {
-    // Mova a câmera para a direita
-    	scrMoveCameraX(1, 4);
-}
-
-
-
-
-

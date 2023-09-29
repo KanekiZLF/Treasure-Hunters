@@ -19,6 +19,10 @@ if keyboard_check_pressed(ord("G")) {
 
 if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	ds_list_clear(inimigos_atingidos);
+	global.cameraActive = false;
+	posCamX = camera_get_view_x(view_camera[0]);
+	posCamY = camera_get_view_y(view_camera[0]);
+	
 	if velocidadeV <= 0.3 {
 		isAttacking = true;
 	}
@@ -30,6 +34,7 @@ if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	attackCombo += 1;
 	alarm[2] = 20; //<-- Intervalo entre ataques 
 	alarm[3] = game_get_speed(gamespeed_fps) * 1; //<-- Intervalo para resetar os combos
+	alarm[5] = 10 //Treme tela
 	
 	//Reseta os combos caso chegue no limite
 	if (attackCombo == 3) {
@@ -42,8 +47,22 @@ if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	attack = false;
 }
 
+if alarm[5] > 0 {
+	scrMoveCamera(1, 3);
+}
+
+if isAttacking && mouse_check_button_pressed(mb_left) {
+	camDirec = 0;
+}
+
+if (isAirAttacking || isFall) && mouse_check_button_pressed(mb_left) {
+	camDirec = 2;
+}
+
 if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 && !isJumping {
 	toThrow = true;
 	alarm[4] = 10; //<-- Lança a espada
 }
+
+
 
