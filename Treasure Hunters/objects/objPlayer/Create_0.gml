@@ -4,7 +4,7 @@
 // Variaveis da camera
 posCamX = 0;
 posCamY = 0;
-camDirec = 0;
+camDirec = 1;
 
 
 //Variaveis de movimentação

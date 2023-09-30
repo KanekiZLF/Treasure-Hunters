@@ -7,7 +7,7 @@ function scrMoveCamera() {
     var _distanciaPercorrida = 0;
     var _distRefX = posCamX;
     var _distRefY = posCamY;
-    global.cameraActive = false;
+
 	
     switch (camDirec) {
         case 0:
@@ -36,7 +36,7 @@ function scrMoveCamera() {
     }
 	
 
-	    if (_distanciaPercorrida == -_distancia ) {
+	    if (_distanciaPercorrida == -_distancia) {
 	        if (camDirec == 0) {
 				camDirec = 1;
 	        }
@@ -46,7 +46,7 @@ function scrMoveCamera() {
 	        }
 	    }
     
-	    if (_distanciaPercorrida == _distancia ) {
+	    if (_distanciaPercorrida == _distancia) {
 	        if (camDirec == 1) {
 				camDirec = 0;
 	        }

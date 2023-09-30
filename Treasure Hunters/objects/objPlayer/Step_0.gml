@@ -48,14 +48,12 @@ if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 }
 
 if alarm[5] > 0 {
-	scrMoveCamera(1, 3);
+	scrMoveCamera(.5, 3);
 }
 
 if isAttacking && mouse_check_button_pressed(mb_left) {
 	camDirec = 0;
-}
-
-if (isAirAttacking || isFall) && mouse_check_button_pressed(mb_left) {
+}else if (isAirAttacking || isFall) && mouse_check_button_pressed(mb_left) {
 	camDirec = 2;
 }
 
