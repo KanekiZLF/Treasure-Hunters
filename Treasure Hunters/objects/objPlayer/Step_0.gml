@@ -52,7 +52,20 @@ if alarm[5] > 0 {
 }
 
 if isAttacking && mouse_check_button_pressed(mb_left) {
-	camDirec = 0;
+	if attackCombo == 0 {
+		if (image_xscale == 1) {
+			camDirec = 0;
+		}
+		
+		if (image_xscale == -1) {
+			camDirec = 1;
+		}
+	} else if attackCombo == 1 {
+		camDirec = 2;
+	} else if attackCombo == 2 {
+		camDirec = 3;
+	}
+	
 }else if (isAirAttacking || isFall) && mouse_check_button_pressed(mb_left) {
 	camDirec = 2;
 }
@@ -61,6 +74,11 @@ if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 &
 	toThrow = true;
 	alarm[4] = 10; //<-- Lança a espada
 }
+
+
+
+
+
 
 
 

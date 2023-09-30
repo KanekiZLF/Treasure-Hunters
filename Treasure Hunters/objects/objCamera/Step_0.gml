@@ -6,9 +6,8 @@ if (instance_exists(objPlayer)) {
 
 if global.cameraActive {
 	//Seguir o player
-
-	x = alvo.x;
-	y =  alvo.y;
+	x = lerp(x, alvo.x, .2);
+	y =  lerp(y, alvo.y, .2);
 
 	//Pegando os valores da camera
 	var largCamera = camera_get_view_width(view_camera[0])
@@ -17,8 +16,6 @@ if global.cameraActive {
 	var camY = y - altCamera /2;
 	camX = clamp(camX, 0, room_width - largCamera)
 	camY = clamp(camY, 0, room_height - altCamera)
-
-
 
 	// Camera que segue
 	camera_set_view_pos(view_camera[0], camX, camY);

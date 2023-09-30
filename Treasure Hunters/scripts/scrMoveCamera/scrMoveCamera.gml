@@ -33,7 +33,7 @@ function scrMoveCamera() {
             var camY2 = camera_get_view_y(view_camera[0]); // Corrigido para pegar view_yview
             _distanciaPercorrida = camY2 - _distRefY; // Corrigido para calcular em relação a _distRefY
             break;
-    }
+		}
 	
 
 	    if (_distanciaPercorrida == -_distancia) {
@@ -43,17 +43,16 @@ function scrMoveCamera() {
         
 	        if (camDirec == 2) {
 				camDirec = 3;
-	        }
+			}
 	    }
     
 	    if (_distanciaPercorrida == _distancia) {
-	        if (camDirec == 1) {
+	      if (camDirec == 1) {
 				camDirec = 0;
-	        }
+	     }
         
-	        if (camDirec == 3) {
-				camDirec = 2;
-	        }
-	    }
-	show_debug_message(camDirec)
+	    if (camDirec == 3) {
+			camDirec = 2;
+		}
+	}
 }
