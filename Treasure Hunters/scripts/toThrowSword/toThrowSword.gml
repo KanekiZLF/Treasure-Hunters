@@ -17,5 +17,6 @@ function toThrowSword() {
         _newSword.direc = (objPlayer.image_xscale == 1) ? 2 : 3;
 		_newSword.toThrow = true;
 		_newSword.float = false;
+		_newSword.autoDestroy = true;
     }
 }

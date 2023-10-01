@@ -27,7 +27,7 @@ if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 		isAttacking = true;
 	}
 	
-	if isJumping || isFall { 
+	if (isJumping || isFall) && attackCombo <= 2 { 
 		isAirAttacking = true; 
 	}
 	
@@ -42,7 +42,7 @@ if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	}
 	
 	if (isAirAttacking && attackCombo == 2) {
-		attackCombo = 0;
+		isAirAttacking = false;
 	}
 	attack = false;
 }
@@ -75,10 +75,12 @@ if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 &
 	alarm[4] = 10; //<-- Lança a espada
 }
 
+if (wait("meu_temporizador", .2)) && direita && !isJumping && !isFall && !isDead {
+   var _effect = instance_create_layer(x - 3, y - 7, layer, objDusts);
+		_effect.direc = 4
+}
 
-
-
-
-
-
-
+if (wait("meu_temporizador2", .2)) && esquerda && !isJumping && !isFall && !isDead {
+   var _effect = instance_create_layer(x - 3, y - 7, layer, objDusts);
+		_effect.direc = 5
+}

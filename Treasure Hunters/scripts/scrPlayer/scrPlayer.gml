@@ -53,6 +53,8 @@ function scrPlayer() {
 	//Jump, Double Jump, Pulo, Pulo Duplo
 	if !isAttacking || !isDead {	
 		if cima && doubleJump < 2 {
+			var _effect = instance_create_layer(x, y - 8, layer, objDusts)
+				_effect.direc = 0;
 			doubleJump += 1;
 			velocidadeV = alturaPulo;
 			isJumping = true;
@@ -85,11 +87,10 @@ function scrPlayer() {
 	
 		//Define sprite de andando
 		if velocidadeH != 0 && !isJumping {
-		
 			if direita {
 				direc = 2; //<-- Run Direita
 			}
-	
+
 			if esquerda {
 				direc = 3; //<-- Run Esquerda
 			}

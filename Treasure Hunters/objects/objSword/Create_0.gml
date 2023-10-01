@@ -12,3 +12,4 @@ hight = 5;
 direc = 0;
 toThrow = false;
 efeito = false;
+autoDestroy = false;
