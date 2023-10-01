@@ -7,6 +7,8 @@ camDirec = 0;
 camDef = false;
 
 floatSpeed = .2;
+float = true;
 hight = 5;
 direc = 0;
 toThrow = false;
+efeito = false;

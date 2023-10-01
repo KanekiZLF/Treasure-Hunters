@@ -3,6 +3,3 @@
 objPlayer.noTake = true; 
 speed = 0;
 direc = (image_xscale == 1) ? 4 : 5;
-
-
-

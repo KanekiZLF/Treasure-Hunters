@@ -16,5 +16,6 @@ function toThrowSword() {
         _newSword.speed = objPlayer.image_xscale * 4;
         _newSword.direc = (objPlayer.image_xscale == 1) ? 2 : 3;
 		_newSword.toThrow = true;
+		_newSword.float = false;
     }
 }

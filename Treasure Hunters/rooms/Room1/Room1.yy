@@ -12,9 +12,9 @@
     {"name":"inst_50E60414","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_7A779156","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_7D8FBA21","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_1DCE30A4","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_3C8202FA","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_392BF05E","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_1DCE30A4","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd": false,
   "layers": [

@@ -1,7 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 scrSword();
-if (!place_meeting(x, y, objParede)) && !toThrow {
+if (!place_meeting(x, y, objParede)) && !toThrow && float {
 	scrFloat();
 }
 
@@ -16,6 +16,8 @@ if (place_meeting(x, y, objParede)) && !camDef {
 if alarm[0] > 0 {
 	scrMoveCamera(1, 1);
 }
+
+
 
 
 /*
