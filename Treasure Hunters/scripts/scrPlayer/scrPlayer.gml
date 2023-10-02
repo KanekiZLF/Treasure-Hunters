@@ -53,7 +53,7 @@ function scrPlayer() {
 	//Jump, Double Jump, Pulo, Pulo Duplo
 	if !isAttacking || !isDead {	
 		if cima && doubleJump < 2 {
-			var _effect = instance_create_layer(x, y - 8, layer, objDusts)
+			var _effect = instance_create_layer(x, y - 8, layer, objEffects)
 				_effect.direc = 0;
 			doubleJump += 1;
 			velocidadeV = alturaPulo;
@@ -99,6 +99,7 @@ function scrPlayer() {
 		//Define se esta caindo ou não
 		if velocidadeV >= 0.03 {
 			isFall = true;
+			isEffect = true;
 		} else if velocidadeV <= .03 {
 			isFall = false;
 		}

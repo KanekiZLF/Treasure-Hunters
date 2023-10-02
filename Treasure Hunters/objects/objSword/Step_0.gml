@@ -19,12 +19,18 @@ if alarm[0] > 0 {
 
 
 if place_meeting(x, y, objParede) && !efeito {
-	var _effect = instance_create_layer(x + (3 * image_xscale), y - 5, layer, objDusts);
+	// Cria o efeito de fumaça na parede
+	var _effect = instance_create_layer(x + (3 * image_xscale), y - 5, layer, objEffects);
 		_effect.direc = 2;
 		_effect.image_angle = 90 * image_xscale;
+	// Cria o dialogo de interrogação
+	var _effect2 = instance_create_layer(x, y, layer, objEffects);
+		_effect2.direc = 6;
+	// Desativa os efeitos após aplicar
 	efeito = true;
 }
 
+// Destroi a espada após 5 segundos caso a variavel seja true
 if autoDestroy {
 	alarm[1] = game_get_speed(gamespeed_fps) * 5;
 	autoDestroy = false;

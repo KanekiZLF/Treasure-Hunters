@@ -1,27 +1,40 @@
 	Player:
 Movimentação: OK
-Ataque1:
-Ataque2:
+Ataque1: OK
+Ataque2: OK
 Hit:
 Morte:
 Vida:
 Estamina:
 Inventario:
-
+	
+	Interface Grafica(GUI):
+Vida:
+Estamina:
+Botoes:
+Banners:
+Menus:
+Icones:
+	
 	Sprites:
 Player: OK
+Interface Grafica(GUI): OK
 Inimigos: OK
-Armadilhas:	
-Cenario: 
+Armadilhas: OK	
+Cenario: OK
 Itens: OK
 
 	Scripts:
-Interface do Usuário (UI): OK
 Movimentação: OK
 IA Inimiga:
 Sprites: OK
-Ataque1: 
-Ataque2:
+Ataque1: OK
+Ataque2: OK
+Ataque3: OK
+Ataque4: OK
+Ataque5: OK
+Camera: OK
+Player: OK
 Hit:
 Morte:
 Vida:
@@ -69,4 +82,5 @@ Ataque:
 
 	Outras Config:
 Fontes: OK
+Camera: OK
 

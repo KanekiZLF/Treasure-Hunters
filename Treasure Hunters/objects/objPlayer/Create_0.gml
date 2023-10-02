@@ -41,5 +41,6 @@ danoAlpha = -1; //<-- Define o alpha para dar efeito de pisca
 tomarDano = true; //<-- Define se posso tomar dano
 empurrarDir = 0; //<-- Define a direcao que serei empurrado
 dano = 1; //<-- Define o valor do dano que da no inimigo
-global.lifes = 3;
+maxLifes = 20;
+global.lifes = maxLifes;
 

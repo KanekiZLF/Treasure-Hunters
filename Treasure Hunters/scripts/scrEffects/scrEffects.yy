@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrDustsEffects",
+  "name": "scrEffects",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

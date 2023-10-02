@@ -2,7 +2,6 @@
 // Você pode escrever seu código neste editor
 
 script_execute(estado) //<-- Executa script
-
 attackCombo = clamp(attackCombo, -1, 3);
 
 if global.lifes <= 0 {
@@ -14,9 +13,13 @@ if global.lifes <= 0 {
 
 if keyboard_check_pressed(ord("G")) {
 	arraySprite = 1;
-
+	global.lifes -= 1;
+	show_debug_message(global.lifes)
 }
 
+
+
+// Ataca e define a posição da camera entre outras coisas
 if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	ds_list_clear(inimigos_atingidos);
 	global.cameraActive = false;
@@ -47,9 +50,12 @@ if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 	attack = false;
 }
 
+// Tempo em que a camera treme
 if alarm[5] > 0 {
 	scrMoveCamera(.5, 3);
 }
+
+// Define o lado que a camera ira tremer
 
 if isAttacking && mouse_check_button_pressed(mb_left) {
 	if attackCombo == 0 {
@@ -66,21 +72,30 @@ if isAttacking && mouse_check_button_pressed(mb_left) {
 		camDirec = 3;
 	}
 	
-}else if (isAirAttacking || isFall) && mouse_check_button_pressed(mb_left) {
+} else if (isAirAttacking || isFall) && mouse_check_button_pressed(mb_left) {
 	camDirec = 2;
 }
 
+// Joga a espada
 if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 && !isJumping {
 	toThrow = true;
 	alarm[4] = 10; //<-- Lança a espada
 }
 
-if (wait("meu_temporizador", .2)) && direita && !isJumping && !isFall && !isDead {
-   var _effect = instance_create_layer(x - 3, y - 7, layer, objDusts);
+
+// Crie os efeitos de fumaça quando anda, pula ou ataca no ar
+if (wait("runDust1", .2)) && direita && !isJumping && !isFall && !isDead {
+   var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
 		_effect.direc = 4
 }
 
-if (wait("meu_temporizador2", .2)) && esquerda && !isJumping && !isFall && !isDead {
-   var _effect = instance_create_layer(x - 3, y - 7, layer, objDusts);
+if (wait("runDust2", .2)) && esquerda && !isJumping && !isFall && !isDead {
+   var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
 		_effect.direc = 5
+}
+
+if (place_meeting(x, y + 1, objParede)) && isEffect {
+	var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
+		_effect.direc = 2
+		isEffect = false;
 }
