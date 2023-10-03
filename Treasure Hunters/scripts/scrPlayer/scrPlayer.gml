@@ -205,13 +205,10 @@ function scrAtacando() {
 			
 			if (ds_list_find_index(inimigos_atingidos, inimigosID)) == -1{
 				ds_list_add(inimigos_atingidos, inimigosID);
-				with(inimigosID){
+				with(inimigosID) {
 				lifes -= objPlayer.dano;
 				alarm[1] = 15;
 				hit = true;
-				if lifes > 0 {
-					hitSound = true;
-					}
 				}
 			}
 		}
@@ -239,12 +236,27 @@ function scrAtacandoAr() {
 function scrHit() {
 	scrDirec();
 	scrCollision();
-	if hit && sprite_index == sprPlayerSwordHit {
-		velocidadeH = -1 * image_xscale;
-		y += -2;
+	if hit {
+		velocidadeH = -1.5 * image_xscale;
+		y += -2.5;
+	} else if !hit {
+		velocidadeH = 0;
+		velocidadeV = 0;
 	}
 	
-	if endAnimation() {
+	if place_meeting(x, y + 1, objParede) && !isDead {
+		var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
+			_effect.direc = 2
+		if velocidadeH != 0 {
+			direc = (image_xscale == 1) ? 2 : 3;
+		}
 		estado = scrPlayer;
+	}
+
+	if isDead {
+			direc = (image_xscale == 1) ? 12 : 13;
+		if endAnimation() {
+			estado = scrPlayer;
+		}
 	}
 }

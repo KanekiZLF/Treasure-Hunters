@@ -5,6 +5,7 @@
 posCamX = 0;
 posCamY = 0;
 camDirec = 3;
+camDef = false;
 
 //Variaveis de movimentação
 velocidadeH = 0;
@@ -39,7 +40,7 @@ noTake = false; //<-- Impede de pegar a espada lançada até tocar na parede
 
 //Variaves de combate
 danoAlpha = -1; //<-- Define o alpha para dar efeito de pisca
-tomarDano = true; //<-- Define se posso tomar dano
+tomarDano = false; //<-- Define se posso tomar dano
 empurrarDir = 0; //<-- Define a direcao que serei empurrado
 dano = 1; //<-- Define o valor do dano que da no inimigo
 maxLifes = 20;

@@ -6,18 +6,35 @@ attackCombo = clamp(attackCombo, -1, 3);
 
 if global.lifes <= 0 {
 	isDead = true;
-	velocidadeH = 0;
-	alturaPulo = 0;
 	global.gameover = true;
+}
+
+if tomarDano && !isDead {
+	posCamX = camera_get_view_x(view_camera[0]);
+	posCamY = camera_get_view_y(view_camera[0]);
+	global.cameraActive = false;
+	camDirec = (image_xscale == 1) ? 0 : 1;
+	alarm[5] = 10;
+	global.lifes -= 1;
+	hit = true;
+	tomarDano = false;
 }
 
 if keyboard_check_pressed(ord("G")) {
 	arraySprite = 1;
-	global.lifes -= 1;
-	hit = true;
+	tomarDano = true;
 }
 
-if (!isDead) {
+// Tempo em que a camera treme
+if alarm[5] > 0 {
+	if !hit {
+		scrMoveCamera(.5, 3);
+	} else if hit {
+		scrMoveCamera(.5, 2);
+	}
+}
+
+if !isDead {
 	// Ataca e define a posição da camera entre outras coisas
 	if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 		ds_list_clear(inimigos_atingidos);
@@ -47,11 +64,6 @@ if (!isDead) {
 			isAirAttacking = false;
 		}
 		attack = false;
-	}
-
-	// Tempo em que a camera treme
-	if alarm[5] > 0 {
-		scrMoveCamera(.5, 3);
 	}
 
 	// Define o lado que a camera ira tremer

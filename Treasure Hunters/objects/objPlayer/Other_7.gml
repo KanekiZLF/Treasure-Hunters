@@ -10,9 +10,9 @@ if (sprite_index == sprPlayerDeadGround) {
 	image_index = image_number -1;
 }
 
-if (direc == 14 || direc == 15) {
+if (direc == 14 || direc == 15 || hit) {
 	image_index = image_number -1;
-	if (!direita || !esquerda) {
+	if (!direita || !esquerda || direc == 6 || direc == 7) && place_meeting(x, y + 1, objParede) {
 		direc = (image_xscale == 1) ? 0 : 1;
 	}
 	hit = false;
