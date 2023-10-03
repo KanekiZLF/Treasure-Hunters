@@ -10,9 +10,9 @@ if (sprite_index == sprPlayerDeadGround) {
 	image_index = image_number -1;
 }
 
-if (direc == 14 || direc == 15 || hit) {
+if (direc == 14 || direc == 15) {
 	image_index = image_number -1;
-	if (!direita || !esquerda || direc == 6 || direc == 7) && place_meeting(x, y + 1, objParede) {
+	if (!direita || !esquerda) && place_meeting(x, y + 1, objParede) {
 		direc = (image_xscale == 1) ? 0 : 1;
 	}
 	hit = false;
@@ -73,13 +73,26 @@ if isDead {
 	    }
 	}
 	
-	if (sprite_index == sprPlayerDead) {
-	    if (image_xscale == 1) {
-	        direc = 28; //<-- Define sprite sprPlayerDeadGround
-	    }
-	    else if (image_xscale == -1) {
-	        direc = 29; //<-- Define sprite sprPlayerDeadGround
-	    }
+	if arraySprite == 0 {
+		if (sprite_index == sprPlayerDead) {
+		    if (image_xscale == 1) {
+		        direc = 16; //<-- Define sprite sprPlayerDeadGround
+		    }
+		    else if (image_xscale == -1) {
+		        direc = 17; //<-- Define sprite sprPlayerDeadGround
+		    }
+		}
+	}
+		
+	if arraySprite == 1 {
+		if (sprite_index == sprPlayerDead) {
+		    if (image_xscale == 1) {
+		        direc = 28; //<-- Define sprite sprPlayerDeadGround
+		    }
+		    else if (image_xscale == -1) {
+		        direc = 29; //<-- Define sprite sprPlayerDeadGround
+		    }
+		}
 	}
 }
 

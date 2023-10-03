@@ -17,18 +17,13 @@ function scrPlayer() {
 		velocidadeH = 0;
 	}
 	x += velocidadeH;
-
+	
 //Colisao Y
 	if place_meeting(x, y + velocidadeV, objColisParede) {
 		while !place_meeting(x, y + sign(velocidadeV), objColisParede) {
 			y += sign(velocidadeV); 
 	}
 		velocidadeV = 0;
-		isJumping = false;
-		isFall = false;
-		if place_meeting(x, y + 1, objColisParede) {
-			doubleJump = 0;
-		}
 	}
 	y += velocidadeV;
 	
@@ -45,9 +40,10 @@ function scrPlayer() {
 		velocidadeV += gravidade;
 	}
 	
-	//Empurra durante um determinado tempo
-	if alarm[1] > 0 {
-		velocidadeH = lengthdir_x(3, empurrarDir);
+	if place_meeting(x, y + 1, objColisParede) {
+			doubleJump = 0;
+			isJumping = false;
+			isFall = false;
 	}
 	
 	//Jump, Double Jump, Pulo, Pulo Duplo
@@ -58,7 +54,7 @@ function scrPlayer() {
 			doubleJump += 1;
 			velocidadeV = alturaPulo;
 			isJumping = true;
-	}
+		}
 	
 		//Define as sprites de acordo com o direc
 	
@@ -106,17 +102,18 @@ function scrPlayer() {
 	
 		//Define a sprite do FALL, caindo
 		if isFall {
-			if direita || direc = 0 || direc = 2 || direc = 6 {
+			if direita || direc = 0 || direc = 2 || direc = 6 || direc = 14 {
 				direc = 8; //<-- Fall Direita
 			}
 		
-			if esquerda || direc = 1 || direc = 3 || direc = 7 {
+			if esquerda || direc = 1 || direc = 3 || direc = 7 || direc = 15 {
 				direc = 9; //<-- Fall Esquerda
 			}
 		}
 		
 		//Define a sprite do pulo e verifica o fall
 		if isJumping && !isFall {
+			
 			if direita || direc = 0 || direc = 2 {
 				direc = 6;
 			}
@@ -126,6 +123,7 @@ function scrPlayer() {
 			}
 		}
 	}
+	
 	
 	if(isAirAttacking && !isDead) {
 		if direita || direc = 6 || direc = 8 {
@@ -241,7 +239,6 @@ function scrHit() {
 		y += -2.5;
 	} else if !hit {
 		velocidadeH = 0;
-		velocidadeV = 0;
 	}
 	
 	if place_meeting(x, y + 1, objParede) && !isDead {

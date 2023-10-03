@@ -7,7 +7,14 @@ attackCombo = clamp(attackCombo, -1, 3);
 if global.lifes <= 0 {
 	isDead = true;
 	global.gameover = true;
+	
+	// Cria o efeito de fumaça
+	if sprite_index == sprPlayerDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede){
+		var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
+			_effect.direc = 2
+	}
 }
+
 
 if tomarDano && !isDead {
 	posCamX = camera_get_view_x(view_camera[0]);
@@ -15,14 +22,19 @@ if tomarDano && !isDead {
 	global.cameraActive = false;
 	camDirec = (image_xscale == 1) ? 0 : 1;
 	alarm[5] = 10;
-	global.lifes -= 1;
+	global.lifes -= 10;
 	hit = true;
 	tomarDano = false;
 }
 
 if keyboard_check_pressed(ord("G")) {
-	arraySprite = 1;
 	tomarDano = true;
+}
+
+if keyboard_check_pressed(ord("L")) {
+	global.gameover = false;
+	global.lifes = 20
+	isDead = false;
 }
 
 // Tempo em que a camera treme
