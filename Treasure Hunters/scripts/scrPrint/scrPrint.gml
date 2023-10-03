@@ -22,9 +22,9 @@ function scrPrint() {
     
 	    case 2:
 	        var _string = argument[0];
-	        var _value = argument[1];
+	        var _value2 = argument[1];
  
-	        show_debug_message(_string + string(_value));
+	        show_debug_message(_string + string(_value2));
 	    break;
 	}
 

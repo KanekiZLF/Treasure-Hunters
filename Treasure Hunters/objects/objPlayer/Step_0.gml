@@ -9,9 +9,11 @@ if global.lifes <= 0 {
 	global.gameover = true;
 	
 	// Cria o efeito de fumaça
-	if sprite_index == sprPlayerDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede){
+	if sprite_index == sprPlayerDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede) {
 		var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
 			_effect.direc = 2
+		var _effect2 = instance_create_layer(x, y, layer, objEffects)
+			_effect2.direc = 8;
 	}
 }
 
@@ -32,7 +34,6 @@ if keyboard_check_pressed(ord("G")) {
 	tomarDano = true;
 }
 
-scrPrint(direc)
 
 if keyboard_check_pressed(ord("L")) {
 	global.gameover = false;

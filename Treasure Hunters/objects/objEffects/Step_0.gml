@@ -12,6 +12,6 @@ if (direc == 6 || direc == 7 || direc == 8) {
 	}
 
 	if (wait("DialogPause", .6)) {
-		image_speed = 1;
+		image_speed = imageSpeed;
 	}
 }

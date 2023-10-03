@@ -1,6 +1,6 @@
-/// @description Controla o fim das animaçoes
+/// @description Destroi o obj ao fim
 // Você pode escrever seu código neste editor
-	//Controla oque sera feito ao fim da animação dos efeitos
+
 if (
     // Efeitos de Fumaça
     sprite_index == sprJumpDust || 
