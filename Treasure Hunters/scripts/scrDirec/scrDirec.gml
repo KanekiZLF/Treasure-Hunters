@@ -19,8 +19,8 @@ function scrDirec() {
         sprPlayerDead,  // 13: Esquerda
         sprPlayerHit,   // 14: Direita
         sprPlayerHit,    // 15: Esquerda
-		sprPlayerGround, // 16: Direita
-		sprPlayerGround,  // 17: Esquerda
+		sprPlayerDeadGround, // 16: Direita
+		sprPlayerDeadGround,  // 17: Esquerda
     ];
 	
 	var spriteMap1 = [
@@ -52,6 +52,8 @@ function scrDirec() {
 		sprPlayerSwordAirAtack2, // 25: Esquerda
 		sprPlayerSwordThowSword, // 26: Direita
 		sprPlayerSwordThowSword, // 27: Esquerda
+		sprPlayerDeadGround, // 28: Direita
+		sprPlayerDeadGround, // 29: Esquerda
 	]
 
     // Defina a imagem_xscale com base na direção

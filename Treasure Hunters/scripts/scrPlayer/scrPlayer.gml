@@ -172,13 +172,15 @@ function scrPlayer() {
 	}
 	
 	//Define as sprites de morto
-	if isDead {
+	if isDead || hit {
 		if direc = 0 || direc = 2 || direc = 4 || direc = 6 || direc = 8 {
-			direc = 14; //<-- Dead Direita
+			direc = 14; //<-- Hit Direita
+			estado = scrHit;
 		}
 		
 		if direc = 1 || direc = 3 || direc = 5 || direc = 7 || direc = 9 {
-			direc = 15; //<-- Dead Esquerda
+			direc = 15; //<-- Hit Esquerda
+			estado = scrHit;
 		}
 	}
 }
@@ -228,6 +230,19 @@ function scrAtacandoAr() {
 	velocidadeH = 0;
 	scrDirec();
 	scrAtacando();
+	
+	if endAnimation() {
+		estado = scrPlayer;
+	}
+}
+
+function scrHit() {
+	scrDirec();
+	scrCollision();
+	if hit && sprite_index == sprPlayerSwordHit {
+		velocidadeH = -1 * image_xscale;
+		y += -2;
+	}
 	
 	if endAnimation() {
 		estado = scrPlayer;

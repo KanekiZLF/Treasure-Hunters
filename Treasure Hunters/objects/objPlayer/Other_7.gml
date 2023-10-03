@@ -1,8 +1,27 @@
 /// @description Fim da animação
+
+#region Deixa a sprite em seu ultimo frame
+
 if (sprite_index == sprPlayerJump) {
 	image_index = sprite_get_number(sprPlayerJump) -1;
 }
-	//Retorna as Sprites
+
+if (sprite_index == sprPlayerDeadGround) {
+	image_index = image_number -1;
+}
+
+if (direc == 14 || direc == 15) {
+	image_index = image_number -1;
+	if (!direita || !esquerda) {
+		direc = (image_xscale == 1) ? 0 : 1;
+	}
+	hit = false;
+}
+
+#endregion
+
+#region Retorna as Sprites
+
 if isAttacking {
 	//Verifica qual lado esta atacando e qual combo é !
 	if direita || direc = 4 || direc = 18 || direc = 20 {
@@ -40,3 +59,28 @@ if toThrow {
 	velocidade = 2; //<-- Devolve a velocidade
 }
 
+#endregion
+
+#region Define as sprites de morte
+
+if isDead {
+	if (sprite_index == sprPlayerSwordHit) {
+	    if (image_xscale == 1) {
+	        direc = 12; //<-- Define sprite sprPlayerDead
+	    }
+	    else if (image_xscale == -1) {
+	        direc = 13; //<-- Define sprite sprPlayerDead
+	    }
+	}
+	
+	if (sprite_index == sprPlayerDead) {
+	    if (image_xscale == 1) {
+	        direc = 28; //<-- Define sprite sprPlayerDeadGround
+	    }
+	    else if (image_xscale == -1) {
+	        direc = 29; //<-- Define sprite sprPlayerDeadGround
+	    }
+	}
+}
+
+#endregion

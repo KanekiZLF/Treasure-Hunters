@@ -22,6 +22,7 @@ isEffect = false; //<-- Ativa ou desativa os efeitos de fumaça
 //Variaveis de modificação
 estado = scrPlayer;
 direc = 1; //<-- Define qual sprite usar
+hit = false; //<-- Define sprite de piscando quando leva dano
 isJumping = false; //<-- Define se estou pulando
 isAttacking = false; //<-- Define se estou atacando
 isAirAttacking = false; //<-- Define se esta atacando no ar

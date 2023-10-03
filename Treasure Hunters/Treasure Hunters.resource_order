@@ -10,6 +10,7 @@
     {"name":"Linhas do tempo","order":10,"path":"folders/Linhas do tempo.yy",},
     {"name":"objBlocos","order":2,"path":"folders/Objetos/objBlocos.yy",},
     {"name":"objConfiguracoes","order":1,"path":"folders/Objetos/objConfiguracoes.yy",},
+    {"name":"objGui","order":6,"path":"folders/Objetos/objConfiguracoes/objGui.yy",},
     {"name":"objInimigos","order":3,"path":"folders/Objetos/objInimigos.yy",},
     {"name":"objItens","order":4,"path":"folders/Objetos/objItens.yy",},
     {"name":"Particle Systems","order":14,"path":"folders/Particle Systems.yy",},
@@ -64,7 +65,6 @@
     {"name":"sprMobileButtons","order":1,"path":"folders/Sprites/sprUI/sprMobileButtons.yy",},
     {"name":"sprSliders","order":4,"path":"folders/Sprites/sprUI/sprSliders.yy",},
     {"name":"sprWater","order":8,"path":"folders/Sprites/sprWater.yy",},
-    {"name":"objGui","order":6,"path":"folders/Objetos/objConfiguracoes/objGui.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprPlayerIdle","order":1,"path":"sprites/sprPlayerIdle/sprPlayerIdle.yy",},
@@ -248,6 +248,7 @@
     {"name":"sprPinkStarGround","order":5,"path":"sprites/sprPinkStarGround/sprPinkStarGround.yy",},
     {"name":"sprCandleLight","order":2,"path":"sprites/sprCandleLight/sprCandleLight.yy",},
     {"name":"sprFierceToothAntecipation","order":6,"path":"sprites/sprFierceToothAntecipation/sprFierceToothAntecipation.yy",},
+    {"name":"scrPrint","order":11,"path":"scripts/scrPrint/scrPrint.yy",},
     {"name":"sprChainsSmall","order":8,"path":"sprites/sprChainsSmall/sprChainsSmall.yy",},
     {"name":"sprMobileButtonsCooldown","order":2,"path":"sprites/sprMobileButtonsCooldown/sprMobileButtonsCooldown.yy",},
     {"name":"sprFierceToothFall","order":4,"path":"sprites/sprFierceToothFall/sprFierceToothFall.yy",},

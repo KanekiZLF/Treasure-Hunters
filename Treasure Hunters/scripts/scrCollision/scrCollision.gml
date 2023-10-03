@@ -1,6 +1,6 @@
 // Script desenvolvido por Luiz F. R. Pimentel
 // https://github.com/KanekiZLF
-function scrCollision(){
+function scrCollision() {
 
 //Colisao X
 	if place_meeting(x + velocidadeH, y, objColisParede)  {
