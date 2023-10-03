@@ -260,7 +260,6 @@ function scrHit() {
 	if isDead {	
 			direc = (image_xscale == 1) ? 12 : 13;
 		if endAnimation() {
-			scrPrint("EU SAI")
 			estado = scrPlayer;
 		}
 	}
