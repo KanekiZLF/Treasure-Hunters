@@ -27,9 +27,12 @@ if tomarDano && !isDead {
 	tomarDano = false;
 }
 
+
 if keyboard_check_pressed(ord("G")) {
 	tomarDano = true;
 }
+
+scrPrint(direc)
 
 if keyboard_check_pressed(ord("L")) {
 	global.gameover = false;

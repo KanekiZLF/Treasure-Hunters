@@ -234,6 +234,13 @@ function scrAtacandoAr() {
 function scrHit() {
 	scrDirec();
 	scrCollision();
+	
+	if direita || esquerda || cima {
+		direita = noone;
+		esquerda = noone;
+		cima = noone;
+	}
+	
 	if hit {
 		velocidadeH = -1.5 * image_xscale;
 		y += -2.5;
@@ -250,9 +257,10 @@ function scrHit() {
 		estado = scrPlayer;
 	}
 
-	if isDead {
+	if isDead {	
 			direc = (image_xscale == 1) ? 12 : 13;
 		if endAnimation() {
+			scrPrint("EU SAI")
 			estado = scrPlayer;
 		}
 	}
