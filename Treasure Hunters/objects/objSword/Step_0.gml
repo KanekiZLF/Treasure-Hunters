@@ -2,7 +2,7 @@
 // Você pode escrever seu código neste editor
 scrSword();
 
-if !float {
+if !float && !toThrow {
 	scrCollision();
 }
 
@@ -41,7 +41,7 @@ if autoDestroy {
 
 
 //Verifica se tem algo colidindo, na direita ou esquerda, se tiver, diminui o campo de visao, até sair da colisao
-vision = clamp(vision, 0, 6); //<-- Limita o campo de visao até 100px
+vision = clamp(vision, 0, 7); //<-- Limita o campo de visao até 100px
 var _lineWall = collision_line(x, y - 10, x, y + vision, objColisParede, false, true)
 if (_lineWall) {
 	vision--;

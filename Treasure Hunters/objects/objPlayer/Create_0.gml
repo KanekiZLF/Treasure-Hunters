@@ -39,11 +39,24 @@ toThrow = false; //<-- Define se joguei ou não a espada
 noTake = false; //<-- Impede de pegar a espada lançada até tocar na parede
 dropSword = false; // <-- Solta espada quando morre
 vision = 50;
+stamCost = 0; // <-- Define o valor que custa para usar a habilidade
+lifeCost = 0;
+
+
 //Variaves de combate
 danoAlpha = -1; //<-- Define o alpha para dar efeito de pisca
 tomarDano = false; //<-- Define se posso tomar dano
 empurrarDir = 0; //<-- Define a direcao que serei empurrado
 dano = 1; //<-- Define o valor do dano que da no inimigo
 maxLifes = 20;
+maxStamina = 10;
 global.lifes = maxLifes;
+global.stamina = maxStamina;
+
+//Variaveis das barras de cor
+maxLifes2 = 20;
+maxStamina2 = 10;
+lifes2 = maxLifes2;
+stamina2 = maxStamina2;
+
 

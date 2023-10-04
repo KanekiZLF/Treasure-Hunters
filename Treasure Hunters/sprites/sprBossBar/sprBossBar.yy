@@ -48,8 +48,8 @@
   },
   "origin": 3,
   "parent": {
-    "name": "sprLifeBar",
-    "path": "folders/Sprites/sprUI/sprLifeBar.yy",
+    "name": "sprBar",
+    "path": "folders/Sprites/sprGUI/sprBar.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

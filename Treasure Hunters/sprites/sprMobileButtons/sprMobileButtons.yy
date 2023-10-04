@@ -33,7 +33,7 @@
   "origin": 4,
   "parent": {
     "name": "sprMobileButtons",
-    "path": "folders/Sprites/sprUI/sprMobileButtons.yy",
+    "path": "folders/Sprites/sprGUI/sprMobileButtons.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

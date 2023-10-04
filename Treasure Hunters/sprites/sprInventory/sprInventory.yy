@@ -26,7 +26,7 @@
   "origin": 7,
   "parent": {
     "name": "sprInventory",
-    "path": "folders/Sprites/sprUI/sprInventory.yy",
+    "path": "folders/Sprites/sprGUI/sprInventory.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

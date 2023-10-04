@@ -26,7 +26,7 @@
   "origin": 3,
   "parent": {
     "name": "sprSliders",
-    "path": "folders/Sprites/sprUI/sprSliders.yy",
+    "path": "folders/Sprites/sprGUI/sprSliders.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -26,7 +26,7 @@
   "origin": 4,
   "parent": {
     "name": "sprBanners",
-    "path": "folders/Sprites/sprUI/sprBanners.yy",
+    "path": "folders/Sprites/sprGUI/sprBanners.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

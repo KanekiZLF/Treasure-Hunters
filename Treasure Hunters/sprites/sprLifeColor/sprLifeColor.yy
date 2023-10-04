@@ -26,7 +26,7 @@
   "origin": 3,
   "parent": {
     "name": "sprColorBar",
-    "path": "folders/Sprites/sprUI/sprLifeBar/sprColorBar.yy",
+    "path": "folders/Sprites/sprGUI/sprBar/sprColorBar.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

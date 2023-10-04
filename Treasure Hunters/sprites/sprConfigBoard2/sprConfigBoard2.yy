@@ -26,7 +26,7 @@
   "origin": 7,
   "parent": {
     "name": "sprBoards",
-    "path": "folders/Sprites/sprUI/sprBoards.yy",
+    "path": "folders/Sprites/sprGUI/sprBoards.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

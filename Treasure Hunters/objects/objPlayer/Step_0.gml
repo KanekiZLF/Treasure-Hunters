@@ -28,12 +28,27 @@ if global.lifes <= 0 {
 	}
 }
 
+// <-- Faz animação da barras diminuindo
+if (stamCost > 0) {
+	stamina2 -= 0.1;
+	stamCost -= 0.1;
+}
+	
+if (lifeCost > 0) {
+	lifes2 -= 0.1;
+	lifeCost -= 0.1;
+} else if (isDead && lifes2 > 0) {
+	lifes2 -= 0.1;
+}
+
+scrPrint(lifes2)
 
 if tomarDano && !isDead {
 	global.cameraActive = false;
+	global.lifes -= 10;
 	camDirec = (image_xscale == 1) ? 0 : 1;
 	alarm[5] = 10;
-	global.lifes -= 10;
+	lifeCost = 10;
 	hit = true;
 	dropSword = true;
 	tomarDano = false;
@@ -47,7 +62,9 @@ if keyboard_check_pressed(ord("G")) {
 
 if keyboard_check_pressed(ord("L")) {
 	global.gameover = false;
-	global.lifes = 20
+	global.lifes = 20;
+	lifes2 = 20;
+	stamina2 = 10;
 	isDead = false;
 }
 
@@ -112,8 +129,10 @@ if !isDead {
 	}
 
 	// Joga a espada
-	if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 && !isJumping {
+	if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 && !isJumping && global.stamina > 0 {
 		toThrow = true;
+		stamCost = 2;
+		global.stamina -= 2;
 		alarm[4] = 10; //<-- Lança a espada
 	}
 

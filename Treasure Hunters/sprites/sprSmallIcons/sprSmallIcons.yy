@@ -50,7 +50,7 @@
   "origin": 4,
   "parent": {
     "name": "sprIcons",
-    "path": "folders/Sprites/sprUI/sprIcons.yy",
+    "path": "folders/Sprites/sprGUI/sprIcons.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
