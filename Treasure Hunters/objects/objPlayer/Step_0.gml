@@ -41,8 +41,6 @@ if (lifeCost > 0) {
 	lifes2 -= 0.1;
 }
 
-scrPrint(lifes2)
-
 if tomarDano && !isDead {
 	global.cameraActive = false;
 	global.lifes -= 10;
