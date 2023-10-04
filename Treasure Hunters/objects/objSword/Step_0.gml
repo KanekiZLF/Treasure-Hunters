@@ -1,16 +1,19 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 scrSword();
+
+if !float {
+	scrCollision();
+}
+
 if (!place_meeting(x, y, objParede)) && !toThrow && float {
 	scrFloat();
 }
 
-if (place_meeting(x, y, objParede)) && !camDef {
-	posCamX = camera_get_view_x(view_camera[0]);
-	posCamY = camera_get_view_y(view_camera[0]);
+if (place_meeting(x, y, objParede)) && !camDef2 {
 	global.cameraActive = false;
 	alarm[0] = 10;
-	camDef = true;
+	camDef2 = true;
 }
 
 if alarm[0] > 0 {
@@ -34,6 +37,21 @@ if place_meeting(x, y, objParede) && !efeito {
 if autoDestroy {
 	alarm[1] = game_get_speed(gamespeed_fps) * 5;
 	autoDestroy = false;
+}
+
+
+//Verifica se tem algo colidindo, na direita ou esquerda, se tiver, diminui o campo de visao, até sair da colisao
+vision = clamp(vision, 0, 6); //<-- Limita o campo de visao até 100px
+var _lineWall = collision_line(x, y - 10, x, y + vision, objColisParede, false, true)
+if (_lineWall) {
+	vision--;
+	float = true;
+}
+
+//Se nao tiver nada colidindo, aumenta o campo de visao
+var _lineWall2 = !collision_line(x, y - 10, x, y + vision, objColisParede, false, true)
+if (_lineWall2) {
+	vision++;
 }
 
 /*

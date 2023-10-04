@@ -27,3 +27,5 @@ if (sprite_index == sprPlayerSwordAirAtack1) {
 } else if (sprite_index == sprPlayerSwordAirAtack2) {
     draw_sprite_ext(sprSwordAttackAir2, -1,  (image_xscale * 18) + x, y - sprite_height / 2 + 32, image_xscale * 1, 1, 0, c_white, 1);
 }
+
+

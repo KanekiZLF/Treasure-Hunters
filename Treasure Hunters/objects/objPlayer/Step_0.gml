@@ -4,9 +4,11 @@
 script_execute(estado) //<-- Executa script
 attackCombo = clamp(attackCombo, -1, 3);
 
+
 if global.lifes <= 0 {
 	isDead = true;
 	global.gameover = true;
+
 	
 	// Cria o efeito de fumaça
 	if sprite_index == sprPlayerDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede) {
@@ -15,17 +17,25 @@ if global.lifes <= 0 {
 		var _effect2 = instance_create_layer(x, y, layer, objEffects)
 			_effect2.direc = 8;
 	}
+	
+	// Cria a espada quando morre
+	if dropSword && arraySprite == 1 {
+		var _newSword  = instance_create_layer(x + (25 * image_xscale), y - 12, layer, objSword);
+			_newSword.direc = (image_xscale == 1) ? 0 : 1;
+			_newSword.float = false;
+			arraySprite = 0;
+			dropSword = false;	
+	}
 }
 
 
 if tomarDano && !isDead {
-	posCamX = camera_get_view_x(view_camera[0]);
-	posCamY = camera_get_view_y(view_camera[0]);
 	global.cameraActive = false;
 	camDirec = (image_xscale == 1) ? 0 : 1;
 	alarm[5] = 10;
 	global.lifes -= 10;
 	hit = true;
+	dropSword = true;
 	tomarDano = false;
 }
 
@@ -55,8 +65,6 @@ if !isDead {
 	if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 		ds_list_clear(inimigos_atingidos);
 		global.cameraActive = false;
-		posCamX = camera_get_view_x(view_camera[0]);
-		posCamY = camera_get_view_y(view_camera[0]);
 	
 		if velocidadeV <= 0.3 {
 			isAttacking = true;
@@ -126,4 +134,17 @@ if !isDead {
 			_effect.direc = 2
 			isEffect = false;
 	}
+}
+
+//Verifica se tem algo colidindo, na direita ou esquerda, se tiver, diminui o campo de visao, até sair da colisao
+vision = clamp(vision, 0, 100); //<-- Limita o campo de visao até 100px
+var _lineWall = collision_line(x, y - 20, x + (vision * image_xscale), y - 20, objColisParede, false, true)
+if (_lineWall) {
+	vision--;
+}
+
+//Se nao tiver nada colidindo, aumenta o campo de visao
+var _lineWall2 = !collision_line(x, y - 20, x + (vision * image_xscale), y - 20, objColisParede, false, true)
+if (_lineWall2) {
+	vision++;
 }
