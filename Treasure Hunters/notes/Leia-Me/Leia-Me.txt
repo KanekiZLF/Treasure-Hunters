@@ -2,15 +2,17 @@
 Movimentação: OK
 Ataque1: OK
 Ataque2: OK
-Hit:
-Morte:
-Vida:
-Estamina:
+Hit: OK
+Morte: OK
+Vida: OK
+Estamina: OK
+Veneno: OK
 Inventario:
 	
 	Interface Grafica(GUI):
-Vida:
-Estamina:
+Vida: OK
+Estamina: OK
+Veneno: OK
 Botoes:
 Banners:
 Menus:
@@ -35,10 +37,11 @@ Ataque4: OK
 Ataque5: OK
 Camera: OK
 Player: OK
-Hit:
-Morte:
-Vida:
-Estamina:
+Hit: OK
+Morte: OK
+Vida: OK
+Estamina: OK
+Veneno: OK
 Inventario:
 Colisores: OK
 Pontuação: 

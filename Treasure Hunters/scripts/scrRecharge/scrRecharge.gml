@@ -17,15 +17,15 @@ function scrRecharge() {
 	
 	
 	if (global.lifes != objPlayer.maxLifes) {
-		lifeCost += -_valueLifes;
+		objPlayer.lifeCost += -_valueLifes;
 	}
 	
 	if (global.stamina != objPlayer.maxStamina) {
-		stamCost += -_valueStamina;
+		objPlayer.stamCost += -_valueStamina;
 	}
 	
 	if (global.poison != objPlayer.maxPoison) {
-		poisonCost += -_valuePoison;
+		objPlayer.poisonCost += -_valuePoison;
 	}
 	
 	global.lifes += _valueLifes;

@@ -1,15 +1,29 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 
-script_execute(estado) //<-- Executa script
+var _pause = global.gamepause;
+var _gameOver = global.gameover;
+
+
+if (!_pause) {
+	script_execute(estado) //<-- Executa script
+}
+
+if (_pause) {
+	image_speed = 0
+} else if (!_pause) {
+	image_speed = 1;
+}
+
 attackCombo = clamp(attackCombo, -1, 3);
 lifes2 = clamp(lifes2, 0, maxLifes2);
 stamina2 = clamp(stamina2, 0, maxStamina2);
 poison2 = clamp(poison2, 0, maxPoison2);
 
+
 if global.lifes <= 0 {
 	isDead = true;
-	global.gameover = true;
+	_gameOver = true;
 
 	
 	// Cria o efeito de fumaça
@@ -60,7 +74,7 @@ if (lifeCost > 0) {
 
 #endregion
 
-if tomarDano && !isDead {
+if tomarDano && !isDead && (!_pause) {
 	global.cameraActive = false;
 	camDirec = (image_xscale == 1) ? 0 : 1;
 	alarm[5] = 10;
@@ -78,7 +92,7 @@ if keyboard_check_pressed(ord("G")) {
 
 if keyboard_check_pressed(ord("L")) {
 	global.gameover = false;
-	scrRecharge(5, 5) //<-- Define a recarga para Lifes, Stamina e Poison
+	scrRecharge(3, 3) //<-- Define a recarga para Lifes, Stamina e Poison
 	isDead = false;
 }
 
@@ -91,13 +105,13 @@ if alarm[5] > 0 {
 	}
 }
 
-if !isDead {
+if !isDead && (!_pause) {
 	// Ataca e define a posição da camera entre outras coisas
 	if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 		ds_list_clear(inimigos_atingidos);
 		global.cameraActive = false;
 	
-		if velocidadeV <= 0.3 {
+		if velocidadeV < 0.3 {
 			isAttacking = true;
 		}
 	

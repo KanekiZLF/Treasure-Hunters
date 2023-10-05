@@ -43,7 +43,6 @@ stamCost = 0; // <-- Define o valor que custa para usar a habilidade
 lifeCost = 0;
 poisonCost = 0;
 
-
 //Variaves de combate
 danoAlpha = -1; //<-- Define o alpha para dar efeito de pisca
 tomarDano = false; //<-- Define se posso tomar dano
@@ -51,7 +50,7 @@ empurrarDir = 0; //<-- Define a direcao que serei empurrado
 dano = 1; //<-- Define o valor do dano que da no inimigo
 maxLifes = 10;
 maxStamina = 10;
-maxPoison = 10;
+maxPoison = 0;
 global.lifes = maxLifes;
 global.stamina = maxStamina;
 global.poison = maxPoison;
@@ -64,6 +63,7 @@ lifes2 = maxLifes2;
 stamina2 = maxStamina2;
 poison2 = maxPoison2;
 
+// Variaveis de moedas
 
 
 
