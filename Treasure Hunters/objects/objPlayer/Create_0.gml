@@ -41,6 +41,7 @@ dropSword = false; // <-- Solta espada quando morre
 vision = 50;
 stamCost = 0; // <-- Define o valor que custa para usar a habilidade
 lifeCost = 0;
+poisonCost = 0;
 
 
 //Variaves de combate
@@ -48,15 +49,24 @@ danoAlpha = -1; //<-- Define o alpha para dar efeito de pisca
 tomarDano = false; //<-- Define se posso tomar dano
 empurrarDir = 0; //<-- Define a direcao que serei empurrado
 dano = 1; //<-- Define o valor do dano que da no inimigo
-maxLifes = 20;
+maxLifes = 10;
 maxStamina = 10;
+maxPoison = 10;
 global.lifes = maxLifes;
 global.stamina = maxStamina;
+global.poison = maxPoison;
 
 //Variaveis das barras de cor
-maxLifes2 = 20;
-maxStamina2 = 10;
+maxLifes2 = global.lifes;
+maxStamina2 = global.stamina;
+maxPoison2 = global.poison;
 lifes2 = maxLifes2;
 stamina2 = maxStamina2;
+poison2 = maxPoison2;
+
+
+
+
+
 
 

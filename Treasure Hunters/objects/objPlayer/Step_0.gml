@@ -3,7 +3,9 @@
 
 script_execute(estado) //<-- Executa script
 attackCombo = clamp(attackCombo, -1, 3);
-
+lifes2 = clamp(lifes2, 0, maxLifes2);
+stamina2 = clamp(stamina2, 0, maxStamina2);
+poison2 = clamp(poison2, 0, maxPoison2);
 
 if global.lifes <= 0 {
 	isDead = true;
@@ -28,25 +30,42 @@ if global.lifes <= 0 {
 	}
 }
 
+#region Barras HUD
 // <-- Faz animação da barras diminuindo
 if (stamCost > 0) {
 	stamina2 -= 0.1;
 	stamCost -= 0.1;
+}else if (stamCost < 0) {
+	stamina2 += 0.1
+	stamCost += 0.1;
+}
+
+if (poisonCost > 0) {
+	poison2 -= 0.1;
+	poisonCost -= 0.1;
+} else if (poisonCost < 0) {
+	poison2 += 0.1
+	poisonCost += 0.1;
 }
 	
 if (lifeCost > 0) {
 	lifes2 -= 0.1;
 	lifeCost -= 0.1;
+} else if (lifeCost < 0) {
+	lifes2 += 0.1
+	lifeCost += 0.1;
 } else if (isDead && lifes2 > 0) {
 	lifes2 -= 0.1;
 }
 
+#endregion
+
 if tomarDano && !isDead {
 	global.cameraActive = false;
-	global.lifes -= 10;
 	camDirec = (image_xscale == 1) ? 0 : 1;
 	alarm[5] = 10;
-	lifeCost = 10;
+	lifeCost = 2;
+	global.lifes -= lifeCost;
 	hit = true;
 	dropSword = true;
 	tomarDano = false;
@@ -57,12 +76,9 @@ if keyboard_check_pressed(ord("G")) {
 	tomarDano = true;
 }
 
-
 if keyboard_check_pressed(ord("L")) {
 	global.gameover = false;
-	global.lifes = 20;
-	lifes2 = 20;
-	stamina2 = 10;
+	scrRecharge(5, 5) //<-- Define a recarga para Lifes, Stamina e Poison
 	isDead = false;
 }
 
@@ -127,9 +143,9 @@ if !isDead {
 	}
 
 	// Joga a espada
-	if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 && !isJumping && global.stamina > 0 {
+	if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 && !isJumping && global.stamina >= 2 {
 		toThrow = true;
-		stamCost = 2;
+		stamCost += 2;
 		global.stamina -= 2;
 		alarm[4] = 10; //<-- Lança a espada
 	}
