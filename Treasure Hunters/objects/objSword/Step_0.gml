@@ -2,6 +2,10 @@
 // Você pode escrever seu código neste editor
 var _pause = global.gamepause;
 
+if (_pause) {
+	alarm[1] = noone; // <-- Evita de a espada ser destruida caso esteje pausado !
+}
+
 if (!_pause) {
 	scrSword();
 

@@ -10,8 +10,9 @@ if instance_exists(objSword) {
 
         if (global.gamepause) {
             _inst.speed = 0;
-        } else if (!global.gamepause && _inst.isSpeed <> 0) {
+        } else if (!global.gamepause && _inst.isSpeed != 0) {
 			_inst.speed = _inst.isSpeed;
+			_inst.isSpeed = 0;
         } 
     }
 }
