@@ -15,6 +15,7 @@ direc = 0;
 toThrow = false;
 efeito = false;
 autoDestroy = false;
+isSpeed = 0;
 
 // Variaveis de colisão
 velocidadeV = 0;
