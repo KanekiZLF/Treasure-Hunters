@@ -286,6 +286,7 @@
     {"id":{"name":"sprChestKeyIdle","path":"sprites/sprChestKeyIdle/sprChestKeyIdle.yy",},},
     {"id":{"name":"sprFierceToothGround","path":"sprites/sprFierceToothGround/sprFierceToothGround.yy",},},
     {"id":{"name":"sprFormIconBig","path":"sprites/sprFormIconBig/sprFormIconBig.yy",},},
+    {"id":{"name":"scrPause","path":"scripts/scrPause/scrPause.yy",},},
     {"id":{"name":"sprPinkStarHit","path":"sprites/sprPinkStarHit/sprPinkStarHit.yy",},},
     {"id":{"name":"sprHead3Hit2","path":"sprites/sprHead3Hit2/sprHead3Hit2.yy",},},
     {"id":{"name":"objEntidade","path":"objects/objEntidade/objEntidade.yy",},},

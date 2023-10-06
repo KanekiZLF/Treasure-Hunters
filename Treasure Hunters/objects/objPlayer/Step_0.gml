@@ -9,12 +9,6 @@ if (!_pause) {
 	script_execute(estado) //<-- Executa script
 }
 
-if (_pause) {
-	image_speed = 0
-} else if (!_pause) {
-	image_speed = 1;
-}
-
 attackCombo = clamp(attackCombo, -1, 3);
 lifes2 = clamp(lifes2, 0, maxLifes2);
 stamina2 = clamp(stamina2, 0, maxStamina2);

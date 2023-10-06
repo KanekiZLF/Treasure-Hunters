@@ -2,16 +2,6 @@
 // Você pode escrever seu código neste editor
 var _pause = global.gamepause;
 
-if (_pause) {
-	image_speed = 0;
-	speed = 0
-} else {
-	image_speed = 1;
-	if (toThrow) {
-	speed = 1 * image_xscale;
-	}
-}
-
 if (!_pause) {
 	scrSword();
 

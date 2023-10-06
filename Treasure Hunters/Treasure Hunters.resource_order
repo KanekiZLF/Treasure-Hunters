@@ -238,6 +238,7 @@
     {"name":"sprChestKeyIdle","order":2,"path":"sprites/sprChestKeyIdle/sprChestKeyIdle.yy",},
     {"name":"sprFierceToothGround","order":5,"path":"sprites/sprFierceToothGround/sprFierceToothGround.yy",},
     {"name":"sprFormIconBig","order":1,"path":"sprites/sprFormIconBig/sprFormIconBig.yy",},
+    {"name":"scrPause","order":13,"path":"scripts/scrPause/scrPause.yy",},
     {"name":"sprPinkStarHit","order":8,"path":"sprites/sprPinkStarHit/sprPinkStarHit.yy",},
     {"name":"sprHead3Hit2","order":5,"path":"sprites/sprHead3Hit2/sprHead3Hit2.yy",},
     {"name":"objEntidade","order":1,"path":"objects/objEntidade/objEntidade.yy",},

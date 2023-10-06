@@ -12,7 +12,7 @@ var _stamina = objPlayer.stamina2;  // <-- Estamina count
 var _maxLifes = objPlayer.maxLifes2;  // <-- Max Vida count
 var _maxStamina = objPlayer.maxStamina2;  // <-- Max Estamina count
 var _poison = objPlayer.poison2;  // <-- Veneno count
-var _maxPoison = objPlayer.maxPoison2;  // <-- Veneno count
+var _maxPoison2 = objPlayer.maxPoison2;  // <-- Veneno count
 
 var _maxPoison = objPlayer.maxPoison;
 
@@ -32,7 +32,7 @@ draw_sprite_ext(sprLifeColor, 15, 22 * _escala, _hudAlt, (_lifes/_maxLifes) * _e
 draw_sprite_ext(sprStaminaColor, 0, 26 * _escala, _hudAlt + _sprAlt, (_stamina/_maxStamina) * _escala, _escala, 0, c_white, 1);
 
 if (_maxPoison > 0) {
-	draw_sprite_ext(sprPoisonColor, 0, 26 * _escala, _hudAlt + _sprAlt + _sprAlt2, (_poison/_maxPoison) * _escala, _escala, 0, c_white, 1);
+	draw_sprite_ext(sprPoisonColor, 0, 26 * _escala, _hudAlt + _sprAlt + _sprAlt2, (_poison/_maxPoison2) * _escala, _escala, 0, c_white, 1);
 }
 
 

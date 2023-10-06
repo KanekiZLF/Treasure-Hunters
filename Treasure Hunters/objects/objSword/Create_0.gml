@@ -23,3 +23,6 @@ velocidade = 1;
 gravidade = .2;
 objColisParede = objParede;
 vision = 100;
+
+//Variaveis de controle de pause
+isPaused = false;

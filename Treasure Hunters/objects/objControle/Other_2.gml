@@ -1,5 +1,6 @@
 /// @description Inicia as variaveis globais
 // Você pode escrever seu código neste editor
+
 global.lifes = 10;
 global.stamina = 10;
 global.poison = 0;
