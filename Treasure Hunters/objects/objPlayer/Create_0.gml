@@ -19,6 +19,7 @@ pulo = -4;
 alturaPulo = pulo;
 doubleJump = 0;
 isEffect = false; //<-- Ativa ou desativa os efeitos de fumaça
+isSpeed = 0;
 
 //Variaveis de modificação
 estado = scrPlayer;

@@ -4,10 +4,11 @@
 var _pause = global.gamepause;
 var _gameOver = global.gameover;
 
-
 if (!_pause) {
 	script_execute(estado) //<-- Executa script
 }
+
+ 
 
 attackCombo = clamp(attackCombo, -1, 3);
 lifes2 = clamp(lifes2, 0, maxLifes2);
