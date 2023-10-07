@@ -1,7 +1,7 @@
 {
   "resourceType": "GMFont",
   "resourceVersion": "1.0",
-  "name": "fnTextoBase",
+  "name": "fnTextoBase30",
   "AntiAlias": 1,
   "applyKerning": 0,
   "ascender": 30,

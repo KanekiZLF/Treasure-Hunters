@@ -65,16 +65,31 @@ if (_pause) {
 	draw_sprite_ext(_sprDraw, 0, _x, _y, _escala2, _escala2, 0, c_white, 1);
 	
 	// Desenha os textos dentros dos menus
+	var _textSpace = 17 * _escala2;
+	var _textX = _guiLarg/2 + (-3 * _escala2);
+	var _textY = _guiAlt/2 + (-27.5 * _escala2);
+	var _recSpace = 5 * _escala2;
+	var _recX = _guiLarg/2 + (-35.5 * _escala2);
+	var _recY = _guiAlt/2 + (-32 * _escala2);
 	draw_set_alpha(1);
-	draw_set_color(c_black);
-
-	draw_set_font(fnTextoBase);
-	draw_text_ext_transformed(_guiLarg/2, _guiAlt/2 + (-26 * _escala2), "Continuar", 10, 300, 2, 2, 0);
+	draw_set_color(#33323d);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_set_font(fnTextoBase30);
+	draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), "Pause", 10, 300, .8, .8, 0);
+	draw_text_ext_transformed(_textX, _textY, "Continuar", 10, 300, .8, .8, 0);
+	draw_text_ext_transformed(_textX, _textY + _textSpace, "Salvar", 10, 300, .8, .8, 0);
+	draw_text_ext_transformed(_textX, _textY + (_textSpace * 2), "Options", 10, 300, .8, .8, 0);
+	draw_text_ext_transformed(_textX, _textY + (_textSpace * 3), "Sair", 10, 300, .8, .8, 0);
+	//Desenha retangulo nas opções !
+	draw_set_color(c_white)
+	//draw_rectangle(_recX, _recY, (72 * _escala2) + _recX, (14 * _escala2) + _recY, true);
+	draw_sprite_ext(sprOptionHover, 0, _recX, _recY, _escala2, _escala2, 0, c_white, 1);
 
 	
 } else if (!_pause) {
 	draw_set_alpha(1); // Restaura a opacidade padrão (opcional, dependendo do que você deseja fazer a seguir)
-	draw_set_color(noone); // Restaura a cor padrão
+	draw_set_color(c_white); // Restaura a cor padrão
 }
 
 #endregion
