@@ -1,6 +1,10 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 
+
+
+
+
 /*if instance_exists(objSword) {
 	var _num = instance_number(objSword)
 	

@@ -281,6 +281,7 @@
     {"name":"sprHead3Idle2","order":7,"path":"sprites/sprHead3Idle2/sprHead3Idle2.yy",},
     {"name":"sprPlayerSwordAtack2","order":7,"path":"sprites/sprPlayerSwordAtack2/sprPlayerSwordAtack2.yy",},
     {"name":"sprSmallClouds","order":3,"path":"sprites/sprSmallClouds/sprSmallClouds.yy",},
+    {"name":"sprPauseBoard","order":6,"path":"sprites/sprPauseBoard/sprPauseBoard.yy",},
     {"name":"sprCannonFire","order":5,"path":"sprites/sprCannonFire/sprCannonFire.yy",},
     {"name":"sprWoodSpikeIdle","order":2,"path":"sprites/sprWoodSpikeIdle/sprWoodSpikeIdle.yy",},
     {"name":"sprHeadIdle2","order":7,"path":"sprites/sprHeadIdle2/sprHeadIdle2.yy",},
