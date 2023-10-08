@@ -68,7 +68,7 @@ if (_pause) {
 	var _textSpace = 17 * _escala2;
 	var _textX = _guiLarg/2 + (-3 * _escala2);
 	var _textY = _guiAlt/2 + (-27.5 * _escala2);
-	var _recSpace = 5 * _escala2;
+	var _recSpace = 17 * _escala2;
 	var _recX = _guiLarg/2 + (-35.5 * _escala2);
 	var _recY = _guiAlt/2 + (-32 * _escala2);
 	draw_set_alpha(1);
@@ -76,16 +76,37 @@ if (_pause) {
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_set_font(fnTextoBase30);
-	draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), "Pause", 10, 300, .8, .8, 0);
-	draw_text_ext_transformed(_textX, _textY, "Continuar", 10, 300, .8, .8, 0);
-	draw_text_ext_transformed(_textX, _textY + _textSpace, "Salvar", 10, 300, .8, .8, 0);
-	draw_text_ext_transformed(_textX, _textY + (_textSpace * 2), "Options", 10, 300, .8, .8, 0);
-	draw_text_ext_transformed(_textX, _textY + (_textSpace * 3), "Sair", 10, 300, .8, .8, 0);
-	//Desenha retangulo nas opções !
-	draw_set_color(c_white)
-	//draw_rectangle(_recX, _recY, (72 * _escala2) + _recX, (14 * _escala2) + _recY, true);
-	draw_sprite_ext(sprOptionHover, 0, _recX, _recY, _escala2, _escala2, 0, c_white, 1);
+	
+	//Desenha sombra nas opções !
+	//draw_rectangle(_recX, _recY, _recX + (72 * _escala2), _recY + (14 * _escala2), true);
+	
+	var _sprW = sprite_get_width(sprOptionHover) - 5;
+	var _sprH = sprite_get_height(sprOptionHover);
+	var _spaceHover = 17;
+	
+	if point_in_rectangle(mouse_x, mouse_y, 127, 358, 127 + _sprW, 358 + _sprH) {
+		draw_sprite_ext(sprOptionHover, 0, _recX, _recY, _escala2, _escala2, 0, c_white, 1);
+	} else if point_in_rectangle(mouse_x, mouse_y, 127, 358 + _spaceHover, 127 + _sprW, 358 + _sprH + _spaceHover) {
+		draw_sprite_ext(sprOptionHover, 0, _recX, _recY + _recSpace, _escala2, _escala2, 0, c_white, 1);
+	} else if point_in_rectangle(mouse_x, mouse_y, 127, 358 + (_spaceHover * 2), 127 + _sprW, 358 + _sprH + (_spaceHover * 2)) {
+		draw_sprite_ext(sprOptionHover, 0, _recX, _recY + _recSpace * 2, _escala2, _escala2, 0, c_white, 1);
+	} else if point_in_rectangle(mouse_x, mouse_y, 127, 358 + (_spaceHover * 3), 127 + _sprW, 358 + _sprH + (_spaceHover * 3)) {
+		draw_sprite_ext(sprOptionHover, 0, _recX, _recY + _recSpace * 3, _escala2, _escala2, 0, c_white, 1);
+	}
 
+	draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), "Pause", 10, 300, .8, .8, 0);
+	
+	var textArray = ["Continuar", "Salvar", "Options", "Sair"];
+	var numTexts = array_length(textArray);
+	var textSpace = _textSpace;
+
+	for (var i = 0; i < numTexts; i++) {
+	    var text = textArray[i];
+	    var textX = _textX;
+	    var textY = _textY + (i * textSpace);
+    
+	    draw_text_ext_transformed(textX, textY, text, 10, 300, 0.8, 0.8, 0);
+	}
 	
 } else if (!_pause) {
 	draw_set_alpha(1); // Restaura a opacidade padrão (opcional, dependendo do que você deseja fazer a seguir)
