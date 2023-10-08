@@ -79,23 +79,23 @@ if (_pause) {
 	
 	//Desenha sombra nas opções !
 	//draw_rectangle(_recX, _recY, _recX + (72 * _escala2), _recY + (14 * _escala2), true);
-	
+	draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), "Pause", 10, 300, .8, .8, 0);
 	var _sprW = sprite_get_width(sprOptionHover) - 5;
 	var _sprH = sprite_get_height(sprOptionHover);
-	var _spaceHover = 17;
+	var _numRetangulos = 4;
+	var _mouseX = device_mouse_x_to_gui(0);
+	var _mouseY = device_mouse_y_to_gui(0);
 	
-	if point_in_rectangle(mouse_x, mouse_y, 127, 358, 127 + _sprW, 358 + _sprH) {
-		draw_sprite_ext(sprOptionHover, 0, _recX, _recY, _escala2, _escala2, 0, c_white, 1);
-	} else if point_in_rectangle(mouse_x, mouse_y, 127, 358 + _spaceHover, 127 + _sprW, 358 + _sprH + _spaceHover) {
-		draw_sprite_ext(sprOptionHover, 0, _recX, _recY + _recSpace, _escala2, _escala2, 0, c_white, 1);
-	} else if point_in_rectangle(mouse_x, mouse_y, 127, 358 + (_spaceHover * 2), 127 + _sprW, 358 + _sprH + (_spaceHover * 2)) {
-		draw_sprite_ext(sprOptionHover, 0, _recX, _recY + _recSpace * 2, _escala2, _escala2, 0, c_white, 1);
-	} else if point_in_rectangle(mouse_x, mouse_y, 127, 358 + (_spaceHover * 3), 127 + _sprW, 358 + _sprH + (_spaceHover * 3)) {
-		draw_sprite_ext(sprOptionHover, 0, _recX, _recY + _recSpace * 3, _escala2, _escala2, 0, c_white, 1);
+	for (var i = 0; i < _numRetangulos; i++) {
+	    var rectTop = _recY + (i * _recSpace); // Coordenada Y do topo do retângulo
+	    var rectBottom = rectTop + (14 * _escala2); // Coordenada Y do fundo do retângulo
+    
+	    if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (72 * _escala2), rectBottom) {
+	        draw_sprite_ext(sprOptionHover, 0, _recX, _recY + (i * _recSpace), _escala2, _escala2, 0, c_white, 1);
+	        break; // Encerre o loop após encontrar um retângulo
+	    }
 	}
 
-	draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), "Pause", 10, 300, .8, .8, 0);
-	
 	var textArray = ["Continuar", "Salvar", "Options", "Sair"];
 	var numTexts = array_length(textArray);
 	var textSpace = _textSpace;

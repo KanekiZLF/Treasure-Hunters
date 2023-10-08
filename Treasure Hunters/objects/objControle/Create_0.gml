@@ -5,3 +5,4 @@ global.lifes = 10;
 global.stamina = 10;
 global.poison = 0;
 imgSpeedList = ds_list_create();
+isPaused = false;
