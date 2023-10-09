@@ -73,6 +73,8 @@ var _sprWidht = sprite_get_width(_sprDraw) * _escala2;
 var _sprHeight = sprite_get_height(_sprDraw) * _escala2;
 var _x = (_guiLarg - _sprWidht) / 2;
 var _y = (_guiAlt - _sprHeight) / 2;
+var _mouseX = device_mouse_x_to_gui(0);
+var _mouseY = device_mouse_y_to_gui(0);
 
 if (_pause) {
 	
@@ -115,8 +117,6 @@ if (_pause) {
 		var _sprW = sprite_get_width(sprOptionHover) - 5;
 		var _sprH = sprite_get_height(sprOptionHover);
 		var _numRetangulos = 4;
-		var _mouseX = device_mouse_x_to_gui(0);
-		var _mouseY = device_mouse_y_to_gui(0);
 	
 		for (var i = 0; i < _numRetangulos; i++) {
 		    var rectTop = _recY + (i * _recSpace); // Coordenada Y do topo do retângulo
@@ -156,12 +156,15 @@ if (_pause) {
 		//Desenha o retangulo
 		var _recBX = _guiLarg/2 - 203;
 		var _recBY = 178;
-		if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _recBX, _recBY, _recBX + (14 * _escala2), _recBY + (14 * _escala2))) {
+		if (point_in_rectangle(_mouseX, _mouseY, _recBX, _recBY, _recBX + (14 * _escala2), _recBY + (14 * _escala2))) {
 			draw_sprite_ext(sprHoverButtom, 0, _guiLarg/2 - 203, 178, _escala2, _escala2, 0, c_white, 1);
 		}
 		
-		draw_sprite_ext(sprHoverButtom, 0, _guiLarg/2 + 70, 235, _escala2, _escala2, 0, c_white, 1);
-		scrDebug(0)
+		var _recSX = _guiLarg/2 + 70
+		var _recSY= 234
+		if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala2), _recSY + (14 * _escala2))) {
+			draw_sprite_ext(sprHoverButtom, 0, _recSX, _recSY, _escala2, _escala2, 0, c_white, 1);
+		}
 		
 		for (var i = 0; i < _numTexts; i++) {
 			var _text = _textArray[i];
@@ -176,8 +179,6 @@ if (_pause) {
 		var _sprW = sprite_get_width(sprHoverSave) - 5;
 		var _sprH = sprite_get_height(sprHoverSave);
 		var _numRetangulos = 3;
-		var _mouseX = device_mouse_x_to_gui(0);
-		var _mouseY = device_mouse_y_to_gui(0);
 	
 		for (var i = 0; i < _numRetangulos; i++) {
 		    var rectTop = _recY + (i * _recSpace); // Coordenada Y do topo do retângulo
