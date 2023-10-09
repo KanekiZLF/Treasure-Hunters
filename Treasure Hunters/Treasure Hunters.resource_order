@@ -210,6 +210,7 @@
     {"name":"sprSealShellHit","order":6,"path":"sprites/sprSealShellHit/sprSealShellHit.yy",},
     {"name":"sprSailNoWind","order":1,"path":"sprites/sprSailNoWind/sprSailNoWind.yy",},
     {"name":"sprShipDestroyed","order":2,"path":"sprites/sprShipDestroyed/sprShipDestroyed.yy",},
+    {"name":"sprSaveBoard","order":7,"path":"sprites/sprSaveBoard/sprSaveBoard.yy",},
     {"name":"sprBarrelIdle","order":3,"path":"sprites/sprBarrelIdle/sprBarrelIdle.yy",},
     {"name":"sprWaterBottom","order":3,"path":"sprites/sprWaterBottom/sprWaterBottom.yy",},
     {"name":"sprMapIcon","order":7,"path":"sprites/sprMapIcon/sprMapIcon.yy",},

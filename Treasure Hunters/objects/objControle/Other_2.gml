@@ -5,5 +5,6 @@ global.lifes = 10;
 global.stamina = 10;
 global.poison = 0;
 global.gameover = false;
+global.option = 0;
 global.cameraActive = true; //<-- Ativa ou desativa a camera do PLAYER !!
 global.gamepause = false;

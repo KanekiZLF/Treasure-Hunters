@@ -34,34 +34,37 @@ var _numRetangulos = 4;
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-// Cria uma repetição para sempre verificar a posição do mouse
-for (var i = 0; i < _numRetangulos; i++) {
-    var rectTop = _recY + (i * _recSpace); // Coordenada Y do topo do retângulo
-    var rectBottom = rectTop + (14 * _escala2); // Coordenada Y do fundo do retângulo
+
+if (global.option == 0) {
+	// Cria uma repetição para sempre verificar a posição do mouse
+	for (var i = 0; i < _numRetangulos; i++) {
+	    var rectTop = _recY + (i * _recSpace); // Coordenada Y do topo do retângulo
+	    var rectBottom = rectTop + (14 * _escala2); // Coordenada Y do fundo do retângulo
     
-    if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (72 * _escala2), rectBottom) {
-		// Continuar
-		if (device_mouse_check_button_pressed(0, mb_left) && i == 0) {
-			global.gamepause = false;
-			scrResume();
-		}
+	    if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (72 * _escala2), rectBottom) {
+			// Continuar
+			if (device_mouse_check_button_pressed(0, mb_left) && i == 0) {
+				global.gamepause = false;
+				scrResume();
+			}
 		 
-		// Salvar / Carregar
-		if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
-				
-		}
+			// Salvar / Carregar
+			if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
+				global.option = 1;
+			}
 		
-		// Opções
-		if (device_mouse_check_button_pressed(0, mb_left) && i == 2) {
+			// Opções
+			if (device_mouse_check_button_pressed(0, mb_left) && i == 2) {
 				
-		}
+			}
 		
-		// Sair
-        if (device_mouse_check_button_pressed(0, mb_left) && i == 3) {
-			game_end(); //<-- Encerra o jogo;
-		}
-        break; // Encerre o loop após encontrar um retângulo
-    }
+			// Sair
+	        if (device_mouse_check_button_pressed(0, mb_left) && i == 3) {
+				game_end(); //<-- Encerra o jogo;
+			}
+	        break; // Encerre o loop após encontrar um retângulo
+	    }
+	}
 }
 
 #endregion

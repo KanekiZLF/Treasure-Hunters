@@ -44,7 +44,10 @@ if (_maxPoison > 0) {
 // Neste treco entra o GUI da tela de pause e seus menus respectivos !!
 
 //Medidas da sprite de PAUSE !
-var _sprDraw = sprPauseBoard;
+var _sprDraw = 0;
+if (global.option == 0) {
+	_sprDraw = sprPauseBoard;
+}
 var _escala2 = 3;
 if _sprDraw == sprPauseBoard {
 	_escala2 = 4;
@@ -77,35 +80,39 @@ if (_pause) {
 	draw_set_valign(fa_middle);
 	draw_set_font(fnTextoBase30);
 	
-	//Desenha sombra nas opções !
-	//draw_rectangle(_recX, _recY, _recX + (72 * _escala2), _recY + (14 * _escala2), true);
-	draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), "Pause", 10, 300, .8, .8, 0);
-	var _sprW = sprite_get_width(sprOptionHover) - 5;
-	var _sprH = sprite_get_height(sprOptionHover);
-	var _numRetangulos = 4;
-	var _mouseX = device_mouse_x_to_gui(0);
-	var _mouseY = device_mouse_y_to_gui(0);
+	if (global.option == 0) {
+		//Desenha sombra nas opções !
+		//draw_rectangle(_recX, _recY, _recX + (72 * _escala2), _recY + (14 * _escala2), true);
 	
-	for (var i = 0; i < _numRetangulos; i++) {
-	    var rectTop = _recY + (i * _recSpace); // Coordenada Y do topo do retângulo
-	    var rectBottom = rectTop + (14 * _escala2); // Coordenada Y do fundo do retângulo
+	
+		draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), "Pause", 10, 300, .8, .8, 0);
+		var _sprW = sprite_get_width(sprOptionHover) - 5;
+		var _sprH = sprite_get_height(sprOptionHover);
+		var _numRetangulos = 4;
+		var _mouseX = device_mouse_x_to_gui(0);
+		var _mouseY = device_mouse_y_to_gui(0);
+	
+		for (var i = 0; i < _numRetangulos; i++) {
+		    var rectTop = _recY + (i * _recSpace); // Coordenada Y do topo do retângulo
+		    var rectBottom = rectTop + (14 * _escala2); // Coordenada Y do fundo do retângulo
     
-	    if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (72 * _escala2), rectBottom) {
-	        draw_sprite_ext(sprOptionHover, 0, _recX, _recY + (i * _recSpace), _escala2, _escala2, 0, c_white, 1);
-	        break; // Encerre o loop após encontrar um retângulo
-	    }
-	}
+		    if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (72 * _escala2), rectBottom) {
+		        draw_sprite_ext(sprOptionHover, 0, _recX, _recY + (i * _recSpace), _escala2, _escala2, 0, c_white, 1);
+		        break; // Encerre o loop após encontrar um retângulo
+		    }
+		}
 
-	var textArray = ["Continuar", "Salvar", "Options", "Sair"];
-	var numTexts = array_length(textArray);
-	var textSpace = _textSpace;
+		var textArray = ["Continuar", "Salvar", "Options", "Sair"];
+		var numTexts = array_length(textArray);
+		var textSpace = _textSpace;
 
-	for (var i = 0; i < numTexts; i++) {
-	    var text = textArray[i];
-	    var textX = _textX;
-	    var textY = _textY + (i * textSpace);
+		for (var i = 0; i < numTexts; i++) {
+		    var text = textArray[i];
+		    var textX = _textX;
+		    var textY = _textY + (i * textSpace);
     
-	    draw_text_ext_transformed(textX, textY, text, 10, 300, 0.8, 0.8, 0);
+		    draw_text_ext_transformed(textX, textY, text, 10, 300, 0.8, 0.8, 0);
+		}
 	}
 	
 } else if (!_pause) {

@@ -254,6 +254,7 @@
     {"id":{"name":"sprSealShellHit","path":"sprites/sprSealShellHit/sprSealShellHit.yy",},},
     {"id":{"name":"sprSailNoWind","path":"sprites/sprSailNoWind/sprSailNoWind.yy",},},
     {"id":{"name":"sprShipDestroyed","path":"sprites/sprShipDestroyed/sprShipDestroyed.yy",},},
+    {"id":{"name":"sprSaveBoard","path":"sprites/sprSaveBoard/sprSaveBoard.yy",},},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},},
     {"id":{"name":"sprBarrelIdle","path":"sprites/sprBarrelIdle/sprBarrelIdle.yy",},},
     {"id":{"name":"sprWaterBottom","path":"sprites/sprWaterBottom/sprWaterBottom.yy",},},
