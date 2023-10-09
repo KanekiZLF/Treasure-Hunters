@@ -26,6 +26,10 @@ function scrPrint() {
  
 	        show_debug_message(_string + string(_value2));
 	    break;
+		
+		case 3:
+		show_debug_message(string(device_mouse_x_to_gui(0)) + ":X MOUSE Y:" + string(device_mouse_y_to_gui(0)));
+		break;
 	}
 
 }

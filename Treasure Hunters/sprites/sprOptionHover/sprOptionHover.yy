@@ -25,8 +25,8 @@
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "sprBanners",
-    "path": "folders/Sprites/sprGUI/sprBanners.yy",
+    "name": "sprMenuHover",
+    "path": "folders/Sprites/sprGUI/sprMenuHover.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
