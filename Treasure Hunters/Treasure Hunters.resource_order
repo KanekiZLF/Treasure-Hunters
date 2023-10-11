@@ -40,6 +40,7 @@
     {"name":"sprBoards","order":7,"path":"folders/Sprites/sprGUI/sprBoards.yy",},
     {"name":"sprIcons","order":6,"path":"folders/Sprites/sprGUI/sprIcons.yy",},
     {"name":"sprInventory","order":3,"path":"folders/Sprites/sprGUI/sprInventory.yy",},
+    {"name":"sprMenuHover","order":8,"path":"folders/Sprites/sprGUI/sprMenuHover.yy",},
     {"name":"sprMobileButtons","order":1,"path":"folders/Sprites/sprGUI/sprMobileButtons.yy",},
     {"name":"sprSliders","order":4,"path":"folders/Sprites/sprGUI/sprSliders.yy",},
     {"name":"sprItens","order":2,"path":"folders/Sprites/sprItens.yy",},
@@ -65,7 +66,6 @@
     {"name":"sprTraps","order":13,"path":"folders/Sprites/sprTraps.yy",},
     {"name":"sprSpike","order":1,"path":"folders/Sprites/sprTraps/sprSpike.yy",},
     {"name":"sprWater","order":8,"path":"folders/Sprites/sprWater.yy",},
-    {"name":"sprMenuHover","order":8,"path":"folders/Sprites/sprGUI/sprMenuHover.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprPlayerIdle","order":1,"path":"sprites/sprPlayerIdle/sprPlayerIdle.yy",},

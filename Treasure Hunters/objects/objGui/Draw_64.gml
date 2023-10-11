@@ -87,7 +87,7 @@ if (_pause) {
 	draw_sprite_ext(_sprDraw, 0, _x, _y, _escala2, _escala2, 0, c_white, 1);
 
 	
-	if (_option == 0) {
+	if (_option == 0 || _option == 2) {
 		
 		// Desenha os textos dentros dos menus
 		var _textSpace = 17 * _escala2;
@@ -102,18 +102,34 @@ if (_pause) {
 		draw_set_valign(fa_middle);
 		draw_set_font(fnTextoBase30);
 		
-		//Desenha o retangulo do X
+		//Desenha o icone que ira dentro do retangulo
 		var _recBX = _guiLarg/2 - 190;
 		var _recBY = 176;
+		
+		if (_option == 0) {
+			smallIcon = 4;
+		} else if (_option == 2) {
+			smallIcon = 0;
+		}
+		
+		draw_sprite_ext(sprSmallIcons, smallIcon, _recBX + 12, _recBY + 12, _escala2, _escala2, 0, c_white, 1);
 		if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _recBX, _recBY, _recBX + (14 * _escala2), _recBY + (14 * _escala2))) {
 			draw_sprite_ext(sprHoverClose, 0, _recBX, _recBY, _escala2, _escala2, 0, c_white, 1);
 		}
 		
 		//Desenha sombra nas opções !
 		//draw_rectangle(_recX, _recY, _recX + (72 * _escala2), _recY + (14 * _escala2), true);
-	
-	
-		draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), "Pause", 10, 300, .8, .8, 0);
+		
+		//Desenha texto do menu atual
+		var _menuText = ["Pause", "Options"];
+		var _textSelected = 0;
+		if (_option == 0) {
+			_textSelected = _menuText[0];
+		} else if (_option == 2) {
+			_textSelected = _menuText[1];
+		}
+		
+		draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), _textSelected, 10, 300, .8, .8, 0);
 		var _sprW = sprite_get_width(sprOptionHover) - 5;
 		var _sprH = sprite_get_height(sprOptionHover);
 		var _numRetangulos = 4;
@@ -127,8 +143,14 @@ if (_pause) {
 		        break; // Encerre o loop após encontrar um retângulo
 		    }
 		}
-
-		var textArray = ["Continuar", "Salvar", "Options", "Sair"];
+		
+		//Desenha o texto dos menus
+		var textArray = [];
+		if (_option == 0) {
+			textArray = ["Continuar", "Salvar", "Options", "Sair"];
+		} else if (_option == 2) {
+			textArray = ["Guia", "Controles", "Audio", "Creditos"];
+		}
 		var numTexts = array_length(textArray);
 		var textSpace = _textSpace;
 
@@ -137,7 +159,7 @@ if (_pause) {
 		    var textX = _textX;
 		    var textY = _textY + (i * textSpace);
     
-		    draw_text_ext_transformed(textX, textY, text, 10, 300, 0.8, 0.8, 0);
+		    draw_text_ext_transformed(textX - 5, textY, text, 10, 300, 0.8, 0.8, 0);
 		}
 	} 
 	
@@ -156,8 +178,11 @@ if (_pause) {
 		//Desenha o retangulo
 		var _recBX = _guiLarg/2 - 203;
 		var _recBY = 178;
+		draw_sprite_ext(sprSmallIcons, smallIcon, _guiLarg/2 + 82, _recBY + 68, _escala2, _escala2, 0, c_white, 1);
+		
 		if (point_in_rectangle(_mouseX, _mouseY, _recBX, _recBY, _recBX + (14 * _escala2), _recBY + (14 * _escala2))) {
-			draw_sprite_ext(sprHoverButtom, 0, _guiLarg/2 - 203, 178, _escala2, _escala2, 0, c_white, 1);
+			draw_sprite_ext(sprHoverButtom, 0, _recBX, _recBY, _escala2, _escala2, 0, c_white, 1);
+			
 		}
 		
 		var _recSX = _guiLarg/2 + 70
