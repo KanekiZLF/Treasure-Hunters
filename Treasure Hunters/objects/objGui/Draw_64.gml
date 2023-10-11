@@ -83,8 +83,12 @@ if (_pause) {
 	draw_set_color(c_black); // Defina a cor como preto
 	draw_rectangle(0, 0, display_get_width(), display_get_height(), false); // Desenhe um retângulo preto que cobre a tela
 	
-	// Desenha a tela de PAUSE ! 
-	draw_sprite_ext(_sprDraw, 0, _x, _y, _escala2, _escala2, 0, c_white, 1);
+	// Desenha as telas de opções
+	if (_option == 0 || _option == 2 || _option == 3) {
+		draw_sprite_ext(_sprDraw, 0, _x, _y, _escala2, _escala2, 0, c_white, 1);
+	} else if (_option == 1) {
+		draw_sprite_ext(_sprDraw, 0, _x + 12, _y, _escala2, _escala2, 0, c_white, 1);
+	}
 
 	// Desenha os textos dentros dos menus
 	var _textSpace = 17 * _escala2;
@@ -122,14 +126,27 @@ if (_pause) {
 	//Desenha texto do menu atual
 	var _menuText = ["Pause", "Saves", "Options", "Audio", "Controles", "Creditos"];
 	var _textSelected = 0;
-	if (_option == 0) {
-		_textSelected = _menuText[0];
-	} else if (_option == 1) {
-		_textSelected = _menuText[1];
-	} else if (_option == 2) {
-		_textSelected = _menuText[2];
-	} else if (_option == 3) {
-		_textSelected = _menuText[3];
+	switch (_option) {
+	    case 0:
+	        _textSelected = _menuText[0];
+	     break;
+		
+	    case 1:
+	        _textSelected = _menuText[1];
+	    break;
+		
+	    case 2:
+	        _textSelected = _menuText[2];
+	    break;
+		
+	    case 3:
+	        _textSelected = _menuText[3];
+	    break;
+		
+	    default:
+	        // Caso _option não corresponda a nenhum dos casos acima
+	        // Faça algo aqui, se necessário
+	     break;
 	}
 		
 	draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), _textSelected, 10, 300, .8, .8, 0);
@@ -183,17 +200,16 @@ if (_pause) {
 		draw_set_font(fnTextoBase30);
 		
 		//Desenha o retangulo
-		var _recBX2 = _guiLarg/2 - 203;
-		var _recBY2 = 178;
+		var _recBX2 = _guiLarg/2 - 190;
+		var _recBY2 = 176;
 		draw_sprite_ext(sprSmallIcons, smallIcon, _guiLarg/2 + 82, _recBY2 + 68, _escala2, _escala2, 0, c_white, 1);
 		
 		if (point_in_rectangle(_mouseX, _mouseY, _recBX2, _recBY2, _recBX2 + (14 * _escala2), _recBY2 + (14 * _escala2))) {
 			draw_sprite_ext(sprHoverButtom, 0, _recBX2, _recBY2, _escala2, _escala2, 0, c_white, 1);
-			
 		}
 		
-		var _recSX = _guiLarg/2 + 70;
-		var _recSY = 234;
+		var _recSX = _guiLarg/2 + 82;
+		var _recSY = 232;
 		if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala2), _recSY + (14 * _escala2))) {
 			draw_sprite_ext(sprHoverButtom, 0, _recSX, _recSY, _escala2, _escala2, 0, c_white, 1);
 		}
