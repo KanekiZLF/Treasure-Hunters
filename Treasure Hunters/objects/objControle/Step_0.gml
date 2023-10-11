@@ -31,7 +31,7 @@ var _guiLarg = display_get_gui_width();
 var _guiAlt = display_get_gui_height();
 
 
-if (_option == 0 || _option == 2) {
+if (_option == 0 || _option == 2 || _option == 3) {
 	var _sprW = sprite_get_width(sprOptionHover) - 5;
 	var _sprH = sprite_get_height(sprOptionHover);
 	var _recSpace = 17 * _escala2;
@@ -53,7 +53,11 @@ if (_option == 0 || _option == 2) {
 			if (_option == 2) {
 				global.option = 0;
 			}
-			show_debug_message(_option)
+			
+			if (_option == 3) {
+				global.option = 2;
+			}
+			scrPrint("OO")
 		}
 	}
 	
