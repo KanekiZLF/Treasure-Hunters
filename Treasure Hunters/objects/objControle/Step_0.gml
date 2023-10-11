@@ -51,8 +51,9 @@ if (_option == 0 || _option == 2) {
 			}
 					
 			if (_option == 2) {
-				_option = 0;
+				global.option = 0;
 			}
+			show_debug_message(_option)
 		}
 	}
 	
@@ -64,23 +65,35 @@ if (_option == 0 || _option == 2) {
 	    if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (72 * _escala2), rectBottom) {
 			// Continuar
 			if (device_mouse_check_button_pressed(0, mb_left) && i == 0) {
-				global.gamepause = false;
-				scrResume();
+				if (_option == 0) {
+					global.gamepause = false;
+					scrResume();
+				}
 			}
 		 
 			// Salvar / Carregar
 			if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
-				global.option = 1;
+				if (_option == 0) {
+					global.option = 1;
+				}
 			}
 		
 			// Opções
 			if (device_mouse_check_button_pressed(0, mb_left) && i == 2) {
-				global.option = 2;
+				if (_option == 0) {
+					global.option = 2;
+				}
+				
+				if (_option == 2) {
+					global.option = 3;
+				}
 			}
 		
 			// Sair
 	        if (device_mouse_check_button_pressed(0, mb_left) && i == 3) {
-				game_end(); //<-- Encerra o jogo;
+				if (_option == 0) {
+					game_end(); //<-- Encerra o jogo;
+				}
 			}
 			break; // Encerre o loop após encontrar um retângulo
 	    }
@@ -102,7 +115,7 @@ if (_option == 0 || _option == 2) {
 			//objGui.smallIcon = 5; //<-- Altera o icone caso algum save exista
 		}
 	
-	//Desenha o retangulo da seta voltar
+	//Retangulo da seta voltar da tela de save
 	if (point_in_rectangle(_mouseX, _mouseY, _recBX, _recBY, _recBX + (14 * _escala2), _recBY + (14 * _escala2))) {
 		if (device_mouse_check_button_pressed(0, mb_left)) {
 			global.option = 0;
@@ -132,5 +145,5 @@ if (_option == 0 || _option == 2) {
 		}
 	}
 }
-show_debug_message(_option)
+
 #endregion

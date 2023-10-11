@@ -49,23 +49,23 @@ var _sprDraw = 0;
 var _escala2 = 4;
 switch(_option) {
 	default:
-	_sprDraw = sprPauseBoard;
+	_sprDraw = sprPauseBoard; // Caso de erro, define esse como padrão
 	break;
 	
 	case 0:
-	_sprDraw = sprPauseBoard;
+	_sprDraw = sprPauseBoard; // Pause padrão
 	break;
 	
 	case 1:
-	_sprDraw = sprSaveBoard;
+	_sprDraw = sprSaveBoard; // Tela de save
 	break;
 	
 	case 2:
-	_sprDraw = sprPauseBoard;
+	_sprDraw = sprPauseBoard; // Usa o layout do pause, porém é o de options
 	break;
 	
 	case 3:
-	_sprDraw = sprPauseBoard;
+	_sprDraw = sprAudioBoard; // Audio
 	break;
 	
 }
@@ -121,7 +121,7 @@ if (_pause) {
 		//draw_rectangle(_recX, _recY, _recX + (72 * _escala2), _recY + (14 * _escala2), true);
 		
 		//Desenha texto do menu atual
-		var _menuText = ["Pause", "Options"];
+		var _menuText = ["Pause", "Options", "Audio", "Controles", "Creditos"];
 		var _textSelected = 0;
 		if (_option == 0) {
 			_textSelected = _menuText[0];
@@ -222,5 +222,3 @@ if (_pause) {
 }
 
 #endregion
-
-
