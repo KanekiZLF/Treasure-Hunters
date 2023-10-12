@@ -38,6 +38,25 @@ if (_option == 0 || _option == 2 || _option == 3) {
 	var _recX = display_get_gui_width() / 2 + (-35.5 * _escala2); // Corrigido
 	var _recY = display_get_gui_height() / 2 + (-32 * _escala2); // Corrigido
 	var _numRetangulos = 4;
+	
+	// Retangulos das opções de AUDIO
+	if (_option == 3) {
+		var _recBX3 = _guiLarg/2 + 66;
+		var _recBY3 = 236;
+		var _recSpace3 = 15 * _escala2;
+
+		if (point_in_rectangle(_mouseX, _mouseY,_recBX3, _recBY3, _recBX3 + (14 * _escala2), _recBY3 + (14 * _escala2))) {
+			if (device_mouse_check_button_pressed(0, mb_left)) {
+			    objGui.iconMusic = (objGui.iconMusic == 5) ? 4 : 5;
+			}
+		}
+		
+		if (point_in_rectangle(_mouseX, _mouseY,_recBX3, _recBY3 + _recSpace3, _recBX3 + (14 * _escala2), _recBY3 +_recSpace3 + (14 * _escala2))) {
+			if (device_mouse_check_button_pressed(0, mb_left)) {
+			    objGui.iconSfx = (objGui.iconSfx == 5) ? 4 : 5;
+			}
+		}
+	}
 
 	//Fecha a tela de opções
 	var _recBX = _guiLarg/2 - 190;
@@ -57,7 +76,6 @@ if (_option == 0 || _option == 2 || _option == 3) {
 			if (_option == 3) {
 				global.option = 2;
 			}
-			scrPrint("OO")
 		}
 	}
 	
@@ -103,20 +121,20 @@ if (_option == 0 || _option == 2 || _option == 3) {
 	    }
 	}// Opções da tela de save 
 } else if (_option == 1) {
-	var _recSpace = 21 * _escala2;
-	var _recX = display_get_gui_width()/2 + (-33.5 * _escala2);
-	var _recY = display_get_gui_height()/2 + (-27.5 * _escala2);
+	var _recSpace = 22 * _escala2;
+	var _recX = display_get_gui_width()/2 + (-32.5 * _escala2);
+	var _recY = display_get_gui_height()/2 + (-31 * _escala2);
 	var _sprW = sprite_get_width(sprHoverSave) - 5;
 	var _sprH = sprite_get_height(sprHoverSave);
 	var _numRetangulos = 3;
-	var _recBX = _guiLarg/2 - 203;
-	var _recBY = 178;
-	var _recSX = _guiLarg/2 + 70
-	var _recSY= 234
+	var _recBX = _guiLarg/2 - 190;
+	var _recBY = 176;
+	var _recSX = _guiLarg/2 + 82;
+	var _recSY = 232;
 	
 	//Botão para carregar o jogo dependendo de qual save foi selecionado
 	if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala2), _recSY + (14 * _escala2))) {
-			//objGui.smallIcon = 5; //<-- Altera o icone caso algum save exista
+			objGui.iconSave = 5; //<-- Altera o icone caso algum save exista
 		}
 	
 	//Retangulo da seta voltar da tela de save
@@ -128,9 +146,9 @@ if (_option == 0 || _option == 2 || _option == 3) {
 	
 	for (var i = 0; i < _numRetangulos; i++) {
 			var rectTop = _recY + (i * _recSpace); // Coordenada Y do topo do retângulo
-			var rectBottom = rectTop + (14 * _escala2); // Coordenada Y do fundo do retângulo
+			var rectBottom = rectTop + (18 * _escala2); // Coordenada Y do fundo do retângulo
     
-	if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (28 * _escala2), rectBottom) {
+	if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (32 * _escala2), rectBottom) {
 		//Save 1
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 0) {
 				

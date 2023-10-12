@@ -89,8 +89,29 @@ if (_pause) {
 	} else if (_option == 1) {
 		draw_sprite_ext(_sprDraw, 0, _x + 12, _y, _escala2, _escala2, 0, c_white, 1);
 	}
+	
+	// Desenha as opções do AUDIO
+	if (_option == 3) {
+		var _recBX3 = _guiLarg/2 + 66;
+		var _recBY3 = 236;
+		var _recSpace3 = 15 * _escala2;
+		
+		//Desenha o Retangulo Direito
+		draw_sprite_ext(sprSmallIcons, iconMusic, _recBX3 + 12, _recBY3 + 12, _escala2, _escala2, 0, c_white, 1)
+		draw_sprite_ext(sprSmallIcons, iconSfx, _recBX3 + 12, _recBY3 + (18 * _escala2), _escala2, _escala2, 0, c_white, 1)
+		
+		
+		//Desenha o hover do retangulo direito
+		if (point_in_rectangle(_mouseX, _mouseY,_recBX3, _recBY3, _recBX3 + (14 * _escala2), _recBY3 + (14 * _escala2))) {
+			draw_sprite_ext(sprHoverButtom, 0, _recBX3, _recBY3, _escala2, _escala2, 0, c_white, 1);
+		}
+		
+		if (point_in_rectangle(_mouseX, _mouseY,_recBX3, _recBY3 + _recSpace3, _recBX3 + (14 * _escala2), _recBY3 +_recSpace3 + (14 * _escala2))) {
+			draw_sprite_ext(sprHoverButtom, 0, _recBX3, _recBY3 + _recSpace3, _escala2, _escala2, 0, c_white, 1);
+		}
+	}
 
-	// Desenha os textos dentros dos menus
+	// Desenha os textos
 	var _textSpace = 17 * _escala2;
 	var _textX = _guiLarg/2 + (-3 * _escala2);
 	var _textY = _guiAlt/2 + (-27.5 * _escala2);
@@ -102,19 +123,25 @@ if (_pause) {
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_set_font(fnTextoBase30);
-		
+	
+	if (_option == 3) {
+		draw_text_ext_transformed(_textX - 30, _textY + 3, "Musica", 10, 300, .7, .7, 0);
+		draw_text_ext_transformed(_textX - 30, _textY + (16 * _escala2), "Efeitos", 10, 300, .7, .7, 0);
+		draw_text_ext_transformed(_textX - (-3 * _escala2), _textY + (36 * _escala2), "Volume", 10, 300, .7, .7, 0);
+	}
+	
 	//Desenha o icone que ira dentro do retangulo
 	var _recBX = _guiLarg/2 - 190;
 	var _recBY = 176;
 		
 	if (_option == 0) {
-		smallIcon = 4;
+		iconClose = 4;
 	} else if (_option == 2) {
-		smallIcon = 0;
+		iconClose = 0;
 	}
 	
 	if (_option == 0 || _option == 2 || _option == 3) {
-		draw_sprite_ext(sprSmallIcons, smallIcon, _recBX + 12, _recBY + 12, _escala2, _escala2, 0, c_white, 1);
+		draw_sprite_ext(sprSmallIcons, iconClose, _recBX + 12, _recBY + 12, _escala2, _escala2, 0, c_white, 1);
 		if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _recBX, _recBY, _recBX + (14 * _escala2), _recBY + (14 * _escala2))) {
 			draw_sprite_ext(sprHoverClose, 0, _recBX, _recBY, _escala2, _escala2, 0, c_white, 1);
 		}
@@ -123,7 +150,7 @@ if (_pause) {
 	//Desenha sombra nas opções !
 	//draw_rectangle(_recX, _recY, _recX + (72 * _escala2), _recY + (14 * _escala2), true);
 		
-	//Desenha texto do menu atual
+	//Desenha texto do menu inicial
 	var _menuText = ["Pause", "Saves", "Options", "Audio", "Controles", "Creditos"];
 	var _textSelected = 0;
 	switch (_option) {
@@ -168,7 +195,7 @@ if (_pause) {
 		}
 	}
 		
-	//Desenha o texto dos menus
+	//Desenha o texto do cabeçalho dos menus
 	var textArray = [];
 	if (_option == 0) {
 		textArray = ["Continuar", "Salvar", "Options", "Sair"];
@@ -187,12 +214,13 @@ if (_pause) {
 		draw_text_ext_transformed(textX - 5, textY, text, 10, 300, 0.8, 0.8, 0);
 	}
 	
+	// Desenha texto dos saves
 	if (_option == 1) {
 		var _textArray = ["Save 1", "Save 2", "Save 3"]
 		var _numTexts = array_length(_textArray);
-		var _textSpace2 = 21 * _escala2;
-		var _textX2 = _guiLarg/2 + (-19.5 * _escala2);
-		var _textY2 = _guiAlt/2 + (-23 * _escala2);
+		var _textSpace2 = 22 * _escala2;
+		var _textX2 = _guiLarg/2 + (-16.5 * _escala2);
+		var _textY2 = _guiAlt/2 + (-25 * _escala2);
 		draw_set_alpha(1);
 		draw_set_color(#33323d);
 		draw_set_halign(fa_center);
@@ -202,14 +230,14 @@ if (_pause) {
 		//Desenha o retangulo
 		var _recBX2 = _guiLarg/2 - 190;
 		var _recBY2 = 176;
-		draw_sprite_ext(sprSmallIcons, smallIcon, _guiLarg/2 + 82, _recBY2 + 68, _escala2, _escala2, 0, c_white, 1);
+		var _recSX = _guiLarg/2 + 82;
+		var _recSY = 232;
+		draw_sprite_ext(sprSmallIcons, iconSave, _guiLarg/2 + 94, _recBY2 + 68, _escala2, _escala2, 0, c_white, 1);
 		
 		if (point_in_rectangle(_mouseX, _mouseY, _recBX2, _recBY2, _recBX2 + (14 * _escala2), _recBY2 + (14 * _escala2))) {
 			draw_sprite_ext(sprHoverButtom, 0, _recBX2, _recBY2, _escala2, _escala2, 0, c_white, 1);
 		}
 		
-		var _recSX = _guiLarg/2 + 82;
-		var _recSY = 232;
 		if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala2), _recSY + (14 * _escala2))) {
 			draw_sprite_ext(sprHoverButtom, 0, _recSX, _recSY, _escala2, _escala2, 0, c_white, 1);
 		}
@@ -218,21 +246,21 @@ if (_pause) {
 			var _text = _textArray[i];
 			var textY = _textY2 + (i * _textSpace2)
 			
-			draw_text_ext_transformed(_textX2, textY, _text, 10, 300, 0.5, 0.5, 0);
+			draw_text_ext_transformed(_textX2, textY, _text, 10, 300, .65, .65, 0);
 		}
 		
-		var _recSpace2 = 21 * _escala2;
-		var _recX2 = _guiLarg/2 + (-33.5 * _escala2);
-		var _recY2 = _guiAlt/2 + (-27.5 * _escala2);
+		var _recSpace2 = 22 * _escala2;
+		var _recX2 = _guiLarg/2 + (-32.5 * _escala2);
+		var _recY2 = _guiAlt/2 + (-31 * _escala2);
 		var _sprW = sprite_get_width(sprHoverSave) - 5;
 		var _sprH = sprite_get_height(sprHoverSave);
 		var _numRetangulos = 3;
 	
 		for (var i = 0; i < _numRetangulos; i++) {
 		    var rectTop = _recY2 + (i * _recSpace2); // Coordenada Y do topo do retângulo
-		    var rectBottom = rectTop + (14 * _escala2); // Coordenada Y do fundo do retângulo
+		    var rectBottom = rectTop + (18 * _escala2); // Coordenada Y do fundo do retângulo
     
-		    if point_in_rectangle(_mouseX, _mouseY, _recX2, rectTop, _recX2 + (28 * _escala2), rectBottom) {
+		    if point_in_rectangle(_mouseX, _mouseY, _recX2, rectTop, _recX2 + (32 * _escala2), rectBottom) {
 		        draw_sprite_ext(sprHoverSave, 0, _recX2, _recY2 + (i * _recSpace2), _escala2, _escala2, 0, c_white, 1);
 		        break; // Encerre o loop após encontrar um retângulo
 		    }

@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sprHoverSave",
-  "bbox_bottom": 13,
+  "bbox_bottom": 17,
   "bbox_left": 0,
-  "bbox_right": 27,
+  "bbox_right": 31,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0a5ab060-e09d-4cde-9408-8cf7890bc5bb",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"546db7da-3f04-4e25-94dc-00a4b81b3d11",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 14,
+  "height": 18,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"fabe85c7-4204-41ee-a103-7b3678d37dc8","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b9902e3a-cd05-473a-9774-18fe927bfa0d","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0a5ab060-e09d-4cde-9408-8cf7890bc5bb","path":"sprites/sprHoverSave/sprHoverSave.yy",},},},"Disabled":false,"id":"9a52598b-7784-455b-964b-f20ab1776e1c","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"546db7da-3f04-4e25-94dc-00a4b81b3d11","path":"sprites/sprHoverSave/sprHoverSave.yy",},},},"Disabled":false,"id":"d5c5a58c-a2dc-46e8-9fc6-58e707a7f2ea","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 28,
+  "width": 32,
 }

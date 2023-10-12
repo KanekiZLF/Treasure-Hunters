@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrDebug",
+  "name": "scrMouse",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
