@@ -14,9 +14,10 @@ Vida: OK
 Estamina: OK
 Veneno: OK
 Botoes:
-Banners:
-Menus:
-Icones:
+Banners: OK
+Menus: OK
+Icones: OK
+Tela Inicial:
 	
 	Sprites:
 Player: OK
