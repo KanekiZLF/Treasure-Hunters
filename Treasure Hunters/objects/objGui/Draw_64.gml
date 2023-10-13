@@ -49,23 +49,27 @@ var _sprDraw = 0;
 var _escala2 = 4;
 switch(_option) {
 	default:
-	_sprDraw = sprPauseBoard; // Caso de erro, define esse como padrão
+		_sprDraw = sprPauseBoard; // Caso de erro, define esse como padrão
 	break;
 	
 	case 0:
-	_sprDraw = sprPauseBoard; // Pause padrão
+		_sprDraw = sprPauseBoard; // Pause padrão
 	break;
 	
 	case 1:
-	_sprDraw = sprSaveBoard; // Tela de save
+		_sprDraw = sprSaveBoard; // Tela de save
 	break;
 	
 	case 2:
-	_sprDraw = sprPauseBoard; // Usa o layout do pause, porém é o de options
+		_sprDraw = sprPauseBoard; // Usa o layout do pause, porém é o de options
 	break;
 	
 	case 3:
-	_sprDraw = sprAudioBoard; // Audio
+		_sprDraw = sprAudioBoard; // Audio
+	break;
+	
+	case 4:
+		_sprDraw = sprGuideBoard; // Audio
 	break;
 	
 }
@@ -84,7 +88,7 @@ if (_pause) {
 	draw_rectangle(0, 0, display_get_width(), display_get_height(), false); // Desenhe um retângulo preto que cobre a tela
 	
 	// Desenha as telas de opções
-	if (_option == 0 || _option == 2 || _option == 3) {
+	if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 		draw_sprite_ext(_sprDraw, 0, _x, _y, _escala2, _escala2, 0, c_white, 1);
 	} else if (_option == 1) {
 		draw_sprite_ext(_sprDraw, 0, _x + 12, _y, _escala2, _escala2, 0, c_white, 1);
@@ -140,7 +144,7 @@ if (_pause) {
 		iconClose = 0;
 	}
 	
-	if (_option == 0 || _option == 2 || _option == 3) {
+	if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 		draw_sprite_ext(sprSmallIcons, iconClose, _recBX + 12, _recBY + 12, _escala2, _escala2, 0, c_white, 1);
 		if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _recBX, _recBY, _recBX + (14 * _escala2), _recBY + (14 * _escala2))) {
 			draw_sprite_ext(sprHoverClose, 0, _recBX, _recBY, _escala2, _escala2, 0, c_white, 1);
@@ -151,7 +155,7 @@ if (_pause) {
 	//draw_rectangle(_recX, _recY, _recX + (72 * _escala2), _recY + (14 * _escala2), true);
 		
 	//Desenha texto do menu inicial
-	var _menuText = ["Pause", "Saves", "Options", "Audio", "Controles", "Creditos"];
+	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "ERRO"];
 	var _textSelected = 0;
 	switch (_option) {
 	    case 0:
@@ -170,16 +174,19 @@ if (_pause) {
 	        _textSelected = _menuText[3];
 	    break;
 		
+		case 4:
+	        _textSelected = _menuText[4];
+	    break;
+		
 	    default:
-	        // Caso _option não corresponda a nenhum dos casos acima
-	        // Faça algo aqui, se necessário
+	        _textSelected = _menuText[6];
 	     break;
 	}
 		
 	draw_text_ext_transformed(_textX + (3.5 * _escala2), _textY - (38 * _escala2), _textSelected, 10, 300, .8, .8, 0);
 	
 	// Retangulos do menu principal e do options
-	if (_option == 0 || _option == 2) {
+	if (_option == 0 || _option == 2 || _option == 4) {
 		var _sprW = sprite_get_width(sprOptionHover) - 5;
 		var _sprH = sprite_get_height(sprOptionHover);
 		var _numRetangulos = 4;

@@ -81,6 +81,7 @@
     {"name":"sprGoldenSkull","order":4,"path":"sprites/sprGoldenSkull/sprGoldenSkull.yy",},
     {"name":"sprMapInEffect","order":9,"path":"sprites/sprMapInEffect/sprMapInEffect.yy",},
     {"name":"sprPlayerSwordFall","order":3,"path":"sprites/sprPlayerSwordFall/sprPlayerSwordFall.yy",},
+    {"name":"sprGuideBoard","order":12,"path":"sprites/sprGuideBoard/sprGuideBoard.yy",},
     {"name":"sprSliderSide1","order":2,"path":"sprites/sprSliderSide1/sprSliderSide1.yy",},
     {"name":"sprWaterReflexes1","order":1,"path":"sprites/sprWaterReflexes1/sprWaterReflexes1.yy",},
     {"name":"sprSwordAttack1","order":1,"path":"sprites/sprSwordAttack1/sprSwordAttack1.yy",},

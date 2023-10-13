@@ -31,7 +31,7 @@ var _guiLarg = display_get_gui_width();
 var _guiAlt = display_get_gui_height();
 
 
-if (_option == 0 || _option == 2 || _option == 3) {
+if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	var _sprW = sprite_get_width(sprOptionHover) - 5;
 	var _sprH = sprite_get_height(sprOptionHover);
 	var _recSpace = 17 * _escala2;
@@ -63,18 +63,31 @@ if (_option == 0 || _option == 2 || _option == 3) {
 	var _recBY = 176;
 	if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _recBX, _recBY, _recBX + (14 * _escala2), _recBY + (14 * _escala2))) {
 		if (device_mouse_check_button_pressed(0, mb_left)) {
-			
-			if (_option == 0) {
-				global.gamepause = false;
-				scrResume();
-			}
+			switch(_option) {
+				default:
+					show_message("Erro ao selecionar _option");
+				break;
+				
+				case 0: //Fecha o menu e volta ao jogo se estiver no PAUSE
+					global.gamepause = false;
+					scrResume();
+				break;
+				
+				case 1: // Não definido
 					
-			if (_option == 2) {
-				global.option = 0;
-			}
-			
-			if (_option == 3) {
-				global.option = 2;
+				break;
+				
+				case 2: // Volta a tela de pause inicial se estiver em OPTIONS
+					global.option = 0;
+				break;
+				
+				case 3: // Volta para tela de opções se estiver no SAVE
+					global.option = 2;
+				break;
+				
+				case 4: // Volta para tela de opções se estiver em GUIA
+					global.option = 2;
+				break;
 			}
 		}
 	}
@@ -85,36 +98,121 @@ if (_option == 0 || _option == 2 || _option == 3) {
 	    var rectBottom = rectTop + (14 * _escala2); // Coordenada Y do fundo do retângulo
     
 	    if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (72 * _escala2), rectBottom) {
-			// Continuar
+			// Continuar // Guia
 			if (device_mouse_check_button_pressed(0, mb_left) && i == 0) {
-				if (_option == 0) {
-					global.gamepause = false;
-					scrResume();
+				// Verifica qual tela esta e define o comando
+				switch(_option) {
+					default:
+						show_message("Erro ao definir _option");
+					break;
+					
+					case 0: // Se _option == 0
+						global.gamepause = false;
+						scrResume();
+					break;
+					
+					case 1: // Se _option == 1
+						
+					break;
+					
+					case 2: // Se _option == 2
+						global.option = 4;
+					break;
+					
+					case 3: // Se _option == 3
+						
+					break;
+					
+					case 4: // Se _option == 4
+						
+					break;
 				}
 			}
 		 
-			// Salvar / Carregar
+			// Salvar / Carregar // Controles
 			if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
-				if (_option == 0) {
-					global.option = 1;
+				switch(_option) {
+					default:
+						show_message("Erro ao definir _option");
+					break;
+					
+					case 0: // Se _option == 0
+						global.option = 1
+					break;
+					
+					case 1: // Se _option == 1
+						
+					break;
+					
+					case 2: // Se _option == 2
+						
+					break;
+					
+					case 3: // Se _option == 3
+						
+					break;
+					
+					case 4: // Se _option == 4
+						
+					break;
 				}
 			}
 		
-			// Opções
+			// Opções // Audio
 			if (device_mouse_check_button_pressed(0, mb_left) && i == 2) {
-				if (_option == 0) {
-					global.option = 2;
-				}
-				
-				if (_option == 2) {
-					global.option = 3;
+				switch(_option) {
+					default:
+						show_message("Erro ao definir _option");
+					break;
+					
+					case 0: // Se _option == 0
+						global.option = 2;
+					break;
+					
+					case 1: // Se _option == 1
+						
+					break;
+					
+					case 2: // Se _option == 2
+						global.option = 3;
+					break;
+					
+					case 3: // Se _option == 3
+						
+					break;
+					
+					case 4: // Se _option == 4
+						
+					break;
 				}
 			}
 		
-			// Sair
+			// Sair // Creditos
 	        if (device_mouse_check_button_pressed(0, mb_left) && i == 3) {
-				if (_option == 0) {
-					game_end(); //<-- Encerra o jogo;
+				switch(_option) {
+					default:
+						show_message("Erro ao definir _option");
+					break;
+					
+					case 0: // Se _option == 0
+						game_end(); //<-- Encerra o jogo;
+					break;
+					
+					case 1: // Se _option == 1
+						
+					break;
+					
+					case 2: // Se _option == 2
+						
+					break;
+					
+					case 3: // Se _option == 3
+						
+					break;
+					
+					case 4: // Se _option == 4
+						
+					break;
 				}
 			}
 			break; // Encerre o loop após encontrar um retângulo
