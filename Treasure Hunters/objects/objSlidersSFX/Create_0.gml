@@ -4,9 +4,11 @@ value = .5;
 maxValue = 1;
 selected = false;
 direc = 0;
-scale = 4
-image_xscale = scale;
-image_yscale = scale;
+scale = 4;
+_guiLarg = display_get_gui_width();
+_guiAlt = display_get_gui_height();
+x = _guiLarg/2 - 130;
+y = _guiAlt/2 + 148;
 
 
 

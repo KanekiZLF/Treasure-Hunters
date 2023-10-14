@@ -12,31 +12,33 @@ var _sprAlt = sprite_get_height(sprLifeBar) * _escala;
 var _sprAlt2 = sprite_get_height(sprStaminaBar) * _escala + 8;
 var _hudAlt = _guiAlt/15;
 
-var _lifes = objPlayer.lifes2 // <-- Vida count
-var _stamina = objPlayer.stamina2;  // <-- Estamina count
-var _maxLifes = objPlayer.maxLifes2;  // <-- Max Vida count
-var _maxStamina = objPlayer.maxStamina2;  // <-- Max Estamina count
-var _poison = objPlayer.poison2;  // <-- Veneno count
-var _maxPoison2 = objPlayer.maxPoison2;  // <-- Veneno count
-var _maxPoison = objPlayer.maxPoison;
+if (instance_exists(objPlayer)) {
+	var _lifes = objPlayer.lifes2 // <-- Vida count
+	var _stamina = objPlayer.stamina2;  // <-- Estamina count
+	var _maxLifes = objPlayer.maxLifes2;  // <-- Max Vida count
+	var _maxStamina = objPlayer.maxStamina2;  // <-- Max Estamina count
+	var _poison = objPlayer.poison2;  // <-- Veneno count
+	var _maxPoison2 = objPlayer.maxPoison2;  // <-- Veneno count
+	var _maxPoison = objPlayer.maxPoison;
 
-//Hud
-draw_sprite_ext(sprLifeBar, 0, 15, _hudAlt, _escala, _escala, 0, c_white, 1);
+	//Hud
+	draw_sprite_ext(sprLifeBar, 0, 15, _hudAlt, _escala, _escala, 0, c_white, 1);
 
-draw_sprite_ext(sprStaminaBar, 0, 35, _hudAlt + _sprAlt, _escala, _escala, 0, c_white, 1);
+	draw_sprite_ext(sprStaminaBar, 0, 35, _hudAlt + _sprAlt, _escala, _escala, 0, c_white, 1);
 
-if (_maxPoison > 0) {
-	draw_sprite_ext(sprPoisonBar, 0, 35, _hudAlt + _sprAlt + _sprAlt2, _escala, _escala, 0, c_white, 1);
-}
+	if (_maxPoison > 0) {
+		draw_sprite_ext(sprPoisonBar, 0, 35, _hudAlt + _sprAlt + _sprAlt2, _escala, _escala, 0, c_white, 1);
+	}
 
 
-//Barra Cores
-draw_sprite_ext(sprLifeColor, 15, 21 * _escala, _hudAlt, (_lifes/_maxLifes) * _escala, _escala, 0, c_white, 1);
+	//Barra Cores
+	draw_sprite_ext(sprLifeColor, 15, 21 * _escala, _hudAlt, (_lifes/_maxLifes) * _escala, _escala, 0, c_white, 1);
 
-draw_sprite_ext(sprStaminaColor, 0, 23.5 * _escala, _hudAlt + _sprAlt, (_stamina/_maxStamina) * _escala, _escala, 0, c_white, 1);
+	draw_sprite_ext(sprStaminaColor, 0, 23.5 * _escala, _hudAlt + _sprAlt, (_stamina/_maxStamina) * _escala, _escala, 0, c_white, 1);
 
-if (_maxPoison > 0) {
-	draw_sprite_ext(sprPoisonColor, 0, 23.5 * _escala, _hudAlt + _sprAlt + _sprAlt2, (_poison/_maxPoison2) * _escala, _escala, 0, c_white, 1);
+	if (_maxPoison > 0) {
+		draw_sprite_ext(sprPoisonColor, 0, 23.5 * _escala, _hudAlt + _sprAlt + _sprAlt2, (_poison/_maxPoison2) * _escala, _escala, 0, c_white, 1);
+	}
 }
 
 #endregion
@@ -103,9 +105,12 @@ if (_pause) {
 	draw_rectangle(0, 0, display_get_width(), display_get_height(), false); // Desenhe um retângulo preto que cobre a tela
 	
 	// Desenha as telas de opções
-	if (_option != 7) {
+	if (_option != 7 && _option != 1) {
 		draw_sprite_ext(_sprDraw, 0, _x, _y, _escala, _escala, 0, c_white, 1);
-	} else if (_option == 7) {
+	} else if (_option == 1) {
+		draw_sprite_ext(_sprDraw, 0, _x + 30, _y, _escala, _escala, 0, c_white, 1);
+	} 
+	else if (_option == 7) {
 		draw_sprite_ext(_sprDraw, 0, _x - 1.8, _y, _escala, _escala, 0, c_white, 1);
 	}
 	
@@ -312,7 +317,7 @@ if (_pause) {
 		var _textArray = ["Save 1", "Save 2", "Save 3"]
 		var _numTexts = array_length(_textArray);
 		var _textSpace2 = 22 * _escala;
-		var _textX2 = _guiLarg/2 + (-16.5 * _escala);
+		var _textX2 = _guiLarg/2 + (-15.5 * _escala);
 		var _textY2 = _guiAlt/2 + (-25 * _escala);
 		draw_set_alpha(1);
 		draw_set_color(#33323d);
@@ -323,12 +328,12 @@ if (_pause) {
 		//Desenha o retangulo
 		var _recBX2 = _guiLarg/2 - 190;
 		var _recBY2 = 176;
-		var _recSX = _guiLarg/2 + 82;
+		var _recSX = _guiLarg/2 + 106;
 		var _recSY = 232;
-		draw_sprite_ext(sprSmallIcons, iconSave, _guiLarg/2 + 94, _recBY2 + 68, _escala, _escala, 0, c_white, 1);
+		draw_sprite_ext(sprSmallIcons, iconSave, _guiLarg/2 + 118, _recBY2 + 68, _escala, _escala, 0, c_white, 1);
 		
 		if (point_in_rectangle(_mouseX, _mouseY, _recBX2, _recBY2, _recBX2 + (14 * _escala), _recBY2 + (14 * _escala))) {
-			draw_sprite_ext(sprHoverButtom, 0, _recBX2, _recBY2, _escala, _escala, 0, c_white, 1);
+			draw_sprite_ext(sprHoverClose, 0, _recBX2, _recBY2, _escala, _escala, 0, c_white, 1);
 		}
 		
 		if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala), _recSY + (14 * _escala))) {
@@ -343,7 +348,7 @@ if (_pause) {
 		}
 		
 		var _recSpace2 = 22 * _escala;
-		var _recX2 = _guiLarg/2 + (-32.5 * _escala);
+		var _recX2 = _guiLarg/2 + (-31.5 * _escala);
 		var _recY2 = _guiAlt/2 + (-31 * _escala);
 		var _sprW = sprite_get_width(sprHoverSave) - 5;
 		var _sprH = sprite_get_height(sprHoverSave);

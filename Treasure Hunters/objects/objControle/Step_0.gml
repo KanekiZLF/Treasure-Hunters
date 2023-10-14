@@ -92,7 +92,11 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 				break;
 				
 				case 2: // Volta a tela de pause inicial se estiver em OPTIONS
-					global.option = 0;
+					if (room != rmInit) {
+						global.option = 0;
+					} else if (room == rmInit) {
+						global.option = 7;
+					}
 				break;
 				
 				case 3: // Volta para tela de opções se estiver no SAVE
@@ -159,7 +163,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					break;
 					
 					case 2: // Se _option == 2
-						global.option = 7;
+						
 					break;
 					
 					case 3: // Se _option == 3
@@ -234,14 +238,14 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	}// Opções da tela de save 
 } else if (_option == 1) {
 	var _recSpace = 22 * _escala;
-	var _recX = display_get_gui_width()/2 + (-32.5 * _escala);
+	var _recX = display_get_gui_width()/2 + (-31.5 * _escala);
 	var _recY = display_get_gui_height()/2 + (-31 * _escala);
 	var _sprW = sprite_get_width(sprHoverSave) - 5;
 	var _sprH = sprite_get_height(sprHoverSave);
 	var _numRetangulos = 3;
 	var _recBX = _guiLarg/2 - 190;
 	var _recBY = 176;
-	var _recSX = _guiLarg/2 + 82;
+	var _recSX = _guiLarg/2 + 106;
 	var _recSY = 232;
 	
 	//Botão para carregar o jogo dependendo de qual save foi selecionado
@@ -300,13 +304,13 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 		}
 	}
 	// Config		
-	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY, _recTX +_recSpaceX + (14 * _escala), _recTY + _recSpaceY + (14 * _escala))) {
+	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY - (16 * _escala), _recTX + _recSpaceX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala))) {
 		if (_mouseClick) {
-				
+			global.option = 2;
 		}
 	}
 	// Inventario		
-	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY - (16 * _escala), _recTX + _recSpaceX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala))) {
+	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY, _recTX +_recSpaceX + (14 * _escala), _recTY + _recSpaceY + (14 * _escala))) {
 		if (_mouseClick) {
 			
 		}
@@ -323,8 +327,16 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			
 		}
 	}
-	// Conquistas		
+	// Play		
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX - (32 * _escala), _recTY - (16 * _escala), _recTX - (32 * _escala) + (28 * _escala), _recTY - (16 * _escala) + (28 * _escala))) {
+		if (_mouseClick) {
+			global.gamepause = false;
+			global.option = noone;
+			room_goto_next();
+		}
+	}
+	// Cifrao		
+	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (52 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (38 * _escala))) {
 		if (_mouseClick) {
 			
 		}

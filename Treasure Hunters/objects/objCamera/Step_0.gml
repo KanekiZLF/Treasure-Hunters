@@ -4,7 +4,7 @@ if (instance_exists(objPlayer)) {
 	alvo = objPlayer;
 }
 
-if global.cameraActive {
+if global.cameraActive && instance_exists(objPlayer) {
 	//Seguir o player
 	x = lerp(x, alvo.x, .2);
 	y =  lerp(y, alvo.y, .2);
