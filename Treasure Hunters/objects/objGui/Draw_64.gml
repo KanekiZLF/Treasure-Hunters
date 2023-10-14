@@ -33,7 +33,7 @@ if (instance_exists(objPlayer)) {
 
 	//Barra Cores
 	draw_sprite_ext(sprLifeColor, 15, 21 * _escala, _hudAlt, (_lifes/_maxLifes) * _escala, _escala, 0, c_white, 1);
-
+	scrPrint(_lifes)
 	draw_sprite_ext(sprStaminaColor, 0, 23.5 * _escala, _hudAlt + _sprAlt, (_stamina/_maxStamina) * _escala, _escala, 0, c_white, 1);
 
 	if (_maxPoison > 0) {
@@ -97,7 +97,7 @@ var _y = (_guiAlt - _sprHeight) / 2;
 var _mouseX = device_mouse_x_to_gui(0);
 var _mouseY = device_mouse_y_to_gui(0);
 
-if (_pause) {
+if (_pause || global.gameover) {
 	
 	//Desenha a tela escura
 	draw_set_alpha(0.5); // Defina a opacidade desejada (0 a 1, onde 0 é completamente transparente e 1 é completamente opaco)
@@ -203,8 +203,30 @@ if (_pause) {
 		}
 	}
 	
-	
-
+	//Desenha o texto na tela de GAME OVER e as opções, retangulos e tudo mais !
+	if (_option == 8) {
+		var _textX2 = _guiLarg/2 + (-13 * _escala);
+		var _textY2 = _guiAlt/2 + (-63 * _escala);
+		var _recX2 = _guiLarg/2 + (-32 * _escala);
+		var _recY2 = _guiAlt/2 + (24.5 * _escala);
+		var _recSpace2 = 18 * _escala;
+		draw_text_ext_transformed(_textX2, _textY2, "Game", 10, 300, .8, .8, 0);
+		draw_text_ext_transformed(_textX2 + (28.8 * _escala), _textY2 + (-5 * _escala), "Over", 10, 300, .8, .8, 0);
+		draw_text_ext_transformed(_textX2 + (48 * _escala), _recY2 + (4.5 * _escala), "Sair", 10, 300, .8, .8, 0);
+		
+		// Cifrao
+		if (point_in_rectangle(_mouseX, _mouseY, _recX2, _recY2, _recX2 + (14 * _escala), _recY2 + (14 * _escala))) {
+			draw_sprite_ext(sprHoverButtom, 0, _recX2, _recY2, _escala, _escala, 0, c_white, 1);
+		}
+		// Play
+		else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2, _recY2, _recX2 + _recSpace2 + (28 * _escala), _recY2 + (14 * _escala))) {
+			draw_sprite_ext(sprHoverPlayOver, 0, _recX2 + _recSpace2, _recY2, _escala, _escala, 0, c_white, 1);
+		}
+		// Sair
+		else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2 + (33 * _escala), _recY2 + (1 * _escala), _recX2 + _recSpace2 + (33 * _escala) + (32 * _escala), _recY2 + (1 * _escala) + (13 * _escala))) {
+			draw_sprite_ext(sprHoverExit, 0, _recX2 + _recSpace2 + (33 * _escala), _recY2 + (1 * _escala), _escala, _escala, 0, c_white, 1);
+		}
+	}
 	
 	//Desenha o icone que ira dentro do retangulo
 	var _recBX = _guiLarg/2 - 190;

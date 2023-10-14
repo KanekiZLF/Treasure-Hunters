@@ -56,7 +56,6 @@ maxPoison = 0;
 global.lifes = maxLifes;
 global.stamina = maxStamina;
 global.poison = maxPoison;
-
 //Variaveis das barras de cor
 maxLifes2 = global.lifes;
 maxStamina2 = global.stamina;

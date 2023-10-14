@@ -2,24 +2,21 @@
 // Você pode escrever seu código neste editor
 
 var _pause = global.gamepause;
-var _gameOver = global.gameover;
+
 
 if (!_pause) {
 	script_execute(estado) //<-- Executa script
 }
-
- 
 
 attackCombo = clamp(attackCombo, -1, 3);
 lifes2 = clamp(lifes2, 0, maxLifes2);
 stamina2 = clamp(stamina2, 0, maxStamina2);
 poison2 = clamp(poison2, 0, maxPoison2);
 
-
 if global.lifes <= 0 {
 	isDead = true;
-	_gameOver = true;
-
+	global.gameover = true;
+	global.option = 8;
 	
 	// Cria o efeito de fumaça
 	if sprite_index == sprPlayerDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede) {
@@ -45,8 +42,8 @@ if (stamCost > 0) {
 	stamina2 -= 0.1;
 	stamCost -= 0.1;
 }else if (stamCost < 0) {
-	stamina2 += 0.1
-	stamCost += 0.1;
+	stamina2 += 0.2;
+	stamCost += 0.2;
 }
 
 if (poisonCost > 0) {
@@ -61,10 +58,10 @@ if (lifeCost > 0) {
 	lifes2 -= 0.1;
 	lifeCost -= 0.1;
 } else if (lifeCost < 0) {
-	lifes2 += 0.1
-	lifeCost += 0.1;
+	lifes2 += 0.2;
+	lifeCost += 0.2;
 } else if (isDead && lifes2 > 0) {
-	lifes2 -= 0.1;
+	lifes2 -= 0.2;
 }
 
 #endregion

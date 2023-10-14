@@ -1,4 +1,8 @@
-
+if (instance_exists(objPlayer)) {
+	global.lifes = clamp(global.lifes, 0, objPlayer.maxLifes)
+	global.stamina = clamp(global.stamina, 0, objPlayer.maxStamina)
+	global.poison = clamp(global.poison, 0, objPlayer.maxPoison)
+}
 #region Efeitos da espada
 
 if instance_exists(objSword) {
@@ -339,6 +343,35 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (52 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (38 * _escala))) {
 		if (_mouseClick) {
 			
+		}
+	}
+} else if (_option == 8) {
+	var _textX2 = _guiLarg/2 + (-13 * _escala);
+	var _textY2 = _guiAlt/2 + (-63 * _escala);
+	var _recX2 = _guiLarg/2 + (-32 * _escala);
+	var _recY2 = _guiAlt/2 + (24.5 * _escala);
+	var _recSpace2 = 18 * _escala;
+	
+	// Cifrao
+	if (point_in_rectangle(_mouseX, _mouseY, _recX2, _recY2, _recX2 + (14 * _escala), _recY2 + (14 * _escala))) {
+		if (_mouseClick) {
+			
+		}
+	}
+	// Play
+	else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2, _recY2, _recX2 + _recSpace2 + (28 * _escala), _recY2 + (14 * _escala))) {
+		if (_mouseClick) {
+			global.gameover = false;
+			global.gamepause = noone;
+			objPlayer.direc = 0;
+			objPlayer.isDead = false;
+			scrRecharge(10, 10) //<-- Define a recarga para Lifes, Stamina e Poison
+		}
+	}
+	// Sair
+	else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2 + (33 * _escala), _recY2 + (1 * _escala), _recX2 + _recSpace2 + (33 * _escala) + (32 * _escala), _recY2 + (1 * _escala) + (13 * _escala))) {
+		if (_mouseClick) {
+			game_end();
 		}
 	}
 }

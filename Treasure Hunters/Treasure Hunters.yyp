@@ -117,7 +117,7 @@
     {"id":{"name":"sprPinkStarRun","path":"sprites/sprPinkStarRun/sprPinkStarRun.yy",},},
     {"id":{"name":"sprSwordAttackAir1","path":"sprites/sprSwordAttackAir1/sprSwordAttackAir1.yy",},},
     {"id":{"name":"sprBannerInfoExit","path":"sprites/sprBannerInfoExit/sprBannerInfoExit.yy",},},
-    {"id":{"name":"rmInit2","path":"rooms/rmInit2/rmInit2.yy",},},
+    {"id":{"name":"Fase1","path":"rooms/Fase1/Fase1.yy",},},
     {"id":{"name":"sprSwordAttack2","path":"sprites/sprSwordAttack2/sprSwordAttack2.yy",},},
     {"id":{"name":"sprSailTransitionToWind","path":"sprites/sprSailTransitionToWind/sprSailTransitionToWind.yy",},},
     {"id":{"name":"sprWaterTop","path":"sprites/sprWaterTop/sprWaterTop.yy",},},
@@ -125,6 +125,7 @@
     {"id":{"name":"toThrowSword","path":"scripts/toThrowSword/toThrowSword.yy",},},
     {"id":{"name":"sprHead1Attack2","path":"sprites/sprHead1Attack2/sprHead1Attack2.yy",},},
     {"id":{"name":"objSlidersVolume","path":"objects/objSlidersVolume/objSlidersVolume.yy",},},
+    {"id":{"name":"sprHoverExit","path":"sprites/sprHoverExit/sprHoverExit.yy",},},
     {"id":{"name":"sprCannonHit","path":"sprites/sprCannonHit/sprCannonHit.yy",},},
     {"id":{"name":"sprSealShellDestroyed","path":"sprites/sprSealShellDestroyed/sprSealShellDestroyed.yy",},},
     {"id":{"name":"sprSaveBoard","path":"sprites/sprSaveBoard/sprSaveBoard.yy",},},
@@ -176,6 +177,7 @@
     {"id":{"name":"sprBarrelHit","path":"sprites/sprBarrelHit/sprBarrelHit.yy",},},
     {"id":{"name":"scrWait","path":"scripts/scrWait/scrWait.yy",},},
     {"id":{"name":"sprPoisonBar","path":"sprites/sprPoisonBar/sprPoisonBar.yy",},},
+    {"id":{"name":"sprHoverPlayOver","path":"sprites/sprHoverPlayOver/sprHoverPlayOver.yy",},},
     {"id":{"name":"sprSwordAttackAir2","path":"sprites/sprSwordAttackAir2/sprSwordAttackAir2.yy",},},
     {"id":{"name":"sprHead3Idle1","path":"sprites/sprHead3Idle1/sprHead3Idle1.yy",},},
     {"id":{"name":"sprCandle","path":"sprites/sprCandle/sprCandle.yy",},},
@@ -361,7 +363,7 @@
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
-    {"roomId":{"name":"rmInit2","path":"rooms/rmInit2/rmInit2.yy",},},
+    {"roomId":{"name":"Fase1","path":"rooms/Fase1/Fase1.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [
