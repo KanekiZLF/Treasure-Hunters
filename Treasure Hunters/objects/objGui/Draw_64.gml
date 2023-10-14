@@ -31,12 +31,12 @@ if (_maxPoison > 0) {
 
 
 //Barra Cores
-draw_sprite_ext(sprLifeColor, 15, 22 * _escala, _hudAlt, (_lifes/_maxLifes) * _escala, _escala, 0, c_white, 1);
+draw_sprite_ext(sprLifeColor, 15, 21 * _escala, _hudAlt, (_lifes/_maxLifes) * _escala, _escala, 0, c_white, 1);
 
-draw_sprite_ext(sprStaminaColor, 0, 26 * _escala, _hudAlt + _sprAlt, (_stamina/_maxStamina) * _escala, _escala, 0, c_white, 1);
+draw_sprite_ext(sprStaminaColor, 0, 23.5 * _escala, _hudAlt + _sprAlt, (_stamina/_maxStamina) * _escala, _escala, 0, c_white, 1);
 
 if (_maxPoison > 0) {
-	draw_sprite_ext(sprPoisonColor, 0, 26 * _escala, _hudAlt + _sprAlt + _sprAlt2, (_poison/_maxPoison2) * _escala, _escala, 0, c_white, 1);
+	draw_sprite_ext(sprPoisonColor, 0, 23.5 * _escala, _hudAlt + _sprAlt + _sprAlt2, (_poison/_maxPoison2) * _escala, _escala, 0, c_white, 1);
 }
 
 #endregion
@@ -171,14 +171,30 @@ if (_pause) {
 		// Sair		
 		else if (point_in_rectangle(_mouseX, _mouseY, _recTX2, _recTY2, _recTX2 + (33 * _escala), _recTY2 + (12 * _escala))) {
 			draw_sprite_ext(sprHoverMain2, 0, _recTX2, _recTY2, _escala, _escala, 0, c_white, 1);
-		}
+		}		
 		// Config		
+		else if (point_in_rectangle(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY - (16 * _escala), _recTX + _recSpaceX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala))) {
+			draw_sprite_ext(sprHoverClose, 0, _recTX + _recSpaceX, _recTY + _recSpaceY - (16 * _escala), _escala, _escala, 0, c_white, 1);
+		}
+		// Inventario		
 		else if (point_in_rectangle(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY, _recTX +_recSpaceX + (14 * _escala), _recTY + _recSpaceY + (14 * _escala))) {
 			draw_sprite_ext(sprHoverClose, 0, _recTX + _recSpaceX, _recTY + _recSpaceY, _escala, _escala, 0, c_white, 1);
 		}
-		// Inventario		
-		else if (point_in_rectangle(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY - (16 * _escala), _recTX + _recSpaceX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala))) {
-			draw_sprite_ext(sprHoverClose, 0, _recTX + _recSpaceX, _recTY + _recSpaceY - (16 * _escala), _escala, _escala, 0, c_white, 1);
+		// Conquistas		
+		else if (point_in_rectangle(_mouseX, _mouseY, _recTX, _recTY + _recSpaceY - (16 * _escala), _recTX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala))) {
+			draw_sprite_ext(sprHoverClose, 0, _recTX, _recTY + _recSpaceY - (16 * _escala), _escala, _escala, 0, c_white, 1);
+		}
+		// Carrinho		
+		else if (point_in_rectangle(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (33 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (19 * _escala))) {
+			draw_sprite_ext(sprHoverClose, 0, _recTX + 156, _recTY + _recSpaceY - (33 * _escala), _escala, _escala, 0, c_white, 1);
+		}
+		// Play		
+		else if (point_in_rectangle(_mouseX, _mouseY, _recTX - (32 * _escala), _recTY - (16 * _escala), _recTX - (32 * _escala) + (28 * _escala), _recTY - (16 * _escala) + (28 * _escala))) {
+			draw_sprite_ext(sprHoverPlay, 0, _recTX - (32 * _escala), _recTY - (16 * _escala), _escala, _escala, 0, c_white, 1);
+		}
+		// Cifrao		
+		else if (point_in_rectangle(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (52 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (38 * _escala))) {
+			draw_sprite_ext(sprHoverCifrao, 0, _recTX + 156, _recTY + _recSpaceY - (52 * _escala), _escala, _escala, 0, c_white, 1);
 		}
 	}
 	

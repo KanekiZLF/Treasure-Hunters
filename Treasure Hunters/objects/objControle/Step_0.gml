@@ -311,6 +311,24 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			
 		}
 	}
+	// Conquistas		
+	else if (point_in_rectangle(_mouseX, _mouseY, _recTX, _recTY + _recSpaceY - (16 * _escala), _recTX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala))) {
+		if (_mouseClick) {
+			
+		}
+	}
+	// Carrinho		
+	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (33 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (19 * _escala))) {
+		if (_mouseClick) {
+			
+		}
+	}
+	// Conquistas		
+	else if (point_in_rectangle(_mouseX, _mouseY, _recTX - (32 * _escala), _recTY - (16 * _escala), _recTX - (32 * _escala) + (28 * _escala), _recTY - (16 * _escala) + (28 * _escala))) {
+		if (_mouseClick) {
+			
+		}
+	}
 }
 
 #endregion
