@@ -131,6 +131,7 @@
     {"name":"sprHoverClose","order":2,"path":"sprites/sprHoverClose/sprHoverClose.yy",},
     {"name":"sprCrabbyDeadGround","order":10,"path":"sprites/sprCrabbyDeadGround/sprCrabbyDeadGround.yy",},
     {"name":"sprSliderTop1","order":1,"path":"sprites/sprSliderTop1/sprSliderTop1.yy",},
+    {"name":"sprCoinsBoard","order":14,"path":"sprites/sprCoinsBoard/sprCoinsBoard.yy",},
     {"name":"scrDirec","order":4,"path":"scripts/scrDirec/scrDirec.yy",},
     {"name":"sprHead2Attack2","order":2,"path":"sprites/sprHead2Attack2/sprHead2Attack2.yy",},
     {"name":"FrontAndBottom","order":2,"path":"sprites/FrontAndBottom/FrontAndBottom.yy",},

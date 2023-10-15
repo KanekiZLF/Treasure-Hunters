@@ -165,6 +165,7 @@
     {"id":{"name":"sprHoverClose","path":"sprites/sprHoverClose/sprHoverClose.yy",},},
     {"id":{"name":"sprCrabbyDeadGround","path":"sprites/sprCrabbyDeadGround/sprCrabbyDeadGround.yy",},},
     {"id":{"name":"sprSliderTop1","path":"sprites/sprSliderTop1/sprSliderTop1.yy",},},
+    {"id":{"name":"sprCoinsBoard","path":"sprites/sprCoinsBoard/sprCoinsBoard.yy",},},
     {"id":{"name":"scrDirec","path":"scripts/scrDirec/scrDirec.yy",},},
     {"id":{"name":"sprHead2Attack2","path":"sprites/sprHead2Attack2/sprHead2Attack2.yy",},},
     {"id":{"name":"FrontAndBottom","path":"sprites/FrontAndBottom/FrontAndBottom.yy",},},

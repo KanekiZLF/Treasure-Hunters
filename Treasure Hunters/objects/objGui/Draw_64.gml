@@ -5,6 +5,7 @@
 
 var _pause = global.gamepause;
 var _option = global.option;
+var _selectedSave = global.save;
 var _escala = 4;
 var _guiAlt = display_get_gui_height();
 var _guiLarg = display_get_gui_width();
@@ -161,6 +162,7 @@ if (_pause || global.gameover) {
 		draw_text_ext_transformed(_textX + 13.8, _guiAlt/2 + 57.5, "Play", 10, 300, .7, .7, 0);
 		draw_text_ext_transformed(_textX + 149.8, _guiAlt/2 + 95, "Guia", 10, 300, .7, .7, 0);
 		draw_text_ext_transformed(_textX + 272.8, _guiAlt/2 + 115, "Sair", 10, 300, .7, .7, 0);
+		draw_text_ext_transformed(_textX + (3.5 * _escala), _guiAlt/2 + (-14 * _escala), "Treasure Hunters", 50, 300, 1, 1, 0);
 		
 		// Desenha o retangulo do HOVER
 		var _recTX = _textX + 85.8;
@@ -319,8 +321,10 @@ if (_pause || global.gameover) {
 	var textArray = [];
 	if (_option == 0) {
 		textArray = ["Continuar", "Salvar", "Options", "Sair"];
-	} else if (_option == 2) {
+	} else if (_option == 2 && room != rmInit) {
 		textArray = ["Guia", "Controles", "Audio", "Creditos"];
+	} else if (_option == 2 && room == rmInit) { 
+		textArray = ["Carregar", "Controles", "Audio", "Creditos"];
 	}
 	
 	var numTexts = array_length(textArray);
@@ -369,6 +373,34 @@ if (_pause || global.gameover) {
 			draw_text_ext_transformed(_textX2, textY, _text, 10, 300, .65, .65, 0);
 		}
 		
+		//Desenha a tabela de pontos
+		draw_set_color(#75ffff)
+		var _posPX = _guiLarg/2 + (20 * _escala);
+		var _posPY = _guiAlt/2 - (12 * _escala);
+		var _textX3 = _guiLarg/2 + (40 * _escala);
+		var _textY3 = _guiAlt/2 - (10.5 * _escala);
+		var _textSpace3 = 10 * _escala;
+		draw_sprite_ext(sprCoinsBoard, 0, _posPX, _posPY, 2.6, 2.6, 0, c_white, 1);
+		
+		switch(_selectedSave) {
+			default:
+				show_message("Erro ao selecionar save");
+			break;
+			
+			case 0:
+				draw_text_ext_transformed(_textX3, _textY3, "x9999", 10, 300, .6, .6, 0);
+			break;
+			
+			case 1:
+			
+			break;
+			
+			case 2:
+			
+			break;
+		}
+		
+		// Dsenha o hover das opções de save
 		var _recSpace2 = 22 * _escala;
 		var _recX2 = _guiLarg/2 + (-31.5 * _escala);
 		var _recY2 = _guiAlt/2 + (-31 * _escala);

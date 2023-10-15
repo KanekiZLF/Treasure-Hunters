@@ -108,12 +108,16 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 				break;
 				
 				case 4: // Volta para tela de opções se estiver em GUIA
-					global.option = 2;
+					if (room != rmInit) {
+						global.option = 2;
+					} else if (room == rmInit) {
+						global.option = 7;
+					}
 				break;
 			}
 		}
 	}
-	
+
 	// Tela de opções 
 	for (var i = 0; i < _numRetangulos; i++) {
 	    var rectTop = _recY + (i * _recSpace); // Coordenada Y do topo do retângulo
@@ -138,7 +142,11 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					break;
 					
 					case 2: // Se _option == 2
+					if (room != rmInit) {
 						global.option = 4;
+					} else if (room == rmInit) {
+						global.option = 1;
+					}
 					break;
 					
 					case 3: // Se _option == 3
@@ -260,7 +268,11 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	//Retangulo da seta voltar da tela de save
 	if (point_in_rectangle(_mouseX, _mouseY, _recBX, _recBY, _recBX + (14 * _escala), _recBY + (14 * _escala))) {
 		if (device_mouse_check_button_pressed(0, mb_left)) {
-			global.option = 0;
+			if (room != rmInit) {
+				global.option = 0;
+			} else if (room == rmInit) {
+				global.option = 2;
+			}
 		}
 	}
 	
@@ -271,17 +283,17 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (32 * _escala), rectBottom) {
 		//Save 1
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 0) {
-				
+				global.save = 0;
 			}
 			
 		//Save 2
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
-				
+				global.save = 1;
 			}
 			
 		//Save 3
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 2) {
-				
+				global.save = 2;
 			}
 		break; // Encerre o loop após encontrar um retângulo
 		}
