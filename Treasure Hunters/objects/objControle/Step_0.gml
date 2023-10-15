@@ -1,8 +1,18 @@
+#region Variaveis do Player
+
 if (instance_exists(objPlayer)) {
 	global.lifes = clamp(global.lifes, 0, objPlayer.maxLifes)
 	global.stamina = clamp(global.stamina, 0, objPlayer.maxStamina)
 	global.poison = clamp(global.poison, 0, objPlayer.maxPoison)
+	global.coinsSilver = objPlayer.coinsSilver;
+	global.coinsGold = objPlayer.coinsGold;
+	global.coinsDiamond = objPlayer.coinsDiamond;
+	global.coinsSaphire = objPlayer.coinsSaphire;
+	global.coinsRuby = objPlayer.coinsRuby;
 }
+
+#endregion
+
 #region Efeitos da espada
 
 if instance_exists(objSword) {

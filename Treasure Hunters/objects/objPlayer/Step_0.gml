@@ -3,7 +3,6 @@
 
 var _pause = global.gamepause;
 
-
 if (!_pause) {
 	script_execute(estado) //<-- Executa script
 }

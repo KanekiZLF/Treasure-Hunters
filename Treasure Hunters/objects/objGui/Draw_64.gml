@@ -375,12 +375,24 @@ if (_pause || global.gameover) {
 		
 		//Desenha a tabela de pontos
 		draw_set_color(#75ffff)
+		draw_set_halign(fa_center)
 		var _posPX = _guiLarg/2 + (20 * _escala);
 		var _posPY = _guiAlt/2 - (12 * _escala);
-		var _textX3 = _guiLarg/2 + (40 * _escala);
-		var _textY3 = _guiAlt/2 - (10.5 * _escala);
-		var _textSpace3 = 10 * _escala;
 		draw_sprite_ext(sprCoinsBoard, 0, _posPX, _posPY, 2.6, 2.6, 0, c_white, 1);
+		
+		function drawCoinsText() {
+			var _escala = 4;
+			var _guiLarg = display_get_gui_width();
+			var _guiAlt = display_get_gui_height();
+			var _textX3 = _guiLarg/2 + (40 * _escala);
+			var _textY3 = _guiAlt/2 - (10.5 * _escala);
+			var _textSpace3 = 37;
+			draw_text_ext_transformed(_textX3, _textY3, "x" + string(global.coinsSilver), 10, 300, .6, .6, 0);
+			draw_text_ext_transformed(_textX3, _textY3 + _textSpace3, "x" + string(global.coinsGold), 10, 300, .6, .6, 0);
+			draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 2), "x" + string(global.coinsDiamond), 10, 300, .6, .6, 0);
+			draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 3), "x" + string(global.coinsSaphire), 10, 300, .6, .6, 0);
+			draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 4), "x" + string(global.coinsRuby), 10, 300, .6, .6, 0);
+		}
 		
 		switch(_selectedSave) {
 			default:
@@ -388,15 +400,15 @@ if (_pause || global.gameover) {
 			break;
 			
 			case 0:
-				draw_text_ext_transformed(_textX3, _textY3, "x9999", 10, 300, .6, .6, 0);
+				drawCoinsText()
 			break;
 			
 			case 1:
-			
+				drawCoinsText()
 			break;
 			
 			case 2:
-			
+				drawCoinsText()
 			break;
 		}
 		
