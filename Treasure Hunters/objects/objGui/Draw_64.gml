@@ -90,6 +90,9 @@ switch(_option) {
 		_sprDraw = sprGameOverBoard; // Tela Game Over
 	break;
 	
+	case 9:
+		_sprDraw = sprShopBoard;
+	break;
 }
 var _sprWidht = sprite_get_width(_sprDraw) * _escala;
 var _sprHeight = sprite_get_height(_sprDraw) * _escala;
@@ -113,6 +116,9 @@ if (_pause || global.gameover) {
 	} 
 	else if (_option == 7) {
 		draw_sprite_ext(_sprDraw, 0, _x - 1.8, _y, _escala, _escala, 0, c_white, 1);
+	}
+	else if (_option == 9) {
+		draw_sprite_ext(_sprDraw, 0, _x, _y, _escala, _escala, 0, c_white, 1);
 	}
 	
 	// Desenha as opções do AUDIO
@@ -229,6 +235,43 @@ if (_pause || global.gameover) {
 			draw_sprite_ext(sprHoverExit, 0, _recX2 + _recSpace2 + (33 * _escala), _recY2 + (1 * _escala), _escala, _escala, 0, c_white, 1);
 		}
 	}
+		
+	// Desenha as opções do Shop/Mercado
+	if (_option == 9) {
+		var _coinX = _guiLarg/2 + (-50 * _escala);
+		var _coinY = _guiAlt/2;
+		var _coinScale = 2.2;
+		var _coinSpaceX = 30 * _escala;
+		var _coinSpaceY = 30 * _escala;
+		var _coinTextSpace = 10 * _escala;
+		draw_set_color(#33323D);
+		
+		// Itens
+		draw_sprite_ext(sprGoldCoin, 0, _coinX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
+		draw_text_ext_transformed(_coinX + 40, _coinY - 18.5, "150", 10, 300, .6, .6, 0);
+		
+		draw_sprite_ext(sprGoldCoin, 0, _coinX + _coinSpaceX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
+		draw_text_ext_transformed(_coinX + (40 * 4), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
+		
+		draw_sprite_ext(sprGoldCoin, 0, _coinX + (_coinSpaceX * 2), _coinY, _coinScale, _coinScale, 0, c_white, 1);
+		draw_text_ext_transformed(_coinX + (40 * 7), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
+		
+		draw_sprite_ext(sprGoldCoin, 0, _coinX + (_coinSpaceX * 3), _coinY, _coinScale, _coinScale, 0, c_white, 1);
+		draw_text_ext_transformed(_coinX + (40 * 10), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
+		
+		// Upgrades
+		draw_sprite_ext(sprGoldCoin, 0, _coinX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
+		draw_text_ext_transformed(_coinX + 40, _coinY - 18.5, "150", 10, 300, .6, .6, 0);
+		
+		draw_sprite_ext(sprGoldCoin, 0, _coinX + _coinSpaceX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
+		draw_text_ext_transformed(_coinX + (40 * 4), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
+		
+		draw_sprite_ext(sprGoldCoin, 0, _coinX + (_coinSpaceX * 2), _coinY, _coinScale, _coinScale, 0, c_white, 1);
+		draw_text_ext_transformed(_coinX + (40 * 7), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
+		
+		draw_sprite_ext(sprGoldCoin, 0, _coinX + (_coinSpaceX * 3), _coinY, _coinScale, _coinScale, 0, c_white, 1);
+		draw_text_ext_transformed(_coinX + (40 * 10), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
+	}
 	
 	//Desenha o icone que ira dentro do retangulo
 	var _recBX = _guiLarg/2 - 190;
@@ -251,9 +294,13 @@ if (_pause || global.gameover) {
 	//draw_rectangle(_recX, _recY, _recX + (72 * _escala), _recY + (14 * _escala), true);
 		
 	//Desenha texto do menu inicial
-	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "ERRO"];
+	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Inventario","ERRO"];
 	var _textSelected = 0;
 	switch (_option) {
+	    default: // Define erro caso não exista a seleção
+	        _textSelected = _menuText[7];
+	     break;
+		 
 	    case 0:// Pause
 	        _textSelected = _menuText[0];
 	     break;
@@ -290,14 +337,23 @@ if (_pause || global.gameover) {
 	       _textSelected = noone;
 	    break;
 		
-	    default: // Define erro caso não exista a seleção
-	        _textSelected = _menuText[6];
-	     break;
+		case 9: // Tela Shop/Mercado
+	       _textSelected = _menuText[6];
+	    break;
+		
+		case 10: // Tela Inventario
+	       _textSelected = _menuText[7];
+	    break;
 	}
 	
 	// Desenha o texto selecionado
 	if (_textSelected != noone) {
-		draw_text_ext_transformed(_textX + (3.5 * _escala), _textY - (38 * _escala), _textSelected, 10, 300, .8, .8, 0);
+		if (_option != 9) {
+			draw_text_ext_transformed(_textX + (3.5 * _escala), _textY - (38 * _escala), _textSelected, 10, 300, .8, .8, 0);
+		} 
+		else if (_option == 9) {
+			draw_text_ext_transformed(_textX + (5.5 * _escala), _textY - (52.5 * _escala), _textSelected, 10, 300, .8, .8, 0);
+		}
 	}
 	
 	// Retangulos do menu principal e do options

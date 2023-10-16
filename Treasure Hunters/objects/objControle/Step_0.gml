@@ -48,6 +48,7 @@ _option 5 = Tela Controles
 _option 6 = Tela Creditos
 _option 7 = Tela Inicial
 _option 8 = Tela Game Over
+_option 9 = Tela do Shop
 */
 
 var _option = global.option;
@@ -185,7 +186,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					break;
 					
 					case 2: // Se _option == 2
-						
+						global.option = 9;
 					break;
 					
 					case 3: // Se _option == 3
