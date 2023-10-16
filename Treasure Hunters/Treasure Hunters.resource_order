@@ -66,6 +66,7 @@
     {"name":"sprTraps","order":13,"path":"folders/Sprites/sprTraps.yy",},
     {"name":"sprSpike","order":1,"path":"folders/Sprites/sprTraps/sprSpike.yy",},
     {"name":"sprWater","order":8,"path":"folders/Sprites/sprWater.yy",},
+    {"name":"sprShop","order":9,"path":"folders/Sprites/sprGUI/sprShop.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprPlayerIdle","order":1,"path":"sprites/sprPlayerIdle/sprPlayerIdle.yy",},
@@ -211,6 +212,7 @@
     {"name":"sprPinkStarIdle","order":1,"path":"sprites/sprPinkStarIdle/sprPinkStarIdle.yy",},
     {"name":"sprHead3Attack2","order":2,"path":"sprites/sprHead3Attack2/sprHead3Attack2.yy",},
     {"name":"sprCannonBallDestroyed","order":1,"path":"sprites/sprCannonBallDestroyed/sprCannonBallDestroyed.yy",},
+    {"name":"sprShopBoard","order":15,"path":"sprites/sprShopBoard/sprShopBoard.yy",},
     {"name":"sprHead1Idle1","order":6,"path":"sprites/sprHead1Idle1/sprHead1Idle1.yy",},
     {"name":"sprPlayerDeadGround","order":8,"path":"sprites/sprPlayerDeadGround/sprPlayerDeadGround.yy",},
     {"name":"sprPlayerSwordAtack3","order":8,"path":"sprites/sprPlayerSwordAtack3/sprPlayerSwordAtack3.yy",},
