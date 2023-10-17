@@ -243,34 +243,32 @@ if (_pause || global.gameover) {
 		var _coinScale = 2.2;
 		var _coinSpaceX = 30 * _escala;
 		var _coinSpaceY = 30 * _escala;
-		var _coinTextSpace = 10 * _escala;
+		var _coinTextSpace = 30 * _escala;
+		var _numCoins = 4;
 		draw_set_color(#33323D);
-		
-		// Itens
-		draw_sprite_ext(sprGoldCoin, 0, _coinX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
-		draw_text_ext_transformed(_coinX + 40, _coinY - 18.5, "150", 10, 300, .6, .6, 0);
-		
-		draw_sprite_ext(sprGoldCoin, 0, _coinX + _coinSpaceX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
-		draw_text_ext_transformed(_coinX + (40 * 4), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
-		
-		draw_sprite_ext(sprGoldCoin, 0, _coinX + (_coinSpaceX * 2), _coinY, _coinScale, _coinScale, 0, c_white, 1);
-		draw_text_ext_transformed(_coinX + (40 * 7), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
-		
-		draw_sprite_ext(sprGoldCoin, 0, _coinX + (_coinSpaceX * 3), _coinY, _coinScale, _coinScale, 0, c_white, 1);
-		draw_text_ext_transformed(_coinX + (40 * 10), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
-		
-		// Upgrades
-		draw_sprite_ext(sprGoldCoin, 0, _coinX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
-		draw_text_ext_transformed(_coinX + 40, _coinY - 18.5, "150", 10, 300, .6, .6, 0);
-		
-		draw_sprite_ext(sprGoldCoin, 0, _coinX + _coinSpaceX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
-		draw_text_ext_transformed(_coinX + (40 * 4), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
-		
-		draw_sprite_ext(sprGoldCoin, 0, _coinX + (_coinSpaceX * 2), _coinY, _coinScale, _coinScale, 0, c_white, 1);
-		draw_text_ext_transformed(_coinX + (40 * 7), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
-		
-		draw_sprite_ext(sprGoldCoin, 0, _coinX + (_coinSpaceX * 3), _coinY, _coinScale, _coinScale, 0, c_white, 1);
-		draw_text_ext_transformed(_coinX + (40 * 10), _coinY - 18.5, "150", 10, 300, .6, .6, 0);
+
+		for (var i = 0; i < _numCoins; i++) {
+		    var _coinXX = _coinX + (i * _coinSpaceX);
+			var _coinYY = _coinY + (50 * _escala)
+			
+			//Itens
+			
+		    // Array para os sprites e legendas fica no criar
+
+		    // Desenhe a moeda
+		    draw_sprite_ext(coinSprites[i], 0, _coinXX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
+
+		    // Desenhe a legenda
+		    draw_text_ext_transformed(_coinX + (10 * _escala + _coinTextSpace * i), _coinY - 18.8, coinLabels[i], 10, 300, .6, .6, 0);
+			
+			//Upgrades
+			
+			// Desenhe a moeda
+		    draw_sprite_ext(coinSprites2[i], 0, _coinXX, _coinYY, _coinScale, _coinScale, 0, c_white, 1);
+
+		    // Desenhe a legenda
+		    draw_text_ext_transformed(_coinX + (10 * _escala + _coinTextSpace * i), _coinYY - 18.8, coinLabels2[i], 10, 300, .6, .6, 0);
+		}
 	}
 	
 	//Desenha o icone que ira dentro do retangulo
