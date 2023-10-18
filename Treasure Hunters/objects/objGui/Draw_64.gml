@@ -269,6 +269,25 @@ if (_pause || global.gameover) {
 		    // Desenhe a legenda
 		    draw_text_ext_transformed(_coinX + (10 * _escala + _coinTextSpace * i), _coinYY - 18.8, coinLabels2[i], 10, 300, .6, .6, 0);
 		}
+		
+		// Desenha o hover nos cards
+		var _recSX = _guiLarg/2 + (-57 * _escala);
+		var _recSY = _guiAlt/2 + (2.5 * _escala);
+		if (point_in_rectangle(_mouseX, _mouseY, _recSX, _recSY, _recSX + (28 * _escala), _recSY + (39 * _escala))) {
+			draw_sprite_ext(sprHoverShop, 1, _recSX, _recSY, _escala, _escala, 0, c_white, 1);
+		}
+		
+		//Itens
+		draw_sprite_ext(sprRedPotion, 0, _coinX + (6.2 * _escala), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+		draw_sprite_ext(sprBluePotion, 0, _coinX + (6.2 * _escala + _coinSpaceX), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+		draw_sprite_ext(sprGreenBottle, 0, _coinX + (6.2 * _escala + _coinSpaceX * 2), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+		draw_sprite_ext(sprCoinsSell, 0, _coinX + (7 * _escala + _coinSpaceX * 3), _coinY + (-17 * _escala), 3.8, 3.8, 0, c_white, 1);
+		
+		//Upgrades
+		draw_sprite_ext(sprIconsShop, 3, _coinX + (6.8 * _escala), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
+		draw_sprite_ext(sprIconsShop, 2, _coinX + (6.8 * _escala + _coinSpaceX), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
+		draw_sprite_ext(sprIconsShop, 1, _coinX + (6.8 * _escala + (_coinSpaceX * 2)), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
+		draw_sprite_ext(sprIconsShop, 0, _coinX + (6.8 * _escala + (_coinSpaceX * 3)), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
 	}
 	
 	//Desenha o icone que ira dentro do retangulo
