@@ -49,6 +49,7 @@ _option 6 = Tela Creditos
 _option 7 = Tela Inicial
 _option 8 = Tela Game Over
 _option 9 = Tela do Shop
+_option 10 = Tela do Inventario
 */
 
 var _option = global.option;
@@ -351,7 +352,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	// Carrinho		
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (33 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (19 * _escala))) {
 		if (_mouseClick) {
-			
+			global.option = 9;
 		}
 	}
 	// Play		
@@ -395,6 +396,62 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2 + (33 * _escala), _recY2 + (1 * _escala), _recX2 + _recSpace2 + (33 * _escala) + (32 * _escala), _recY2 + (1 * _escala) + (13 * _escala))) {
 		if (_mouseClick) {
 			game_end();
+		}
+	}
+} else if (_option == 9) {
+	// Parte dos cards da loja
+	var _recSX = _guiLarg/2 + (-57 * _escala);
+	var _recSY = _guiAlt/2 + (2.5 * _escala);
+	var _coinX = _guiLarg/2 + (-50 * _escala);
+	var _coinY = _guiAlt/2;
+	var _recSSpace = 30 * _escala;
+	var _recSSpace2 = -50 * _escala;
+	var _recBackSpaceX = -19 * _escala;
+	var _recBackSpaceY = -60.5 * _escala;
+	var _numRetangulos = 4;
+	
+	// Seta voltar do shops
+	if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY))) {
+			if (room != rmInit) {
+				if (_mouseClick) {
+					global.option = 2; // Volta para o inventario
+				}
+			} else if (room == rmInit) {
+				if (_mouseClick) {
+					global.option = 7;
+				}
+			}
+		}
+	
+	
+	for (var i = 0; i < _numRetangulos; i++) {
+		if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala + _recSSpace2))) {
+			if (_mouseClick && i == 0) {
+				scrPrint("CIMA: " + string(i));
+			}
+			else if (_mouseClick && i == 1) {
+				scrPrint("CIMA: " + string(i));
+			} 
+			else if (_mouseClick && i == 2) {
+				scrPrint("CIMA: " + string(i));
+			} 
+			else if (_mouseClick && i == 3) {
+				scrPrint("CIMA: " + string(i));
+			} 
+		}
+		else if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala))) {
+			if (_mouseClick && i == 0) {
+				scrPrint("BAIXO: " + string(i));
+			}
+			else if (_mouseClick && i == 1) {
+				scrPrint("BAIXO: " + string(i));
+			} 
+			else if (_mouseClick && i == 2) {
+				scrPrint("BAIXO: " + string(i));
+			} 
+			else if (_mouseClick && i == 3) {
+				scrPrint("BAIXO: " + string(i));
+			} 
 		}
 	}
 }

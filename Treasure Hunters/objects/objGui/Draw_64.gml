@@ -93,6 +93,10 @@ switch(_option) {
 	case 9:
 		_sprDraw = sprShopBoard;
 	break;
+	
+	case 10:
+		_sprDraw = sprInventoryBoard;
+	break;
 }
 var _sprWidht = sprite_get_width(_sprDraw) * _escala;
 var _sprHeight = sprite_get_height(_sprDraw) * _escala;
@@ -244,9 +248,17 @@ if (_pause || global.gameover) {
 		var _coinSpaceX = 30 * _escala;
 		var _coinSpaceY = 30 * _escala;
 		var _coinTextSpace = 30 * _escala;
+		var _recBackSpaceX = -19 * _escala;
+		var _recBackSpaceY = -60.5 * _escala;
 		var _numCoins = 4;
 		draw_set_color(#33323D);
 
+		// Hover da seta voltar
+		if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY))) {
+			draw_sprite_ext(sprHoverButtom, 0, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _escala, _escala, 0, c_white, 1);
+		}
+		
+		
 		for (var i = 0; i < _numCoins; i++) {
 		    var _coinXX = _coinX + (i * _coinSpaceX);
 			var _coinYY = _coinY + (50 * _escala)
@@ -273,8 +285,16 @@ if (_pause || global.gameover) {
 		// Desenha o hover nos cards
 		var _recSX = _guiLarg/2 + (-57 * _escala);
 		var _recSY = _guiAlt/2 + (2.5 * _escala);
-		if (point_in_rectangle(_mouseX, _mouseY, _recSX, _recSY, _recSX + (28 * _escala), _recSY + (39 * _escala))) {
-			draw_sprite_ext(sprHoverShop, 1, _recSX, _recSY, _escala, _escala, 0, c_white, 1);
+		var _recSSpace = 30 * _escala;
+		var _recSSpace2 = -50 * _escala;
+		var _numRetangulos = 4;
+		for (var i = 0; i < _numRetangulos; i++) {
+			if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala))) {
+				draw_sprite_ext(sprHoverShop, 1, _recSX + (_recSSpace * i), _recSY, _escala, _escala, 0, c_white, 1);
+			}
+			else if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala + _recSSpace2))) {
+				draw_sprite_ext(sprHoverShop, 0, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _escala, _escala, 0, c_white, 1);
+			}
 		}
 		
 		//Itens
