@@ -338,11 +338,12 @@ if (_pause || global.gameover) {
 			draw_sprite_ext(sprIconsShop, 1, _coinX + (6.8 * _escala + (_coinSpaceX * 2)), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
 			draw_sprite_ext(sprIconsShop, 0, _coinX + (6.8 * _escala + (_coinSpaceX * 3)), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
 		} else if (_option == 10) {
-			var _spaceY = 32 * _escala;
+			var _spaceY = 24.5 * _escala;
 			//Itens
-			draw_sprite_ext(sprDiamondCoin, 0, _coinX + (6.2 * _escala), _coinY + _spaceY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
-			draw_sprite_ext(sprSaphireCoin, 0, _coinX + (6.2 * _escala + _coinSpaceX), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
-			draw_sprite_ext(sprRubyCoin, 0, _coinX + (6.2 * _escala + _coinSpaceX * 2), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprDiamondCoin, 0, _coinX + (7 * _escala), _coinY + _spaceY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprSaphireCoin, 0, _coinX + (7 * _escala + _coinSpaceX), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprRubyCoin, 0, _coinX + (7 * _escala + _coinSpaceX * 2), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprSkullSell, 0, _coinX + (7 * _escala + (_coinSpaceX * 3)), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
 		}
 	}
 	

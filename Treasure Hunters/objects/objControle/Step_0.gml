@@ -44,7 +44,8 @@ _option 6 = Tela Creditos
 _option 7 = Tela Inicial
 _option 8 = Tela Game Over
 _option 9 = Tela do Shop
-_option 10 = Tela do Inventario
+_option 10 = Tela do Vendas do Shops
+_option 11 = Inventario
 */
 
 var _option = global.option;
@@ -459,16 +460,19 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 		        _priceItem = objGui.coinLabels2;
 		        _coinSprites = objGui.coinSprites2;
 		    }
-		} else if (_option == 10) {
-				var _spaceX = 10 * _escala;
-				var _spaceY = -25 * _escala;
+		} 
+		
+		else if (_option == 10) {
+			var _spaceX = 10 * _escala;
+			var _spaceY = -25 * _escala;
 				
-				if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _spaceY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + _spaceY + (39 * _escala))) {
-					_priceItem = objGui.coinLabels3;
-					_coinSprites = objGui.coinSprites3;
+			if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _spaceY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + _spaceY + (39 * _escala))) {
+				_priceItem = objGui.coinLabels3;
+				_coinSprites = objGui.coinSprites3;
 				}
 			}
-	// Parte dos hover da loja e de vendas
+			
+	// Venda ou compra item que selecionar nos hovers !
 	    if (_mouseClick) {
 	        if (i < array_length(_priceItem)) {
 	            if (_coinSprites[i] == sprSilverCoin) {

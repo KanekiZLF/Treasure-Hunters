@@ -275,6 +275,7 @@
     {"id":{"name":"sprWaterBottom","path":"sprites/sprWaterBottom/sprWaterBottom.yy",},},
     {"id":{"name":"sprMapIcon","path":"sprites/sprMapIcon/sprMapIcon.yy",},},
     {"id":{"name":"sprHeaDestroyed","path":"sprites/sprHeaDestroyed/sprHeaDestroyed.yy",},},
+    {"id":{"name":"sprSkullSell","path":"sprites/sprSkullSell/sprSkullSell.yy",},},
     {"id":{"name":"sprBluePotion","path":"sprites/sprBluePotion/sprBluePotion.yy",},},
     {"id":{"name":"sprCrabbyAntacipation","path":"sprites/sprCrabbyAntacipation/sprCrabbyAntacipation.yy",},},
     {"id":{"name":"sprPlayerSwordJump","path":"sprites/sprPlayerSwordJump/sprPlayerSwordJump.yy",},},

@@ -230,6 +230,7 @@
     {"name":"sprWaterBottom","order":3,"path":"sprites/sprWaterBottom/sprWaterBottom.yy",},
     {"name":"sprMapIcon","order":7,"path":"sprites/sprMapIcon/sprMapIcon.yy",},
     {"name":"sprHeaDestroyed","order":3,"path":"sprites/sprHeaDestroyed/sprHeaDestroyed.yy",},
+    {"name":"sprSkullSell","order":6,"path":"sprites/sprSkullSell/sprSkullSell.yy",},
     {"name":"sprBluePotion","order":3,"path":"sprites/sprBluePotion/sprBluePotion.yy",},
     {"name":"sprCrabbyAntacipation","order":6,"path":"sprites/sprCrabbyAntacipation/sprCrabbyAntacipation.yy",},
     {"name":"sprPlayerSwordJump","order":2,"path":"sprites/sprPlayerSwordJump/sprPlayerSwordJump.yy",},
