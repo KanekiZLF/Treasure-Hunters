@@ -1,9 +1,9 @@
 #region Variaveis do Player
 
 if (instance_exists(objPlayer)) {
-	global.lifes = clamp(global.lifes, 0, objPlayer.maxLifes)
-	global.stamina = clamp(global.stamina, 0, objPlayer.maxStamina)
-	global.poison = clamp(global.poison, 0, objPlayer.maxPoison)
+	global.lifes = clamp(global.lifes, 0, objPlayer.maxLifes);
+	global.stamina = clamp(global.stamina, 0, objPlayer.maxStamina);
+	global.poison = clamp(global.poison, 0, objPlayer.maxPoison);
 	global.coinsSilver = objPlayer.coinsSilver;
 	global.coinsGold = objPlayer.coinsGold;
 	global.coinsDiamond = objPlayer.coinsDiamond;
@@ -187,7 +187,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					break;
 					
 					case 2: // Se _option == 2
-						global.option = 9;
+						
 					break;
 					
 					case 3: // Se _option == 3
@@ -272,9 +272,22 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	var _recSX = _guiLarg/2 + 106;
 	var _recSY = 232;
 	
-	//Botão para carregar o jogo dependendo de qual save foi selecionado
-	if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala), _recSY + (14 * _escala))) {
+	//Verifica se tem algum save selecionado e libera o botão de carregar
+	if (global.save != 0) {
 			objGui.iconSave = 5; //<-- Altera o icone caso algum save exista
+		}
+	
+	//Botão para carregar o jogo dependendo de qual save foi selecionado
+	if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala), _recSY + (14 * _escala)) && global.save != 0) {
+			if (_mouseClick && global.save == 1) {
+				
+			} 
+			else if (_mouseClick && global.save == 2) {
+				
+			} 
+			else if (_mouseClick && global.save == 3) {
+				
+			}
 		}
 	
 	//Retangulo da seta voltar da tela de save
@@ -295,17 +308,17 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	if point_in_rectangle(_mouseX, _mouseY, _recX, rectTop, _recX + (32 * _escala), rectBottom) {
 		//Save 1
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 0) {
-				global.save = 0;
+				global.save = 1;
 			}
 			
 		//Save 2
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
-				global.save = 1;
+				global.save = 2;
 			}
 			
 		//Save 3
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 2) {
-				global.save = 2;
+				global.save = 3;
 			}
 		break; // Encerre o loop após encontrar um retângulo
 		}
@@ -425,18 +438,40 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	
 	
 	for (var i = 0; i < _numRetangulos; i++) {
+		var _priceItem = array_concat(objGui.coinLabels, objGui.coinLabels2);
+		var _coinSprites = array_concat(objGui.coinSprites, objGui.coinSprites2)
 		if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala + _recSSpace2))) {
 			if (_mouseClick && i == 0) {
-				scrPrint("CIMA: " + string(i));
+				if (_coinSprites[0] == sprSilverCoin) {
+					global.coinsSilver -= _priceItem[0];
+				} 
+				else if (_coinSprites[0] == sprGoldCoin) {
+					global.coinsGold -= _priceItem[0];
+				}
 			}
 			else if (_mouseClick && i == 1) {
-				scrPrint("CIMA: " + string(i));
+				if (_coinSprites[1] == sprSilverCoin) {
+					global.coinsSilver -= _priceItem[1];
+				} 
+				else if (_coinSprites[1] == sprGoldCoin) {
+					global.coinsGold -= _priceItem[1];
+				}
 			} 
 			else if (_mouseClick && i == 2) {
-				scrPrint("CIMA: " + string(i));
+				if (_coinSprites[2] == sprSilverCoin) {
+					global.coinsSilver -= _priceItem[2];
+				} 
+				else if (_coinSprites[2] == sprGoldCoin) {
+					global.coinsGold -= _priceItem[2];
+				}
 			} 
 			else if (_mouseClick && i == 3) {
-				scrPrint("CIMA: " + string(i));
+				if (_coinSprites[3] == sprSilverCoin) {
+					global.coinsSilver -= _priceItem[3];
+				} 
+				else if (_coinSprites[3] == sprGoldCoin) {
+					global.coinsGold -= _priceItem[3];
+				}
 			} 
 		}
 		else if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala))) {

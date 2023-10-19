@@ -5,7 +5,6 @@
 
 var _pause = global.gamepause;
 var _option = global.option;
-var _selectedSave = global.save;
 var _escala = 4;
 var _guiAlt = display_get_gui_height();
 var _guiLarg = display_get_gui_width();
@@ -473,37 +472,18 @@ if (_pause || global.gameover) {
 		var _posPY = _guiAlt/2 - (12 * _escala);
 		draw_sprite_ext(sprCoinsBoard, 0, _posPX, _posPY, 2.6, 2.6, 0, c_white, 1);
 		
-		function drawCoinsText() {
-			var _escala = 4;
-			var _guiLarg = display_get_gui_width();
-			var _guiAlt = display_get_gui_height();
-			var _textX3 = _guiLarg/2 + (40 * _escala);
-			var _textY3 = _guiAlt/2 - (10.5 * _escala);
-			var _textSpace3 = 37;
-			draw_text_ext_transformed(_textX3, _textY3, "x" + string(global.coinsSilver), 10, 300, .6, .6, 0);
-			draw_text_ext_transformed(_textX3, _textY3 + _textSpace3, "x" + string(global.coinsGold), 10, 300, .6, .6, 0);
-			draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 2), "x" + string(global.coinsDiamond), 10, 300, .6, .6, 0);
-			draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 3), "x" + string(global.coinsSaphire), 10, 300, .6, .6, 0);
-			draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 4), "x" + string(global.coinsRuby), 10, 300, .6, .6, 0);
-		}
-		
-		switch(_selectedSave) {
-			default:
-				show_message("Erro ao selecionar save");
-			break;
+
+		var _textX3 = _guiLarg/2 + (40 * _escala);
+		var _textY3 = _guiAlt/2 - (10.5 * _escala);
+		var _textSpace3 = 37;
 			
-			case 0:
-				drawCoinsText()
-			break;
-			
-			case 1:
-				drawCoinsText()
-			break;
-			
-			case 2:
-				drawCoinsText()
-			break;
-		}
+		//Desenha as moedas na posição
+		draw_text_ext_transformed(_textX3, _textY3, string(global.coinsSilver), 10, 300, .6, .6, 0);
+		draw_text_ext_transformed(_textX3, _textY3 + _textSpace3, string(global.coinsGold), 10, 300, .6, .6, 0);
+		draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 2), string(global.coinsDiamond), 10, 300, .6, .6, 0);
+		draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 3), string(global.coinsSaphire), 10, 300, .6, .6, 0);
+		draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 4), string(global.coinsRuby), 10, 300, .6, .6, 0);
+
 		
 		// Dsenha o hover das opções de save
 		var _recSpace2 = 22 * _escala;

@@ -98,6 +98,7 @@
     {"name":"sprHead1Attack2","order":2,"path":"sprites/sprHead1Attack2/sprHead1Attack2.yy",},
     {"name":"objSlidersVolume","order":1,"path":"objects/objSlidersVolume/objSlidersVolume.yy",},
     {"name":"sprHoverExit","order":9,"path":"sprites/sprHoverExit/sprHoverExit.yy",},
+    {"name":"sprNoone","order":11,"path":"sprites/sprNoone/sprNoone.yy",},
     {"name":"sprCannonHit","order":7,"path":"sprites/sprCannonHit/sprCannonHit.yy",},
     {"name":"sprSealShellDestroyed","order":4,"path":"sprites/sprSealShellDestroyed/sprSealShellDestroyed.yy",},
     {"name":"sprSaveBoard","order":8,"path":"sprites/sprSaveBoard/sprSaveBoard.yy",},
