@@ -1,14 +1,9 @@
 #region Variaveis do Player
 
 if (instance_exists(objPlayer)) {
-	global.lifes = clamp(global.lifes, 0, objPlayer.maxLifes);
-	global.stamina = clamp(global.stamina, 0, objPlayer.maxStamina);
-	global.poison = clamp(global.poison, 0, objPlayer.maxPoison);
-	global.coinsSilver = objPlayer.coinsSilver;
-	global.coinsGold = objPlayer.coinsGold;
-	global.coinsDiamond = objPlayer.coinsDiamond;
-	global.coinsSaphire = objPlayer.coinsSaphire;
-	global.coinsRuby = objPlayer.coinsRuby;
+	global.lifes = clamp(real(global.lifes), 0, objPlayer.maxLifes);
+	global.stamina = clamp(real(global.stamina), 0, objPlayer.maxStamina);
+	global.poison = clamp(real(global.poison), 0, objPlayer.maxPoison);
 }
 
 #endregion
@@ -326,12 +321,13 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 } else if (_option == 7) {
 	// Funçoes dos retangulos GUIA e SAIR
 	var _textX = _guiLarg/2 + (-3 * _escala);
-	var _recTX = _textX + 85.8;
+	var _recTX = _textX + 53.8;
 	var _recTY = _guiAlt/2 + 80;
-	var _recTX2 = _textX + 205.8;
+	var _recTX2 = _textX + 173.8;
 	var _recTY2 = _guiAlt/2 + 100;
 	var _recSpaceX = -50 * _escala
 	var _recSpaceY = -1 * _escala
+	
 	// Guia
 	if (point_in_rectangle(_mouseX, _mouseY, _recTX, _recTY, _recTX + (33 * _escala), _recTY + (12 * _escala))) {
 		if (_mouseClick) {
@@ -411,7 +407,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			game_end();
 		}
 	}
-} else if (_option == 9) {
+} else if (_option == 9 || _option == 10) {
 	// Parte dos cards da loja
 	var _recSX = _guiLarg/2 + (-57 * _escala);
 	var _recSY = _guiAlt/2 + (2.5 * _escala);
@@ -423,6 +419,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	var _recBackSpaceY = -60.5 * _escala;
 	var _numRetangulos = 4;
 	
+	if (_option == 9) {
 	// Seta voltar do shops
 	if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY))) {
 			if (room != rmInit) {
@@ -435,60 +432,56 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 				}
 			}
 		}
+	} else if (_option == 10) {
+		// Seta voltar da tela de vendas
+		if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY + 100, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY + 100))) {
+			if (_mouseClick) {
+				global.option = 9;
+			}
+		}
+	}
 	
 	
 	for (var i = 0; i < _numRetangulos; i++) {
-		var _priceItem = array_concat(objGui.coinLabels, objGui.coinLabels2);
-		var _coinSprites = array_concat(objGui.coinSprites, objGui.coinSprites2)
-		if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala + _recSSpace2))) {
-			if (_mouseClick && i == 0) {
-				if (_coinSprites[0] == sprSilverCoin) {
-					global.coinsSilver -= _priceItem[0];
-				} 
-				else if (_coinSprites[0] == sprGoldCoin) {
-					global.coinsGold -= _priceItem[0];
+	    var _priceItem = 0;
+		var _coinSprites = 0;
+
+		global.coinsSilver = clamp(real(global.coinsSilver), 0, 9999);
+		global.coinsGold = clamp(real(global.coinsGold), 0, 9999);
+		if (_option == 9) {
+		    if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala + _recSSpace2))) {
+		        _priceItem = objGui.coinLabels;
+		        _coinSprites = objGui.coinSprites;
+				if (_mouseClick && i == 3) {
+					global.option = 10;
+				}
+		    } else if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala))) {
+		        _priceItem = objGui.coinLabels2;
+		        _coinSprites = objGui.coinSprites2;
+		    }
+		} else if (_option == 10) {
+				var _spaceX = 10 * _escala;
+				var _spaceY = -25 * _escala;
+				
+				if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _spaceY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + _spaceY + (39 * _escala))) {
+					_priceItem = objGui.coinLabels3;
+					_coinSprites = objGui.coinSprites3;
 				}
 			}
-			else if (_mouseClick && i == 1) {
-				if (_coinSprites[1] == sprSilverCoin) {
-					global.coinsSilver -= _priceItem[1];
-				} 
-				else if (_coinSprites[1] == sprGoldCoin) {
-					global.coinsGold -= _priceItem[1];
-				}
-			} 
-			else if (_mouseClick && i == 2) {
-				if (_coinSprites[2] == sprSilverCoin) {
-					global.coinsSilver -= _priceItem[2];
-				} 
-				else if (_coinSprites[2] == sprGoldCoin) {
-					global.coinsGold -= _priceItem[2];
-				}
-			} 
-			else if (_mouseClick && i == 3) {
-				if (_coinSprites[3] == sprSilverCoin) {
-					global.coinsSilver -= _priceItem[3];
-				} 
-				else if (_coinSprites[3] == sprGoldCoin) {
-					global.coinsGold -= _priceItem[3];
-				}
-			} 
-		}
-		else if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala))) {
-			if (_mouseClick && i == 0) {
-				scrPrint("BAIXO: " + string(i));
-			}
-			else if (_mouseClick && i == 1) {
-				scrPrint("BAIXO: " + string(i));
-			} 
-			else if (_mouseClick && i == 2) {
-				scrPrint("BAIXO: " + string(i));
-			} 
-			else if (_mouseClick && i == 3) {
-				scrPrint("BAIXO: " + string(i));
-			} 
-		}
+	// Parte dos hover da loja e de vendas
+	    if (_mouseClick) {
+	        if (i < array_length(_priceItem)) {
+	            if (_coinSprites[i] == sprSilverCoin) {
+					if (_option == 9) {
+						global.coinsSilver -= _priceItem[i];
+					} 
+	            } else if (_coinSprites[i] == sprGoldCoin) {
+					if (_option == 9) {
+						global.coinsGold -= _priceItem[i];
+					}
+	            }
+	        }
+	    }
 	}
 }
-
 #endregion

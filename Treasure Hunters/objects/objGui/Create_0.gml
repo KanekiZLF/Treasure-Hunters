@@ -8,8 +8,13 @@ iconClose = 4;
 // Itens e Upgrades
 coinSprites = [sprSilverCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];
 coinLabels = [111, 222, 333, 0];
+
 coinSprites2 = [sprGoldCoin, sprSilverCoin, sprGoldCoin, sprGoldCoin];
 coinLabels2 = [444, 555, 666, 777];
+
+coinSprites3 = [sprGoldCoin, sprSilverCoin, sprGoldCoin, sprGoldCoin];
+coinLabels3 = [444, 555, 666, 777];
+
 
 
 

@@ -170,6 +170,7 @@
     {"name":"sprCrabbyAttackEffect","order":11,"path":"sprites/sprCrabbyAttackEffect/sprCrabbyAttackEffect.yy",},
     {"name":"sprSmallMap1","order":3,"path":"sprites/sprSmallMap1/sprSmallMap1.yy",},
     {"name":"sprSmallMap3","order":5,"path":"sprites/sprSmallMap3/sprSmallMap3.yy",},
+    {"name":"sprShopSellBoard","order":11,"path":"sprites/sprShopSellBoard/sprShopSellBoard.yy",},
     {"name":"sprSwordAttack3","order":3,"path":"sprites/sprSwordAttack3/sprSwordAttack3.yy",},
     {"name":"sprChestGoldClose","order":1,"path":"sprites/sprChestGoldClose/sprChestGoldClose.yy",},
     {"name":"sprManaBarEnemy","order":1,"path":"sprites/sprManaBarEnemy/sprManaBarEnemy.yy",},

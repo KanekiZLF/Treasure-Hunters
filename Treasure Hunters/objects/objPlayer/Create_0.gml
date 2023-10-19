@@ -64,12 +64,15 @@ lifes2 = maxLifes2;
 stamina2 = maxStamina2;
 poison2 = maxPoison2;
 
+
 // Variaveis de moedas
-coinsSilver = 0;
-coinsGold = 0;
-coinsDiamond = 0;
-coinsSaphire = 0;
-coinsRuby = 0;
+coinsSilver = global.coinsSilver;
+coinsGold = global.coinsGold;
+coinsDiamond = global.coinsDiamond;
+coinsSaphire = global.coinsSaphire;
+coinsRuby = global.coinsRuby;
+
+
 
 
 

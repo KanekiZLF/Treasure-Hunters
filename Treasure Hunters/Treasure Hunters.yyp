@@ -204,6 +204,7 @@
     {"id":{"name":"sprCrabbyAttackEffect","path":"sprites/sprCrabbyAttackEffect/sprCrabbyAttackEffect.yy",},},
     {"id":{"name":"sprSmallMap1","path":"sprites/sprSmallMap1/sprSmallMap1.yy",},},
     {"id":{"name":"sprSmallMap3","path":"sprites/sprSmallMap3/sprSmallMap3.yy",},},
+    {"id":{"name":"sprShopSellBoard","path":"sprites/sprShopSellBoard/sprShopSellBoard.yy",},},
     {"id":{"name":"sprSwordAttack3","path":"sprites/sprSwordAttack3/sprSwordAttack3.yy",},},
     {"id":{"name":"sprChestGoldClose","path":"sprites/sprChestGoldClose/sprChestGoldClose.yy",},},
     {"id":{"name":"scrPlayer","path":"scripts/scrPlayer/scrPlayer.yy",},},

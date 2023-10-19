@@ -33,7 +33,7 @@ if (instance_exists(objPlayer)) {
 
 	//Barra Cores
 	draw_sprite_ext(sprLifeColor, 15, 21 * _escala, _hudAlt, (_lifes/_maxLifes) * _escala, _escala, 0, c_white, 1);
-	scrPrint(_lifes)
+
 	draw_sprite_ext(sprStaminaColor, 0, 23.5 * _escala, _hudAlt + _sprAlt, (_stamina/_maxStamina) * _escala, _escala, 0, c_white, 1);
 
 	if (_maxPoison > 0) {
@@ -94,6 +94,10 @@ switch(_option) {
 	break;
 	
 	case 10:
+		_sprDraw = sprShopSellBoard;
+	break;
+	
+	case 11:
 		_sprDraw = sprInventoryBoard;
 	break;
 }
@@ -168,15 +172,15 @@ if (_pause || global.gameover) {
 	if (_option == 7) {
 			
 		// Desenha os textos
-		draw_text_ext_transformed(_textX + 13.8, _guiAlt/2 + 57.5, "Play", 10, 300, .7, .7, 0);
-		draw_text_ext_transformed(_textX + 149.8, _guiAlt/2 + 95, "Guia", 10, 300, .7, .7, 0);
-		draw_text_ext_transformed(_textX + 272.8, _guiAlt/2 + 115, "Sair", 10, 300, .7, .7, 0);
-		draw_text_ext_transformed(_textX + (3.5 * _escala), _guiAlt/2 + (-14 * _escala), "Treasure Hunters", 50, 300, 1, 1, 0);
+		draw_text_ext_transformed(_textX - 18.2, _guiAlt/2 + 57.5, "Play", 10, 300, .7, .7, 0);
+		draw_text_ext_transformed(_textX + 117.8, _guiAlt/2 + 95, "Guia", 10, 300, .7, .7, 0);
+		draw_text_ext_transformed(_textX + 240.8, _guiAlt/2 + 115, "Sair", 10, 300, .7, .7, 0);
+		draw_text_ext_transformed(_textX + (-4.5 * _escala), _guiAlt/2 + (-14 * _escala), "Treasure Hunters", 50, 300, 1, 1, 0);
 		
 		// Desenha o retangulo do HOVER
-		var _recTX = _textX + 85.8;
+		var _recTX = _textX + 53.8;
 		var _recTY = _guiAlt/2 + 80;
-		var _recTX2 = _textX + 205.8;
+		var _recTX2 = _textX + 173.8;
 		var _recTY2 = _guiAlt/2 + 100;
 		var _recSpaceX = -50 * _escala
 		var _recSpaceY = -1 * _escala
@@ -240,7 +244,7 @@ if (_pause || global.gameover) {
 	}
 		
 	// Desenha as opções do Shop/Mercado
-	if (_option == 9) {
+	if (_option == 9 || _option == 10) {
 		var _coinX = _guiLarg/2 + (-50 * _escala);
 		var _coinY = _guiAlt/2;
 		var _coinScale = 2.2;
@@ -253,10 +257,15 @@ if (_pause || global.gameover) {
 		draw_set_color(#33323D);
 
 		// Hover da seta voltar
-		if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY))) {
-			draw_sprite_ext(sprHoverButtom, 0, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _escala, _escala, 0, c_white, 1);
+		if (_option == 9) {
+			if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY))) {
+				draw_sprite_ext(sprHoverButtom, 0, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _escala, _escala, 0, c_white, 1);
+			}
+		} else if (_option == 10) {
+			if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY + 100, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY + 100))) {
+				draw_sprite_ext(sprHoverButtom, 0, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY + 100, _escala, _escala, 0, c_white, 1)
+			}
 		}
-		
 		
 		for (var i = 0; i < _numCoins; i++) {
 		    var _coinXX = _coinX + (i * _coinSpaceX);
@@ -265,21 +274,31 @@ if (_pause || global.gameover) {
 			//Itens
 			
 		    // Array para os sprites e legendas fica no criar
-
-		    // Desenhe a moeda
-		    draw_sprite_ext(coinSprites[i], 0, _coinXX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
-
-		    // Desenhe a legenda
-		    draw_text_ext_transformed(_coinX + (10 * _escala + _coinTextSpace * i), _coinY - 18.8, coinLabels[i], 10, 300, .6, .6, 0);
+			if (_option == 9) {
+			    // Desenhe a moeda
+					draw_sprite_ext(coinSprites[i], 0, _coinXX, _coinY, _coinScale, _coinScale, 0, c_white, 1);
 			
-			//Upgrades
-			
-			// Desenhe a moeda
-		    draw_sprite_ext(coinSprites2[i], 0, _coinXX, _coinYY, _coinScale, _coinScale, 0, c_white, 1);
+			    // Desenhe a legenda
+					draw_text_ext_transformed(_coinX + (10 * _escala + _coinTextSpace * i), _coinY - 18.8, coinLabels[i], 10, 300, .6, .6, 0);
 
-		    // Desenhe a legenda
-		    draw_text_ext_transformed(_coinX + (10 * _escala + _coinTextSpace * i), _coinYY - 18.8, coinLabels2[i], 10, 300, .6, .6, 0);
-		}
+				//Upgrades
+
+				// Desenhe a moeda
+					draw_sprite_ext(coinSprites2[i], 0, _coinXX, _coinYY, _coinScale, _coinScale, 0, c_white, 1);
+			
+			    // Desenhe a legenda
+			    draw_text_ext_transformed(_coinX + (10 * _escala + _coinTextSpace * i), _coinYY - 18.8, coinLabels2[i], 10, 300, .6, .6, 0);
+			} else if (_option == 10) {
+				var _spaceY = 25 * _escala;
+				var _spaceX = 10 * _escala;
+				
+				// Desenhe a moeda
+					draw_sprite_ext(coinSprites3[i], 0, _coinXX, _coinY + _spaceY, _coinScale, _coinScale, 0, c_white, 1);
+			
+			    // Desenhe a legenda
+					draw_text_ext_transformed(_coinX + (10 * _escala + _coinTextSpace * i), _spaceY + _coinY - 18.8, coinLabels3[i], 10, 300, .6, .6, 0);
+			}
+		} 
 		
 		// Desenha o hover nos cards
 		var _recSX = _guiLarg/2 + (-57 * _escala);
@@ -288,25 +307,43 @@ if (_pause || global.gameover) {
 		var _recSSpace2 = -50 * _escala;
 		var _numRetangulos = 4;
 		for (var i = 0; i < _numRetangulos; i++) {
-			if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala))) {
-				draw_sprite_ext(sprHoverShop, 1, _recSX + (_recSSpace * i), _recSY, _escala, _escala, 0, c_white, 1);
-			}
-			else if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala + _recSSpace2))) {
-				draw_sprite_ext(sprHoverShop, 0, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _escala, _escala, 0, c_white, 1);
-			}
+			
+			if (_option == 9) {
+				if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala))) {
+					draw_sprite_ext(sprHoverShop, 1, _recSX + (_recSSpace * i), _recSY, _escala, _escala, 0, c_white, 1);
+				}
+				else if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + (39 * _escala + _recSSpace2))) {
+					draw_sprite_ext(sprHoverShop, 0, _recSX + (_recSSpace * i), _recSY + _recSSpace2, _escala, _escala, 0, c_white, 1);
+				}
+			} else if (_option == 10) {
+				var _spaceX = 10 * _escala;
+				var _spaceY = -25 * _escala;
+				
+				if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _spaceY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + _spaceY + (39 * _escala))) {
+					draw_sprite_ext(sprHoverShop, 0, _recSX + (_recSSpace * i), _recSY + _spaceY, _escala, _escala, 0, c_white, 1);
+				}
+			} 
 		}
 		
-		//Itens
-		draw_sprite_ext(sprRedPotion, 0, _coinX + (6.2 * _escala), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
-		draw_sprite_ext(sprBluePotion, 0, _coinX + (6.2 * _escala + _coinSpaceX), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
-		draw_sprite_ext(sprGreenBottle, 0, _coinX + (6.2 * _escala + _coinSpaceX * 2), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
-		draw_sprite_ext(sprCoinsSell, 0, _coinX + (7 * _escala + _coinSpaceX * 3), _coinY + (-17 * _escala), 3.8, 3.8, 0, c_white, 1);
+		if (_option == 9) {
+			//Itens
+			draw_sprite_ext(sprRedPotion, 0, _coinX + (6.2 * _escala), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprBluePotion, 0, _coinX + (6.2 * _escala + _coinSpaceX), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprGreenBottle, 0, _coinX + (6.2 * _escala + _coinSpaceX * 2), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprCoinsSell, 0, _coinX + (7 * _escala + _coinSpaceX * 3), _coinY + (-17 * _escala), 3.8, 3.8, 0, c_white, 1);
 		
-		//Upgrades
-		draw_sprite_ext(sprIconsShop, 3, _coinX + (6.8 * _escala), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
-		draw_sprite_ext(sprIconsShop, 2, _coinX + (6.8 * _escala + _coinSpaceX), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
-		draw_sprite_ext(sprIconsShop, 1, _coinX + (6.8 * _escala + (_coinSpaceX * 2)), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
-		draw_sprite_ext(sprIconsShop, 0, _coinX + (6.8 * _escala + (_coinSpaceX * 3)), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
+			//Upgrades
+			draw_sprite_ext(sprIconsShop, 3, _coinX + (6.8 * _escala), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprIconsShop, 2, _coinX + (6.8 * _escala + _coinSpaceX), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprIconsShop, 1, _coinX + (6.8 * _escala + (_coinSpaceX * 2)), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprIconsShop, 0, _coinX + (6.8 * _escala + (_coinSpaceX * 3)), _coinY + (18.5 * _escala), 4, 4, 0, c_white, 1);
+		} else if (_option == 10) {
+			var _spaceY = 32 * _escala;
+			//Itens
+			draw_sprite_ext(sprDiamondCoin, 0, _coinX + (6.2 * _escala), _coinY + _spaceY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprSaphireCoin, 0, _coinX + (6.2 * _escala + _coinSpaceX), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+			draw_sprite_ext(sprRubyCoin, 0, _coinX + (6.2 * _escala + _coinSpaceX * 2), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
+		}
 	}
 	
 	//Desenha o icone que ira dentro do retangulo
@@ -330,7 +367,7 @@ if (_pause || global.gameover) {
 	//draw_rectangle(_recX, _recY, _recX + (72 * _escala), _recY + (14 * _escala), true);
 		
 	//Desenha texto do menu inicial
-	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Inventario","ERRO"];
+	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Vendas", "ERRO"];
 	var _textSelected = 0;
 	switch (_option) {
 	    default: // Define erro caso não exista a seleção
@@ -384,11 +421,13 @@ if (_pause || global.gameover) {
 	
 	// Desenha o texto selecionado
 	if (_textSelected != noone) {
-		if (_option != 9) {
+		if (_option != 9 && _option != 10) {
 			draw_text_ext_transformed(_textX + (3.5 * _escala), _textY - (38 * _escala), _textSelected, 10, 300, .8, .8, 0);
 		} 
 		else if (_option == 9) {
 			draw_text_ext_transformed(_textX + (5.5 * _escala), _textY - (52.5 * _escala), _textSelected, 10, 300, .8, .8, 0);
+		} else if (_option == 10) {
+			draw_text_ext_transformed(_textX + (5 * _escala), _textY - (27.5 * _escala), _textSelected, 10, 300, .8, .8, 0);
 		}
 	}
 	
