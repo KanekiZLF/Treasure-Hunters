@@ -491,5 +491,22 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	        }
 	    }
 	}
+} else if (_option == 11) {
+	var _recInvX = _guiLarg/2 + (10 * _escala);
+	var _recInvY = _guiAlt/2 + (10 * _escala);
+	var _spaceInvX = 10 * _escala;
+	var _spaceInvY = 10 * _escala;
+	var _recIX = 10 * _escala;
+	var _recIY = 10 * _escala;
+		
+	//Quadrado fechar
+	if (point_in_rectangle(_mouseX, _mouseY, _guiLarg/2 + (-52 * _escala), _guiAlt/2 + (-44.5 * _escala), _guiLarg/2 + (-38 * _escala), _guiAlt/2 + (-30.5 * _escala))) {
+		if (_mouseClick) {
+			global.option = noone;
+			global.gamepause = false;
+			global.inventory = false;
+			scrResume();
+		}
+	}
 }
 #endregion

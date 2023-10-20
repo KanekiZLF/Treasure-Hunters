@@ -353,16 +353,18 @@ if (_pause || global.gameover) {
 			draw_sprite_ext(sprRubyCoin, 0, _coinX + (7 * _escala + _coinSpaceX * 2), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
 			draw_sprite_ext(sprSkullSell, 0, _coinX + (7 * _escala + (_coinSpaceX * 3)), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
 		}
-	} else if (_option == 11){
+	} else if (_option == 11) {
 		var _recInvX = _guiLarg/2 + (10 * _escala);
-		var _recInvY = _guiLarg/2 + (10 * _escala);
+		var _recInvY = _guiAlt/2 + (10 * _escala);
 		var _spaceInvX = 10 * _escala;
 		var _spaceInvY = 10 * _escala;
 		var _recIX = 10 * _escala;
 		var _recIY = 10 * _escala;
 		
 		//Quadrado fechar
-		draw_sprite_ext(sprHoverButtom, 0, _recIX, _recIY, _escala, _escala, 0, c_white, 1); 
+		if (point_in_rectangle(_mouseX, _mouseY, _guiLarg/2 + (-52 * _escala), _guiAlt/2 + (-44.5 * _escala), _guiLarg/2 + (-38 * _escala), _guiAlt/2 + (-30.5 * _escala))) {
+			draw_sprite_ext(sprHoverButtom, 0, _guiLarg/2 + (-52 * _escala), _guiAlt/2 + (-44.5 * _escala), _escala, _escala, 0, c_white, 1); 
+		}
 	} 
 	
 	//Desenha o icone que ira dentro do retangulo
