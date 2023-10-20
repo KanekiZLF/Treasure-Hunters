@@ -1,5 +1,7 @@
 #region Variaveis do Player
 
+scrPrint(global.option)
+
 if (instance_exists(objPlayer)) {
 	global.lifes = clamp(real(global.lifes), 0, objPlayer.maxLifes);
 	global.stamina = clamp(real(global.stamina), 0, objPlayer.maxStamina);
@@ -96,6 +98,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 				
 				case 0: //Fecha o menu e volta ao jogo se estiver no PAUSE
 					global.gamepause = false;
+					global.option = noone;
 					scrResume();
 				break;
 				
@@ -142,6 +145,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					
 					case 0: // Se _option == 0
 						global.gamepause = false;
+						global.option = noone;
 						scrResume();
 					break;
 					

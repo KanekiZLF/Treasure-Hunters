@@ -9,6 +9,7 @@ global.option = 7; // <-- Define qual tela de menu usar
 global.save	= 0; // <-- Define qual save esta sendo usado
 global.cameraActive = true; // <-- Ativa ou desativa a camera do PLAYER !!
 global.gamepause = true; // <-- Define se o jogo esta pausado ou não
+global.inventory = false;
 global.coinsSilver = 0;
 global.coinsGold = 0;
 global.coinsDiamond = 0;

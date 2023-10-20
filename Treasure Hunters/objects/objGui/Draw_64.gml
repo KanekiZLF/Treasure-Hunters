@@ -115,18 +115,26 @@ if (_pause || global.gameover) {
 	draw_set_color(c_black); // Defina a cor como preto
 	draw_rectangle(0, 0, display_get_width(), display_get_height(), false); // Desenhe um retângulo preto que cobre a tela
 	
-	// Desenha as telas de opções
-	if (_option != 7 && _option != 1) {
-		draw_sprite_ext(_sprDraw, 0, _x, _y, _escala, _escala, 0, c_white, 1);
-	} else if (_option == 1) {
-		draw_sprite_ext(_sprDraw, 0, _x + 30, _y, _escala, _escala, 0, c_white, 1);
-	} 
-	else if (_option == 7) {
-		draw_sprite_ext(_sprDraw, 0, _x - 1.8, _y, _escala, _escala, 0, c_white, 1);
+	switch (_option) {
+		default:
+		    if (_option != 1) {
+		        draw_sprite_ext(_sprDraw, 0, _x, _y, _escala, _escala, 0, c_white, 1);
+		    }
+		break;
+		
+	    case 1:
+	        draw_sprite_ext(_sprDraw, 0, _x + 30, _y, _escala, _escala, 0, c_white, 1);
+	    break;
+		
+	    case 7:
+	        draw_sprite_ext(_sprDraw, 0, _x - 1.8, _y, _escala, _escala, 0, c_white, 1);
+		break;
+		 
+	    case 9:
+	        draw_sprite_ext(_sprDraw, 0, _x, _y, _escala, _escala, 0, c_white, 1);
+	    break;
 	}
-	else if (_option == 9) {
-		draw_sprite_ext(_sprDraw, 0, _x, _y, _escala, _escala, 0, c_white, 1);
-	}
+
 	
 	// Desenha as opções do AUDIO
 	if (_option == 3) {
@@ -345,7 +353,17 @@ if (_pause || global.gameover) {
 			draw_sprite_ext(sprRubyCoin, 0, _coinX + (7 * _escala + _coinSpaceX * 2), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
 			draw_sprite_ext(sprSkullSell, 0, _coinX + (7 * _escala + (_coinSpaceX * 3)), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
 		}
-	}
+	} else if (_option == 11){
+		var _recInvX = _guiLarg/2 + (10 * _escala);
+		var _recInvY = _guiLarg/2 + (10 * _escala);
+		var _spaceInvX = 10 * _escala;
+		var _spaceInvY = 10 * _escala;
+		var _recIX = 10 * _escala;
+		var _recIY = 10 * _escala;
+		
+		//Quadrado fechar
+		draw_sprite_ext(sprHoverButtom, 0, _recIX, _recIY, _escala, _escala, 0, c_white, 1); 
+	} 
 	
 	//Desenha o icone que ira dentro do retangulo
 	var _recBX = _guiLarg/2 - 190;
@@ -368,11 +386,11 @@ if (_pause || global.gameover) {
 	//draw_rectangle(_recX, _recY, _recX + (72 * _escala), _recY + (14 * _escala), true);
 		
 	//Desenha texto do menu inicial
-	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Vendas", "ERRO"];
+	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Vendas", "Inventario", "ERRO"];
 	var _textSelected = 0;
 	switch (_option) {
 	    default: // Define erro caso não exista a seleção
-	        _textSelected = _menuText[7];
+	        _textSelected = _menuText[9];
 	     break;
 		 
 	    case 0:// Pause
@@ -415,20 +433,35 @@ if (_pause || global.gameover) {
 	       _textSelected = _menuText[6];
 	    break;
 		
-		case 10: // Tela Inventario
+		case 10: // Tela Vendas
 	       _textSelected = _menuText[7];
+	    break;
+		
+		case 11: // Tela Inventario
+	       _textSelected = _menuText[8];
 	    break;
 	}
 	
 	// Desenha o texto selecionado
 	if (_textSelected != noone) {
-		if (_option != 9 && _option != 10) {
-			draw_text_ext_transformed(_textX + (3.5 * _escala), _textY - (38 * _escala), _textSelected, 10, 300, .8, .8, 0);
-		} 
-		else if (_option == 9) {
-			draw_text_ext_transformed(_textX + (5.5 * _escala), _textY - (52.5 * _escala), _textSelected, 10, 300, .8, .8, 0);
-		} else if (_option == 10) {
-			draw_text_ext_transformed(_textX + (5 * _escala), _textY - (27.5 * _escala), _textSelected, 10, 300, .8, .8, 0);
+	switch (_option) {
+		default:
+	        if (_option != 9 && _option != 10) {
+	            draw_text_ext_transformed(_textX + (3.5 * _escala), _textY - (38 * _escala), _textSelected, 10, 300, .8, .8, 0);
+	        }
+		break;
+		
+	    case 9:
+	        draw_text_ext_transformed(_textX + (5.5 * _escala), _textY - (52.5 * _escala), _textSelected, 10, 300, .8, .8, 0);
+		break;
+		
+	    case 10:
+	        draw_text_ext_transformed(_textX + (5 * _escala), _textY - (27.5 * _escala), _textSelected, 10, 300, .8, .8, 0);
+		break;
+		
+		case 11:
+	        draw_text_ext_transformed(_textX + (-2 * _escala), _textY - (36.6 * _escala), _textSelected, 10, 300, .8, .8, 0);
+		break;
 		}
 	}
 	
