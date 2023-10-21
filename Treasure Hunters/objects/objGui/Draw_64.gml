@@ -113,6 +113,7 @@ if (_pause || global.gameover) {
 	//Desenha a tela escura
 	draw_set_alpha(0.5); // Defina a opacidade desejada (0 a 1, onde 0 é completamente transparente e 1 é completamente opaco)
 	draw_set_color(c_black); // Defina a cor como preto
+	draw_set_font(fnTextoBase30);
 	draw_rectangle(0, 0, display_get_width(), display_get_height(), false); // Desenhe um retângulo preto que cobre a tela
 	
 	switch (_option) {
@@ -354,6 +355,7 @@ if (_pause || global.gameover) {
 			draw_sprite_ext(sprSkullSell, 0, _coinX + (7 * _escala + (_coinSpaceX * 3)), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
 		}
 	} else if (_option == 11) {
+		var _textItem = "";
 		var _recInvX = _guiLarg/2 + (-39 * _escala);
 		var _recInvY = _guiAlt/2 + (-30.5 * _escala);
 		var _spaceInvX = 23.2 * _escala;
@@ -367,17 +369,64 @@ if (_pause || global.gameover) {
 		
 		var _recIX = _guiLarg/2;
 		var _recIY = _guiAlt/2;
-		
+			
+		//Desenha os quadrados do inventario
 		for (var i = 0; i < _totalSlots; i++) {
 			var _slotsX = _recInvX + ((_slotsH + _spaceInvX) * _iX);
 			var _slotsY = _recInvY + ((_slotsH + _spaceInvY) * _iY);		
 			
 			if (point_in_rectangle(_mouseX, _mouseY, _slotsX, _slotsY, _slotsX + _slotSize, _slotsY + _slotSize)) {
 				draw_sprite_ext(sprHoverInventory, 0, _slotsX, _slotsY, _escala, _escala, 0, c_white, 1);
+				
+				// Cria o nome do item embaixo
+				if (gridItems[# Infos.Item, i] != -1) {
+					_textItem = gridItems[# Infos.Nome, i];
+				}
+				
+				//Move o item para slot ou staca
+				if (device_mouse_check_button_pressed(0, mb_left)) {
+					//Se nenhum item estiver selecionado
+					if (itemSelecionado == -1) {
+						itemSelecionado = gridItems[# Infos.Item, i];
+						posSelecionado = i;
+					} 
+					// Se ja tiver um item selecionado
+					else {
+						// 1 - Item é igual ao do slot que iremos colocar
+						if (itemSelecionado == gridItems[# Infos.Item, i] && posSelecionado != i) {
+							gridItems[# Infos.Quantidade, i] += gridItems[# Infos.Quantidade, posSelecionado];
+							
+							gridItems[# Infos.Item, posSelecionado] = -1;
+							gridItems[# Infos.Quantidade, posSelecionado] = -1;
+							gridItems[# Infos.Nome, posSelecionado] = -1;
+							
+							itemSelecionado = -1;
+							posSelecionado = -1;
+						}
+						// 2 - Slot selecionado esta vazio
+						else if (gridItems[# Infos.Item, i] == -1) {
+							gridItems[# Infos.Item, i] = gridItems[# Infos.Item, posSelecionado];
+							gridItems[# Infos.Quantidade, i] = gridItems[# Infos.Quantidade, posSelecionado];
+							gridItems[# Infos.Nome, i] = gridItems[# Infos.Nome, posSelecionado];
+							
+							gridItems[# Infos.Item, posSelecionado] = -1;
+							gridItems[# Infos.Quantidade, posSelecionado] = -1;
+							gridItems[# Infos.Nome, posSelecionado] = -1;
+							
+							itemSelecionado = -1;
+							posSelecionado = -1;
+						}
+						// 3 - Slot selecionado ja tem um item, troca de lugar
+						else if (gridItems[# Infos.Item, posSelecionado] != gridItems[# Infos.Item, i]) {
+							var _item
+						}
+					}
+				}
 			}
 			
 			if (gridItems[# Infos.Item, i] != -1) {
-				draw_sprite_ext(sprItems, gridItems[# 0, i], _slotsX, _slotsY, _escala, _escala, 0, c_white, 1);
+				draw_sprite_ext(sprItems, gridItems[# Infos.Item, i], _slotsX, _slotsY, _escala, _escala, 0, c_white, 1);
+				scrDrawOutLine(_slotsX + _slotSize - 6, _slotsY + (6 * _escala), gridItems[# Infos.Quantidade, i], 2, c_white, 16, 100, 100, .5, .5, 0);
 			}
 			
 			_iX++;
@@ -387,11 +436,10 @@ if (_pause || global.gameover) {
 			}
 		}
 		
-		//Desenha os quadrados do inventario
-		//draw_sprite_ext(sprHoverInventory, 0, _recInvX, _recInvY, _escala, _escala, 0, c_white, 1);
-		//draw_sprite_ext(sprHoverInventory, 0, _recInvX + _spaceInvX, _recInvY, _escala, _escala, 0, c_white, 1);
-		//draw_sprite_ext(sprHoverInventory, 0, _recInvX, _recInvY + _spaceInvY, _escala, _escala, 0, c_white, 1);
-
+		if (itemSelecionado != -1) {
+			draw_sprite_ext(sprItems, itemSelecionado, _mouseX, _mouseY, _escala, _escala, 0, c_white, .5);
+		}
+		
 		//Quadrado fechar
 		if (point_in_rectangle(_mouseX, _mouseY, _guiLarg/2 + (-52 * _escala), _guiAlt/2 + (-44.5 * _escala), _guiLarg/2 + (-38 * _escala), _guiAlt/2 + (-30.5 * _escala))) {
 			draw_sprite_ext(sprHoverButtom, 0, _guiLarg/2 + (-52 * _escala), _guiAlt/2 + (-44.5 * _escala), _escala, _escala, 0, c_white, 1); 
@@ -413,7 +461,7 @@ if (_pause || global.gameover) {
 		//Desenha o texto do valor das moedas e do item selecionado
 		draw_text_ext_transformed(_coinX + (15 * _escala), _coinY + (-6.5 * _escala), global.coinsSilver, 10, 300, .7, .7, 0);
 		draw_text_ext_transformed(_coinX + (15 * _escala), _coinY + _coinSpace + (-6.5 * _escala), global.coinsGold, 10, 300, .7, .7, 0);
-		draw_text_ext_transformed(_textX + (-2 * _escala), _textY - (-62 * _escala), "Elixir de cura", 10, 600, .7, .7, 0);
+		draw_text_ext_transformed(_textX + (-2 * _escala), _textY - (-62 * _escala), _textItem, 10, 600, .6, .6, 0);
 	}
 	
 	//Desenha o icone que ira dentro do retangulo
@@ -565,7 +613,6 @@ if (_pause || global.gameover) {
 		draw_set_color(#33323d);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
-		draw_set_font(fnTextoBase30);
 		
 		//Desenha o retangulo
 		var _recBX2 = _guiLarg/2 - 190;

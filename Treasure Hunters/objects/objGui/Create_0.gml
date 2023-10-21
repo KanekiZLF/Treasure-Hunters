@@ -4,6 +4,8 @@ iconSave = 4;
 iconMusic = 5;
 iconSfx = 5;
 iconClose = 4;
+itemSelecionado = -1; // Verifica se selecionamos algum item
+posSelecionado = -1; // Guarda a posição do item selecionado
 
 // Itens e Upgrades
 coinSprites = [sprSilverCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];
@@ -29,6 +31,7 @@ enum Items {
 enum Infos {
 	Item,
 	Quantidade,
+	Nome,
 	Altura
 }
 
@@ -36,16 +39,24 @@ gridItems = ds_grid_create(Infos.Altura, 6);
 ds_grid_add_region(gridItems, 0, 0, 1, 6 - 1, -1);
 
 gridItems[# Infos.Item, 0] = Items.Life;
-gridItems[# Infos.Quantidade, 0] = 3;
+gridItems[# Infos.Quantidade, 0] = 5;
+gridItems[# Infos.Nome, 0] = "Elixir de Cura";
 
 gridItems[# Infos.Item, 1] = Items.Stamina;
-gridItems[# Infos.Quantidade, 0] = 3;
+gridItems[# Infos.Quantidade, 1] = 3;
+gridItems[# Infos.Nome, 1] = "Elixir de Estamina";
+
 
 gridItems[# Infos.Item, 2] = Items.Poison;
-gridItems[# Infos.Quantidade, 0] = 3;
+gridItems[# Infos.Quantidade, 2] = 99;
+gridItems[# Infos.Nome, 2] = "Elixir Envenenado";
 
-gridItems[# Infos.Item, 3] = Items.Life;
-gridItems[# Infos.Quantidade, 0] = 3;
 
-gridItems[# Infos.Item, 5] = Items.Diamond;
-gridItems[# Infos.Quantidade, 0] = 4;
+gridItems[# Infos.Item, 4] = Items.Diamond;
+gridItems[# Infos.Quantidade, 4] = 4;
+gridItems[# Infos.Nome, 4] = "Pedra de Diamante";
+
+gridItems[# Infos.Item, 3] = Items.Diamond;
+gridItems[# Infos.Quantidade, 3] = 4;
+gridItems[# Infos.Nome, 3] = "Pedra de Diamante";
+
