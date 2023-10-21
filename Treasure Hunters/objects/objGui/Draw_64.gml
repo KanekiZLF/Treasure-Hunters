@@ -354,18 +354,67 @@ if (_pause || global.gameover) {
 			draw_sprite_ext(sprSkullSell, 0, _coinX + (7 * _escala + (_coinSpaceX * 3)), _spaceY + _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);
 		}
 	} else if (_option == 11) {
-		var _recInvX = _guiLarg/2 + (10 * _escala);
-		var _recInvY = _guiAlt/2 + (10 * _escala);
-		var _spaceInvX = 10 * _escala;
-		var _spaceInvY = 10 * _escala;
-		var _recIX = 10 * _escala;
-		var _recIY = 10 * _escala;
+		var _recInvX = _guiLarg/2 + (-39 * _escala);
+		var _recInvY = _guiAlt/2 + (-30.5 * _escala);
+		var _spaceInvX = 23.2 * _escala;
+		var _spaceInvY = 23.2 * _escala;
+		var _slotsH = 3;
+		var _slotsV = 2;
+		var _totalSlots = _slotsH * _slotsV;
+		var _slotSize = 20 * _escala; 
+		var _iX = 0;
+		var _iY = 0;
 		
+		var _recIX = _guiLarg/2;
+		var _recIY = _guiAlt/2;
+		
+		for (var i = 0; i < _totalSlots; i++) {
+			var _slotsX = _recInvX + ((_slotsH + _spaceInvX) * _iX);
+			var _slotsY = _recInvY + ((_slotsH + _spaceInvY) * _iY);		
+			
+			if (point_in_rectangle(_mouseX, _mouseY, _slotsX, _slotsY, _slotsX + _slotSize, _slotsY + _slotSize)) {
+				draw_sprite_ext(sprHoverInventory, 0, _slotsX, _slotsY, _escala, _escala, 0, c_white, 1);
+			}
+			
+			if (gridItems[# Infos.Item, i] != -1) {
+				draw_sprite_ext(sprItems, gridItems[# 0, i], _slotsX, _slotsY, _escala, _escala, 0, c_white, 1);
+			}
+			
+			_iX++;
+			if(_iX >= _slotsH) {
+				_iX = 0;
+				_iY++;
+			}
+		}
+		
+		//Desenha os quadrados do inventario
+		//draw_sprite_ext(sprHoverInventory, 0, _recInvX, _recInvY, _escala, _escala, 0, c_white, 1);
+		//draw_sprite_ext(sprHoverInventory, 0, _recInvX + _spaceInvX, _recInvY, _escala, _escala, 0, c_white, 1);
+		//draw_sprite_ext(sprHoverInventory, 0, _recInvX, _recInvY + _spaceInvY, _escala, _escala, 0, c_white, 1);
+
 		//Quadrado fechar
 		if (point_in_rectangle(_mouseX, _mouseY, _guiLarg/2 + (-52 * _escala), _guiAlt/2 + (-44.5 * _escala), _guiLarg/2 + (-38 * _escala), _guiAlt/2 + (-30.5 * _escala))) {
 			draw_sprite_ext(sprHoverButtom, 0, _guiLarg/2 + (-52 * _escala), _guiAlt/2 + (-44.5 * _escala), _escala, _escala, 0, c_white, 1); 
 		}
-	} 
+		
+		//Icone do Shops
+		if (point_in_rectangle(_mouseX, _mouseY, _recIX + (49 * _escala), _recIY + (-29.5 * _escala), _recIX + (63 * _escala), _recIY + (-15.5 * _escala))) {
+			draw_sprite_ext(sprHoverClose, 0, _recIX + (49 * _escala), _recIY + (-29.5 * _escala), _escala, _escala, 0, c_white, 1);
+		}
+		
+		//Desenha os icones das moedas e seus valores
+		var _coinX = _guiLarg/2 + (46 * _escala);
+		var _coinY = _guiAlt/2 + (-3 * _escala);
+		var _coinSpace = 10 * _escala;
+		var _coinsScale = 3;
+		draw_sprite_ext(sprSilverCoin, 0, _coinX, _coinY, _coinsScale, _coinsScale, 0, c_white, 1);
+		draw_sprite_ext(sprGoldCoin, 0, _coinX, _coinY + _coinSpace, _coinsScale, _coinsScale, 0, c_white, 1);
+		
+		//Desenha o texto do valor das moedas e do item selecionado
+		draw_text_ext_transformed(_coinX + (15 * _escala), _coinY + (-6.5 * _escala), global.coinsSilver, 10, 300, .7, .7, 0);
+		draw_text_ext_transformed(_coinX + (15 * _escala), _coinY + _coinSpace + (-6.5 * _escala), global.coinsGold, 10, 300, .7, .7, 0);
+		draw_text_ext_transformed(_textX + (-2 * _escala), _textY - (-62 * _escala), "Elixir de cura", 10, 600, .7, .7, 0);
+	}
 	
 	//Desenha o icone que ira dentro do retangulo
 	var _recBX = _guiLarg/2 - 190;

@@ -429,11 +429,11 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY))) {
 			if (room != rmInit) {
 				if (_mouseClick) {
-					global.option = 2; // Volta para o inventario
+					global.option = 11; // Volta para o inventario
 				}
 			} else if (room == rmInit) {
 				if (_mouseClick) {
-					global.option = 7;
+					global.option = 7; // Volta para tela inicial
 				}
 			}
 		}
@@ -481,11 +481,15 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	        if (i < array_length(_priceItem)) {
 	            if (_coinSprites[i] == sprSilverCoin) {
 					if (_option == 9) {
-						global.coinsSilver -= _priceItem[i];
+						if (global.coinsSilver >= _priceItem[i]) {
+							global.coinsSilver -= _priceItem[i];
+						}
 					} 
 	            } else if (_coinSprites[i] == sprGoldCoin) {
 					if (_option == 9) {
-						global.coinsGold -= _priceItem[i];
+						if (global.coinsGold >= _priceItem[i]) {
+							global.coinsGold -= _priceItem[i];
+						}
 					}
 	            }
 	        }
@@ -496,8 +500,8 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	var _recInvY = _guiAlt/2 + (10 * _escala);
 	var _spaceInvX = 10 * _escala;
 	var _spaceInvY = 10 * _escala;
-	var _recIX = 10 * _escala;
-	var _recIY = 10 * _escala;
+	var _recIX = _guiLarg/2;
+	var _recIY = _guiAlt/2;
 		
 	//Quadrado fechar
 	if (point_in_rectangle(_mouseX, _mouseY, _guiLarg/2 + (-52 * _escala), _guiAlt/2 + (-44.5 * _escala), _guiLarg/2 + (-38 * _escala), _guiAlt/2 + (-30.5 * _escala))) {
@@ -507,6 +511,11 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			global.inventory = false;
 			scrResume();
 		}
-	}
+	} else if (point_in_rectangle(_mouseX, _mouseY, _recIX + (49 * _escala), _recIY + (-29.5 * _escala), _recIX + (63 * _escala), _recIY + (-15.5 * _escala))) {
+			if (_mouseClick) { 
+				global.inventory = false;
+				global.option = 9;
+			}
+		}
 }
 #endregion
