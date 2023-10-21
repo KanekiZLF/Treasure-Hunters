@@ -418,7 +418,20 @@ if (_pause || global.gameover) {
 						}
 						// 3 - Slot selecionado ja tem um item, troca de lugar
 						else if (gridItems[# Infos.Item, posSelecionado] != gridItems[# Infos.Item, i]) {
-							var _item
+							var _item = gridItems[# Infos.Item, i];
+							var _quantidade = gridItems[# Infos.Quantidade, i];
+							var _nome = gridItems[# Infos.Nome, i];
+							
+							gridItems[# Infos.Item, i] = gridItems[# Infos.Item, posSelecionado];
+							gridItems[# Infos.Quantidade, i] = gridItems[# Infos.Quantidade, posSelecionado];
+							gridItems[# Infos.Nome, i] = gridItems[# Infos.Nome, posSelecionado];
+							
+							gridItems[# Infos.Item, posSelecionado] = _item;
+							gridItems[# Infos.Quantidade, posSelecionado] = _quantidade;
+							gridItems[# Infos.Nome, posSelecionado] = _nome;
+							
+							itemSelecionado = -1;
+							posSelecionado = -1;
 						}
 					}
 				}
@@ -434,6 +447,11 @@ if (_pause || global.gameover) {
 				_iX = 0;
 				_iY++;
 			}
+		}
+		// 4 - Soltar/Dropar item selecionado
+		if (device_mouse_check_button_pressed(0, mb_right)) {
+			itemSelecionado = -1;
+			posSelecionado = -1;
 		}
 		
 		if (itemSelecionado != -1) {
