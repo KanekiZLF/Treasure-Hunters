@@ -369,11 +369,12 @@ if (_pause || global.gameover) {
 		
 		var _recIX = _guiLarg/2;
 		var _recIY = _guiAlt/2;
-			
+		var _mouseClick = device_mouse_check_button_pressed(0, mb_left);
+
 		//Desenha os quadrados do inventario
 		for (var i = 0; i < _totalSlots; i++) {
 			var _slotsX = _recInvX + ((_slotsH + _spaceInvX) * _iX);
-			var _slotsY = _recInvY + ((_slotsH + _spaceInvY) * _iY);		
+			var _slotsY = _recInvY + ((_slotsH + _spaceInvY) * _iY);
 			
 			if (point_in_rectangle(_mouseX, _mouseY, _slotsX, _slotsY, _slotsX + _slotSize, _slotsY + _slotSize)) {
 				draw_sprite_ext(sprHoverInventory, 0, _slotsX, _slotsY, _escala, _escala, 0, c_white, 1);
@@ -381,58 +382,83 @@ if (_pause || global.gameover) {
 				// Cria o nome do item embaixo
 				if (gridItems[# Infos.Item, i] != -1) {
 					_textItem = gridItems[# Infos.Nome, i];
+				
+					if (itemSelecionado2 == -1) {
+						itemSelecionado2 = gridItems[# Infos.Nome, i];
+					} else if (itemSelecionado2 != gridItems[# Infos.Nome, i]) {
+						itemSelecionado2 = -1;
+						doubleClick = 0;
+					}
+				}
+				
+				// Consome o item se clicar duas vezes nele
+				if (_mouseClick) {
+					if (itemSelecionado2 == gridItems[# Infos.Nome, i]) {
+						doubleClick++;
+						doubleClick = clamp(doubleClick, 0, 2);
+						
+						if (doubleClick >= 2) {
+							scrPrint(_textItem);
+							doubleClick = 0;	
+						}
+					}
+				}
+				
+				if (doubleClick > 0) {					
+					alarm[0] = .2 * game_get_speed(gamespeed_fps);
 				}
 				
 				//Move o item para slot ou staca
-				if (device_mouse_check_button_pressed(0, mb_left)) {
-					//Se nenhum item estiver selecionado
-					if (itemSelecionado == -1) {
+				if (device_mouse_check_button(0, mb_left) && itemSelecionado == -1) {
+				mouseTimer++ // <-- Tempo para mover item
+				//Se nenhum item estiver selecionado
+				if (mouseTimer == 20) {
 						itemSelecionado = gridItems[# Infos.Item, i];
 						posSelecionado = i;
-					} 
-					// Se ja tiver um item selecionado
-					else {
-						// 1 - Item é igual ao do slot que iremos colocar
-						if (itemSelecionado == gridItems[# Infos.Item, i] && posSelecionado != i) {
-							gridItems[# Infos.Quantidade, i] += gridItems[# Infos.Quantidade, posSelecionado];
+					}
+				} 
+				// Se ja tiver um item selecionado
+				else if (device_mouse_check_button_released(0, mb_left) && itemSelecionado != -1) {
+					// 1 - Item é igual ao do slot que iremos colocar
+					if (itemSelecionado == gridItems[# Infos.Item, i] && posSelecionado != i) {
+						gridItems[# Infos.Quantidade, i] += gridItems[# Infos.Quantidade, posSelecionado];
 							
-							gridItems[# Infos.Item, posSelecionado] = -1;
-							gridItems[# Infos.Quantidade, posSelecionado] = -1;
-							gridItems[# Infos.Nome, posSelecionado] = -1;
+						gridItems[# Infos.Item, posSelecionado] = -1;
+						gridItems[# Infos.Quantidade, posSelecionado] = -1;
+						gridItems[# Infos.Nome, posSelecionado] = -1;
 							
-							itemSelecionado = -1;
-							posSelecionado = -1;
-						}
-						// 2 - Slot selecionado esta vazio
-						else if (gridItems[# Infos.Item, i] == -1) {
-							gridItems[# Infos.Item, i] = gridItems[# Infos.Item, posSelecionado];
-							gridItems[# Infos.Quantidade, i] = gridItems[# Infos.Quantidade, posSelecionado];
-							gridItems[# Infos.Nome, i] = gridItems[# Infos.Nome, posSelecionado];
+						itemSelecionado = -1;
+						posSelecionado = -1;
+					}
+					// 2 - Slot selecionado esta vazio
+					else if (gridItems[# Infos.Item, i] == -1) {
+						gridItems[# Infos.Item, i] = gridItems[# Infos.Item, posSelecionado];
+						gridItems[# Infos.Quantidade, i] = gridItems[# Infos.Quantidade, posSelecionado];
+						gridItems[# Infos.Nome, i] = gridItems[# Infos.Nome, posSelecionado];
 							
-							gridItems[# Infos.Item, posSelecionado] = -1;
-							gridItems[# Infos.Quantidade, posSelecionado] = -1;
-							gridItems[# Infos.Nome, posSelecionado] = -1;
+						gridItems[# Infos.Item, posSelecionado] = -1;
+						gridItems[# Infos.Quantidade, posSelecionado] = -1;
+						gridItems[# Infos.Nome, posSelecionado] = -1;
 							
-							itemSelecionado = -1;
-							posSelecionado = -1;
-						}
-						// 3 - Slot selecionado ja tem um item, troca de lugar
-						else if (gridItems[# Infos.Item, posSelecionado] != gridItems[# Infos.Item, i]) {
-							var _item = gridItems[# Infos.Item, i];
-							var _quantidade = gridItems[# Infos.Quantidade, i];
-							var _nome = gridItems[# Infos.Nome, i];
+						itemSelecionado = -1;
+						posSelecionado = -1;
+					}
+					// 3 - Slot selecionado ja tem um item, troca de lugar
+					else if (gridItems[# Infos.Item, posSelecionado] != gridItems[# Infos.Item, i]) {
+						var _item = gridItems[# Infos.Item, i];
+						var _quantidade = gridItems[# Infos.Quantidade, i];
+						var _nome = gridItems[# Infos.Nome, i];
 							
-							gridItems[# Infos.Item, i] = gridItems[# Infos.Item, posSelecionado];
-							gridItems[# Infos.Quantidade, i] = gridItems[# Infos.Quantidade, posSelecionado];
-							gridItems[# Infos.Nome, i] = gridItems[# Infos.Nome, posSelecionado];
+						gridItems[# Infos.Item, i] = gridItems[# Infos.Item, posSelecionado];
+						gridItems[# Infos.Quantidade, i] = gridItems[# Infos.Quantidade, posSelecionado];
+						gridItems[# Infos.Nome, i] = gridItems[# Infos.Nome, posSelecionado];
 							
-							gridItems[# Infos.Item, posSelecionado] = _item;
-							gridItems[# Infos.Quantidade, posSelecionado] = _quantidade;
-							gridItems[# Infos.Nome, posSelecionado] = _nome;
+						gridItems[# Infos.Item, posSelecionado] = _item;
+						gridItems[# Infos.Quantidade, posSelecionado] = _quantidade;
+						gridItems[# Infos.Nome, posSelecionado] = _nome;
 							
-							itemSelecionado = -1;
-							posSelecionado = -1;
-						}
+						itemSelecionado = -1;
+						posSelecionado = -1;
 					}
 				}
 			}
@@ -449,12 +475,13 @@ if (_pause || global.gameover) {
 			}
 		}
 		// 4 - Soltar/Dropar item selecionado
-		if (device_mouse_check_button_pressed(0, mb_right)) {
+		if (device_mouse_check_button_released(0, mb_left)) {
+			mouseTimer = 0; // <-- Reseta
 			itemSelecionado = -1;
 			posSelecionado = -1;
 		}
 		
-		if (itemSelecionado != -1) {
+		if (itemSelecionado != -1 && device_mouse_check_button(0, mb_left)) {
 			draw_sprite_ext(sprItems, itemSelecionado, _mouseX, _mouseY, _escala, _escala, 0, c_white, .5);
 		}
 		

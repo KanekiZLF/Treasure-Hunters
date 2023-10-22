@@ -5,7 +5,12 @@ iconMusic = 5;
 iconSfx = 5;
 iconClose = 4;
 itemSelecionado = -1; // Verifica se selecionamos algum item
+itemSelecionado2 = -1; // Verifica se selecionamos algum item
+
 posSelecionado = -1; // Guarda a posição do item selecionado
+
+mouseTimer = 0; // <-- Cria um delay para mover os items
+doubleClick = 0; //<-- Clicar duas vezes em um item o consome
 
 // Itens e Upgrades
 coinSprites = [sprSilverCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];
