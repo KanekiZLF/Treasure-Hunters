@@ -43,25 +43,11 @@ enum Infos {
 gridItems = ds_grid_create(Infos.Altura, 6);
 ds_grid_add_region(gridItems, 0, 0, 1, 6 - 1, -1);
 
-gridItems[# Infos.Item, 0] = Items.Life;
-gridItems[# Infos.Quantidade, 0] = 5;
-gridItems[# Infos.Nome, 0] = "Elixir de Cura";
-
-gridItems[# Infos.Item, 1] = Items.Stamina;
-gridItems[# Infos.Quantidade, 1] = 3;
-gridItems[# Infos.Nome, 1] = "Elixir de Estamina";
+scrDsGridAddItem(Items.Life, 5); // <-- Adiciona item no inventario
+scrDsGridAddItem(Items.Stamina, 5); // <-- Adiciona item no inventario
+scrDsGridAddItem(Items.Poison, 5); // <-- Adiciona item no inventario
+scrDsGridAddItem(Items.Diamond, 5); // <-- Adiciona item no inventario
+scrDsGridAddItem(Items.Life, 5); // <-- Adiciona item no inventario
 
 
-gridItems[# Infos.Item, 2] = Items.Poison;
-gridItems[# Infos.Quantidade, 2] = 99;
-gridItems[# Infos.Nome, 2] = "Elixir Envenenado";
-
-
-gridItems[# Infos.Item, 4] = Items.Diamond;
-gridItems[# Infos.Quantidade, 4] = 4;
-gridItems[# Infos.Nome, 4] = "Pedra de Diamante";
-
-gridItems[# Infos.Item, 3] = Items.Diamond;
-gridItems[# Infos.Quantidade, 3] = 4;
-gridItems[# Infos.Nome, 3] = "Pedra de Diamante";
 

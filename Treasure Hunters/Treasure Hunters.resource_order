@@ -221,6 +221,7 @@
     {"name":"sprPlayerDeadGround","order":8,"path":"sprites/sprPlayerDeadGround/sprPlayerDeadGround.yy",},
     {"name":"sprPlayerSwordAtack3","order":8,"path":"sprites/sprPlayerSwordAtack3/sprPlayerSwordAtack3.yy",},
     {"name":"fnTextoBase30","order":1,"path":"fonts/fnTextoBase30/fnTextoBase30.yy",},
+    {"name":"scrDsGridAddItem","order":16,"path":"scripts/scrDsGridAddItem/scrDsGridAddItem.yy",},
     {"name":"sprSliderBoard","order":5,"path":"sprites/sprSliderBoard/sprSliderBoard.yy",},
     {"name":"sprFormIconSmall","order":3,"path":"sprites/sprFormIconSmall/sprFormIconSmall.yy",},
     {"name":"sprGreenBottle","order":5,"path":"sprites/sprGreenBottle/sprGreenBottle.yy",},

@@ -263,6 +263,7 @@
     {"id":{"name":"sprPlayerDeadGround","path":"sprites/sprPlayerDeadGround/sprPlayerDeadGround.yy",},},
     {"id":{"name":"sprPlayerSwordAtack3","path":"sprites/sprPlayerSwordAtack3/sprPlayerSwordAtack3.yy",},},
     {"id":{"name":"fnTextoBase30","path":"fonts/fnTextoBase30/fnTextoBase30.yy",},},
+    {"id":{"name":"scrDsGridAddItem","path":"scripts/scrDsGridAddItem/scrDsGridAddItem.yy",},},
     {"id":{"name":"sprSliderBoard","path":"sprites/sprSliderBoard/sprSliderBoard.yy",},},
     {"id":{"name":"sprFormIconSmall","path":"sprites/sprFormIconSmall/sprFormIconSmall.yy",},},
     {"id":{"name":"sprGoldCoin","path":"sprites/sprGoldCoin/sprGoldCoin.yy",},},

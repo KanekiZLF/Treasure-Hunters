@@ -412,7 +412,7 @@ if (_pause || global.gameover) {
 				if (device_mouse_check_button(0, mb_left) && itemSelecionado == -1) {
 				mouseTimer++ // <-- Tempo para mover item
 				//Se nenhum item estiver selecionado
-				if (mouseTimer == 20) {
+				if (mouseTimer == 10) {
 						itemSelecionado = gridItems[# Infos.Item, i];
 						posSelecionado = i;
 					}
@@ -420,7 +420,7 @@ if (_pause || global.gameover) {
 				// Se ja tiver um item selecionado
 				else if (device_mouse_check_button_released(0, mb_left) && itemSelecionado != -1) {
 					// 1 - Item é igual ao do slot que iremos colocar
-					if (itemSelecionado == gridItems[# Infos.Item, i] && posSelecionado != i) {
+					if (itemSelecionado == gridItems[# Infos.Item, i] && posSelecionado != i && gridItems[# Infos.Item, i] == gridItems[# Infos.Item, posSelecionado]) {
 						gridItems[# Infos.Quantidade, i] += gridItems[# Infos.Quantidade, posSelecionado];
 							
 						gridItems[# Infos.Item, posSelecionado] = -1;
