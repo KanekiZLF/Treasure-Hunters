@@ -476,17 +476,34 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			
 	// Venda ou compra item que selecionar nos hovers !
 	    if (_mouseClick) {
+			var _grid = objGui.gridItems;
 	        if (i < array_length(_priceItem)) {
 	            if (_coinSprites[i] == sprSilverCoin) {
 					if (_option == 9) {
 						if (global.coinsSilver >= _priceItem[i]) {
 							global.coinsSilver -= _priceItem[i];
+							if (i == 0) {
+								scrDsGridProcess(0)
+							} else if (i == 1) {
+								scrDsGridProcess(1)
+							} else if (i == 2) {
+								scrDsGridProcess(2)
+							} 
 						}
 					} 
 	            } else if (_coinSprites[i] == sprGoldCoin) {
 					if (_option == 9) {
 						if (global.coinsGold >= _priceItem[i]) {
 							global.coinsGold -= _priceItem[i];
+							if (i == 0) {
+								
+							} else if (i == 1) {
+								
+							} else if (i == 2) {
+								
+							} else if (i == 3) {
+								
+							} 
 						}
 					}
 	            }

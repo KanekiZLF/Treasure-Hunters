@@ -4,18 +4,27 @@ function scrPause() {
 	// Percorre todos os objetos na room se o jogo estiver pausado
 	var _objCount = instance_count; // Conta quantos objetos estão na room
 	for (var i = 0; i < _objCount; i++) {
-		  var _objId = instance_id_get(i); // Encontra o objeto atual
-			if (_objId) {
-				ds_list_add(imgSpeedList, _objId.speed); // Adiciona o valor de image_speed à lista
+		  var _objId = instance_id[i]; // Encontra o objeto atual
+			if (instance_exists(_objId)) {
+				ds_list_add(listSpeed, _objId.image_speed, _objId.speed); // Adiciona o valor de image_speed à lista
+				_objId.image_speed = 0;
 		}
 	}
 } 
 
 
 function scrResume() {
-	// Percorre a lista e define o valor para seus objetos depois que jogo é despausado
-		for (var i = 0; i < ds_list_size(imgSpeedList); i++) {
-			var speedValue = imgSpeedList[| i]; // <-- Localiza dentro da lista usando um assessor
-			var _objCount2 = instance_count; // Conta quantos objetos estão na room
-	}
+    var _imgSpeed = listSpeed[| 0];
+    var _itemSpeed = listSpeed[| 1];
+
+    for (var i = 0; i < instance_count; i++) {
+        var _objId = instance_id[i];
+
+        if (instance_exists(_objId)) {
+            _objId.image_speed = _imgSpeed;
+            _objId.speed = _itemSpeed;
+        }
+    }
 }
+
+

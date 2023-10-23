@@ -211,6 +211,7 @@
     {"name":"sprWatterReflectionBig","order":4,"path":"sprites/sprWatterReflectionBig/sprWatterReflectionBig.yy",},
     {"name":"sprDialogueDead","order":1,"path":"sprites/sprDialogueDead/sprDialogueDead.yy",},
     {"name":"sprShipHelmIdle","order":1,"path":"sprites/sprShipHelmIdle/sprShipHelmIdle.yy",},
+    {"name":"scrDsGridProcess","order":19,"path":"scripts/scrDsGridProcess/scrDsGridProcess.yy",},
     {"name":"sprFierceToothRun","order":2,"path":"sprites/sprFierceToothRun/sprFierceToothRun.yy",},
     {"name":"sprChestOpen","order":3,"path":"sprites/sprChestOpen/sprChestOpen.yy",},
     {"name":"sprShipIdle","order":4,"path":"sprites/sprShipIdle/sprShipIdle.yy",},

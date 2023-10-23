@@ -13,14 +13,14 @@ mouseTimer = 0; // <-- Cria um delay para mover os items
 doubleClick = 0; //<-- Clicar duas vezes em um item o consome
 
 // Itens e Upgrades
-coinSprites = [sprSilverCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];
-coinLabels = [111, 222, 333, 0];
+coinSprites = [sprSilverCoin, sprSilverCoin, sprSilverCoin, sprGoldCoin];
+coinLabels = [60, 100, 180, 0];
 
 coinSprites2 = [sprGoldCoin, sprSilverCoin, sprGoldCoin, sprGoldCoin];
-coinLabels2 = [444, 555, 666, 777];
+coinLabels2 = [10, 12, 15, 20];
 
 coinSprites3 = [sprGoldCoin, sprSilverCoin, sprGoldCoin, sprGoldCoin];
-coinLabels3 = [444, 555, 666, 777];
+coinLabels3 = [10, 18, 40, 100];
 
 enum Items {
 	Life,

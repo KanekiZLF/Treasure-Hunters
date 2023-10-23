@@ -1,6 +1,6 @@
 // Script desenvolvido por Luiz F. R. Pimentel
 // https://github.com/KanekiZLF
-function scrDsGridAddItem(){
+function scrDsGridAddItem() {
 	///@arg item
 	///@arg quantidade
 	///@arg nome
