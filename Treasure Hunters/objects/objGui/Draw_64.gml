@@ -379,13 +379,25 @@ if (_pause || global.gameover) {
 			if (point_in_rectangle(_mouseX, _mouseY, _slotsX, _slotsY, _slotsX + _slotSize, _slotsY + _slotSize)) {
 				draw_sprite_ext(sprHoverInventory, 0, _slotsX, _slotsY, _escala, _escala, 0, c_white, 1);
 				
+				// Dropa item no chao
+				if (keyboard_check_pressed(ord("G")) && gridItems[# Infos.Item, i] != -1) {
+					var _inst = instance_create_layer(objPlayer.x + (30 * objPlayer.image_xscale), objPlayer.y - 40, "Instances", objItens);
+						_inst.sprite = gridItems[# Infos.Item, i];
+						_inst.quantidade = gridItems[# Infos.Quantidade, i];
+					
+					gridItems[# Infos.Item, i] = -1;
+					gridItems[# Infos.Quantidade, i] = -1;
+					gridItems[# Infos.Nome, i] = -1;
+				}
+
+				
 				// Cria o nome do item embaixo
 				if (gridItems[# Infos.Item, i] != -1) {
 					_textItem = gridItems[# Infos.Nome, i];
 				
 					if (itemSelecionado2 == -1) {
-						itemSelecionado2 = gridItems[# Infos.Nome, i];
-					} else if (itemSelecionado2 != gridItems[# Infos.Nome, i]) {
+						itemSelecionado2 = gridItems[# Infos.Item, i];
+					} else if (itemSelecionado2 != gridItems[# Infos.Item, i]) {
 						itemSelecionado2 = -1;
 						doubleClick = 0;
 					}
@@ -393,12 +405,18 @@ if (_pause || global.gameover) {
 				
 				// Consome o item se clicar duas vezes nele
 				if (_mouseClick) {
-					if (itemSelecionado2 == gridItems[# Infos.Nome, i]) {
+					if (itemSelecionado2 == gridItems[# Infos.Item, i]) {
 						doubleClick++;
 						doubleClick = clamp(doubleClick, 0, 2);
 						
 						if (doubleClick >= 2) {
-							scrPrint(_textItem);
+							if (global.lifes < objPlayer.maxLifes && itemSelecionado2 == Items.Life) {
+								gridItems[# Infos.Quantidade, i]--;
+								scrRecharge(2);
+							} else if (global.stamina < objPlayer.maxStamina && itemSelecionado2 == Items.Stamina) {
+								gridItems[# Infos.Quantidade, i]--;
+								scrRecharge(0,2);
+							}
 							doubleClick = 0;	
 						}
 					}
@@ -461,6 +479,12 @@ if (_pause || global.gameover) {
 						posSelecionado = -1;
 					}
 				}
+			}
+			
+			if (gridItems[# Infos.Quantidade, i] <= 0) {
+				gridItems[# Infos.Item, i] = -1;
+				gridItems[# Infos.Quantidade, i] = -1;
+				gridItems[# Infos.Nome, i] = -1;
 			}
 			
 			if (gridItems[# Infos.Item, i] != -1) {

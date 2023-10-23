@@ -30,7 +30,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1eeb380c-256e-40c6-8a03-aba1c7c0e930","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 7,
+  "origin": 1,
   "parent": {
     "name": "sprPotions",
     "path": "folders/Sprites/sprItens/sprPotions.yy",
@@ -74,7 +74,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 8,
-    "yorigin": 25,
+    "yorigin": 0,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,

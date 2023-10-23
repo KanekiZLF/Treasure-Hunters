@@ -16,6 +16,7 @@ toThrow = false; // <-- Define se a espada foi lançada ou não
 efeito = false; // <-- Cria efeito de fumaça
 autoDestroy = false; // <-- Se auto destroi se for true
 isSpeed = 0; // <-- Armazena a velocidade em que a espada foi lançada
+imageSpeed = image_speed;
 
 // Variaveis de colisão
 velocidadeV = 0;

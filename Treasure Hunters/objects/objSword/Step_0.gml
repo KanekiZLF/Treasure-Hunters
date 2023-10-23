@@ -4,9 +4,11 @@ var _pause = global.gamepause;
 
 if (_pause) {
 	alarm[1] = noone; // <-- Evita de a espada ser destruida caso esteje pausado !
+	image_speed = 0;
 }
 
 if (!_pause) {
+	image_speed = imageSpeed;
 	scrSword();
 
 	if !float && !toThrow {

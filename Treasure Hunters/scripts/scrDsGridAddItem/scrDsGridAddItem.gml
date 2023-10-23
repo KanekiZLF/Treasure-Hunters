@@ -8,10 +8,13 @@ function scrDsGridAddItem(){
 	
 	var _grid = objGui.gridItems;
 	var _checagem = 0;
+	var _item = argument[0]
+	var _quantidade = argument[1];
 	var _itemName = argument[2];
+
 	
 	while _grid[# Infos.Item, _checagem] != -1 {
-		_checagem++
+		_checagem++;
 	}
 	
 	if (argument[2] == undefined) {
@@ -21,7 +24,7 @@ function scrDsGridAddItem(){
 			break;
 		
 			case Items.Life:
-				_itemName = "Elixir de cura";
+				_itemName = "Elixir de Cura";
 			break
 			
 			case Items.Stamina:
@@ -50,8 +53,8 @@ function scrDsGridAddItem(){
 	
 	var _sprite = (argument[3] != undefined) ? argument[3] : sprItems;
 	
-	_grid[# 0, _checagem] = argument[0];
-	_grid[# 1, _checagem] = argument[1];
+	_grid[# 0, _checagem] = _item;
+	_grid[# 1, _checagem] = _quantidade;
 	_grid[# 2, _checagem] = _itemName;
 	_grid[# 3, _checagem] = _sprite;
 }

@@ -4,6 +4,11 @@ var _pause = global.gamepause;
 
 if (!_pause) {
 	script_execute(estado) //<-- Executa script
+	image_speed = 1;
+}
+
+if (_pause) {
+	image_speed = 0;
 }
 
 attackCombo = clamp(attackCombo, -1, 3);
@@ -171,6 +176,41 @@ if !isDead && (!_pause) {
 			_effect.direc = 2
 			isEffect = false;
 	}
+	
+	if (instance_exists(objItens) && !global.inventory) {
+    var _inst = instance_nearest(x, y, objItens);
+    
+    if (distance_to_point(_inst.x, _inst.y) <= 20) {
+        if (place_meeting(x, y, _inst)) {
+            var gridSizeX = 3; // Número de colunas
+            var gridSizeY = 6; // Número de linhas
+            var spriteToCompare = _inst.sprite; // O sprite que você deseja verificar
+            var itemAdded = false;
+
+            for (var xx = 0; xx < gridSizeX; xx++) {
+                for (var yy = 0; yy < gridSizeY; yy++) {
+                    var cellValue = objGui.gridItems[# xx, yy]; // Obtém o valor do grid na posição (x, y)
+
+                    if (cellValue == spriteToCompare) {
+                        // O sprite na célula corresponde ao sprite que você deseja.
+                        // Faça algo com essa informação, como incrementar a quantidade.
+                        var quantidade = objGui.gridItems[# Infos.Quantidade, yy];
+                        quantidade += _inst.quantidade;
+                        objGui.gridItems[# Infos.Quantidade, yy] = quantidade;
+                        itemAdded = true;
+                    }
+                }
+            }
+
+            if (!itemAdded) {
+                scrDsGridAddItem(_inst.sprite, _inst.quantidade);
+				itemAdded = true;
+            }
+            instance_destroy(_inst);
+        }
+    }
+}
+
 }
 
 //Verifica se tem algo colidindo, na direita ou esquerda, se tiver, diminui o campo de visao, até sair da colisao
