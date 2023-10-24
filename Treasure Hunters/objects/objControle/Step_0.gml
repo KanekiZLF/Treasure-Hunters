@@ -6,6 +6,10 @@ if (instance_exists(objPlayer)) {
 	global.poison = clamp(real(global.poison), 0, objPlayer.maxPoison);
 }
 
+if (global.coinsSilver) >= 999 {
+	global.coinsGold += 1;
+}
+
 #endregion
 
 #region Efeitos da espada
@@ -398,7 +402,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2, _recY2, _recX2 + _recSpace2 + (28 * _escala), _recY2 + (14 * _escala))) {
 		if (_mouseClick) {
 			global.gameover = false;
-			global.gamepause = noone;
+			global.gamepause = false;
 			objPlayer.direc = 0;
 			objPlayer.isDead = false;
 			scrRecharge(10, 10) //<-- Define a recarga para Lifes, Stamina e Poison
@@ -432,6 +436,19 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			} else if (room == rmInit) {
 				if (_mouseClick) {
 					global.option = 7; // Volta para tela inicial
+				}
+			}
+		}
+		
+		if (point_in_rectangle(_mouseX, _mouseY, _guiLarg/2 + (80 * _escala ), _coinY + (-45.5 * _escala), _guiLarg/2 + (94 * _escala ), _coinY + (-31.5 * _escala))) {
+			if (room != rmInit) {
+				if (_mouseClick) {
+					global.option = 7; // Volta para a tela inicial
+					room_goto(rmInit)
+				}
+			} else if (room == rmInit) {
+				if (_mouseClick) {
+					global.option = 7; // Volta para tela shops
 				}
 			}
 		}
@@ -471,8 +488,21 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			if (point_in_rectangle(_mouseX, _mouseY, _recSX + (_recSSpace * i), _recSY + _spaceY, _recSX + (28 * _escala + (_recSSpace * i)), _recSY + _spaceY + (39 * _escala))) {
 				_priceItem = objGui.coinLabels3;
 				_coinSprites = objGui.coinSprites3;
+				
+				//Venda os itens
+				if (_mouseClick) {
+					if (i == 0) {
+						scrDsGridProcess(3, 1, true);
+					} else if (i == 1) {
+						scrDsGridProcess(4, 1, true);
+					} else if (i == 2) {
+						scrDsGridProcess(5, 1, true);
+					} else if (i == 3) {
+						scrDsGridProcess(6, 1, true);
+					}
 				}
 			}
+		}
 			
 	// Venda ou compra item que selecionar nos hovers !
 	    if (_mouseClick) {
@@ -480,8 +510,14 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	        if (i < array_length(_priceItem)) {
 	            if (_coinSprites[i] == sprSilverCoin) {
 					if (_option == 9) {
-						if (global.coinsSilver >= _priceItem[i]) {
-							global.coinsSilver -= _priceItem[i];
+						if (global.coinsSilver >= _priceItem[i] || global.coinsGold >= 1) {
+							if (global.coinsSilver >= _priceItem[i]) {
+								global.coinsSilver -= _priceItem[i];
+							} else if (global.coinsGold >= 1) {
+								global.coinsGold -= 1;
+								global.coinsSilver += (1000 - _priceItem[i]);
+							}
+							
 							if (i == 0) {
 								scrDsGridProcess(0)
 							} else if (i == 1) {
@@ -491,7 +527,9 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 							} 
 						}
 					} 
-	            } else if (_coinSprites[i] == sprGoldCoin) {
+	            }
+				// Upgrades
+				else if (_coinSprites[i] == sprGoldCoin) {
 					if (_option == 9) {
 						if (global.coinsGold >= _priceItem[i]) {
 							global.coinsGold -= _priceItem[i];

@@ -3,8 +3,7 @@
 function scrDsGridProcess() {
 	///@param *item
 	///@param quantidade
-	///@param nome
-	///@param sprite optional
+	///@param venda
 	
     var _grid = objGui.gridItems;
     var _itensShop = [Items.Life, Items.Stamina, Items.Poison, Items.Diamond, Items.Saphire, Items.Ruby, Items.Skull];
@@ -12,16 +11,42 @@ function scrDsGridProcess() {
     var gridSizeY = ds_grid_height(_grid);
     var _itemToCompare = _itensShop[argument0];
 	var _quantidade = (argument1 != undefined) ? argument1 : 1;
+	var _itemSell = (argument2 != undefined) ? argument2 : false;
 
     // Verifica se o item ja existe no inventario
     var itemAdded = false;
     for (var xx = 0; xx < gridSizeX; xx++) {
         for (var yy = 0; yy < gridSizeY; yy++) {
-            var cellValue = _grid[# xx, yy];
+            var cellValue = _grid[# Infos.Item, yy];
+			
             if (cellValue == _itemToCompare) {
-                var quantidade = _grid[# Infos.Quantidade, yy];
-                quantidade++;
-                _grid[# Infos.Quantidade, yy] = quantidade;
+				var quantidade = _grid[# Infos.Quantidade, yy];
+				// Se o item não for para venda, ele adiciona no inventario
+				if (!_itemSell) {
+	                quantidade++;
+	                _grid[# Infos.Quantidade, yy] = quantidade;
+				} 
+				
+				if (_itemSell) {
+					// Se o item estiver no inventario, ai vamos vende-lo
+					var _priceItem = objGui.coinLabels3;
+					if (quantidade > 0) {
+						scrPrint(cellValue);
+						
+						if (Items.Diamond) {
+							global.coinsGold += _priceItem[0]
+						} else if (Items.Saphire) {
+							global.coinsGold += _priceItem[1]
+						} else if (Items.Ruby) {
+							global.coinsGold += _priceItem[2]
+						} else if (Items.Skull) {
+							global.coinsGold += _priceItem[3]
+						}
+						
+						quantidade--;
+						_grid[# Infos.Quantidade, yy] = quantidade;
+					}
+				}
                 itemAdded = true;
                 break; // Encerra o loop
             }
@@ -30,7 +55,7 @@ function scrDsGridProcess() {
     }
 
     // Se o item não existir, ele cria
-    if (!itemAdded) {
+    if (!itemAdded && !_itemSell) {
         var _itemName;
         switch(_itemToCompare) {
             default: _itemName = "Erro ao definir grid 2"; break;
@@ -40,6 +65,7 @@ function scrDsGridProcess() {
             case Items.Diamond: _itemName = "Pedra de Diamante"; break;
             case Items.Saphire: _itemName = "Pedra de Safira"; break;
             case Items.Ruby: _itemName = "Pedra de Ruby"; break;
+			case Items.Skull: _itemName = "Caveira de Ouro"; break;
         }
         var _sprite = sprItems;
 

@@ -12,15 +12,17 @@ posSelecionado = -1; // Guarda a posição do item selecionado
 mouseTimer = 0; // <-- Cria um delay para mover os items
 doubleClick = 0; //<-- Clicar duas vezes em um item o consome
 
-// Itens e Upgrades
+// Itens
 coinSprites = [sprSilverCoin, sprSilverCoin, sprSilverCoin, sprGoldCoin];
-coinLabels = [60, 100, 180, 0];
+coinLabels = [140, 190, 250, 0];
 
-coinSprites2 = [sprGoldCoin, sprSilverCoin, sprGoldCoin, sprGoldCoin];
-coinLabels2 = [10, 12, 15, 20];
+// Upgrades
+coinSprites2 = [sprGoldCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];
+coinLabels2 = [15, 18, 20, 35];
 
-coinSprites3 = [sprGoldCoin, sprSilverCoin, sprGoldCoin, sprGoldCoin];
-coinLabels3 = [10, 18, 40, 100];
+// Vendas
+coinSprites3 = [sprGoldCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];
+coinLabels3 = [10, 18, 40, 85];
 
 enum Items {
 	Life,
@@ -43,11 +45,11 @@ enum Infos {
 gridItems = ds_grid_create(Infos.Altura, 6);
 ds_grid_add_region(gridItems, 0, 0, 1, 6 - 1, -1);
 
-scrDsGridAddItem(Items.Life, 5); // <-- Adiciona item no inventario
-scrDsGridAddItem(Items.Stamina, 5); // <-- Adiciona item no inventario
-scrDsGridAddItem(Items.Poison, 5); // <-- Adiciona item no inventario
-scrDsGridAddItem(Items.Diamond, 5); // <-- Adiciona item no inventario
-scrDsGridAddItem(Items.Life, 5); // <-- Adiciona item no inventario
+scrDsGridProcess(Items.Life, 5); // <-- Adiciona item no inventario
+scrDsGridProcess(Items.Stamina, 5); // <-- Adiciona item no inventario
+scrDsGridProcess(Items.Poison, 5); // <-- Adiciona item no inventario
+scrDsGridProcess(Items.Diamond, 5); // <-- Adiciona item no inventario
+
 
 
 

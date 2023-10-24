@@ -4,3 +4,4 @@ imageSpeed = 0;
 image_speed = 0.2;
 listSpeed = ds_list_create();
 isPaused = false;
+itemExist = 0;

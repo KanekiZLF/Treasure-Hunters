@@ -4,6 +4,7 @@ var _pause = global.gamepause;
 
 if (!_pause) {
 	script_execute(estado) //<-- Executa script
+	image_speed = 1;
 }
 
 attackCombo = clamp(attackCombo, -1, 3);

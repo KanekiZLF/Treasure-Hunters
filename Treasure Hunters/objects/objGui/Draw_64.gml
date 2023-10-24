@@ -12,7 +12,7 @@ var _sprAlt = sprite_get_height(sprLifeBar) * _escala;
 var _sprAlt2 = sprite_get_height(sprStaminaBar) * _escala + 8;
 var _hudAlt = _guiAlt/15;
 
-if (instance_exists(objPlayer)) {
+if (instance_exists(objPlayer) && room != rmInit) {
 	var _lifes = objPlayer.lifes2 // <-- Vida count
 	var _stamina = objPlayer.stamina2;  // <-- Estamina count
 	var _maxLifes = objPlayer.maxLifes2;  // <-- Max Vida count
@@ -270,10 +270,39 @@ if (_pause || global.gameover) {
 			if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY))) {
 				draw_sprite_ext(sprHoverButtom, 0, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _escala, _escala, 0, c_white, 1);
 			}
-		} else if (_option == 10) {
+			
+			if (point_in_rectangle(_mouseX, _mouseY, _guiLarg/2 + (80 * _escala ), _coinY + (-45.5 * _escala), _guiLarg/2 + (94 * _escala ), _coinY + (-31.5 * _escala))) {
+				draw_sprite_ext(sprHoverButtom, 0, _guiLarg/2 + (80 * _escala ), _coinY + (-45.5 * _escala), _escala, _escala, 0, c_white, 1);
+			}
+			//Desenha os icones das moedas e seus valores
+			var _coinIX = _guiLarg/2 + (77 * _escala);
+			var _coinIY = _guiAlt/2 + (-19 * _escala);
+			var _coinSpace = 10 * _escala;
+			var _coinsScale = 3;
+			draw_sprite_ext(sprSilverCoin, 0, _coinIX, _coinIY, _coinsScale, _coinsScale, 0, c_white, 1);
+			draw_sprite_ext(sprGoldCoin, 0, _coinIX, _coinIY + _coinSpace, _coinsScale, _coinsScale, 0, c_white, 1);
+		
+			//Desenha o texto do valor das moedas e do item selecionado
+			draw_text_ext_transformed(_coinIX + (15 * _escala), _coinIY + (-6.5 * _escala), global.coinsSilver, 10, 300, .7, .7, 0);
+			draw_text_ext_transformed(_coinIX + (15 * _escala), _coinIY + _coinSpace + (-6.5 * _escala), global.coinsGold, 10, 300, .7, .7, 0);
+		} 
+		
+		else if (_option == 10) {
 			if (point_in_rectangle(_mouseX, _mouseY, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY + 100, _coinX + (14 * _escala + _recBackSpaceX), _coinY + (14 * _escala + _recBackSpaceY + 100))) {
 				draw_sprite_ext(sprHoverButtom, 0, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY + 100, _escala, _escala, 0, c_white, 1)
 			}
+			
+			//Desenha os icones das moedas e seus valores
+			var _coinIX = _guiLarg/2 + (77 * _escala);
+			var _coinIY = _guiAlt/2;
+			var _coinSpace = 10 * _escala;
+			var _coinsScale = 3;
+			draw_sprite_ext(sprSilverCoin, 0, _coinIX, _coinIY, _coinsScale, _coinsScale, 0, c_white, 1);
+			draw_sprite_ext(sprGoldCoin, 0, _coinIX, _coinIY + _coinSpace, _coinsScale, _coinsScale, 0, c_white, 1);
+		
+			//Desenha o texto do valor das moedas e do item selecionado
+			draw_text_ext_transformed(_coinIX + (15 * _escala), _coinIY + (-6.5 * _escala), global.coinsSilver, 10, 300, .7, .7, 0);
+			draw_text_ext_transformed(_coinIX + (15 * _escala), _coinIY + _coinSpace + (-6.5 * _escala), global.coinsGold, 10, 300, .7, .7, 0);
 		}
 		
 		for (var i = 0; i < _numCoins; i++) {
