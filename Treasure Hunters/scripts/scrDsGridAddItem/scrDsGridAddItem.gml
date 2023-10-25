@@ -46,6 +46,10 @@ function scrDsGridAddItem() {
 			case Items.Ruby:
 				_itemName = "Pedra de Ruby";
 			break
+			
+			case Items.Skull:
+				_itemName = "Caveira de oOuro";
+			break
 		}
 	} else {
 		_itemName = argument[2];
