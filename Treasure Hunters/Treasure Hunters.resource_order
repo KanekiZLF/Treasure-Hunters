@@ -69,7 +69,7 @@
   "ResourceOrderSettings": [
     {"name":"sprPlayerIdle","order":1,"path":"sprites/sprPlayerIdle/sprPlayerIdle.yy",},
     {"name":"sprSailWind","order":4,"path":"sprites/sprSailWind/sprSailWind.yy",},
-    {"name":"sprArrowLeft","order":4,"path":"sprites/sprArrowLeft/sprArrowLeft.yy",},
+    {"name":"sprArrows","order":4,"path":"sprites/sprArrows/sprArrows.yy",},
     {"name":"sprHead1Attack1","order":1,"path":"sprites/sprHead1Attack1/sprHead1Attack1.yy",},
     {"name":"objItens","order":1,"path":"objects/objItens/objItens.yy",},
     {"name":"sprHead3Hit1","order":4,"path":"sprites/sprHead3Hit1/sprHead3Hit1.yy",},
@@ -119,7 +119,6 @@
     {"name":"sprBossBar","order":4,"path":"sprites/sprBossBar/sprBossBar.yy",},
     {"name":"sprHoverShop","order":12,"path":"sprites/sprHoverShop/sprHoverShop.yy",},
     {"name":"sprWoodSpikeDestoyed","order":1,"path":"sprites/sprWoodSpikeDestoyed/sprWoodSpikeDestoyed.yy",},
-    {"name":"sprArrowRight","order":5,"path":"sprites/sprArrowRight/sprArrowRight.yy",},
     {"name":"sprHoverMain1","order":4,"path":"sprites/sprHoverMain1/sprHoverMain1.yy",},
     {"name":"sprPinkStarFall","order":4,"path":"sprites/sprPinkStarFall/sprPinkStarFall.yy",},
     {"name":"sprPinkStarAttack","order":7,"path":"sprites/sprPinkStarAttack/sprPinkStarAttack.yy",},

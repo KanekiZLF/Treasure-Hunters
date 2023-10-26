@@ -43,13 +43,12 @@ enum Infos {
 	Altura
 }
 
-gridState = 0;
 gridItems2 = ds_grid_create(Infos.Altura, 18);
-gridItems3 = ds_grid_create(Infos.Altura, 18);
 gridItems = ds_grid_create(Infos.Altura, 18);
+
 ds_grid_add_region(gridItems, 0, 0, 1, 18 - 1, -1);
 ds_grid_add_region(gridItems2, 0, 0, 1, 18 - 1, -1);
-ds_grid_add_region(gridItems3, 0, 0, 1, 18 - 1, -1);
+
 
 
 
@@ -58,21 +57,10 @@ scrDsGridProcess(Items.Stamina, 5); // <-- Adiciona item no inventario
 scrDsGridProcess(Items.Poison, 5); // <-- Adiciona item no inventario
 scrDsGridProcess(Items.Diamond, 5); // <-- Adiciona item no inventario
 scrDsGridProcess(Items.Saphire, 5); // <-- Adiciona item no inventario
-scrDsGridProcess(Items.Skull, 5); // <-- Adiciona item no inventario
+scrDsGridProcess(Items.Skull, 5); // <-- Adiciona item no
 
-scrDsGridAddItem(Items.Life, 1);
-scrDsGridAddItem(Items.Poison, 1);
-scrDsGridAddItem(Items.Diamond, 1);
-scrDsGridAddItem(Items.Skull, 5); // <-- Adiciona item no inventario
-scrDsGridAddItem(Items.Life, 1);
-scrDsGridAddItem(Items.Life, 1);
 
-scrDsGridAddItem(Items.Life, 1);
-scrDsGridAddItem(Items.Poison, 1);
-scrDsGridAddItem(Items.Skull, 5); // <-- Adiciona item no inventario
-scrDsGridAddItem(Items.Skull, 5); // <-- Adiciona item no inventario
-scrDsGridAddItem(Items.Skull, 5); // <-- Adiciona item no inventario
-scrDsGridAddItem(Items.Skull, 5); // <-- Adiciona item no inventario
+
 
 
 

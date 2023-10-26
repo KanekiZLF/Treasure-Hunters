@@ -395,10 +395,26 @@ if (_pause || global.gameover) {
 		var _slotSize = 20 * _escala; 
 		var _iX = 0;
 		var _iY = 0;
-		
 		var _recIX = _guiLarg/2;
 		var _recIY = _guiAlt/2;
 		var _mouseClick = device_mouse_check_button_pressed(0, mb_left);
+		
+		var _arrowAlphas = [.6, .6]; // Array para armazenar as opacidades das setas
+		var _arrowPositions = [
+		    [_recInvX + (-12 * _escala), _recInvY + (17.5 * _escala)],
+		    [_recInvX + (74 * _escala), _recInvY + (17.5 * _escala)]
+		];
+
+		for (var i = 0; i < 2; i++) {
+		    if (point_in_rectangle(_mouseX, _mouseY, _arrowPositions[i][0], _arrowPositions[i][1], _arrowPositions[i][0] + (8 * 3), _arrowPositions[i][1] + (12 * 3))) {
+		        _arrowAlphas[i] = 1;
+		    } else {
+		        _arrowAlphas[i] = .6;
+		    }
+    
+		    draw_sprite_ext(sprArrows, i, _arrowPositions[i][0], _arrowPositions[i][1], 3, 3, 0, c_white, _arrowAlphas[i]);
+		}
+
 
 		//Desenha os quadrados do inventario
 		for (var i = 0; i < _totalSlots; i++) {

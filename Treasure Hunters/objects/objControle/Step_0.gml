@@ -565,10 +565,34 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			scrResume();
 		}
 	} else if (point_in_rectangle(_mouseX, _mouseY, _recIX + (49 * _escala), _recIY + (-29.5 * _escala), _recIX + (63 * _escala), _recIY + (-15.5 * _escala))) {
-			if (_mouseClick) { 
-				global.inventory = false;
-				global.option = 9;
-			}
+		if (_mouseClick) { 
+			global.inventory = false;
+			global.option = 9;
 		}
+	}
+	
+	// Setas da tewla de inventario
+	var _arrowPositions = [
+		[_recInvX + (-12 * _escala), _recInvY + (17.5 * _escala)],
+		[_recInvX + (74 * _escala), _recInvY + (17.5 * _escala)]
+	];
+
+	for (var i = 0; i < 2; i++) {
+		if (point_in_rectangle(_mouseX, _mouseY, _arrowPositions[i][0], _arrowPositions[i][1], _arrowPositions[i][0] + (8 * 3), _arrowPositions[i][1] + (12 * 3))) {
+		    if (_mouseClick){
+				ds_grid_set_grid_region(gridItems2, gridItems, 0, 0, 3, 6, 0, 6);
+				ds_grid_set_grid_region(gridItems2, gridItems, 0, 6, 3, 11, 0, 12);
+				ds_grid_set_grid_region(gridItems2, gridItems, 0, 12, 3, 17, 0, 0);
+				ds_grid_copy(gridItems, gridItems2);
+			} 
+		} else {
+		    if (_mouseClick){
+				ds_grid_set_grid_region(gridItems2, gridItems, 0, 0, 3, 6, 0, 12);
+				ds_grid_set_grid_region(gridItems2, gridItems, 0, 6, 3, 11, 0, 0);
+				ds_grid_set_grid_region(gridItems2, gridItems, 0, 12, 3, 17, 0, 6);
+				ds_grid_copy(gridItems, gridItems2);
+			} 
+		}
+	}
 }
 #endregion

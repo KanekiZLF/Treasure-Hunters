@@ -31,8 +31,7 @@ function scrDsGridProcess() {
 					// Se o item estiver no inventario, ai vamos vende-lo
 					var _priceItem = objGui.coinLabels3;
 					if (quantidade > 0) {
-						scrPrint(cellValue);
-						
+			
 						if (Items.Diamond) {
 							global.coinsGold += _priceItem[0]
 						} else if (Items.Saphire) {
