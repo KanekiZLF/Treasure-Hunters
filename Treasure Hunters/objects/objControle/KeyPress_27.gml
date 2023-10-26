@@ -16,6 +16,13 @@ if (room != rmInit) {
 		global.option = noone;
 		scrResume();
 	}
+	
+	if (global.option == 9 || global.option == 10) {
+		global.gamepause = false;
+		global.inventory = false;
+		global.option = noone;
+		scrResume();
+	}
 }
 
 

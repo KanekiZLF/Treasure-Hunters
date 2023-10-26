@@ -18,8 +18,8 @@ quantidade = 1;
 sprRedPotion, // 0
 sprBluePotion, // 1
 sprGreenBottle, // 2
-sprDiamondCoin, // 3
-sprSaphireCoin, // 4
+sprDiamond, // 3
+sprSaphire, // 4
 sprRubyCoin, // 5
 sprGoldenSkull // 6
 */

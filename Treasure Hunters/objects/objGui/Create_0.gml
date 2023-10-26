@@ -57,6 +57,8 @@ scrDsGridProcess(Items.Stamina, 5); // <-- Adiciona item no inventario
 scrDsGridProcess(Items.Poison, 5); // <-- Adiciona item no inventario
 scrDsGridProcess(Items.Diamond, 5); // <-- Adiciona item no inventario
 scrDsGridProcess(Items.Saphire, 5); // <-- Adiciona item no inventario
+scrDsGridProcess(Items.Ruby, 5); // <-- Adiciona item no inventario
+
 
 scrDsGridAddItem(Items.Skull, 5); // <-- Adiciona item no
 scrDsGridAddItem(Items.Skull, 5); // <-- Adiciona item no
