@@ -53,14 +53,16 @@ dano = 1; //<-- Define o valor do dano que da no inimigo
 maxLifes = 10;
 maxStamina = 10;
 maxPoison = 0;
+restPoison = 0;
 global.lifes = maxLifes;
 global.stamina = maxStamina;
 global.poison = maxPoison;
 
 //Array de upgrade
-upgradeLifes = [12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
-upgradeDano = [4, 6, 8, 10, 12, 14, 16, 18, 20, 22];
-upgradeRestVeneno = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+upgradeLifes = [0 ,12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+upgradeStam = [0, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30]
+upgradeDano = [0, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22];
+upgradeRestVeneno = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
 
 //Variaveis das barras de cor
 maxLifes2 = global.lifes;

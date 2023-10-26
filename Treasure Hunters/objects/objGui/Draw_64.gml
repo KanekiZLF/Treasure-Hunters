@@ -368,10 +368,22 @@ if (_pause || global.gameover) {
 			//Barrinha vermelha de upgrade
 			var _xx = _guiLarg/2 + (-52 * _escala);
 			var _yy = _guiAlt/2 + (30.5 * _escala);
-			var _spaceXX = 10 * _escala;
-			var _spaceYY = 10 * _escala;
+			var _upgLife = objControle.upgradeLifes;
+			var _upgStam = objControle.upgradeStam;
+			var _upgDano = objControle.upgradeDano;
+			var _upgRestVeneno = objControle.upgradeVeneno;
 			
-			draw_sprite_ext(sprUpgrade, 0, _xx, _yy, _escala, _escala, 0, c_white, 1);
+			// Desenhar upgrades de vida
+			scrDrawUpgrades(_xx, _yy, _escala, _upgLife);
+
+			// Desenhar upgrades de estamina
+			scrDrawUpgrades(_xx + (30 * _escala), _yy, _escala, _upgStam);
+			
+			// Desenhar upgrades de resistencia a veneno
+			scrDrawUpgrades(_xx + (60 * _escala), _yy, _escala, _upgRestVeneno);
+			
+			// Desenhar upgrades de dano
+			scrDrawUpgrades(_xx + (90 * _escala), _yy, _escala, _upgDano);
 			
 			//Itens
 			draw_sprite_ext(sprRedPotion, 0, _coinX + (6.2 * _escala), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);

@@ -532,20 +532,34 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 				else if (_coinSprites[i] == sprGoldCoin) {
 					if (_option == 9) {
 						if (global.coinsGold >= _priceItem[i]) {
-							global.coinsGold -= _priceItem[i];
-							upgrade++
-							if (i == 0) {
-								objPlayer.lifes2 = objPlayer.upgradeLifes[upgrade];
-								objPlayer.maxLifes2 = objPlayer.upgradeLifes[upgrade];
-								objPlayer.maxLifes = objPlayer.upgradeLifes[upgrade];
-								global.lifes = objPlayer.upgradeLifes[upgrade];
-							} else if (i == 1) {
-								
-							} else if (i == 2) {
-								
-							} else if (i == 3) {
-								
-							} 
+							if (instance_exists(objPlayer)) {
+								switch(i) {
+								    case 0:
+									if (upgradeLifes < 10) {
+								        upgradeLife();
+										global.coinsGold -= _priceItem[i];
+									}
+								        break;
+								    case 1:
+									if (upgradeStam < 10) {
+								        upgradeStamina();
+										global.coinsGold -= _priceItem[i];
+									}
+								        break;
+								    case 2:
+									if (upgradeVeneno < 10) {
+								        upgradeVenenoResist();
+										global.coinsGold -= _priceItem[i];
+									}
+								        break;
+								    case 3:
+									if (upgradeDano < 10) {
+								        upgradeDamage();
+										global.coinsGold -= _priceItem[i];
+									}
+								        break;
+								}
+							}
 						}
 					}
 	            }

@@ -1,6 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 var _pause = global.gamepause;
+scrPrint(global.lifes);
 
 if (!_pause) {
 	script_execute(estado) //<-- Executa script
