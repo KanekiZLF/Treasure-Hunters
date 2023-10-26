@@ -56,6 +56,12 @@ maxPoison = 0;
 global.lifes = maxLifes;
 global.stamina = maxStamina;
 global.poison = maxPoison;
+
+//Array de upgrade
+upgradeLifes = [12, 14, 16, 18, 20, 22, 24, 26, 28, 30];
+upgradeDano = [4, 6, 8, 10, 12, 14, 16, 18, 20, 22];
+upgradeRestVeneno = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+
 //Variaveis das barras de cor
 maxLifes2 = global.lifes;
 maxStamina2 = global.stamina;

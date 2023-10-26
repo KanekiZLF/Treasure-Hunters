@@ -533,8 +533,12 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					if (_option == 9) {
 						if (global.coinsGold >= _priceItem[i]) {
 							global.coinsGold -= _priceItem[i];
+							upgrade++
 							if (i == 0) {
-								
+								objPlayer.lifes2 = objPlayer.upgradeLifes[upgrade];
+								objPlayer.maxLifes2 = objPlayer.upgradeLifes[upgrade];
+								objPlayer.maxLifes = objPlayer.upgradeLifes[upgrade];
+								global.lifes = objPlayer.upgradeLifes[upgrade];
 							} else if (i == 1) {
 								
 							} else if (i == 2) {
