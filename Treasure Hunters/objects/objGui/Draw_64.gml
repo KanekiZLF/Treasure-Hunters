@@ -366,12 +366,12 @@ if (_pause || global.gameover) {
 		if (_option == 9) {
 			
 			//Barrinha vermelha de upgrade
-			var _xx = _guiLarg/2;
-			var _yy = _guiAlt/2;
+			var _xx = _guiLarg/2 + (-52 * _escala);
+			var _yy = _guiAlt/2 + (30.5 * _escala);
 			var _spaceXX = 10 * _escala;
 			var _spaceYY = 10 * _escala;
 			
-			draw_sprite_ext(sprUpgrade)
+			draw_sprite_ext(sprUpgrade, 0, _xx, _yy, _escala, _escala, 0, c_white, 1);
 			
 			//Itens
 			draw_sprite_ext(sprRedPotion, 0, _coinX + (6.2 * _escala), _coinY + (-22.5 * _escala), 4, 4, 0, c_white, 1);

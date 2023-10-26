@@ -74,6 +74,7 @@
     {"name":"objItens","order":1,"path":"objects/objItens/objItens.yy",},
     {"name":"sprHead3Hit1","order":4,"path":"sprites/sprHead3Hit1/sprHead3Hit1.yy",},
     {"name":"sprHead1Hit2","order":5,"path":"sprites/sprHead1Hit2/sprHead1Hit2.yy",},
+    {"name":"sprUpgrade","order":15,"path":"sprites/sprUpgrade/sprUpgrade.yy",},
     {"name":"sprMapOutEffect","order":7,"path":"sprites/sprMapOutEffect/sprMapOutEffect.yy",},
     {"name":"sprSealShellIdle","order":7,"path":"sprites/sprSealShellIdle/sprSealShellIdle.yy",},
     {"name":"sprSailTransitionNoWind","order":2,"path":"sprites/sprSailTransitionNoWind/sprSailTransitionNoWind.yy",},
