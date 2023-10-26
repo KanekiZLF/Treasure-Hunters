@@ -480,7 +480,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 		        _coinSprites = objGui.coinSprites2;
 		    }
 		} 
-		
+		// Vende os items
 		else if (_option == 10) {
 			var _spaceX = 10 * _escala;
 			var _spaceY = -25 * _escala;
@@ -504,7 +504,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			}
 		}
 			
-	// Venda ou compra item que selecionar nos hovers !
+	// Compra item que selecionar nos hovers !
 	    if (_mouseClick) {
 			var _grid = objGui.gridItems;
 	        if (i < array_length(_priceItem)) {
@@ -530,7 +530,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	            }
 				// Upgrades
 				else if (_coinSprites[i] == sprGoldCoin) {
-					if (_option == 9) {
+					if (global.option == 9) {
 						if (global.coinsGold >= _priceItem[i]) {
 							if (instance_exists(objPlayer)) {
 								switch(i) {

@@ -32,13 +32,19 @@ function scrDsGridProcess() {
 					var _priceItem = objGui.coinLabels3;
 					if (quantidade > 0) {
 			
-						if (Items.Diamond) {
+						if (_itemToCompare == Items.Diamond) {
 							global.coinsGold += _priceItem[0]
-						} else if (Items.Saphire) {
+						} 
+						
+						if (_itemToCompare == Items.Saphire) {
 							global.coinsGold += _priceItem[1]
-						} else if (Items.Ruby) {
+						} 
+						
+						if (_itemToCompare == Items.Ruby) {
 							global.coinsGold += _priceItem[2]
-						} else if (Items.Skull) {
+						} 
+						
+						if (_itemToCompare == Items.Skull) {
 							global.coinsGold += _priceItem[3]
 						}
 						
