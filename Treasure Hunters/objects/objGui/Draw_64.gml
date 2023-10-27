@@ -100,6 +100,10 @@ switch(_option) {
 	case 11:
 		_sprDraw = sprInventoryBoard;
 	break;
+	
+	case 12:
+		_sprDraw = sprConfirmationBoard;
+	break;
 }
 var _sprWidht = sprite_get_width(_sprDraw) * _escala;
 var _sprHeight = sprite_get_height(_sprDraw) * _escala;
@@ -130,9 +134,9 @@ if (_pause || global.gameover) {
 	    case 7:
 	        draw_sprite_ext(_sprDraw, 0, _x - 1.8, _y, _escala, _escala, 0, c_white, 1);
 		break;
-		 
-	    case 9:
-	        draw_sprite_ext(_sprDraw, 0, _x, _y, _escala, _escala, 0, c_white, 1);
+		
+		case 12:
+	        draw_sprite_ext(_sprDraw, 0, _x + (.5 * _escala), _y, _escala, _escala, 0, c_white, 1);
 	    break;
 	}
 
@@ -271,9 +275,17 @@ if (_pause || global.gameover) {
 				draw_sprite_ext(sprHoverButtom, 0, _coinX + _recBackSpaceX, _coinY + _recBackSpaceY, _escala, _escala, 0, c_white, 1);
 			}
 			
+			// Icone encima das moedas
 			if (point_in_rectangle(_mouseX, _mouseY, _guiLarg/2 + (80 * _escala ), _coinY + (-45.5 * _escala), _guiLarg/2 + (94 * _escala ), _coinY + (-31.5 * _escala))) {
 				draw_sprite_ext(sprHoverButtom, 0, _guiLarg/2 + (80 * _escala ), _coinY + (-45.5 * _escala), _escala, _escala, 0, c_white, 1);
 			}
+			
+			if (room != rmInit) {
+				draw_sprite_ext(sprSmallIcons, 7, _guiLarg/2 + (83 * _escala ), _coinY + (-42.5 * _escala), _escala, _escala, 0, c_white, 1);
+			} else {
+				draw_sprite_ext(sprSmallIcons, 14, _guiLarg/2 + (83 * _escala ), _coinY + (-42.5 * _escala), _escala, _escala, 0, c_white, 1);
+			}
+			
 			//Desenha os icones das moedas e seus valores
 			var _coinIX = _guiLarg/2 + (77 * _escala);
 			var _coinIY = _guiAlt/2 + (-19 * _escala);
@@ -620,11 +632,11 @@ if (_pause || global.gameover) {
 	//draw_rectangle(_recX, _recY, _recX + (72 * _escala), _recY + (14 * _escala), true);
 		
 	//Desenha texto do menu inicial
-	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Vendas", "Inventario", "ERRO"];
+	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Vendas", "Inventario", "Tela Inicial", "ERRO"];
 	var _textSelected = 0;
 	switch (_option) {
 	    default: // Define erro caso não exista a seleção
-	        _textSelected = _menuText[9];
+	        _textSelected = _menuText[10];
 	     break;
 		 
 	    case 0:// Pause
@@ -674,6 +686,10 @@ if (_pause || global.gameover) {
 		case 11: // Tela Inventario
 	       _textSelected = _menuText[8];
 	    break;
+		
+		case 12: // Tela Inventario
+	       _textSelected = _menuText[9];
+	    break;
 	}
 	
 	// Desenha o texto selecionado
@@ -695,6 +711,10 @@ if (_pause || global.gameover) {
 		
 		case 11:
 	        draw_text_ext_transformed(_textX + (-2 * _escala), _textY - (36.6 * _escala), _textSelected, 10, 300, .8, .8, 0);
+		break;
+		
+		case 12:
+	        draw_text_ext_transformed(_textX + (3.5 * _escala), _textY - (38 * _escala), _textSelected, 10, 600, .7, .7, 0);
 		break;
 		}
 	}
@@ -807,6 +827,24 @@ if (_pause || global.gameover) {
 		        draw_sprite_ext(sprHoverSave, 0, _recX2, _recY2 + (i * _recSpace2), _escala, _escala, 0, c_white, 1);
 		        break; // Encerre o loop após encontrar um retângulo
 		    }
+		}
+	}
+	
+	// Desenha a tela de confirmação
+	if (_option == 12) {
+		var _xx = _guiLarg/2 + (8.5 * _escala);
+		var _yy = _guiAlt/2 + (24 * _escala);
+		var _spaceXX = -37 * _escala;
+		
+		draw_text_ext_transformed(_xx + (-26.5 * _escala), _yy + (4 * _escala), "Sim", 10, 300, .6, .6, 0);
+		draw_text_ext_transformed(_xx + (10.5 * _escala), _yy + (4 * _escala), "Nao", 10, 300, .6, .6, 0);
+
+		if (point_in_rectangle(_mouseX, _mouseY, _xx + _spaceXX, _yy, _xx + _spaceXX + (21 * _escala), _yy + (14 * _escala))) {
+			draw_sprite_ext(sprHoverButtom2, 0, _xx + _spaceXX, _yy, _escala, _escala, 0, c_white, 1);
+		}
+		
+		if (point_in_rectangle(_mouseX, _mouseY, _xx, _yy, _xx + (21 * _escala), _yy + (14 * _escala))) {
+			draw_sprite_ext(sprHoverButtom2, 0, _xx, _yy, _escala, _escala, 0, c_white, 1);
 		}
 	}
 	

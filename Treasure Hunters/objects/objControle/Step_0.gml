@@ -181,7 +181,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					break;
 					
 					case 0: // Se _option == 0
-						global.option = 1
+						global.option = 1;
 					break;
 					
 					case 1: // Se _option == 1
@@ -189,7 +189,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					break;
 					
 					case 2: // Se _option == 2
-						
+						global.option = 12;
 					break;
 					
 					case 3: // Se _option == 3
@@ -239,7 +239,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					break;
 					
 					case 0: // Se _option == 0
-						game_end(); //<-- Encerra o jogo;
+						global.option = 12;
 					break;
 					
 					case 1: // Se _option == 1
@@ -344,7 +344,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	// Sair	
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX2, _recTY2, _recTX2 + (33 * _escala), _recTY2 + (12 * _escala))) {
 		if (_mouseClick) {
-			game_end(); //<-- Encerra o jogo;
+			game_end() // <-- Encerra o jogo
 		}
 	}
 	// Config		
@@ -411,7 +411,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	// Sair
 	else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2 + (33 * _escala), _recY2 + (1 * _escala), _recX2 + _recSpace2 + (33 * _escala) + (32 * _escala), _recY2 + (1 * _escala) + (13 * _escala))) {
 		if (_mouseClick) {
-			game_end();
+			global.option = 12;
 		}
 	}
 } else if (_option == 9 || _option == 10) {
@@ -443,8 +443,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 		if (point_in_rectangle(_mouseX, _mouseY, _guiLarg/2 + (80 * _escala ), _coinY + (-45.5 * _escala), _guiLarg/2 + (94 * _escala ), _coinY + (-31.5 * _escala))) {
 			if (room != rmInit) {
 				if (_mouseClick) {
-					global.option = 7; // Volta para a tela inicial
-					room_goto(rmInit)
+					global.option = 11; // Volta para o inventario
 				}
 			} else if (room == rmInit) {
 				if (_mouseClick) {
@@ -531,33 +530,63 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 				// Upgrades
 				else if (_coinSprites[i] == sprGoldCoin) {
 					if (global.option == 9) {
-						if (global.coinsGold >= _priceItem[i]) {
+						if (_priceItem[i] != "Max" && global.coinsGold >= _priceItem[i]) {
 							if (instance_exists(objPlayer)) {
+								var percentIncrease = 45; // A porcentagem de aumento desejada
+								var increaseAmount = 0;
+								
+								if (_priceItem[i] != "Max") {
+									increaseAmount = round((_priceItem[i] * percentIncrease) / 100); // Calcula o valor do aumento
+								}
+								
 								switch(i) {
 								    case 0:
-									if (upgradeLifes < 10) {
-								        upgradeLife();
-										global.coinsGold -= _priceItem[i];
-									}
-								        break;
+										if (upgradeLifes < 10) {
+									        upgradeLife();
+											global.coinsGold -= _priceItem[i];
+											_priceItem[i] += increaseAmount; // Aumenta o valor em %
+										}
+										
+										if (upgradeLifes == 10) {
+											_priceItem[i] = "Max";
+										}
+								    break;
+									
 								    case 1:
-									if (upgradeStam < 10) {
-								        upgradeStamina();
-										global.coinsGold -= _priceItem[i];
-									}
-								        break;
+										if (upgradeStam < 10) {
+									        upgradeStamina();
+											global.coinsGold -= _priceItem[i];
+											_priceItem[i] += increaseAmount; // Aumenta o valor em %
+										}
+										
+										if (upgradeStam == 10) {
+											_priceItem[i] = "Max";
+										}
+								    break;
+									
 								    case 2:
-									if (upgradeVeneno < 10) {
-								        upgradeVenenoResist();
-										global.coinsGold -= _priceItem[i];
-									}
-								        break;
+										if (upgradeVeneno < 10) {
+									        upgradeVenenoResist();
+											global.coinsGold -= _priceItem[i];
+											_priceItem[i] += increaseAmount; // Aumenta o valor em %
+										}
+										
+										if (upgradeVeneno == 10) {
+											_priceItem[i] = "Max";
+										}
+								    break;
+									
 								    case 3:
-									if (upgradeDano < 10) {
-								        upgradeDamage();
-										global.coinsGold -= _priceItem[i];
-									}
-								        break;
+										if (upgradeDano < 10) {
+									        upgradeDamage();
+											global.coinsGold -= _priceItem[i];
+											_priceItem[i] += increaseAmount; // Aumenta o valor em %
+										}
+										
+										if (upgradeDano == 10) {
+											_priceItem[i] = "Max";
+										}
+								    break;
 								}
 							}
 						}
@@ -611,5 +640,31 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 				ds_grid_copy(_grid, _grid2);
 			}
 		} 
-}
+} else if (_option == 12) {
+	// Tela de confirmacao
+		var _xx = _guiLarg/2 + (8.5 * _escala);
+		var _yy = _guiAlt/2 + (24 * _escala);
+		var _spaceXX = -37 * _escala;
+		
+		// Sim
+		if (point_in_rectangle(_mouseX, _mouseY, _xx + _spaceXX, _yy, _xx + _spaceXX + (21 * _escala), _yy + (14 * _escala))) {
+			if (_mouseClick) {
+				if (room != rmInit) { 
+					global.option = 7;
+					room_goto(rmInit);
+				}
+			}
+		}
+		
+		// Nao
+		if (point_in_rectangle(_mouseX, _mouseY, _xx, _yy, _xx + (21 * _escala), _yy + (14 * _escala))) {
+			if (_mouseClick) {
+				if (!global.gameover) {
+					global.option = 0;
+				} else if (global.gameover) {
+					global.option = 8;
+				}
+			}
+		}
+	}
 #endregion

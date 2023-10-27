@@ -15,7 +15,7 @@ doubleClick = 0; //<-- Clicar duas vezes em um item o consome
 
 // Itens
 coinSprites = [sprSilverCoin, sprSilverCoin, sprSilverCoin, sprGoldCoin];
-coinLabels = [140, 190, 250, 0];
+coinLabels = [180, 250, 350, 0];
 
 // Upgrades
 coinSprites2 = [sprGoldCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];
@@ -23,7 +23,7 @@ coinLabels2 = [15, 18, 20, 35];
 
 // Vendas
 coinSprites3 = [sprGoldCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];
-coinLabels3 = [10, 18, 40, 85];
+coinLabels3 = [10, 18, 26, 55];
 
 enum Items {
 	Life,

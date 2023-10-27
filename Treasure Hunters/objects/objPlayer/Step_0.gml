@@ -14,9 +14,12 @@ poison2 = clamp(poison2, 0, maxPoison2);
 
 if global.lifes <= 0 {
 	isDead = true;
-	global.gameover = true;
-	global.option = 8;
 	
+	if (!global.gameover) {
+		global.option = 8;
+	}
+	
+	global.gameover = true;
 	// Cria o efeito de fumaça
 	if sprite_index == sprPlayerDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede) {
 		var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);

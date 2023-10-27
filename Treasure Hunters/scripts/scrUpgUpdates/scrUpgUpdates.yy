@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrUpdates",
+  "name": "scrUpgUpdates",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
