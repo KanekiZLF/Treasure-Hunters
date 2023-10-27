@@ -471,8 +471,8 @@ if (_pause || global.gameover) {
 				
 				// Cria o nome do item embaixo
 				if (gridItems[# Infos.Item, i] != -1) {
-					_textItem = gridItems[# Infos.Nome, i];
-				
+					_textItem = gridItems[# Infos.Nome, i]; // Define o nome dos items
+					
 					if (itemSelecionado2 == -1) {
 						itemSelecionado2 = gridItems[# Infos.Item, i];
 					} else if (itemSelecionado2 != gridItems[# Infos.Item, i]) {
@@ -563,11 +563,22 @@ if (_pause || global.gameover) {
 				gridItems[# Infos.Item, i] = -1;
 				gridItems[# Infos.Quantidade, i] = -1;
 				gridItems[# Infos.Nome, i] = -1;
+				gridItems[# Infos.Descricao, i] = -1;
 			}
 			
 			if (gridItems[# Infos.Item, i] != -1) {
 				draw_sprite_ext(sprItems, gridItems[# Infos.Item, i], _slotsX, _slotsY, _escala, _escala, 0, c_white, 1);
 				scrDrawOutLine(_slotsX + _slotSize - 6, _slotsY + (6 * _escala), gridItems[# Infos.Quantidade, i], 2, c_white, 16, 100, 100, .5, .5, 0);
+			
+			/*if (point_in_rectangle(_mouseX, _mouseY, _slotsX, _slotsY, _slotsX + _slotSize, _slotsY + _slotSize)) {
+				var _xx = _guiLarg/2 + (-80 * _escala);
+				var _yy = _guiAlt/2 + (-25 * _escala);
+				
+				draw_sprite_ext(sprHoverDesc, 0, _xx, _yy, _escala, _escala, 0, c_white, 1);
+				draw_set_color(#c0c0c0);
+				//draw_text_ext_transformed(_xx + (14.5 * _escala), _yy + (18 * _escala), gridItems[# Infos.Descricao, i], 60, 400, .3, .3, 0);
+				draw_set_color(#33323d);
+				}*/
 			}
 			
 			_iX++;

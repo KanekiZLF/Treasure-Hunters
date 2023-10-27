@@ -40,6 +40,7 @@ enum Infos {
 	Item,
 	Quantidade,
 	Nome,
+	Descricao,
 	Altura
 }
 
@@ -48,8 +49,6 @@ gridItems = ds_grid_create(Infos.Altura, 18);
 
 ds_grid_add_region(gridItems, 0, 0, 1, 18 - 1, -1);
 ds_grid_add_region(gridItems2, 0, 0, 1, 18 - 1, -1);
-
-
 
 
 scrDsGridProcess(Items.Life, 5); // <-- Adiciona item no inventario

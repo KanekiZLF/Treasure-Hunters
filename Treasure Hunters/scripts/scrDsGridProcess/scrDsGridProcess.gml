@@ -62,15 +62,48 @@ function scrDsGridProcess() {
     // Se o item não existir, ele cria
     if (!itemAdded && !_itemSell) {
         var _itemName;
+		var _itemDescricao;
         switch(_itemToCompare) {
-            default: _itemName = "Erro ao definir grid 2"; break;
-            case Items.Life: _itemName = "Elixir de Cura"; break;
-            case Items.Stamina: _itemName = "Elixir de Estamina"; break;
-            case Items.Poison: _itemName = "Elixir Envenenado"; break;
-            case Items.Diamond: _itemName = "Pedra de Diamante"; break;
-            case Items.Saphire: _itemName = "Pedra de Safira"; break;
-            case Items.Ruby: _itemName = "Pedra de Ruby"; break;
-			case Items.Skull: _itemName = "Caveira de Ouro"; break;
+            default: 
+				_itemName = "Erro ao definir grid 2"; 
+				_itemDescricao = "Erro ao definir descricao para o item: " + _itemName;
+			break;
+			
+            case Items.Life: 
+				_itemName = "Elixir de Cura"; 
+				_itemDescricao = "Pocao incrivel restaura 2 Pontos de vida";
+			break;
+			
+            case Items.Stamina: 
+				_itemName = "Elixir de Estamina"; 
+				_itemDescricao = "Pocao com gosto ruim, restaura 2 de estamina";
+			break;
+			
+            case Items.Poison:
+				_itemName = "Elixir Envenenado"; 
+				_itemDescricao = "Pocao envenenada, te da uma habilidade aleatoria, Invisibilidade, Imunidade ou Velocidade ";
+			break;
+			
+            case Items.Diamond: 
+				_itemName = "Pedra de Diamante"; 
+				_itemDescricao = "Joia linda, pode ser vendida no mercado !";
+			break;
+			
+            case Items.Saphire: 
+				_itemName = "Pedra de Safira";
+				_itemDescricao = "Joia magnifica, pode ser vendida no mercado !";
+			break;
+			
+            case Items.Ruby: 
+				_itemName = "Pedra de Ruby"; 
+				_itemDescricao = "Hum... Joia rarissima, pode ser vendida no mercado !";
+			break;
+			
+			case Items.Skull: 
+				_itemName = "Caveira de Ouro"; 
+				_itemDescricao = "Parece que voce encontrou algo estranho. tente vende-lo no mercado !";
+			break;
+			
         }
         var _sprite = sprItems;
 
@@ -84,6 +117,6 @@ function scrDsGridProcess() {
         _grid[# 0, _checagem] = _itemToCompare;
         _grid[# 1, _checagem] = _quantidade;
         _grid[# 2, _checagem] = _itemName;
-        _grid[# 3, _checagem] = _sprite;
+        _grid[# 3, _checagem] = _itemDescricao;
     }
 }
