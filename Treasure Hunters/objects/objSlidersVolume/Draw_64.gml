@@ -2,6 +2,10 @@
 // Você pode escrever seu código neste editor
 
 if (global.option == 3) {
+	var _guiLarg = display_get_gui_width();
+	var _guiAlt = display_get_gui_height();
+	x = _guiLarg/2 - 130;
+	y = _guiAlt/2 + 102;
 	image_xscale = scale;
 	image_yscale = scale;
 	var _textX = _guiLarg/2 + 118;

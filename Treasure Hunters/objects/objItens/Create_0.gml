@@ -13,6 +13,38 @@ gravidade = .2;
 objColisParede = objParede;
 vision = 3; // <-- Define um raio para saber qual distancia a espada esta do chão
 quantidade = 1;
+sprite = 0;
+
+switch(image_index) {
+	case 0:
+		sprite = 0;
+	break;
+	
+	case 1: 
+		sprite = 1;
+	 break;	
+	 
+	 case 2: 
+		sprite = 2;
+	 break;	
+	 
+	 case 3: 
+		sprite = 3;
+	 break;	
+	 
+	 case 4: 
+		sprite = 4;
+	 break;	
+	 
+	 case 5: 
+		sprite = 5;
+	 break;	
+	 
+	 case 6: 
+		sprite = 6;
+	 break;	
+}
+
 
 /*
 sprRedPotion, // 0
