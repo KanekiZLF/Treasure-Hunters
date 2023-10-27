@@ -189,7 +189,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					break;
 					
 					case 2: // Se _option == 2
-						global.option = 12;
+						
 					break;
 					
 					case 3: // Se _option == 3
