@@ -168,7 +168,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					break;
 					
 					case 4: // Se _option == 4
-						
+						global.option = 13
 					break;
 				}
 			}
@@ -663,6 +663,23 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					global.option = 0;
 				} else if (global.gameover) {
 					global.option = 8;
+				}
+			}
+		}
+	}
+	else if (_option == 13) {
+		var _xx = _guiLarg/2 + (-45 * _escala);
+		var _yy = _guiAlt/2 + (-45 * _escala);
+		var _spaceXX = -37 * _escala;
+		
+		if (point_in_rectangle(_mouseX, _mouseY, _xx, _yy, _xx + (21 * _escala), _yy + (14 * _escala))) {
+			if (global.inventory) {
+				if (_mouseClick) {
+					global.option = 11;
+				}
+			} else {
+				if (_mouseClick) {
+					global.option = 4;
 				}
 			}
 		}

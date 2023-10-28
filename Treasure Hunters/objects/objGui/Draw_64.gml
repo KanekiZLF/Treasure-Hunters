@@ -104,6 +104,10 @@ switch(_option) {
 	case 12:
 		_sprDraw = sprConfirmationBoard;
 	break;
+	
+	case 13:
+		_sprDraw = sprElixirsGuideBoard;
+	break;
 }
 var _sprWidht = sprite_get_width(_sprDraw) * _escala;
 var _sprHeight = sprite_get_height(_sprDraw) * _escala;
@@ -567,17 +571,31 @@ if (_pause || global.gameover) {
 			}
 			
 			if (gridItems[# Infos.Item, i] != -1) {
+				
+				// Desenha sprite e a quantidade do item no slot
 				draw_sprite_ext(sprItems, gridItems[# Infos.Item, i], _slotsX, _slotsY, _escala, _escala, 0, c_white, 1);
 				scrDrawOutLine(_slotsX + _slotSize - 6, _slotsY + (6 * _escala), gridItems[# Infos.Quantidade, i], 2, c_white, 16, 100, 100, .5, .5, 0);
-			
-			/*if (point_in_rectangle(_mouseX, _mouseY, _slotsX, _slotsY, _slotsX + _slotSize, _slotsY + _slotSize)) {
-				var _xx = _guiLarg/2 + (-80 * _escala);
-				var _yy = _guiAlt/2 + (-25 * _escala);
 				
-				draw_sprite_ext(sprHoverDesc, 0, _xx, _yy, _escala, _escala, 0, c_white, 1);
-				draw_set_color(#c0c0c0);
-				//draw_text_ext_transformed(_xx + (14.5 * _escala), _yy + (18 * _escala), gridItems[# Infos.Descricao, i], 60, 400, .3, .3, 0);
-				draw_set_color(#33323d);
+				// Desenha o ponto de interrugação
+				if (point_in_rectangle(_mouseX, _mouseY, _slotsX, _slotsY, _slotsX + _slotSize, _slotsY + _slotSize)) {
+					scrDrawOutLine(_slotsX + _slotSize + (-18 * _escala), _slotsY + (5 * _escala), "?", 2, c_white, 6, 100, 100, .4, .4, 0);
+					//draw_circle(_slotsX + _slotSize + (-18.5 * _escala), _slotsY + (1.5 * _escala), 10, false)
+					
+					if (point_in_circle(_mouseX, _mouseY, _slotsX + _slotSize + (-18.5 * _escala), _slotsY + (1.5 * _escala), 10)) {
+						if (_mouseClick){
+							global.option = 13;
+						}
+					}
+				}
+
+			 /*if (point_in_rectangle(_mouseX, _mouseY, _slotsX, _slotsY, _slotsX + _slotSize, _slotsY + _slotSize)) {
+					var _xx = _guiLarg/2 + (-80 * _escala);
+					var _yy = _guiAlt/2 + (-25 * _escala);
+				
+					draw_sprite_ext(sprHoverDesc, 0, _xx, _yy, _escala, _escala, 0, c_white, 1);
+					draw_set_color(#c0c0c0);
+					//draw_text_ext_transformed(_xx + (14.5 * _escala), _yy + (18 * _escala), gridItems[# Infos.Descricao, i], 60, 400, .3, .3, 0);
+					draw_set_color(#33323d);
 				}*/
 			}
 			
@@ -643,11 +661,11 @@ if (_pause || global.gameover) {
 	//draw_rectangle(_recX, _recY, _recX + (72 * _escala), _recY + (14 * _escala), true);
 		
 	//Desenha texto do menu inicial
-	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Vendas", "Inventario", "Tela Inicial", "ERRO"];
+	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Vendas", "Inventario", "Tela Inicial", "Guia Elixir", "ERRO"];
 	var _textSelected = 0;
 	switch (_option) {
 	    default: // Define erro caso não exista a seleção
-	        _textSelected = _menuText[10];
+	        _textSelected = _menuText[11];
 	     break;
 		 
 	    case 0:// Pause
@@ -700,6 +718,10 @@ if (_pause || global.gameover) {
 		
 		case 12: // Tela Inventario
 	       _textSelected = _menuText[9];
+	    break;
+		
+		case 13: // Tela guia de Elixirs
+	       _textSelected = _menuText[10];
 	    break;
 	}
 	
@@ -755,6 +777,8 @@ if (_pause || global.gameover) {
 		textArray = ["Guia", "Controles", "Audio", "Creditos"];
 	} else if (_option == 2 && room == rmInit) { 
 		textArray = ["Carregar", "Controles", "Audio", "Creditos"];
+	} else if (_option == 4) { 
+		textArray = ["Items", "Player", "Desafios", "Inimigos"];
 	}
 	
 	var numTexts = array_length(textArray);
@@ -764,8 +788,12 @@ if (_pause || global.gameover) {
 		var text = textArray[i];
 		var textX = _textX;
 		var textY = _textY + (i * textSpace);
-    
-		draw_text_ext_transformed(textX - 5, textY, text, 10, 300, 0.8, 0.8, 0);
+		
+		if (_option != 4) {
+			draw_text_ext_transformed(textX - 5, textY, text, 10, 300, 0.8, 0.8, 0);
+		} else {
+			draw_text_ext_transformed(textX + 8, textY, text, 10, 300, 0.8, 0.8, 0);
+		}
 	}
 	
 	// Desenha texto dos saves
@@ -847,8 +875,10 @@ if (_pause || global.gameover) {
 		var _yy = _guiAlt/2 + (24 * _escala);
 		var _spaceXX = -37 * _escala;
 		
+		// Desenha texto da tela de confirmação
 		draw_text_ext_transformed(_xx + (-26.5 * _escala), _yy + (4 * _escala), "Sim", 10, 300, .6, .6, 0);
 		draw_text_ext_transformed(_xx + (10.5 * _escala), _yy + (4 * _escala), "Nao", 10, 300, .6, .6, 0);
+		draw_text_ext_transformed(_xx + (-8 * _escala), _yy + (-38.5 * _escala), "Deseja voltar a tela inicial?", 50, 350, .8, .8, 0);
 
 		if (point_in_rectangle(_mouseX, _mouseY, _xx + _spaceXX, _yy, _xx + _spaceXX + (21 * _escala), _yy + (14 * _escala))) {
 			draw_sprite_ext(sprHoverButtom2, 0, _xx + _spaceXX, _yy, _escala, _escala, 0, c_white, 1);
@@ -856,6 +886,13 @@ if (_pause || global.gameover) {
 		
 		if (point_in_rectangle(_mouseX, _mouseY, _xx, _yy, _xx + (21 * _escala), _yy + (14 * _escala))) {
 			draw_sprite_ext(sprHoverButtom2, 0, _xx, _yy, _escala, _escala, 0, c_white, 1);
+		}
+	} else if (_option == 13) {
+		var _xx = _guiLarg/2 + (-47.5 * _escala);
+		var _yy = _guiAlt/2 + (-46 * _escala);
+		
+		if (point_in_rectangle(_mouseX, _mouseY, _xx, _yy, _xx + (21 * _escala), _yy + (14 * _escala))) {
+			draw_sprite_ext(sprHoverClose, 0, _xx, _yy, _escala, _escala, 0, c_white, 1);
 		}
 	}
 	
