@@ -108,6 +108,10 @@ switch(_option) {
 	case 13:
 		_sprDraw = sprElixirsGuideBoard;
 	break;
+	
+	case 14:
+		_sprDraw = sprGuideBoard;
+	break;
 }
 var _sprWidht = sprite_get_width(_sprDraw) * _escala;
 var _sprHeight = sprite_get_height(_sprDraw) * _escala;
@@ -646,11 +650,11 @@ if (_pause || global.gameover) {
 		
 	if (_option == 0) {
 		iconClose = 4;
-	} else if (_option == 2) {
+	} else if (_option == 2 || _option == 14) {
 		iconClose = 0;
 	}
 	
-	if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
+	if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 14) {
 		draw_sprite_ext(sprSmallIcons, iconClose, _recBX + 12, _recBY + 12, _escala, _escala, 0, c_white, 1);
 		if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _recBX, _recBY, _recBX + (14 * _escala), _recBY + (14 * _escala))) {
 			draw_sprite_ext(sprHoverClose, 0, _recBX, _recBY, _escala, _escala, 0, c_white, 1);
@@ -661,11 +665,11 @@ if (_pause || global.gameover) {
 	//draw_rectangle(_recX, _recY, _recX + (72 * _escala), _recY + (14 * _escala), true);
 		
 	//Desenha texto do menu inicial
-	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Vendas", "Inventario", "Tela Inicial", "Guia Elixir", "ERRO"];
+	var _menuText = ["Pause", "Saves", "Options", "Audio", "Guia", "Creditos", "Shop", "Vendas", "Inventario", "Tela Inicial", "Guia Elixir", "Items", "ERRO"];
 	var _textSelected = 0;
 	switch (_option) {
 	    default: // Define erro caso não exista a seleção
-	        _textSelected = _menuText[11];
+	        _textSelected = _menuText[12];
 	     break;
 		 
 	    case 0:// Pause
@@ -723,6 +727,10 @@ if (_pause || global.gameover) {
 		case 13: // Tela guia de Elixirs
 	       _textSelected = _menuText[10];
 	    break;
+		
+		case 14: // Tela guia dos items
+	       _textSelected = _menuText[11];
+	    break;
 	}
 	
 	// Desenha o texto selecionado
@@ -753,7 +761,7 @@ if (_pause || global.gameover) {
 	}
 	
 	// Retangulos do menu principal e do options
-	if (_option == 0 || _option == 2 || _option == 4) {
+	if (_option == 0 || _option == 2 || _option == 4 || _option == 14) {
 		var _sprW = sprite_get_width(sprOptionHover) - 5;
 		var _sprH = sprite_get_height(sprOptionHover);
 		var _numRetangulos = 4;
@@ -779,6 +787,8 @@ if (_pause || global.gameover) {
 		textArray = ["Carregar", "Controles", "Audio", "Creditos"];
 	} else if (_option == 4) { 
 		textArray = ["Items", "Player", "Desafios", "Inimigos"];
+	} else if (_option == 14) { 
+		textArray = ["Elx. de Cura", "Elx. de Estamina", "Elx. Envenenado", "Diamante"];
 	}
 	
 	var numTexts = array_length(textArray);
@@ -789,10 +799,18 @@ if (_pause || global.gameover) {
 		var textX = _textX;
 		var textY = _textY + (i * textSpace);
 		
-		if (_option != 4) {
-			draw_text_ext_transformed(textX - 5, textY, text, 10, 300, 0.8, 0.8, 0);
-		} else {
-			draw_text_ext_transformed(textX + 8, textY, text, 10, 300, 0.8, 0.8, 0);
+		switch(_option) {
+			default:
+				draw_text_ext_transformed(textX - 5, textY, text, 10, 300, 0.8, 0.8, 0);
+			break;
+			
+			case 4:
+				draw_text_ext_transformed(textX + 8, textY, text, 10, 300, 0.8, 0.8, 0);
+			break;
+			
+			case 14:
+				draw_text_ext_transformed(textX + 8, textY, text, 10, 600, 0.62, 0.62, 0);
+			break;
 		}
 	}
 	

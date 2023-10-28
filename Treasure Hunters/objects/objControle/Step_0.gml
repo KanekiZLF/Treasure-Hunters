@@ -61,7 +61,7 @@ var _guiLarg = display_get_gui_width();
 var _guiAlt = display_get_gui_height();
 
 
-if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
+if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 14) {
 	var _sprW = sprite_get_width(sprOptionHover) - 5;
 	var _sprH = sprite_get_height(sprOptionHover);
 	var _recSpace = 17 * _escala;
@@ -127,6 +127,10 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 						global.option = 7;
 					}
 				break;
+				
+				case 14: // Volta para tela GUIA, se estiver na tela ITEMS
+					global.option = 4;
+				break;
 			}
 		}
 	}
@@ -142,7 +146,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 				// Verifica qual tela esta e define o comando
 				switch(_option) {
 					default:
-						show_message("Erro ao definir _option");
+						show_message("Erro ao definir _option: " + string(i));
 					break;
 					
 					case 0: // Se _option == 0
@@ -167,9 +171,14 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 						
 					break;
 					
-					case 4: // Se _option == 4
-						global.option = 13
+					case 4: // Items
+						global.option = 14;
 					break;
+					
+					case 14: // Elixir Cura
+						global.option = 13;
+					break;
+					
 				}
 			}
 		 
@@ -177,7 +186,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
 				switch(_option) {
 					default:
-						show_message("Erro ao definir _option");
+						show_message("Erro ao definir _option: " + string(i));
 					break;
 					
 					case 0: // Se _option == 0
@@ -199,6 +208,10 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					case 4: // Se _option == 4
 						
 					break;
+					
+					case 14: // Elixir Estamina
+						global.option = 13;
+					break;
 				}
 			}
 		
@@ -206,7 +219,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 			if (device_mouse_check_button_pressed(0, mb_left) && i == 2) {
 				switch(_option) {
 					default:
-						show_message("Erro ao definir _option");
+						show_message("Erro ao definir _option: " + string(i));
 					break;
 					
 					case 0: // Se _option == 0
@@ -228,6 +241,10 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					case 4: // Se _option == 4
 						
 					break;
+					
+					case 14: // Elixir Envenenado
+						global.option = 13;
+					break;
 				}
 			}
 		
@@ -235,7 +252,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 	        if (device_mouse_check_button_pressed(0, mb_left) && i == 3) {
 				switch(_option) {
 					default:
-						show_message("Erro ao definir _option");
+						show_message("Erro ao definir _option: " + string(i));
 					break;
 					
 					case 0: // Se _option == 0
@@ -256,6 +273,10 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 					
 					case 4: // Se _option == 4
 						
+					break;
+					
+					case 14: // Diamante
+						global.option = 13;
 					break;
 				}
 			}
@@ -679,7 +700,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4) {
 				}
 			} else {
 				if (_mouseClick) {
-					global.option = 4;
+					global.option = 14; // < -- Volta para tela de items
 				}
 			}
 		}

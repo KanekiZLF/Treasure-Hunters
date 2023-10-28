@@ -253,6 +253,7 @@
     {"name":"sprCannonBallExplosion","order":2,"path":"sprites/sprCannonBallExplosion/sprCannonBallExplosion.yy",},
     {"name":"sprGameOverBoard","order":3,"path":"sprites/sprGameOverBoard/sprGameOverBoard.yy",},
     {"name":"sprPlayerJump","order":3,"path":"sprites/sprPlayerJump/sprPlayerJump.yy",},
+    {"name":"sprBGImage2","order":9,"path":"sprites/sprBGImage2/sprBGImage2.yy",},
     {"name":"sprCrabbyGround","order":5,"path":"sprites/sprCrabbyGround/sprCrabbyGround.yy",},
     {"name":"sprAdditionalSky","order":8,"path":"sprites/sprAdditionalSky/sprAdditionalSky.yy",},
     {"name":"fnP2Start","order":2,"path":"fonts/fnP2Start/fnP2Start.yy",},

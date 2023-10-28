@@ -299,6 +299,7 @@
     {"id":{"name":"sprSmallIcons","path":"sprites/sprSmallIcons/sprSmallIcons.yy",},},
     {"id":{"name":"sprGameOverBoard","path":"sprites/sprGameOverBoard/sprGameOverBoard.yy",},},
     {"id":{"name":"sprPlayerJump","path":"sprites/sprPlayerJump/sprPlayerJump.yy",},},
+    {"id":{"name":"sprBGImage2","path":"sprites/sprBGImage2/sprBGImage2.yy",},},
     {"id":{"name":"sprCrabbyGround","path":"sprites/sprCrabbyGround/sprCrabbyGround.yy",},},
     {"id":{"name":"sprAdditionalSky","path":"sprites/sprAdditionalSky/sprAdditionalSky.yy",},},
     {"id":{"name":"fnP2Start","path":"fonts/fnP2Start/fnP2Start.yy",},},
