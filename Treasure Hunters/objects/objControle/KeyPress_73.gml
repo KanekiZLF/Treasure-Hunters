@@ -1,6 +1,6 @@
 /// @description Controla o inventario
 // Você pode escrever seu código neste editor
-if (room != rmInit) {
+if (room != rmInit && !global.gameover) {
 	if (instance_exists(objPlayer) && !global.gamepause) {
 		global.inventory = true;
 		global.gamepause = true;

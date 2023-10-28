@@ -1,6 +1,6 @@
 /// @description Pause/Resume o Jogo
 // Você pode escrever seu código neste editor
-if (room != rmInit) {
+if (room != rmInit && !global.gameover) {
 	if (!global.inventory) {
 		global.gamepause = global.gamepause ? false : true;
 		if (global.gamepause) {

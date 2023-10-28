@@ -182,6 +182,16 @@ if !isDead && (!_pause) {
     if (distance_to_point(_inst.x, _inst.y) <= 20) {
         if (place_meeting(x, y, _inst)) {
 			scrDsGridProcess(_inst.sprite, _inst.quantidade);
+			
+			if (_inst.sprite == 0 || _inst.sprite == 1 || _inst.sprite == 2) {
+				var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);
+				_effect.direc = 14;
+			} 
+			
+			if (_inst.sprite == 3 || _inst.sprite == 4 || _inst.sprite == 5) {
+				var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);
+				_effect.direc = 9;
+			} 
             instance_destroy(_inst);
         }
     }
