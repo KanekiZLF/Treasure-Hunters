@@ -453,6 +453,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 			if (room != rmInit) {
 				if (_mouseClick) {
 					global.option = 11; // Volta para o inventario
+					global.inventory = true;
 				}
 			} else if (room == rmInit) {
 				if (_mouseClick) {
@@ -465,6 +466,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 			if (room != rmInit) {
 				if (_mouseClick) {
 					global.option = 11; // Volta para o inventario
+					global.inventory = true;
 				}
 			} else if (room == rmInit) {
 				if (_mouseClick) {

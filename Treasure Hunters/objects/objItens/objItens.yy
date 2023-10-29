@@ -13,7 +13,10 @@
     "name": "objItens",
     "path": "folders/Objetos/objItens.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objSaveMe",
+    "path": "objects/objSaveMe/objSaveMe.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

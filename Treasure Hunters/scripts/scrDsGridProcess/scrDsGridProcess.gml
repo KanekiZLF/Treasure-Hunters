@@ -20,15 +20,15 @@ function scrDsGridProcess() {
             var cellValue = _grid[# Infos.Item, yy];
 			
             if (cellValue == _itemToCompare) {
-				var quantidade = _grid[# Infos.Quantidade, yy];
 				// Se o item não for para venda, ele adiciona no inventario
 				if (!_itemSell) {
-	                quantidade++;
-	                _grid[# Infos.Quantidade, yy] = quantidade;
+	                _quantidade++;
+	                _grid[# Infos.Quantidade, yy] = _quantidade;
 				} 
 				
 				if (_itemSell) {
 					// Se o item estiver no inventario, ai vamos vende-lo
+					var quantidade = _grid[# Infos.Quantidade, yy];
 					var _priceItem = objGui.coinLabels3;
 					if (quantidade > 0) {
 			
