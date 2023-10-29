@@ -138,6 +138,7 @@
     {"id":{"name":"sprFierceToothDead","path":"sprites/sprFierceToothDead/sprFierceToothDead.yy",},},
     {"id":{"name":"sprCoinsSell","path":"sprites/sprCoinsSell/sprCoinsSell.yy",},},
     {"id":{"name":"sprPlayerSwordAirAtack1","path":"sprites/sprPlayerSwordAirAtack1/sprPlayerSwordAirAtack1.yy",},},
+    {"id":{"name":"scrSaveLoadGame","path":"scripts/scrSaveLoadGame/scrSaveLoadGame.yy",},},
     {"id":{"name":"sprItems","path":"sprites/sprItems/sprItems.yy",},},
     {"id":{"name":"sprEnemyBar","path":"sprites/sprEnemyBar/sprEnemyBar.yy",},},
     {"id":{"name":"scrFloat","path":"scripts/scrFloat/scrFloat.yy",},},

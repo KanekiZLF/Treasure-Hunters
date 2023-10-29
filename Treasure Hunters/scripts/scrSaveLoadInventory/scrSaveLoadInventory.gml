@@ -3,8 +3,27 @@
 function scrSaveInventory(){
 	var gridWidth = ds_grid_width(objGui.gridItems); // Largura da ds_grid
 	var gridHeight = ds_grid_height(objGui.gridItems); // Altura da ds_grid
-
+	
 	var mapData = ds_map_create();
+	
+	var _file = "";
+	switch(global.save) {
+		default:
+			show_message("Erro ao definir save do inventario !");
+		break
+		
+		case 0:
+			_file = "saveInventory0.save";
+		break;
+		
+		case 1:
+			_file = "saveInventory1.save";
+		break;
+		
+		case 2:
+			_file = "saveInventory2.save";
+		break;
+	}
     
 	// Converter a ds_grid em um ds_map
 	for (var xx = 0; xx < gridWidth; xx++) {
@@ -23,7 +42,7 @@ function scrSaveInventory(){
 	buffer_write(_buffer, buffer_string, mapDataJSON);
 
 	// Salvar o buffer em um arquivo
-	var filename = "savegame.save";
+	var filename = _file;
 	buffer_save(_buffer, filename);
 	buffer_delete(_buffer);
 
@@ -33,13 +52,32 @@ function scrSaveInventory(){
 }
 
 function scrLoadInventory(){
-    var filename = "inventoryData.json";
-    
-    if (file_exists(filename)) {
-        // Ler o JSON do arquivo
-        var file = file_text_open_read(filename);
-        var mapDataJSON = file_text_read_string(file);
-        file_text_close(file);
+	var _file = "";
+	switch(global.save) {
+		default:
+			show_message("Erro ao definir save do inventario !");
+		break
+		
+		case 0:
+			_file = "saveInventory0.save";
+		break;
+		
+		case 1:
+			_file = "saveInventory1.save";
+		break;
+		
+		case 2:
+			_file = "saveInventory2.save";
+		break;
+	}
+	
+    if (file_exists(_file)) {
+        // Carregar o arquivo como buffer
+        var _buffer = buffer_load(_file);
+        
+        // Ler o JSON do buffer
+        var mapDataJSON = buffer_read(_buffer, buffer_string);
+        buffer_delete(_buffer);
         
         // Converter o JSON de volta para um ds_map
         var mapData = json_decode(mapDataJSON);

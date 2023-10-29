@@ -302,15 +302,10 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	
 	//Botão para carregar o jogo dependendo de qual save foi selecionado
 	if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala), _recSY + (14 * _escala)) && global.save != 0) {
-			if (_mouseClick && global.save == 1) {
-				
+			if (_mouseClick) {
+				scrLoadGame();
+				scrLoadInventory();
 			} 
-			else if (_mouseClick && global.save == 2) {
-				
-			} 
-			else if (_mouseClick && global.save == 3) {
-				
-			}
 		}
 	
 	//Retangulo da seta voltar da tela de save
@@ -319,7 +314,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 			if (room != rmInit) {
 				global.option = 0;
 			} else if (room == rmInit) {
-				global.option = 2;
+				global.option = 7;
 			}
 		}
 	}

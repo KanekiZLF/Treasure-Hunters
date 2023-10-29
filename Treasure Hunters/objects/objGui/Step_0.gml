@@ -15,27 +15,13 @@ if (keyboard_check_pressed(ord("N"))) {
 }*/
 
 if (keyboard_check_pressed(ord("S"))) {
-	
-	var _saveData = array_create(0);
-	
-	with (objSaveMe) {
-		var _saveEntitys = {
-			obj : object_get_name(object_index),
-			y : y,
-			x : x,
-		}
-		array_push(_saveData, _saveEntitys)
-	}
-	
-	//Salvando dentro do Json
-	var _string = json_stringify(_saveData);
-	var _buffer = buffer_create(string_byte_length(_string) +1, buffer_fixed, 1);
-	buffer_write(_buffer, buffer_string, _string);
-	buffer_save(_buffer, "savegame.save");
+	scrSaveGame();
+	scrSaveInventory();
 }
 
 if (keyboard_check_pressed(ord("L"))) {
-	
+	scrLoadGame();
+	scrLoadInventory();
 }
 
 

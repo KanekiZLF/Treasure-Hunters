@@ -1,7 +1,6 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 
-
 // Variaveis da camera
 posCamX = 0;
 posCamY = 0;
@@ -35,6 +34,7 @@ isFall = false; //<-- Define se estou caindo
 isDead = false; //<-- Define se estou morto ou vivo
 moveOn = true; //<-- Define se posso ou não andar
 inimigos_atingidos = ds_list_create(); //<-- Cria uma lista
+
 objColisParede = objParede; //<-- Define qual é o objeto de parede
 arraySprite = 0; //<-- Define qual array de sprites ira usar
 toThrow = false; //<-- Define se joguei ou não a espada

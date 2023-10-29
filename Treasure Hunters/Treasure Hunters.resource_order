@@ -110,6 +110,7 @@
     {"name":"sprFierceToothDead","order":9,"path":"sprites/sprFierceToothDead/sprFierceToothDead.yy",},
     {"name":"sprCoinsSell","order":10,"path":"sprites/sprCoinsSell/sprCoinsSell.yy",},
     {"name":"sprPlayerSwordAirAtack1","order":9,"path":"sprites/sprPlayerSwordAirAtack1/sprPlayerSwordAirAtack1.yy",},
+    {"name":"scrSaveLoadGame","order":23,"path":"scripts/scrSaveLoadGame/scrSaveLoadGame.yy",},
     {"name":"sprItems","order":14,"path":"sprites/sprItems/sprItems.yy",},
     {"name":"scrFloat","order":1,"path":"scripts/scrFloat/scrFloat.yy",},
     {"name":"sprChestPadLock","order":2,"path":"sprites/sprChestPadLock/sprChestPadLock.yy",},
