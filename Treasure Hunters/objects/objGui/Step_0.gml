@@ -22,6 +22,9 @@ if (keyboard_check_pressed(ord("S"))) {
 if (keyboard_check_pressed(ord("L"))) {
 	scrLoadGame();
 	scrLoadInventory();
+	if (alarm[1] <= 0) {
+		alarm[1] = 10;
+	}
 }
 
 

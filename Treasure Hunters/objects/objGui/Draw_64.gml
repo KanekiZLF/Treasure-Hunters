@@ -20,7 +20,7 @@ if (instance_exists(objPlayer) && room != rmInit) {
 	var _poison = objPlayer.poison2;  // <-- Veneno count
 	var _maxPoison2 = objPlayer.maxPoison2;  // <-- Veneno count
 	var _maxPoison = objPlayer.maxPoison;
-
+	
 	//Hud
 	draw_sprite_ext(sprLifeBar, 0, 15, _hudAlt, _escala, _escala, 0, c_white, 1);
 
@@ -388,10 +388,10 @@ if (_pause || global.gameover) {
 			//Barrinha vermelha de upgrade
 			var _xx = _guiLarg/2 + (-52 * _escala);
 			var _yy = _guiAlt/2 + (30.5 * _escala);
-			var _upgLife = objControle.upgradeLifes;
-			var _upgStam = objControle.upgradeStam;
-			var _upgDano = objControle.upgradeDano;
-			var _upgRestVeneno = objControle.upgradeVeneno;
+			var _upgLife = global.upgradeLifes;
+			var _upgStam = global.upgradeStam;
+			var _upgDano = global.upgradeDano;
+			var _upgRestVeneno = global.upgradeVeneno;
 			
 			// Desenhar upgrades de vida
 			scrDrawUpgrades(_xx, _yy, _escala, _upgLife);

@@ -11,6 +11,21 @@ function scrSaveGame() {
 			x : x,
 			coinsSilver : global.coinsSilver,
 			coinsGold : global.coinsGold,
+			coinsDiamond : global.coinsDiamond,
+			coinsSaphire : global.coinsSaphire,
+			coinsRuby : global.coinsRuby,
+			
+			lifes : global.lifes,
+			lifes2 : objPlayer.lifes2,
+			maxLifes : objPlayer.maxLifes,
+			maxLifes2 : objPlayer.maxLifes2,
+			
+			stam : global.stamina,
+			stamina2 : objPlayer.stamina2,
+			maxStamina : objPlayer.maxStamina,
+			maxStamina2 : objPlayer.maxStamina2,
+			
+			arraySprite : objPlayer.arraySprite,
 		}
 		array_push(_saveData, _saveEntitys)
 	}
@@ -39,6 +54,7 @@ function scrSaveGame() {
 	}
 	buffer_save(_buffer, _file);
 	scrPrint("Saved" + _string);
+	scrPrint(global.lifes);
 }
 
 function scrLoadGame(){
@@ -73,20 +89,40 @@ function scrLoadGame(){
 		var _loadData = json_parse(_string); // <-- Transforma o Json em Array
 		
 		while (array_length(_loadData) > 0) {
+			
 			var _loadEntity = array_pop(_loadData);
+			var _room = asset_get_index(_loadEntity.currentRoom);
 			
-			//var _level = asset_get_index(_loadEntity.currentRoom);
-			//room_goto(_level);
-			//global.gamepause = false;
-			//global.option = noone;
+			if (!global.isLoading) {
+				room_goto(_room);
+			}
 			
-			with(instance_create_layer(0, 0, layer, asset_get_index(_loadEntity.obj))) {
-				x = _loadEntity.x;
-				y = _loadEntity.y;
-				global.coinsSilver = _loadEntity.coinsSilver;
-				global.coinsGold = _loadEntity.coinsGold;
+			if (room == _room) {
+				with(instance_create_layer(0, 0, layer, asset_get_index(_loadEntity.obj))) {
+					x = _loadEntity.x;
+					y = _loadEntity.y;
+					global.coinsSilver = _loadEntity.coinsSilver;
+					global.coinsGold = _loadEntity.coinsGold;
+					
+					global.lifes = _loadEntity.lifes;
+					if (instance_exists(objPlayer)) {
+						objPlayer.lifes2 = _loadEntity.lifes2;
+						objPlayer.maxLifes = _loadEntity.maxLifes;
+						objPlayer.maxLifes = _loadEntity.maxLifes;
+						
+						objPlayer.stamina2 = _loadEntity.stamina2;
+						objPlayer.maxStamina = _loadEntity.maxStamina;
+						objPlayer.maxStamina2 = _loadEntity.maxStamina2;
+						
+						objPlayer.arraySprite = _loadEntity.arraySprite;
+					}
+					global.stamina = _loadEntity.stam;
+					global.gamepause = false;
+					global.option = noone;
+				}
 			}
 		}
 		scrPrint("Load" + _string);
+		scrPrint(global.lifes);
 	}
 }

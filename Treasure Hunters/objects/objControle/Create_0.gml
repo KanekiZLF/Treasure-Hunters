@@ -5,7 +5,3 @@ image_speed = 0.2;
 listSpeed = ds_list_create();
 isPaused = false;
 itemExist = 0;
-upgradeLifes = 0;
-upgradeStam = 0;
-upgradeDano = 0;
-upgradeVeneno = 0;
