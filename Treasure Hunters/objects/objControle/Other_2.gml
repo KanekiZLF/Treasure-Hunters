@@ -20,3 +20,7 @@ global.upgradeLifes = 0;
 global.upgradeStam = 0;
 global.upgradeDano = 0;
 global.upgradeVeneno = 0;
+global.upgPrice0 = 0;
+global.upgPrice1 = 0;
+global.upgPrice2 = 0;
+global.upgPrice3 = 0;

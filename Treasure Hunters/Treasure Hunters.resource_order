@@ -69,6 +69,7 @@
   "ResourceOrderSettings": [
     {"name":"sprPlayerIdle","order":1,"path":"sprites/sprPlayerIdle/sprPlayerIdle.yy",},
     {"name":"sprSailWind","order":4,"path":"sprites/sprSailWind/sprSailWind.yy",},
+    {"name":"Fase2","order":2,"path":"rooms/Fase2/Fase2.yy",},
     {"name":"sprArrows","order":4,"path":"sprites/sprArrows/sprArrows.yy",},
     {"name":"sprHead1Attack1","order":1,"path":"sprites/sprHead1Attack1/sprHead1Attack1.yy",},
     {"name":"objItens","order":1,"path":"objects/objItens/objItens.yy",},

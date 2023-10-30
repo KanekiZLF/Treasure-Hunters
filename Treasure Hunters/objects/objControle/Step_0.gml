@@ -16,6 +16,7 @@ if (global.coinsSilver) >= 999 {
 
 #endregion
 
+
 #region Efeitos da espada
 
 if instance_exists(objSword) {
@@ -302,13 +303,69 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	//Verifica se tem algum save selecionado e libera o botão de carregar
 	if (global.save != 0) {
 			objGui.iconSave = 5; //<-- Altera o icone caso algum save exista
+		} else {
+			objGui.iconSave = 4;
 		}
 	
 	//Botão para carregar o jogo dependendo de qual save foi selecionado
 	if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala), _recSY + (14 * _escala)) && global.save != 0) {
 			if (_mouseClick) {
-				scrLoadGame();
-				scrLoadInventory();
+				switch(global.save) {
+					default:
+						show_message("Erro ao selecionar SAVE")
+					break;
+					
+					case 1:
+						if (file_exists("saveGame0.save")) {
+							scrLoadGame();
+							scrLoadInventory();
+							global.gamepause = false;
+							global.option = noone;
+							if (alarm[0] <= 0) {
+								alarm[0] = 10;
+							}
+						} 
+						else {
+							global.gamepause = false;
+							global.option = noone;
+							room_goto_next();
+						}
+					break;
+					
+					case 2:
+						if (file_exists("saveGame1.save")) {
+							global.gamepause = false;
+							global.option = noone;
+							scrLoadGame();
+							scrLoadInventory();
+							if (alarm[0] <= 0) {
+								alarm[0] = 10;
+							}
+						}
+						else {
+							global.gamepause = false;
+							global.option = noone;
+							room_goto_next();
+						}
+					break;
+					
+					case 3:
+						if (file_exists("saveGame2.save")) {
+							global.gamepause = false;
+							global.option = noone;
+							scrLoadGame();
+							scrLoadInventory();
+							if (alarm[0] <= 0) {
+								alarm[0] = 10;
+							}
+						}
+						else {
+							global.gamepause = false;
+							global.option = noone;
+							room_goto_next();
+						}
+					break;
+				}
 			} 
 		}
 	
@@ -394,9 +451,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	// Play		
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX - (32 * _escala), _recTY - (16 * _escala), _recTX - (32 * _escala) + (28 * _escala), _recTY - (16 * _escala) + (28 * _escala))) {
 		if (_mouseClick) {
-			global.gamepause = false;
-			global.option = noone;
-			room_goto_next();
+			global.option = 1;
 		}
 	}
 	// Cifrao		
@@ -563,49 +618,49 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 								
 								switch(i) {
 								    case 0:
-										if (upgradeLifes < 10) {
+										if (global.upgradeLifes < 10) {
 									        upgradeLife();
 											global.coinsGold -= _priceItem[i];
 											_priceItem[i] += increaseAmount; // Aumenta o valor em %
 										}
 										
-										if (upgradeLifes == 10) {
+										if (global.upgradeLifes == 10) {
 											_priceItem[i] = "Max";
 										}
 								    break;
 									
 								    case 1:
-										if (upgradeStam < 10) {
+										if (global.upgradeStam < 10) {
 									        upgradeStamina();
 											global.coinsGold -= _priceItem[i];
 											_priceItem[i] += increaseAmount; // Aumenta o valor em %
 										}
 										
-										if (upgradeStam == 10) {
+										if (global.upgradeStam == 10) {
 											_priceItem[i] = "Max";
 										}
 								    break;
 									
 								    case 2:
-										if (upgradeVeneno < 10) {
+										if (global.upgradeVeneno < 10) {
 									        upgradeVenenoResist();
 											global.coinsGold -= _priceItem[i];
 											_priceItem[i] += increaseAmount; // Aumenta o valor em %
 										}
 										
-										if (upgradeVeneno == 10) {
+										if (global.upgradeVeneno == 10) {
 											_priceItem[i] = "Max";
 										}
 								    break;
 									
 								    case 3:
-										if (upgradeDano < 10) {
+										if (global.upgradeDano < 10) {
 									        upgradeDamage();
 											global.coinsGold -= _priceItem[i];
 											_priceItem[i] += increaseAmount; // Aumenta o valor em %
 										}
 										
-										if (upgradeDano == 10) {
+										if (global.upgradeDano == 10) {
 											_priceItem[i] = "Max";
 										}
 								    break;
@@ -673,6 +728,9 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 			if (_mouseClick) {
 				if (room != rmInit) { 
 					global.option = 7;
+					global.save = 0;
+					global.isLoading = false;
+					scrResetGame()
 					room_goto(rmInit);
 				}
 			}

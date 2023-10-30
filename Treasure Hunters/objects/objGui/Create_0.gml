@@ -18,8 +18,12 @@ coinSprites = [sprSilverCoin, sprSilverCoin, sprSilverCoin, sprGoldCoin];
 coinLabels = [180, 250, 350, 0];
 
 // Upgrades
+
 coinSprites2 = [sprGoldCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];
-coinLabels2 = [15, 18, 20, 35];
+coinLabels2[0] = 15;
+coinLabels2[1] = 18;
+coinLabels2[2] = 20;
+coinLabels2[3] = 35;
 
 // Vendas
 coinSprites3 = [sprGoldCoin, sprGoldCoin, sprGoldCoin, sprGoldCoin];

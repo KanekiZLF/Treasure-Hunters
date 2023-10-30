@@ -12,15 +12,15 @@ function scrSaveInventory(){
 			show_message("Erro ao definir save do inventario !");
 		break
 		
-		case 0:
+		case 1:
 			_file = "saveInventory0.save";
 		break;
 		
-		case 1:
+		case 2:
 			_file = "saveInventory1.save";
 		break;
 		
-		case 2:
+		case 3:
 			_file = "saveInventory2.save";
 		break;
 	}
@@ -58,15 +58,15 @@ function scrLoadInventory(){
 			show_message("Erro ao definir save do inventario !");
 		break
 		
-		case 0:
+		case 1:
 			_file = "saveInventory0.save";
 		break;
 		
-		case 1:
+		case 2:
 			_file = "saveInventory1.save";
 		break;
 		
-		case 2:
+		case 3:
 			_file = "saveInventory2.save";
 		break;
 	}
