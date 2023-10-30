@@ -15,6 +15,7 @@ if (keyboard_check_pressed(ord("N"))) {
 }*/
 
 // Atualiza constantemente o valor dos upgrades
+
 global.upgPrice0 = coinLabels2[0];
 global.upgPrice1 = coinLabels2[1];
 global.upgPrice2 = coinLabels2[2];

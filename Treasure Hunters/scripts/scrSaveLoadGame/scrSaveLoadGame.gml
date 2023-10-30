@@ -155,8 +155,8 @@ function scrResetGame() {
 	global.lifes = 10; // Define a quantidade de vidas inicial
 	global.stamina = 10; // Define a quantidade de estamina inicial
 	global.poison = 0; // <-- Define o tempo em que o player fica envenedado
-	global.coinsSilver = 180;
-	global.coinsGold = 100;
+	global.coinsSilver = 0;
+	global.coinsGold = 0;
 	global.coinsDiamond = 0;
 	global.coinsSaphire = 0;
 	global.coinsRuby = 0;
@@ -171,7 +171,6 @@ function scrResetGame() {
 }
 
 function scrLoadCoins() {
-	
 	var _file = "";
 	switch(global.save) {
 		default:
@@ -202,12 +201,10 @@ function scrLoadCoins() {
 		while (array_length(_loadData) > 0) {
 			
 			var _loadEntity = array_pop(_loadData);
-			
-			if (room == rmInit) {
-				global.coinsSilver = _loadEntity.coinsSilver;
-				global.coinsGold = _loadEntity.coinsGold;
-			}
+			global.coinsSilver = _loadEntity.coinsSilver;
+			global.coinsGold = _loadEntity.coinsGold;
 		}
-		scrPrint("Moedas Carregadas: " + _string);
+	} else if (!file_exists(_file)) {
+		global.coinsSilver = 180;
 	}
 }

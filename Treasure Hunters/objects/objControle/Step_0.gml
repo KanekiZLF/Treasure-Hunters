@@ -303,19 +303,18 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	//Verifica se tem algum save selecionado e libera o botão de carregar
 	if (global.save != 0) {
 			objGui.iconSave = 5; //<-- Altera o icone caso algum save exista
-		} else {
-			objGui.iconSave = 4;
-		}
+		} 
 	
 	//Botão para carregar o jogo dependendo de qual save foi selecionado
 	if (point_in_rectangle(_mouseX, _mouseY,_recSX, _recSY, _recSX + (14 * _escala), _recSY + (14 * _escala)) && global.save != 0) {
 			if (_mouseClick) {
 				switch(global.save) {
 					default:
-						show_message("Erro ao selecionar SAVE")
+						show_message("Erro ao selecionar SAVE: " + string(global.save))
 					break;
 					
 					case 1:
+					if (room == rmInit) {
 						if (file_exists("saveGame0.save")) {
 							scrLoadGame();
 							scrLoadInventory();
@@ -330,9 +329,18 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 							global.option = noone;
 							room_goto_next();
 						}
+					} else {
+						if (file_exists("saveGame0.save")) {
+							global.option = 15;
+						} else {
+							scrSaveGame();
+							scrSaveInventory()
+						}
+					}
 					break;
 					
 					case 2:
+					if (room == rmInit) {
 						if (file_exists("saveGame1.save")) {
 							global.gamepause = false;
 							global.option = noone;
@@ -341,15 +349,24 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 							if (alarm[0] <= 0) {
 								alarm[0] = 10;
 							}
-						}
+						} 
 						else {
 							global.gamepause = false;
 							global.option = noone;
 							room_goto_next();
 						}
+					} else {
+						if (file_exists("saveGame1.save")) {
+							global.option = 15;
+						} else {
+							scrSaveGame();
+							scrSaveInventory()
+						}
+					}
 					break;
 					
 					case 3:
+					if (room == rmInit) {
 						if (file_exists("saveGame2.save")) {
 							global.gamepause = false;
 							global.option = noone;
@@ -364,6 +381,14 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 							global.option = noone;
 							room_goto_next();
 						}
+					} else {
+						if (file_exists("saveGame2.save")) {
+							global.option = 15;
+						} else {
+							scrSaveGame();
+							scrSaveInventory();
+						}
+					}
 					break;
 				}
 			} 
@@ -373,9 +398,17 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	if (point_in_rectangle(_mouseX, _mouseY, _recBX, _recBY, _recBX + (14 * _escala), _recBY + (14 * _escala))) {
 		if (device_mouse_check_button_pressed(0, mb_left)) {
 			if (room != rmInit) {
+				objGui.iconSave = 4;
 				global.option = 0;
 			} else if (room == rmInit) {
+				objGui.iconSave = 4;
 				global.option = 7;
+				global.save = 0;
+				global.coinsGold = 0;
+				global.coinsSilver = 0;
+				global.coinsDiamond= 0;
+				global.coinsSaphire = 0;
+				global.coinsRuby = 0;
 			}
 		}
 	}
@@ -388,19 +421,25 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 		//Save 1
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 0) {
 				global.save = 1;
-				scrLoadCoins()
+				if (room == rmInit) {
+					scrLoadCoins();
+				}
 			}
 			
 		//Save 2
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
 				global.save = 2;
-				scrLoadCoins()
+				if (room == rmInit) {
+					scrLoadCoins();
+				}
 			}
 			
 		//Save 3
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 2) {
 				global.save = 3;
-				scrLoadCoins()
+				if (room == rmInit) {
+					scrLoadCoins();
+				}
 			}
 		break; // Encerre o loop após encontrar um retângulo
 		}
@@ -720,7 +759,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 				ds_grid_copy(_grid, _grid2);
 			}
 		} 
-} else if (_option == 12) {
+} else if (_option == 12 || _option == 15) {
 	// Tela de confirmacao
 		var _xx = _guiLarg/2 + (8.5 * _escala);
 		var _yy = _guiAlt/2 + (24 * _escala);
@@ -729,12 +768,20 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 		// Sim
 		if (point_in_rectangle(_mouseX, _mouseY, _xx + _spaceXX, _yy, _xx + _spaceXX + (21 * _escala), _yy + (14 * _escala))) {
 			if (_mouseClick) {
-				if (room != rmInit) { 
+				if (room != rmInit && _option == 12) { 
 					global.option = 7;
 					global.save = 0;
+					global.gameover = false;
+					global.gamepause = true;
 					global.isLoading = false;
 					scrResetGame()
 					room_goto(rmInit);
+				}
+				
+				if (_option == 15) {
+					scrSaveGame();
+					scrSaveInventory();
+					global.option = 1;
 				}
 			}
 		}
@@ -742,10 +789,16 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 		// Nao
 		if (point_in_rectangle(_mouseX, _mouseY, _xx, _yy, _xx + (21 * _escala), _yy + (14 * _escala))) {
 			if (_mouseClick) {
-				if (!global.gameover) {
-					global.option = 0;
-				} else if (global.gameover) {
-					global.option = 8;
+				if (_option == 12) {
+					if (!global.gameover) {
+						global.option = 0;
+					} else if (global.gameover) {
+						global.option = 8;
+					}
+				}
+				
+				if (_option == 15) {
+					global.option = 1;
 				}
 			}
 		}

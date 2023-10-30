@@ -83,12 +83,6 @@ if keyboard_check_pressed(ord("G")) {
 	tomarDano = true;
 }
 
-if keyboard_check_pressed(ord("L")) {
-	global.gameover = false;
-	scrRecharge(3, 3) //<-- Define a recarga para Lifes, Stamina e Poison
-	isDead = false;
-}
-
 // Tempo em que a camera treme
 if alarm[5] > 0 {
 	if !hit {

@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sprCoinsBoard",
-  "bbox_bottom": 67,
+  "bbox_bottom": 52,
   "bbox_left": 0,
   "bbox_right": 12,
   "bbox_top": 0,
@@ -17,7 +17,7 @@
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 68,
+  "height": 53,
   "HTile": false,
   "layers": [
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1a1d2948-05a3-48c7-b827-bf7f74c107fa","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},

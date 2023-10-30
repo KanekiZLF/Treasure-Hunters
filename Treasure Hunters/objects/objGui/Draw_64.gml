@@ -112,6 +112,10 @@ switch(_option) {
 	case 14:
 		_sprDraw = sprGuideBoard;
 	break;
+	
+	case 15:
+		_sprDraw = sprConfirmationBoard;
+	break;
 }
 var _sprWidht = sprite_get_width(_sprDraw) * _escala;
 var _sprHeight = sprite_get_height(_sprDraw) * _escala;
@@ -144,6 +148,10 @@ if (_pause || global.gameover) {
 		break;
 		
 		case 12:
+	        draw_sprite_ext(_sprDraw, 0, _x + (.5 * _escala), _y, _escala, _escala, 0, c_white, 1);
+	    break;
+		
+		case 15:
 	        draw_sprite_ext(_sprDraw, 0, _x + (.5 * _escala), _y, _escala, _escala, 0, c_white, 1);
 	    break;
 	}
@@ -731,6 +739,10 @@ if (_pause || global.gameover) {
 		case 14: // Tela guia dos items
 	       _textSelected = _menuText[11];
 	    break;
+		
+		case 15: // Tela guia dos items
+	       _textSelected = _menuText[1];
+	    break;
 	}
 	
 	// Desenha o texto selecionado
@@ -852,20 +864,20 @@ if (_pause || global.gameover) {
 		draw_set_color(#75ffff)
 		draw_set_halign(fa_center)
 		var _posPX = _guiLarg/2 + (20 * _escala);
-		var _posPY = _guiAlt/2 - (12 * _escala);
+		var _posPY = _guiAlt/2 - (4 * _escala);
 		draw_sprite_ext(sprCoinsBoard, 0, _posPX, _posPY, 2.6, 2.6, 0, c_white, 1);
 		
 
 		var _textX3 = _guiLarg/2 + (40 * _escala);
-		var _textY3 = _guiAlt/2 - (10.5 * _escala);
+		var _textY3 = _guiAlt/2 - (2.5 * _escala);
 		var _textSpace3 = 37;
 			
 		//Desenha as moedas na posição
+		draw_text_ext_transformed(_textX3 + (-5 * _escala), _textY3 + (-9 * _escala), "Save: " + string(global.save), 10, 300, .6, .6, 0);
 		draw_text_ext_transformed(_textX3, _textY3, string(global.coinsSilver), 10, 300, .6, .6, 0);
 		draw_text_ext_transformed(_textX3, _textY3 + _textSpace3, string(global.coinsGold), 10, 300, .6, .6, 0);
 		draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 2), string(global.coinsDiamond), 10, 300, .6, .6, 0);
 		draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 3), string(global.coinsSaphire), 10, 300, .6, .6, 0);
-		draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 4), string(global.coinsRuby), 10, 300, .6, .6, 0);
 		
 		// Dsenha o hover das opções de save
 		var _recSpace2 = 22 * _escala;
@@ -887,15 +899,34 @@ if (_pause || global.gameover) {
 	}
 	
 	// Desenha a tela de confirmação
-	if (_option == 12) {
+	if (_option == 12 || _option == 15) {
 		var _xx = _guiLarg/2 + (8.5 * _escala);
 		var _yy = _guiAlt/2 + (24 * _escala);
 		var _spaceXX = -37 * _escala;
+		var _msgText = ["Deseja voltar a tela inicial?", "Deseja substituir o progresso salvo neste save ?"];
+		var _msgDef = 0;
+		var _textScale = .8;
+		var _textWidth = 450;
+		var _textYY = -38.5 * _escala;
+		
+		if (_option == 12) {
+			_msgDef = _msgText[0]
+			_textScale = .8;
+			_textWidth = 350;
+			_textYY = -38.5 * _escala;
+		}
+		
+		if (_option == 15) {
+			_msgDef = _msgText[1]
+			_textScale = .6;
+			_textWidth = 450
+			_textYY = -39 * _escala;
+		}
 		
 		// Desenha texto da tela de confirmação
 		draw_text_ext_transformed(_xx + (-26.5 * _escala), _yy + (4 * _escala), "Sim", 10, 300, .6, .6, 0);
 		draw_text_ext_transformed(_xx + (10.5 * _escala), _yy + (4 * _escala), "Nao", 10, 300, .6, .6, 0);
-		draw_text_ext_transformed(_xx + (-8 * _escala), _yy + (-38.5 * _escala), "Deseja voltar a tela inicial?", 50, 350, .8, .8, 0);
+		draw_text_ext_transformed(_xx + (-8 * _escala), _yy + _textYY, _msgDef, 50, _textWidth, _textScale, _textScale, 0);
 
 		if (point_in_rectangle(_mouseX, _mouseY, _xx + _spaceXX, _yy, _xx + _spaceXX + (21 * _escala), _yy + (14 * _escala))) {
 			draw_sprite_ext(sprHoverButtom2, 0, _xx + _spaceXX, _yy, _escala, _escala, 0, c_white, 1);
