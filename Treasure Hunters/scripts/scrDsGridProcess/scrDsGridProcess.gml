@@ -22,8 +22,7 @@ function scrDsGridProcess() {
             if (cellValue == _itemToCompare) {
 				// Se o item não for para venda, ele adiciona no inventario
 				if (!_itemSell) {
-	                _quantidade++;
-	                _grid[# Infos.Quantidade, yy] = _quantidade;
+	                _grid[# Infos.Quantidade, yy] += _quantidade;
 				} 
 				
 				if (_itemSell) {
