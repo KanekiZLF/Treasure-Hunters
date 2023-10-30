@@ -866,7 +866,6 @@ if (_pause || global.gameover) {
 		draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 2), string(global.coinsDiamond), 10, 300, .6, .6, 0);
 		draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 3), string(global.coinsSaphire), 10, 300, .6, .6, 0);
 		draw_text_ext_transformed(_textX3, _textY3 + (_textSpace3 * 4), string(global.coinsRuby), 10, 300, .6, .6, 0);
-
 		
 		// Dsenha o hover das opções de save
 		var _recSpace2 = 22 * _escala;

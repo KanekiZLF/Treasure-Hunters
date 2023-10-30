@@ -388,16 +388,19 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 		//Save 1
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 0) {
 				global.save = 1;
+				scrLoadCoins()
 			}
 			
 		//Save 2
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
 				global.save = 2;
+				scrLoadCoins()
 			}
 			
 		//Save 3
 		if (device_mouse_check_button_pressed(0, mb_left) && i == 2) {
 				global.save = 3;
+				scrLoadCoins()
 			}
 		break; // Encerre o loop após encontrar um retângulo
 		}

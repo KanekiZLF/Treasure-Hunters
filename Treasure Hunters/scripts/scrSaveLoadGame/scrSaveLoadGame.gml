@@ -108,19 +108,22 @@ function scrLoadGame(){
 			
 			if (room == _room) {
 				with(instance_create_layer(0, 0, layer, asset_get_index(_loadEntity.obj))) {
-					x = _loadEntity.x;
-					y = _loadEntity.y;
-					
+				
 					global.coinsSilver = _loadEntity.coinsSilver;
 					global.coinsGold = _loadEntity.coinsGold;
-					global.lifes = _loadEntity.lifes;
-					global.upgradeLifes = _loadEntity.upgLifes;
-					global.upgradeStam  = _loadEntity.upgStam;
-					global.upgradeVeneno  = _loadEntity.upgVeneno;
-					global.upgradeDano  = _loadEntity.upgDano;
-					global.stamina = _loadEntity.stam;
-					global.gamepause = false;
-					global.option = noone;
+					
+					if (room != rmInit) {
+						x = _loadEntity.x;
+						y = _loadEntity.y;
+						global.upgradeLifes = _loadEntity.upgLifes;
+						global.upgradeStam  = _loadEntity.upgStam;
+						global.upgradeVeneno  = _loadEntity.upgVeneno;
+						global.upgradeDano  = _loadEntity.upgDano;
+						global.lifes = _loadEntity.lifes;
+						global.stamina = _loadEntity.stam;
+						global.gamepause = false;
+						global.option = noone;
+					}
 					
 					if (instance_exists(objGui)) {
 						objGui.coinLabels2[0] = _loadEntity.upgPrice0;
@@ -165,4 +168,46 @@ function scrResetGame() {
 	objGui.coinLabels2[1] = 18;
 	objGui.coinLabels2[2] = 20;
 	objGui.coinLabels2[3] = 35;
+}
+
+function scrLoadCoins() {
+	
+	var _file = "";
+	switch(global.save) {
+		default:
+			show_message("Erro ao definir save !");
+		break
+		
+		case 1:
+			_file = "saveGame0.save";
+		break;
+		
+		case 2:
+			_file = "saveGame1.save";
+		break;
+		
+		case 3:
+			_file = "saveGame2.save";
+		break;
+	}
+	
+	if (file_exists(_file)) {
+		
+		var _buffer = buffer_load(_file);
+		var _string = buffer_read(_buffer, buffer_string);
+		buffer_delete(_buffer);
+		
+		var _loadData = json_parse(_string); // <-- Transforma o Json em Array
+		
+		while (array_length(_loadData) > 0) {
+			
+			var _loadEntity = array_pop(_loadData);
+			
+			if (room == rmInit) {
+				global.coinsSilver = _loadEntity.coinsSilver;
+				global.coinsGold = _loadEntity.coinsGold;
+			}
+		}
+		scrPrint("Moedas Carregadas: " + _string);
+	}
 }
