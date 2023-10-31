@@ -47,7 +47,7 @@ poisonCost = 0;
 
 //Variaves de combate
 danoAlpha = -1; //<-- Define o alpha para dar efeito de pisca
-tomarDano = true; //<-- Define se posso tomar dano
+tomarDano = false; //<-- Define se posso tomar dano
 empurrarDir = 0; //<-- Define a direcao que serei empurrado
 dano = 1; //<-- Define o valor do dano que da no inimigo
 maxLifes = 10;

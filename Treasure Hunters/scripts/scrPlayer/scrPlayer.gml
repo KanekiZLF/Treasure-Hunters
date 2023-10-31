@@ -149,20 +149,20 @@ function scrPlayer() {
 			
 		if direita || direc = 0 || direc = 2 {
 			if (attackCombo = 0) {
-				mask_index = sprPlayerSwordAtack1HB;
+				//mask_index = sprPlayerSwordAtack1HB;
 				direc = 4; //<<-- Ataque1 Direita
 			} else if (attackCombo = 1) {
-				mask_index = sprPlayerSwordAtack2HB;
+				//mask_index = sprPlayerSwordAtack2HB;
 				direc = 18; //<<-- Ataque2 Direita
 			} else if (attackCombo = 2) {
-				mask_index = sprPlayerSwordAtack3HB;
+				//mask_index = sprPlayerSwordAtack3HB;
 				direc = 20; //<<-- Ataque3 Direita
 			}
 		}
 		
 		if esquerda || direc = 1 || direc = 3 {
 			if (attackCombo = 0) {
-				mask_index = sprPlayerSwordAtack1HB;
+				//mask_index = sprPlayerSwordAtack1HB;
 				direc = 5;	//<<-- Ataque1 Esquerda
 			} else if (attackCombo = 1) {
 				direc = 19; //<<-- Ataque2 Esquerda

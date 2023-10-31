@@ -69,8 +69,19 @@ if (lifeCost > 0) {
 #endregion
 
 
+if tomarDano && !isDead && !_pause && (mask_index == sprPlayerIdle || mask_index == sprPlayerSwordIdle) {
+	global.cameraActive = false;
+	camDirec = (image_xscale == 1) ? 0 : 1;
+	alarm[5] = 10;
+	//alarm[0] = 10;
+	lifeCost = 2;
+	global.lifes -= lifeCost;
+	hit = true;
+	dropSword = true;
+	tomarDano = false;
+}
+
 if keyboard_check_pressed(ord("G")) {
-	room_goto_next();
 	tomarDano = true;
 }
 
@@ -143,19 +154,19 @@ if !isDead && (!_pause) {
 	}
 
 
-	// Crie os efeitos de fumaça quando anda, pula ou ataca no ar
+	// Crie os efeitos de fumaça quando anda ou pula
 	if (wait("runDust1", .2)) && direita && !isJumping && !isFall && !isDead {
-	   var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
+	   var _effect = instance_create_layer(x - 3, y + 4, layer, objEffects);
 			_effect.direc = 4
 	}
 
 	if (wait("runDust2", .2)) && esquerda && !isJumping && !isFall && !isDead {
-	   var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
+	   var _effect = instance_create_layer(x - 3, y + 4, layer, objEffects);
 			_effect.direc = 5
 	}
 
 	if (place_meeting(x, y + 1, objParede)) && isEffect {
-		var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
+		var _effect = instance_create_layer(x, y + 4, layer, objEffects);
 			_effect.direc = 2
 			isEffect = false;
 	}
