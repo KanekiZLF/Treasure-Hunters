@@ -46,6 +46,17 @@ if isAirAttacking && (sprite_index == sprPlayerSwordAirAtack1 || sprite_index ==
 	isAirAttacking = false;
 }
 
+if (sprite_index == sprPlayerSwordAirAtack1 || sprite_index == sprPlayerSwordAirAtack2) {
+	if direita || direc = 6 || direc = 22 || direc = 24 {
+		direc = 8;
+	}
+	
+	if esquerda || direc = 7 || direc = 23 || direc = 25 {
+		direc = 9;
+	}
+	isAirAttacking = false;
+}
+
 if toThrow {
 	//Verifica qual lado esta atacando e qual combo é !
 	if direita || direc = 4 || direc = 18 || direc = 20 || direc = 26 {

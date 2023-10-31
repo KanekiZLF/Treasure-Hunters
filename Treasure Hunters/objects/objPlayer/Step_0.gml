@@ -80,7 +80,7 @@ if alarm[5] > 0 {
 		scrMoveCamera(.5, 2);
 	}
 }
-
+scrPrint(attackCombo)
 if !isDead && (!_pause) {
 	// Ataca e define a posição da camera entre outras coisas
 	
@@ -93,7 +93,7 @@ if !isDead && (!_pause) {
 			isAttacking = true;
 		}
 	
-		if (isJumping || isFall) && attackCombo <= 2 { 
+		if (isJumping || isFall) && attackCombo <= 1 { 
 			isAirAttacking = true; 
 		}
 	
