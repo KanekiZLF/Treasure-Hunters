@@ -1,6 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 var _pause = global.gamepause;
+
 if (!_pause) {
 	script_execute(estado) //<-- Executa script
 	image_speed = 1;
@@ -80,6 +81,7 @@ if tomarDano && !isDead && (!_pause) {
 
 
 if keyboard_check_pressed(ord("G")) {
+	room_goto_next();
 	tomarDano = true;
 }
 

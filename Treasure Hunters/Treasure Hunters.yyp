@@ -179,6 +179,7 @@
     {"id":{"name":"sprHead2Attack2","path":"sprites/sprHead2Attack2/sprHead2Attack2.yy",},},
     {"id":{"name":"FrontAndBottom","path":"sprites/FrontAndBottom/FrontAndBottom.yy",},},
     {"id":{"name":"sprPalmRight","path":"sprites/sprPalmRight/sprPalmRight.yy",},},
+    {"id":{"name":"objTextUp","path":"objects/objTextUp/objTextUp.yy",},},
     {"id":{"name":"sprWindow","path":"sprites/sprWindow/sprWindow.yy",},},
     {"id":{"name":"sprPoisonColor","path":"sprites/sprPoisonColor/sprPoisonColor.yy",},},
     {"id":{"name":"sprSpike","path":"sprites/sprSpike/sprSpike.yy",},},

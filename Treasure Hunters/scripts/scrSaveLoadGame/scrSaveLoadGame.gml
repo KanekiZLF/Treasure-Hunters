@@ -63,7 +63,10 @@ function scrSaveGame() {
 		break;
 	}
 	buffer_save(_buffer, _file);
-	scrPrint("Jogo Salvo: " + _string);
+	//scrPrint("Jogo Salvo: " + _string);
+	var _inst = instance_create_layer(x, y, "Effects", objTextUp);
+	_inst.texto = "Jogo salvo com sucesso !";
+	_inst.fontSize = .4;
 }
 
 function scrLoadGame(){
@@ -144,7 +147,7 @@ function scrLoadGame(){
 				}
 			}
 		}
-		scrPrint("Jogo Carregado: " + _string);
+		//scrPrint("Jogo Carregado: " + _string);
 	}
 }
 
