@@ -32,6 +32,7 @@ if (!_pause) {
 		var _effect = instance_create_layer(x + (3 * image_xscale), y - 5, layer, objEffects);
 			_effect.direc = 2;
 			_effect.image_angle = 90 * image_xscale;
+			
 		// Cria o dialogo de interrogação
 		var _effect2 = instance_create_layer(x, y, layer, objEffects);
 			_effect2.direc = 6;

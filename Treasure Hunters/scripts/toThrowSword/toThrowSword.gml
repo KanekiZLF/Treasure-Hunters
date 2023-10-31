@@ -7,7 +7,7 @@ function toThrowSword() {
         // Determina a posição do novo objeto de espada
 		
         var sword_x = objPlayer.x + (objPlayer.image_xscale == 1 ? 15 : -15);
-        var sword_y = objPlayer.y - 15;
+        var sword_y = objPlayer.y - 2.5;
 
         // Cria a nova espada
         var _newSword = instance_create_layer(sword_x, sword_y, layer, objSword);

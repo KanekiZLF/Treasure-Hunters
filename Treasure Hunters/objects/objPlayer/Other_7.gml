@@ -17,6 +17,8 @@ if (direc == 14 || direc == 15) && !isDead {
 	}
 	hit = false;
 }
+
+
 #endregion
 
 #region Retorna as Sprites

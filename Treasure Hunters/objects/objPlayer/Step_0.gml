@@ -22,7 +22,7 @@ if global.lifes <= 0 {
 	global.gameover = true;
 	// Cria o efeito de fumaça
 	if sprite_index == sprPlayerDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede) {
-		var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
+		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 		var _effect2 = instance_create_layer(x, y, layer, objEffects)
 			_effect2.direc = 8;
@@ -68,19 +68,6 @@ if (lifeCost > 0) {
 
 #endregion
 
-
-if tomarDano && !isDead && !_pause && (mask_index == sprPlayerIdle || mask_index == sprPlayerSwordIdle) {
-	global.cameraActive = false;
-	camDirec = (image_xscale == 1) ? 0 : 1;
-	alarm[5] = 10;
-	//alarm[0] = 10;
-	lifeCost = 2;
-	global.lifes -= lifeCost;
-	hit = true;
-	dropSword = true;
-	tomarDano = false;
-}
-
 if keyboard_check_pressed(ord("G")) {
 	tomarDano = true;
 }
@@ -96,7 +83,9 @@ if alarm[5] > 0 {
 
 if !isDead && (!_pause) {
 	// Ataca e define a posição da camera entre outras coisas
+	
 	if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
+		attackCombo++;
 		ds_list_clear(inimigos_atingidos);
 		global.cameraActive = false;
 	
@@ -108,8 +97,7 @@ if !isDead && (!_pause) {
 			isAirAttacking = true; 
 		}
 	
-		attackCombo += 1;
-		alarm[2] = 20; //<-- Intervalo entre ataques 
+		alarm[2] = 10; //<-- Intervalo entre ataques 
 		alarm[3] = game_get_speed(gamespeed_fps) * 1; //<-- Intervalo para resetar os combos
 		alarm[5] = 10 //Treme tela
 	
@@ -118,15 +106,16 @@ if !isDead && (!_pause) {
 			attackCombo = 0;
 		}
 	
-		if (isAirAttacking && attackCombo == 2) {
+		if (isAirAttacking && attackCombo >= 2) {
 			isAirAttacking = false;
 		}
+		
 		attack = false;
 	}
 
 	// Define o lado que a camera ira tremer
 
-	if isAttacking && mouse_check_button_pressed(mb_left) {
+	if isAttacking && mouse_check_button_pressed(mb_left) && attack && attackCombo > 0 {
 		if attackCombo == 0 {
 			if (image_xscale == 1) {
 				camDirec = 0;
@@ -156,17 +145,17 @@ if !isDead && (!_pause) {
 
 	// Crie os efeitos de fumaça quando anda ou pula
 	if (wait("runDust1", .2)) && direita && !isJumping && !isFall && !isDead {
-	   var _effect = instance_create_layer(x - 3, y + 4, layer, objEffects);
+	   var _effect = instance_create_layer(x - 10, y + 2.5, layer, objEffects);
 			_effect.direc = 4
 	}
 
 	if (wait("runDust2", .2)) && esquerda && !isJumping && !isFall && !isDead {
-	   var _effect = instance_create_layer(x - 3, y + 4, layer, objEffects);
+	   var _effect = instance_create_layer(x + 10, y + 2.5, layer, objEffects);
 			_effect.direc = 5
 	}
 
 	if (place_meeting(x, y + 1, objParede)) && isEffect {
-		var _effect = instance_create_layer(x, y + 4, layer, objEffects);
+		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 			isEffect = false;
 	}

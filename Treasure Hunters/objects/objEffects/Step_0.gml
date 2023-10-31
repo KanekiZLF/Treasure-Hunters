@@ -11,7 +11,7 @@ if (!global.gamepause) {
 //Controla os efeitos do Dialogo
 if (direc == 6 || direc == 7 || direc == 8) {
 	x = objPlayer.x + 15;
-	y = objPlayer.y - 32;
+	y = objPlayer.y - 20;
 
 	if (image_index == 2) {
 		image_speed = 0;

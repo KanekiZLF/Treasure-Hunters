@@ -49,7 +49,7 @@ function scrPlayer() {
 	//Jump, Double Jump, Pulo, Pulo Duplo
 	if !isAttacking || !isDead {	
 		if cima && doubleJump < 2 {
-			var _effect = instance_create_layer(x, y - 8, layer, objEffects)
+			var _effect = instance_create_layer(x, y + 2.5, layer, objEffects)
 				_effect.direc = 0;
 			doubleJump += 1;
 			velocidadeV = alturaPulo;
@@ -128,20 +128,24 @@ function scrPlayer() {
 	if(isAirAttacking && !isDead) {
 		if direita || direc = 6 || direc = 8 {
 			if (attackCombo = 0) {
+				mask_index = sprPlayerSwordAirAtack1HB;
 				direc = 22; //<<-- Ataque1 Direita
 			} else if (attackCombo = 1) {
+				mask_index = sprPlayerSwordAirAtack2HB;
 				direc = 24; //<<-- Ataque2 Direita
 			}
 		}
 		
 		if esquerda || direc = 7 || direc = 9 {
 			if (attackCombo = 0) {
+				mask_index = sprPlayerSwordAirAtack1HB;
 				direc = 23;	//<<-- Ataque1 Esquerda
 			} else if (attackCombo = 1) {
+				mask_index = sprPlayerSwordAirAtack2HB;
 				direc = 25; //<<-- Ataque2 Esquerda
 			}
 		}
-		estado = scrAtacandoAr;
+		estado = scrAtacando;
 	}
 	
 	//Define sprite de atacando e altera o script/estado
@@ -149,27 +153,27 @@ function scrPlayer() {
 			
 		if direita || direc = 0 || direc = 2 {
 			if (attackCombo = 0) {
-				//mask_index = sprPlayerSwordAtack1HB;
+				mask_index = sprPlayerSwordAtack1HB;
 				direc = 4; //<<-- Ataque1 Direita
 			} else if (attackCombo = 1) {
-				//mask_index = sprPlayerSwordAtack2HB;
+				mask_index = sprPlayerSwordAtack2HB;
 				direc = 18; //<<-- Ataque2 Direita
 			} else if (attackCombo = 2) {
-				//mask_index = sprPlayerSwordAtack3HB;
+				mask_index = sprPlayerSwordAtack3HB;
 				direc = 20; //<<-- Ataque3 Direita
 			}
 		}
 		
 		if esquerda || direc = 1 || direc = 3 {
 			if (attackCombo = 0) {
-				//mask_index = sprPlayerSwordAtack1HB;
+				mask_index = sprPlayerSwordAtack1HB;
 				direc = 5;	//<<-- Ataque1 Esquerda
 			} else if (attackCombo = 1) {
+				mask_index = sprPlayerSwordAtack2HB;
 				direc = 19; //<<-- Ataque2 Esquerda
-				mask_index = sprSwordAttack2;
 			} else if (attackCombo = 2) {
+				mask_index = sprPlayerSwordAtack3HB;
 				direc = 21; //<<-- Ataque3 Esquerda
-				mask_index = sprSwordAttack3;
 			}
 		}
 		estado = scrAtacando;
@@ -192,6 +196,7 @@ function scrPlayer() {
 // Define o estado como atacando
 function scrAtacando() {
 	velocidadeH = 0;
+	velocidadeV = 0;
 
 	//Criando uma lista para checar os inimigos atingidos em cada frame
 	var inimigosHB = ds_list_create();
@@ -222,19 +227,8 @@ function scrAtacando() {
 	ds_list_destroy(inimigosHB);
 	
 // Define oque sera feito ao fim da animação
-	if scrFimAnimacao() && isAttacking {
-		mask_index = sprPlayerSwordIdle;
-		estado = scrPlayer;
-	}
-}
-
-function scrAtacandoAr() {
-	velocidadeV = 0;
-	velocidadeH = 0;
-	scrDirec();
-	scrAtacando();
-	
-	if endAnimation() {
+	if scrFimAnimacao() && (isAttacking || isAirAttacking) {
+		mask_index = sprPlayerIdle;
 		estado = scrPlayer;
 	}
 }
@@ -257,7 +251,7 @@ function scrHit() {
 	}
 	
 	if place_meeting(x, y + 1, objParede) && !isDead {
-		var _effect = instance_create_layer(x - 3, y - 7, layer, objEffects);
+		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 		if velocidadeH != 0 {
 			direc = (image_xscale == 1) ? 2 : 3;
