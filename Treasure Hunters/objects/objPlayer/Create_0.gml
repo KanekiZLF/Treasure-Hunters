@@ -21,6 +21,12 @@ doubleJump = 0;
 isEffect = false; //<-- Ativa ou desativa os efeitos de fumaça
 isSpeed = 0;
 
+// Variáveis para controlar o piscar
+piscando = false;
+taxaPiscar = 0.06; // Taxa de alteração do alpha
+alphaMin = 0.2; // Valor mínimo do alpha
+alphaMax = 1.0; // Valor máximo do alpha
+
 //Variaveis de modificação
 estado = scrPlayer;
 direc = 1; //<-- Define qual sprite usar

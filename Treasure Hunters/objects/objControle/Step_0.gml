@@ -538,6 +538,10 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 			global.gamepause = false;
 			objPlayer.direc = 0;
 			objPlayer.isDead = false;
+			objPlayer.tomarDano = false;
+			objPlayer.piscando = true;
+			image_alpha = objPlayer.alphaMin;
+			objPlayer.alarm[0] = game_get_speed(gamespeed_fps) * 1; //<-- Intervalo para tomar dano
 			scrRecharge(10, 10) //<-- Define a recarga para Lifes, Stamina e Poison
 		}
 	}

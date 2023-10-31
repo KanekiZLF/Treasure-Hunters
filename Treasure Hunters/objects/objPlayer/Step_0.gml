@@ -80,8 +80,27 @@ if alarm[5] > 0 {
 		scrMoveCamera(.5, 2);
 	}
 }
-scrPrint(attackCombo)
+
 if !isDead && (!_pause) {
+	
+	if piscando {
+    // Aumentar o alpha
+    image_alpha += taxaPiscar;
+
+    // Verificar se ultrapassou o limite superior
+    if image_alpha > alphaMax {
+        image_alpha = alphaMax;
+        taxaPiscar *= -1; // Inverter a direção da alteração
+    }
+
+    // Verificar se ultrapassou o limite inferior
+    if image_alpha < alphaMin {
+        image_alpha = alphaMin;
+        taxaPiscar *= -1; // Inverter a direção da alteração
+	    }
+	}
+
+	
 	// Ataca e define a posição da camera entre outras coisas
 	
 	if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
@@ -99,7 +118,14 @@ if !isDead && (!_pause) {
 	
 		alarm[2] = 10; //<-- Intervalo entre ataques 
 		alarm[3] = game_get_speed(gamespeed_fps) * 1; //<-- Intervalo para resetar os combos
-		alarm[5] = 10 //Treme tela
+		
+		if (isAttacking) {
+			alarm[5] = 10 //Treme tela
+		}
+		
+		if (isAirAttacking) {
+			alarm[5] = 10 //Treme tela
+		}
 	
 		//Reseta os combos caso chegue no limite
 		if (attackCombo == 3) {

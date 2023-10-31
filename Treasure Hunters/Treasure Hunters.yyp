@@ -316,7 +316,7 @@
     {"id":{"name":"objSword","path":"objects/objSword/objSword.yy",},},
     {"id":{"name":"sprSliderSide","path":"sprites/sprSliderSide/sprSliderSide.yy",},},
     {"id":{"name":"sprFormIconNormal","path":"sprites/sprFormIconNormal/sprFormIconNormal.yy",},},
-    {"id":{"name":"objInimigo","path":"objects/objInimigo/objInimigo.yy",},},
+    {"id":{"name":"objFierceTooth","path":"objects/objFierceTooth/objFierceTooth.yy",},},
     {"id":{"name":"sprBGImage","path":"sprites/sprBGImage/sprBGImage.yy",},},
     {"id":{"name":"sprOther","path":"sprites/sprOther/sprOther.yy",},},
     {"id":{"name":"objSaveMe","path":"objects/objSaveMe/objSaveMe.yy",},},

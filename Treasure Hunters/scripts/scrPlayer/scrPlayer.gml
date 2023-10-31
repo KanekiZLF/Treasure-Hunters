@@ -237,19 +237,38 @@ function scrHit() {
 	scrDirec();
 	scrCollision();
 	
+	if velocidadeV < 0 {
+		velocidadeV = 5;
+	}
+	var _velocidadeV = -2.5;
+	var _gravidade = .2;
+	
 	if direita || esquerda || cima {
 		direita = noone;
 		esquerda = noone;
 		cima = noone;
 	}
+
 	
 	if hit {
 		velocidadeH = -1.5 * image_xscale;
-		y += -2.5;
+		
+		if place_meeting(x, y + _velocidadeV, objColisParede) {
+		while !place_meeting(x, y + sign(_velocidadeV), objColisParede) {
+			y += sign(_velocidadeV); 
+		}
+			_velocidadeV = 0;
+		}
+		y += _velocidadeV;
+		
+		if !place_meeting(x, y + 1, objColisParede) {
+		_velocidadeV += _gravidade;
+	}
 	} else if !hit {
 		velocidadeH = 0;
+		_velocidadeV += _gravidade;
 	}
-	
+
 	if place_meeting(x, y + 1, objParede) && !isDead {
 		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
