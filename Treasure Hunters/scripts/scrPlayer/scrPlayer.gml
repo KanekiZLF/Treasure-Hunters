@@ -149,21 +149,27 @@ function scrPlayer() {
 			
 		if direita || direc = 0 || direc = 2 {
 			if (attackCombo = 0) {
+				mask_index = sprPlayerSwordAtack1HB;
 				direc = 4; //<<-- Ataque1 Direita
 			} else if (attackCombo = 1) {
+				mask_index = sprPlayerSwordAtack2HB;
 				direc = 18; //<<-- Ataque2 Direita
 			} else if (attackCombo = 2) {
+				mask_index = sprPlayerSwordAtack3HB;
 				direc = 20; //<<-- Ataque3 Direita
 			}
 		}
 		
 		if esquerda || direc = 1 || direc = 3 {
 			if (attackCombo = 0) {
+				mask_index = sprPlayerSwordAtack1HB;
 				direc = 5;	//<<-- Ataque1 Esquerda
 			} else if (attackCombo = 1) {
 				direc = 19; //<<-- Ataque2 Esquerda
+				mask_index = sprSwordAttack2;
 			} else if (attackCombo = 2) {
 				direc = 21; //<<-- Ataque3 Esquerda
+				mask_index = sprSwordAttack3;
 			}
 		}
 		estado = scrAtacando;
@@ -204,9 +210,10 @@ function scrAtacando() {
 			if (ds_list_find_index(inimigos_atingidos, inimigosID)) == -1{
 				ds_list_add(inimigos_atingidos, inimigosID);
 				with(inimigosID) {
-				lifes -= objPlayer.dano;
-				alarm[1] = 15;
-				hit = true;
+					lifes -= 2;
+					alarm[1] = 15;
+					hit = true;
+					scrPrint(lifes)
 				}
 			}
 		}
@@ -216,6 +223,7 @@ function scrAtacando() {
 	
 // Define oque sera feito ao fim da animação
 	if scrFimAnimacao() && isAttacking {
+		mask_index = sprPlayerSwordIdle;
 		estado = scrPlayer;
 	}
 }

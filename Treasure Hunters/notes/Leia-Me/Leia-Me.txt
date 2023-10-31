@@ -1,4 +1,4 @@
-	Player:
+	Player: Finalizado
 Movimentação: OK
 Ataque1: OK
 Ataque2: OK
@@ -7,19 +7,20 @@ Morte: OK
 Vida: OK
 Estamina: OK
 Veneno: OK
-Inventario:
+Inventario: OK
 	
-	Interface Grafica(GUI):
+	Interface Grafica(GUI): Finalizado
 Vida: OK
 Estamina: OK
 Veneno: OK
-Botoes:
+Botoes: OK
 Banners: OK
 Menus: OK
 Icones: OK
-Tela Inicial:
+Tela Inicial: OK
+Sistema de Save: OK
 	
-	Sprites:
+	Sprites: Finalizado
 Player: OK
 Interface Grafica(GUI): OK
 Inimigos: OK
@@ -43,10 +44,10 @@ Morte: OK
 Vida: OK
 Estamina: OK
 Veneno: OK
-Inventario:
+Inventario: OK
 Colisores: OK
-Pontuação: 
-Interação: 
+Pontuação: OK
+Interação: OK
 
 
 	Armadilhas:

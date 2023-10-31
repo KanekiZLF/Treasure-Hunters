@@ -68,17 +68,6 @@ if (lifeCost > 0) {
 
 #endregion
 
-if tomarDano && !isDead && (!_pause) {
-	global.cameraActive = false;
-	camDirec = (image_xscale == 1) ? 0 : 1;
-	alarm[5] = 10;
-	lifeCost = 2;
-	global.lifes -= lifeCost;
-	hit = true;
-	dropSword = true;
-	tomarDano = false;
-}
-
 
 if keyboard_check_pressed(ord("G")) {
 	room_goto_next();
