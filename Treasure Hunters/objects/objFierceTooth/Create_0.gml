@@ -18,8 +18,10 @@ estado = scrFierceTooth;
 direc = 0;
 arraySprite = 0;
 objColisParede = objParede; //<-- Define qual é o objeto de parede
-vision = 10;
+isEffect = false;
 
 // Variaveis de combate
 lifes = 5;
 dano = 1;
+vision = 10;
+perseg = false

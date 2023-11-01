@@ -26,6 +26,7 @@ if global.lifes <= 0 {
 			_effect.direc = 2
 		var _effect2 = instance_create_layer(x, y, layer, objEffects)
 			_effect2.direc = 8;
+			_effect2.player = true;
 	}
 	
 	// Cria a espada quando morre

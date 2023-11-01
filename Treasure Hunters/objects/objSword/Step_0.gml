@@ -36,6 +36,7 @@ if (!_pause) {
 		// Cria o dialogo de interrogação
 		var _effect2 = instance_create_layer(x, y, layer, objEffects);
 			_effect2.direc = 6;
+			_effect2.player = true;
 		// Desativa os efeitos após aplicar
 		efeito = true;
 	}
