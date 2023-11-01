@@ -2,7 +2,7 @@
 // https://github.com/KanekiZLF
 function scrEnemysDirec(){
 	
-	// Sprites FierceTooth
+	// FierceTooth
 	var spriteMap0 = [
 		sprFierceToothIdle, // 0: Parado Direita
 		sprFierceToothIdle, // 1: Parado Esquerda
@@ -74,7 +74,7 @@ function scrEnemysDirec(){
 		sprCrabbyGround, // 19: Morto Esquerda
 	]
 	
-	// Crabby
+	// SealShell
 	var spriteMap3 = [
 		sprSealShellIdle, // 0: Parado Direita
 		sprSealShellIdle, // 1: Parado Esquerda
@@ -163,7 +163,7 @@ function scrEnemysDirec(){
 	]
 	
 	// Defina a imagem_xscale com base na direção
-    image_xscale = (direc % 2 == 0) ? 1 : -1;
+    image_xscale = (direc % 2 == 0) ? -1 : 1;
 	
 	if (!variable_instance_exists(id, "spriteIndex")) {
 		spriteIndex = string;

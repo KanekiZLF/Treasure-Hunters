@@ -4,14 +4,13 @@
 //Variaveis de movimentação
 velocidadeH = 0;
 velocidadeV = 0;
-velocidade  = 2;
+velocidade  = 1;
 gravidade   = 0.2;
-direita = 0;
+direita = 1;
 esquerda = 0;
 cima = 0;
 doubleJump = 0;
 isEffect = false; //<-- Ativa ou desativa os efeitos de fumaça
-isSpeed = 0;
 
 // Variaveis de modificação
 estado = scrFierceTooth;
