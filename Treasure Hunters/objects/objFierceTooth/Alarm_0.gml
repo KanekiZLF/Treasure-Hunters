@@ -1,9 +1,12 @@
-/// @description Inserir descrição aqui
+/// @description Controla a velocidade
 // Você pode escrever seu código neste editor
-if (image_xscale == 1) {
+velocidade = velocidade ? 0 : 1;
+var _ranNum = irandom_range(0, 2); // Gere um número aleatório entre 0, 1 e 2
+
+if _ranNum == 1 {
 	direita = 1;
 	esquerda = 0;
-} else if (image_xscale == -1) {
+} else if (_ranNum == 2) {
 	direita = 0;
 	esquerda = 1;
 }
