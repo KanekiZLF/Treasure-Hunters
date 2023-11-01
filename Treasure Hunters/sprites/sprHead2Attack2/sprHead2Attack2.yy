@@ -28,7 +28,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"79f5dbbc-6878-4671-a77d-bb7713e9984b","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 7,
+  "origin": 9,
   "parent": {
     "name": "sprHead2",
     "path": "folders/Sprites/sprEnemys/sprTotem/sprHead2.yy",
@@ -69,7 +69,7 @@
     ],
     "visibleRange": null,
     "volume": 1.0,
-    "xorigin": 12,
+    "xorigin": 10,
     "yorigin": 32,
   },
   "swatchColours": null,

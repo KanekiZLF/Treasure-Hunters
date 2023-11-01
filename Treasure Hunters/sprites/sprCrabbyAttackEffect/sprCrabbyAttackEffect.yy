@@ -27,8 +27,8 @@
   "nineSlice": null,
   "origin": 7,
   "parent": {
-    "name": "Crabby",
-    "path": "folders/Sprites/sprEnemys/sprCrustyCrew/Crabby.yy",
+    "name": "sprCrabby",
+    "path": "folders/Sprites/sprEnemys/sprCrabby.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
