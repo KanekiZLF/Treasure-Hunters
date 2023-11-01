@@ -2,6 +2,8 @@
 // Você pode escrever seu código neste editor
 //scrPrint(lifes)
 
+scrEnemysDirec();
+
 
 
 

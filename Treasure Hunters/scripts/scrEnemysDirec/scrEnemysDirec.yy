@@ -1,11 +1,11 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrCollision",
+  "name": "scrEnemysDirec",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "scrConfigs",
-    "path": "folders/Scripts/scrConfigs.yy",
+    "name": "scrInimigos",
+    "path": "folders/Scripts/scrInimigos.yy",
   },
 }
