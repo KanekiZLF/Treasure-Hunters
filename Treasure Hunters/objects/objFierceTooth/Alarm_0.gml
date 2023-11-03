@@ -1,7 +1,7 @@
 /// @description Controla a velocidade
 // Você pode escrever seu código neste editor
 if (!global.gamepause) {
-	if (!perseg) {
+	if (!perseg && walk) {
 		velocidade = velocidade ? 0 : 1;
 		var _ranNum = irandom_range(0, 2); // Gere um número aleatório entre 0, 1 e 2
 

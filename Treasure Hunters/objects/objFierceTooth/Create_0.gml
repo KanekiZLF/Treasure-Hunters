@@ -9,9 +9,11 @@ gravidade   = 0.2;
 direita = 1;
 esquerda = 0;
 cima = 0;
-doubleJump = 0;
 isEffect = false; //<-- Ativa ou desativa os efeitos de fumaça
-tempoAndar = 60; // Tempo para volta a andar;
+tempoAndar = 30; // Tempo para volta a andar;
+isJumping = false;
+walk = true;
+distLimit = 100; // <-- Distancia limite de perseguição
 
 // Variaveis de modificação
 estado = scrFierceTooth;

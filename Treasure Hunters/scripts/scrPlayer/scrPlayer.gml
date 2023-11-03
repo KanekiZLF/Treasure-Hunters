@@ -240,8 +240,15 @@ function scrHit() {
 	if velocidadeV < 0 {
 		velocidadeV = 5;
 	}
-	var _velocidadeV = -2.5;
+	
+	var _velocidadeV = 0;
 	var _gravidade = .2;
+	
+	if (instance_place(x, y - 1, objParede)) {
+		_velocidadeV = -.5;
+	} else {
+		_velocidadeV = -2.5;
+	}
 	
 	if direita || esquerda || cima {
 		direita = noone;
