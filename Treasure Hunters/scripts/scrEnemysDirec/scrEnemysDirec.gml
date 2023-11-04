@@ -16,14 +16,16 @@ function scrEnemysDirec(){
 		sprFierceToothGround, // 9: Aterrissagem Esquerda
 		sprFierceToothAttack, // 10: Ataque Direita
 		sprFierceToothAttack, // 11: Ataque Esquerda
-		sprFierceToothAntecipation, // 12: Pulando Direita
-		sprFierceToothAntecipation, // 13: Pulando Esquerda
+		sprFierceToothAntecipation, // 12: Antecipation Direita
+		sprFierceToothAntecipation, // 13: Antecipation Esquerda
 		sprFierceToothHit, // 14: Hit Direita
 		sprFierceToothHit, // 15: Hit Esquerda
 		sprFierceToothDead, // 16: Hit Dead Direita
 		sprFierceToothDead, // 17: Hit Dead Esquerda
 		sprFierceToothDeadGround, // 18: Morto Direita
 		sprFierceToothDeadGround, // 19: Morto Esquerda
+		sprFierceToothAttackHB, // 20: Mascara de ataque Direita
+		sprFierceToothAttackHB, // 21: Mascara de ataque Esquerda
 	]
 	
 	// PinkStar

@@ -195,6 +195,7 @@ function scrPlayer() {
 
 // Define o estado como atacando
 function scrAtacando() {
+	scrDirec();
 	velocidadeH = 0;
 	velocidadeV = 0;
 
@@ -227,7 +228,7 @@ function scrAtacando() {
 	ds_list_destroy(inimigosHB);
 	
 // Define oque sera feito ao fim da animação
-	if scrFimAnimacao() && (isAttacking || isAirAttacking) {
+	if scrFimAnimacao() {
 		mask_index = sprPlayerIdle;
 		estado = scrPlayer;
 	}

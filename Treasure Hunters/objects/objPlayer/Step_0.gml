@@ -69,10 +69,6 @@ if (lifeCost > 0) {
 
 #endregion
 
-if keyboard_check_pressed(ord("G")) {
-	tomarDano = true;
-}
-
 // Tempo em que a camera treme
 if alarm[5] > 0 {
 	if !hit {

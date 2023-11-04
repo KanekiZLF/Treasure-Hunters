@@ -533,7 +533,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	}
 	// Play
 	else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2, _recY2, _recX2 + _recSpace2 + (28 * _escala), _recY2 + (14 * _escala))) {
-		if (_mouseClick) {
+		if (_mouseClick && global.gameover) {
 			global.gameover = false;
 			global.gamepause = false;
 			objPlayer.direc = 0;
