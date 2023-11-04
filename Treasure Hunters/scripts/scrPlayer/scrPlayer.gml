@@ -166,13 +166,10 @@ function scrPlayer() {
 		
 		if esquerda || direc = 1 || direc = 3 {
 			if (attackCombo = 0) {
-				mask_index = sprPlayerSwordAtack1HB;
 				direc = 5;	//<<-- Ataque1 Esquerda
 			} else if (attackCombo = 1) {
-				mask_index = sprPlayerSwordAtack2HB;
 				direc = 19; //<<-- Ataque2 Esquerda
 			} else if (attackCombo = 2) {
-				mask_index = sprPlayerSwordAtack3HB;
 				direc = 21; //<<-- Ataque3 Esquerda
 			}
 		}
@@ -198,6 +195,25 @@ function scrAtacando() {
 	scrDirec();
 	velocidadeH = 0;
 	velocidadeV = 0;
+	
+	if isAttacking && !isJumping && !isFall && !isDead {
+		if (attackCombo = 0) {
+			mask_index = sprPlayerSwordAtack1HB;
+		} else if (attackCombo = 1) {
+			mask_index = sprPlayerSwordAtack2HB;
+		} else if (attackCombo = 2) {
+			mask_index = sprPlayerSwordAtack3HB;
+		}
+	}
+	
+	if(isAirAttacking && !isDead) {
+		if (attackCombo = 0) {
+			mask_index = sprPlayerSwordAirAtack1HB;
+		} else if (attackCombo = 1) {
+			mask_index = sprPlayerSwordAirAtack2HB;
+		}
+	}
+			
 
 	//Criando uma lista para checar os inimigos atingidos em cada frame
 	var inimigosHB = ds_list_create();
@@ -216,10 +232,9 @@ function scrAtacando() {
 			if (ds_list_find_index(inimigos_atingidos, inimigosID)) == -1{
 				ds_list_add(inimigos_atingidos, inimigosID);
 				with(inimigosID) {
-					lifes -= 2;
+					lifes -= 1;
 					alarm[1] = 15;
 					hit = true;
-					scrPrint(lifes)
 				}
 			}
 		}

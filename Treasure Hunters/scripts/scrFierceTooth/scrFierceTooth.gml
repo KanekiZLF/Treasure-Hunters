@@ -67,7 +67,7 @@ function scrFierceToothAtack() {
 	
 		if endAnimation() && (sprite_index == sprFierceToothAntecipation) {
 			if wait("fierceAtack", .25) {
-				mask_index = sprFierceToothAttackHB;
+				mask_index = sprFierceToothAttack;
 				if direc == 12 direc = 10;
 				else if direc == 13 direc = 11;
 			}

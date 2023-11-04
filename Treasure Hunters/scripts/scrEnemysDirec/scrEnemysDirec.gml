@@ -24,8 +24,6 @@ function scrEnemysDirec(){
 		sprFierceToothDead, // 17: Hit Dead Esquerda
 		sprFierceToothDeadGround, // 18: Morto Direita
 		sprFierceToothDeadGround, // 19: Morto Esquerda
-		sprFierceToothAttackHB, // 20: Mascara de ataque Direita
-		sprFierceToothAttackHB, // 21: Mascara de ataque Esquerda
 	]
 	
 	// PinkStar

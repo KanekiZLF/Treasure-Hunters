@@ -372,7 +372,6 @@
     {"id":{"name":"sprChestIdle","path":"sprites/sprChestIdle/sprChestIdle.yy",},},
     {"id":{"name":"scrSaveLoadInventory","path":"scripts/scrSaveLoadInventory/scrSaveLoadInventory.yy",},},
     {"id":{"name":"sprCrabbyRun","path":"sprites/sprCrabbyRun/sprCrabbyRun.yy",},},
-    {"id":{"name":"sprFierceToothAttackHB","path":"sprites/sprFierceToothAttackHB/sprFierceToothAttackHB.yy",},},
     {"id":{"name":"sprPlayerSwordRun","path":"sprites/sprPlayerSwordRun/sprPlayerSwordRun.yy",},},
     {"id":{"name":"sprChestKeyEffect","path":"sprites/sprChestKeyEffect/sprChestKeyEffect.yy",},},
     {"id":{"name":"sprHoverMain2","path":"sprites/sprHoverMain2/sprHoverMain2.yy",},},

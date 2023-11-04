@@ -23,7 +23,7 @@ function scrIAEnemys(){
 	}
 
 	//Verifica se tem algo colidindo, na direita ou esquerda, se tiver, diminui o campo de visao, até sair da colisao
-	vision = clamp(vision, 0, 81); //<-- Limita o campo de visao até limite em px
+	vision = clamp(vision, 0, 101); //<-- Limita o campo de visao até limite em px
 	var _centerSpriteY = sprite_get_height(sprite_index)/2;
 	var _lineWall = collision_line(x, y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objColisParede, false, true);
 	var _lineWall2 = collision_line(x, y - sprite_get_height(sprite_index)*2, x - (vision * image_xscale), y - sprite_get_height(sprite_index)*2, objParede, false, true);

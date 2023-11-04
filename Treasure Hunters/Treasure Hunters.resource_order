@@ -314,7 +314,6 @@
     {"name":"sprChestIdle","order":1,"path":"sprites/sprChestIdle/sprChestIdle.yy",},
     {"name":"scrSaveLoadInventory","order":6,"path":"scripts/scrSaveLoadInventory/scrSaveLoadInventory.yy",},
     {"name":"sprCrabbyRun","order":1,"path":"sprites/sprCrabbyRun/sprCrabbyRun.yy",},
-    {"name":"sprFierceToothAttackHB","order":14,"path":"sprites/sprFierceToothAttackHB/sprFierceToothAttackHB.yy",},
     {"name":"sprPlayerSwordRun","order":1,"path":"sprites/sprPlayerSwordRun/sprPlayerSwordRun.yy",},
     {"name":"sprChestKeyEffect","order":1,"path":"sprites/sprChestKeyEffect/sprChestKeyEffect.yy",},
     {"name":"sprHoverMain2","order":5,"path":"sprites/sprHoverMain2/sprHoverMain2.yy",},

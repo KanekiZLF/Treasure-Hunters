@@ -13,7 +13,7 @@ isEffect = false; //<-- Ativa ou desativa os efeitos de fumaça
 tempoAndar = 30; // Tempo para volta a andar;
 isJumping = false;
 walk = true;
-distLimit = 80; // <-- Distancia limite de perseguição
+distLimit = 100; // <-- Distancia limite de perseguição
 
 // Variaveis de modificação
 estado = scrFierceTooth;
@@ -24,6 +24,7 @@ isEffect = false;
 
 // Variaveis de combate
 lifes = 5;
+maxLifes = lifes;
 dano = 1;
 vision = 10;
 perseg = false
