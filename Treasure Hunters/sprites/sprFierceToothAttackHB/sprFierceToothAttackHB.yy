@@ -1,10 +1,10 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "sprFierceToothAttack",
+  "name": "sprFierceToothAttackHB",
   "bbox_bottom": 27,
   "bbox_left": 0,
-  "bbox_right": 49,
+  "bbox_right": 45,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 4,
@@ -59,7 +59,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "sprFierceToothAttack",
+    "name": "sprFierceToothAttackHB",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -81,11 +81,11 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"45806324-90a5-4e55-adb3-5323d3ead02f","path":"sprites/sprFierceToothAttack/sprFierceToothAttack.yy",},},},"Disabled":false,"id":"355d42a3-df7c-44de-abfc-885849bb9d2f","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"29212067-54c2-4415-9c4c-a17d0ac4044a","path":"sprites/sprFierceToothAttack/sprFierceToothAttack.yy",},},},"Disabled":false,"id":"28c72139-26f7-4034-8417-6fa364794d74","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8cd0e48d-758d-495f-b021-67b214869fff","path":"sprites/sprFierceToothAttack/sprFierceToothAttack.yy",},},},"Disabled":false,"id":"ee30f70a-046b-4f17-90c4-35841bcc797a","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"3ab3ece6-c7c1-43ba-8837-339dff28648f","path":"sprites/sprFierceToothAttack/sprFierceToothAttack.yy",},},},"Disabled":false,"id":"11d3b68d-4b9f-4068-aca8-01da8313e3a5","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"385a1701-1dcd-45f3-b9eb-ab02e2aaf589","path":"sprites/sprFierceToothAttack/sprFierceToothAttack.yy",},},},"Disabled":false,"id":"ff20f69a-781c-4c0b-ad10-04fd1bbc2b68","IsCreationKey":false,"Key":4.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"45806324-90a5-4e55-adb3-5323d3ead02f","path":"sprites/sprFierceToothAttackHB/sprFierceToothAttackHB.yy",},},},"Disabled":false,"id":"0ed8b1fe-44ca-44ec-9680-6dce9733f0da","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"29212067-54c2-4415-9c4c-a17d0ac4044a","path":"sprites/sprFierceToothAttackHB/sprFierceToothAttackHB.yy",},},},"Disabled":false,"id":"4793cf80-74e4-4a92-a32d-0bff7cd07efb","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"8cd0e48d-758d-495f-b021-67b214869fff","path":"sprites/sprFierceToothAttackHB/sprFierceToothAttackHB.yy",},},},"Disabled":false,"id":"f1e7a51d-8682-42bb-98ef-2d0fee50668c","IsCreationKey":false,"Key":2.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"3ab3ece6-c7c1-43ba-8837-339dff28648f","path":"sprites/sprFierceToothAttackHB/sprFierceToothAttackHB.yy",},},},"Disabled":false,"id":"81a6aa26-acca-499e-bca9-c9049c863d02","IsCreationKey":false,"Key":3.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"385a1701-1dcd-45f3-b9eb-ab02e2aaf589","path":"sprites/sprFierceToothAttackHB/sprFierceToothAttackHB.yy",},},},"Disabled":false,"id":"6c9c008e-7687-495f-8916-296dc16b79ba","IsCreationKey":false,"Key":4.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

@@ -24,6 +24,7 @@ function scrFierceTooth() {
 	}
 	
 	if velocidadeV < 0 {
+		isFall = true;
 		if direc == 0 || direc == 2 || direc == 6 {
 			direc = 4;
 		}
@@ -34,6 +35,8 @@ function scrFierceTooth() {
 	}
 	
 	if velocidadeV > 0 {
+		isFall = false;
+		isEffect2 = true;
 		if direc == 2 || direc == 4 {
 			direc = 6;
 		}
@@ -46,6 +49,8 @@ function scrFierceTooth() {
 	if cima {
 		isJumping = true;
 		velocidadeV = -4;
+		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects)
+			_effect.direc = 0;
 		cima = 0;
 	}
 	
@@ -94,7 +99,7 @@ function scrFierceToothAtack() {
 	
 		if endAnimation() && (sprite_index == sprFierceToothAntecipation) {
 			if wait("fierceAtack", .25) {
-				mask_index = sprFierceToothAttack;
+				mask_index = sprFierceToothAttackHB;
 				if direc == 12 direc = 10;
 				else if direc == 13 direc = 11;
 			}
@@ -112,7 +117,6 @@ function scrFierceToothAtack() {
 function scrFierceToothHit() {
 	scrEnemysDirec();
 	scrCollision();
-	mask_index = sprFierceToothDeadGround;
 	
 	if velocidadeV < 0 {
 		velocidadeV = 5;
@@ -135,7 +139,7 @@ function scrFierceToothHit() {
 
 	
 	if hit {
-		velocidadeH = 1.5 * image_xscale;
+		velocidadeH = random(1.5) * image_xscale;
 		
 		if place_meeting(x, y + _velocidadeV, objColisParede) {
 		while !place_meeting(x, y + sign(_velocidadeV), objColisParede) {
@@ -163,6 +167,7 @@ function scrFierceToothHit() {
 	}
 
 	if isDead {	
+			mask_index = sprFierceToothDeadGround;
 			direc = (image_xscale == -1) ? 16 : 17;
 		if endAnimation() {
 			estado = scrFierceTooth;

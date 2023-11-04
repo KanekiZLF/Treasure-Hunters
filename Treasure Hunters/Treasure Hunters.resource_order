@@ -175,6 +175,7 @@
     {"name":"sprPalmLeft","order":1,"path":"sprites/sprPalmLeft/sprPalmLeft.yy",},
     {"name":"sprDiamondEffect","order":6,"path":"sprites/sprDiamondEffect/sprDiamondEffect.yy",},
     {"name":"scrRecharge","order":9,"path":"scripts/scrRecharge/scrRecharge.yy",},
+    {"name":"sprFierceToothAttackHB","order":13,"path":"sprites/sprFierceToothAttackHB/sprFierceToothAttackHB.yy",},
     {"name":"sprHead1DestroyedPieces","order":8,"path":"sprites/sprHead1DestroyedPieces/sprHead1DestroyedPieces.yy",},
     {"name":"sprStaminaBar","order":5,"path":"sprites/sprStaminaBar/sprStaminaBar.yy",},
     {"name":"sprCrabbyAttackEffect","order":10,"path":"sprites/sprCrabbyAttackEffect/sprCrabbyAttackEffect.yy",},

@@ -35,6 +35,9 @@ function scrSaveGame() {
 			maxStamina : objPlayer.maxStamina,
 			maxStamina2 : objPlayer.maxStamina2,
 			arraySprite : objPlayer.arraySprite,
+			
+			// Variaveis do inimigo
+			enemyLifes : objEntidade.lifes,
 
 		}
 		array_push(_saveData, _saveEntitys)
@@ -143,6 +146,10 @@ function scrLoadGame(){
 						objPlayer.maxStamina = _loadEntity.maxStamina;
 						objPlayer.maxStamina2 = _loadEntity.maxStamina2;
 						objPlayer.arraySprite = _loadEntity.arraySprite;
+					}
+					
+					if (instance_exists(objEntidade)) {
+						objEntidade.lifes = _loadEntity.enemyLifes;
 					}
 				}
 			}

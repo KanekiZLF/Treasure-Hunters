@@ -2,18 +2,44 @@
 // Você pode escrever seu código neste editor
 //scrPrint(lifes)
 script_execute(estado);
+randomize();
 lifes = clamp(lifes, 0, maxLifes);
 if (global.gamepause) {
 	velocidadeH = 0;
 }
+
 #region isDead
 if lifes <= 0 {
 	isDead = true;
 	perseg = false;
+	
+	// Cria o efeito de fumaça
+	if sprite_index == sprFierceToothDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede) {
+		var _effect = instance_create_layer(x - 5, y + 2.5, layer, objEffects);
+			_effect.direc = 2
+	}
 }
 #endregion
+
 if (!global.gamepause && !isDead) {
 	scrIAEnemys("fierceTooth");
+	
+	// Crie os efeitos de fumaça quando anda ou pula
+	if (wait("runDust1", .2)) && direita && !isJumping && !isFall && !isDead && velocidade > 0 {
+		var _effect = instance_create_layer(x - 10, y + 2.5, layer, objEffects);
+			_effect.direc = 4
+	}
+
+	if (wait("runDust2", .2)) && esquerda && !isJumping && !isFall && !isDead && velocidade > 0 {
+		var _effect = instance_create_layer(x + 10, y + 2.5, layer, objEffects);
+			_effect.direc = 5
+	}
+	
+	if (place_meeting(x, y + 1, objParede)) && isEffect2 {
+		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
+			_effect.direc = 2
+			isEffect2 = false;
+	}
 }
 
 

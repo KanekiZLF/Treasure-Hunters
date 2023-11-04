@@ -1,5 +1,6 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
+event_inherited();
 potion = 0;
 floatSpeed = .3; // <-- Velocidade de flutuação
 float = false; // <-- Define se pode ou não flutuar

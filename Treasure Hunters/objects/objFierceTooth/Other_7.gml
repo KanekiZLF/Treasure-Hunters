@@ -25,7 +25,7 @@ if (sprite_index == sprFierceToothDeadGround) {
 
 #region Sprites Morto
 if isDead {
-	if (sprite_index == sprFierceToothHit) {
+	if (sprite_index == sprFierceToothDead) {
 		if (image_xscale == -1) {
 		    direc = 18; //<-- Define sprite
 		}

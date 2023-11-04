@@ -213,6 +213,7 @@
     {"id":{"name":"sprPalmLeft","path":"sprites/sprPalmLeft/sprPalmLeft.yy",},},
     {"id":{"name":"sprDiamondEffect","path":"sprites/sprDiamondEffect/sprDiamondEffect.yy",},},
     {"id":{"name":"scrRecharge","path":"scripts/scrRecharge/scrRecharge.yy",},},
+    {"id":{"name":"sprFierceToothAttackHB","path":"sprites/sprFierceToothAttackHB/sprFierceToothAttackHB.yy",},},
     {"id":{"name":"sprHead1DestroyedPieces","path":"sprites/sprHead1DestroyedPieces/sprHead1DestroyedPieces.yy",},},
     {"id":{"name":"sprStaminaBar","path":"sprites/sprStaminaBar/sprStaminaBar.yy",},},
     {"id":{"name":"sprCrabbyAttackEffect","path":"sprites/sprCrabbyAttackEffect/sprCrabbyAttackEffect.yy",},},

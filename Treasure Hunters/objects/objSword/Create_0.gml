@@ -1,6 +1,7 @@
 /// @description Variaveis aqui !
 // Você pode escrever seu código neste editor
 // Variaveis da camera
+event_inherited();
 posCamX = 0; //<-- Armazena a posição atual da camera no momento em que a espada é lançada
 posCamY = 0;
 camDirec = 0; // <<-- Define a direção em que a camera ira tremer
