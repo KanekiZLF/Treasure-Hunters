@@ -6,7 +6,16 @@ draw_line(x, y - sprite_get_height(sprite_index)*2, x - (vision * image_xscale),
 
 var _spriteCenter = sprite_get_height(sprFierceToothIdle)
 var _centerBar = sprite_get_height(sprEnemyBar);
-draw_sprite_ext(sprEnemyBar, 0, x - _spriteCenter/2, y - 30, 1, 1, 0, c_white, 1);
+var _alpha = 1;
+
+if (barLife) {
+	_alpha = 1;
+} else if (!barLife){
+	_alpha--;
+	_alpha = clamp(_alpha, 0, 1);
+}
+
+draw_sprite_ext(sprEnemyBar, 0, x - _spriteCenter/2, y - 30, 1, 1, 0, c_white, _alpha);
 
 //Barra Cores
-draw_sprite_ext(sprEnemyBar, 1, x - _spriteCenter/2, y - 30, (lifes/maxLifes) * 1, 1, 0, c_white, 1);
+draw_sprite_ext(sprEnemyColor, 1, x - 8.5, y - 30, (lifes/maxLifes) * 1, 1, 0, c_white, _alpha);

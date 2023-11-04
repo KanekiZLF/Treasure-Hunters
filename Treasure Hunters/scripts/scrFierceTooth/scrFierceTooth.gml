@@ -48,12 +48,39 @@ function scrFierceTooth() {
 		velocidadeV = -4;
 		cima = 0;
 	}
+	
+	//Define as sprites de morto ou hit
+	if isDead || hit {
+		if direc = 0 || direc = 2 || direc = 4 || direc = 6 || direc = 10 || direc == 12 {
+			direc = 14; //<-- Hit Direita
+			estado = scrFierceToothHit;
+		}
+		
+		if direc = 1 || direc = 3 || direc = 5 || direc = 7 || direc = 11 || direc == 13 {
+			direc = 15; //<-- Hit Esquerda
+			estado = scrFierceToothHit;
+		}
+	}
 }
 
 function scrFierceToothAtack() {
 	scrEnemysDirec();
 	scrCollision();
-	if (velocidadeV == 0) {
+	
+	//Define as sprites de morto ou hit
+	if isDead || hit {
+		if direc = 0 || direc = 2 || direc = 4 || direc = 6 || direc = 10 || direc == 12 {
+			direc = 14; //<-- Hit Direita
+			estado = scrFierceToothHit;
+		}
+		
+		if direc = 1 || direc = 3 || direc = 5 || direc = 7 || direc = 11 || direc == 13 {
+			direc = 15; //<-- Hit Esquerda
+			estado = scrFierceToothHit;
+		}
+	}
+	
+	if (velocidadeV == 0 && !hit && !isDead) {
 		velocidadeH = 0;
 		velocidadeV = 0;
 	
@@ -77,6 +104,67 @@ function scrFierceToothAtack() {
 			if direc == 10 direc = 0;
 			else if direc == 11 direc = 1;
 			mask_index = sprFierceToothIdle;
+			estado = scrFierceTooth;
+		}
+	}
+}
+
+function scrFierceToothHit() {
+	scrEnemysDirec();
+	scrCollision();
+	mask_index = sprFierceToothDeadGround;
+	
+	if velocidadeV < 0 {
+		velocidadeV = 5;
+	}
+	
+	var _velocidadeV = 0;
+	var _gravidade = .2;
+	
+	if (instance_place(x, y - 1, objParede)) {
+		_velocidadeV = -.5;
+	} else {
+		_velocidadeV = -2.5;
+	}
+	
+	if direita || esquerda || cima {
+		direita = noone;
+		esquerda = noone;
+		cima = noone;
+	}
+
+	
+	if hit {
+		velocidadeH = 1.5 * image_xscale;
+		
+		if place_meeting(x, y + _velocidadeV, objColisParede) {
+		while !place_meeting(x, y + sign(_velocidadeV), objColisParede) {
+			y += sign(_velocidadeV); 
+		}
+			_velocidadeV = 0;
+		}
+		y += _velocidadeV;
+		
+		if !place_meeting(x, y + 1, objColisParede) {
+		_velocidadeV += _gravidade;
+	}
+	} else if !hit {
+		velocidadeH = 0;
+		_velocidadeV += _gravidade;
+	}
+
+	if place_meeting(x, y + 1, objParede) && !isDead {
+		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
+			_effect.direc = 2
+		if velocidadeH != 0 {
+			direc = (image_xscale == -1) ? 2 : 3;
+		}
+		estado = scrFierceTooth;
+	}
+
+	if isDead {	
+			direc = (image_xscale == -1) ? 16 : 17;
+		if endAnimation() {
 			estado = scrFierceTooth;
 		}
 	}

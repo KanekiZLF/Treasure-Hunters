@@ -20,3 +20,4 @@ if tomarDano && !isDead && !_pause && (mask_index == sprPlayerIdle || mask_index
 
 
 
+

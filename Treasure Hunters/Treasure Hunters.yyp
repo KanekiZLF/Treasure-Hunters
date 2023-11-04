@@ -353,6 +353,7 @@
     {"id":{"name":"sprPinkStarGround","path":"sprites/sprPinkStarGround/sprPinkStarGround.yy",},},
     {"id":{"name":"sprCandleLight","path":"sprites/sprCandleLight/sprCandleLight.yy",},},
     {"id":{"name":"sprElixirsGuideBoard","path":"sprites/sprElixirsGuideBoard/sprElixirsGuideBoard.yy",},},
+    {"id":{"name":"sprEnemyColor","path":"sprites/sprEnemyColor/sprEnemyColor.yy",},},
     {"id":{"name":"sprFierceToothAntecipation","path":"sprites/sprFierceToothAntecipation/sprFierceToothAntecipation.yy",},},
     {"id":{"name":"scrPrint","path":"scripts/scrPrint/scrPrint.yy",},},
     {"id":{"name":"sprChainsSmall","path":"sprites/sprChainsSmall/sprChainsSmall.yy",},},

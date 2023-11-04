@@ -13,7 +13,7 @@ isEffect = false; //<-- Ativa ou desativa os efeitos de fumaça
 tempoAndar = 30; // Tempo para volta a andar;
 isJumping = false;
 walk = true;
-distLimit = 100; // <-- Distancia limite de perseguição
+distLimit = 80; // <-- Distancia limite de perseguição
 
 // Variaveis de modificação
 estado = scrFierceTooth;
@@ -21,10 +21,13 @@ direc = 0;
 arraySprite = 0;
 objColisParede = objParede; //<-- Define qual é o objeto de parede
 isEffect = false;
+barLife = false; // <-- Define se barra de vida aparece ou some
 
 // Variaveis de combate
-lifes = 5;
+lifes = 1;
 maxLifes = lifes;
 dano = 1;
 vision = 10;
-perseg = false
+perseg = false;
+isDead = false;
+hit = false;

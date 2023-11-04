@@ -6,9 +6,14 @@ lifes = clamp(lifes, 0, maxLifes);
 if (global.gamepause) {
 	velocidadeH = 0;
 }
-scrPrint(lifes);
-if (!global.gamepause) {
-	//scrIAEnemys("fierceTooth");
+#region isDead
+if lifes <= 0 {
+	isDead = true;
+	perseg = false;
+}
+#endregion
+if (!global.gamepause && !isDead) {
+	scrIAEnemys("fierceTooth");
 }
 
 

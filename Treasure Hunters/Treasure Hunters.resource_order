@@ -297,6 +297,7 @@
     {"name":"sprPinkStarGround","order":4,"path":"sprites/sprPinkStarGround/sprPinkStarGround.yy",},
     {"name":"sprCandleLight","order":2,"path":"sprites/sprCandleLight/sprCandleLight.yy",},
     {"name":"sprElixirsGuideBoard","order":15,"path":"sprites/sprElixirsGuideBoard/sprElixirsGuideBoard.yy",},
+    {"name":"sprEnemyColor","order":8,"path":"sprites/sprEnemyColor/sprEnemyColor.yy",},
     {"name":"sprFierceToothAntecipation","order":6,"path":"sprites/sprFierceToothAntecipation/sprFierceToothAntecipation.yy",},
     {"name":"scrPrint","order":8,"path":"scripts/scrPrint/scrPrint.yy",},
     {"name":"sprChainsSmall","order":8,"path":"sprites/sprChainsSmall/sprChainsSmall.yy",},
