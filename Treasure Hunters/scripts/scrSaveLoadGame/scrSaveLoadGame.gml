@@ -4,45 +4,50 @@ function scrSaveGame() {
 	var _saveData = array_create(0);
 	
 	with (objSaveMe) {
-		var _saveEntitys = {
-			obj : object_get_name(object_index),
-			currentRoom : room_get_name(room),
-			y : y,
-			x : x,
-			layer : layer,
-			
-			// Variaveis globais
-			coinsSilver : global.coinsSilver,
-			coinsGold : global.coinsGold,
-			coinsDiamond : global.coinsDiamond,
-			coinsSaphire : global.coinsSaphire,
-			coinsRuby : global.coinsRuby,
-			lifes : global.lifes,
-			stam : global.stamina,
-			upgLifes : global.upgradeLifes,
-			upgStam : global.upgradeStam,
-			upgVeneno : global.upgradeVeneno,
-			upgDano : global.upgradeDano,
-			upgPrice0 : global.upgPrice0,
-			upgPrice1 : global.upgPrice1,
-			upgPrice2 : global.upgPrice2,
-			upgPrice3 : global.upgPrice3,
-			
-			// Variaveis do objPlayer
-			lifes2 : objPlayer.lifes2,
-			maxLifes : objPlayer.maxLifes,
-			maxLifes2 : objPlayer.maxLifes2,
-			stamina2 : objPlayer.stamina2,
-			maxStamina : objPlayer.maxStamina,
-			maxStamina2 : objPlayer.maxStamina2,
-			arraySprite : objPlayer.arraySprite,
-			
-			// Variaveis do inimigo
-			enemyLifes : objEntidade.lifes,
+	var _saveEntitys = {
+		obj : object_get_name(object_index),
+		currentRoom : room_get_name(room),
+		y : y,
+		x : x,
+		layer : layer,
 
-		}
-		array_push(_saveData, _saveEntitys)
+		// Variaveis globais
+		coinsSilver : global.coinsSilver,
+		coinsGold : global.coinsGold,
+		coinsDiamond : global.coinsDiamond,
+		coinsSaphire : global.coinsSaphire,
+		coinsRuby : global.coinsRuby,
+		lifes : global.lifes,
+		stam : global.stamina,
+		upgLifes : global.upgradeLifes,
+		upgStam : global.upgradeStam,
+		upgVeneno : global.upgradeVeneno,
+		upgDano : global.upgradeDano,
+		upgPrice0 : global.upgPrice0,
+		upgPrice1 : global.upgPrice1,
+		upgPrice2 : global.upgPrice2,
+		upgPrice3 : global.upgPrice3,
+
+		// Variaveis do objPlayer
+		lifes2 : objPlayer.lifes2,
+		maxLifes : objPlayer.maxLifes,
+		maxLifes2 : objPlayer.maxLifes2,
+		stamina2 : objPlayer.stamina2,
+		maxStamina : objPlayer.maxStamina,
+		maxStamina2 : objPlayer.maxStamina2,
+		arraySprite : objPlayer.arraySprite,
+
+		// Variaveis do inimigo
+		enemyLifes : -1 // Inicialize com um valor padrão
 	}
+
+	if (instance_exists(objEntidade)) {
+		_saveEntitys.enemyLifes = objEntidade.lifes;
+	}
+
+	array_push(_saveData, _saveEntitys);
+}
+
 	
 	//Salvando dentro do Json
 	var _string = json_stringify(_saveData);

@@ -7,6 +7,9 @@ iconClose = 4;
 itemSelecionado = -1; // Verifica se selecionamos algum item
 itemSelecionado2 = -1; // Verifica se selecionamos algum item
 current_page = 1;
+drawCoin = sprSilverCoin;
+myCoins = 00;
+alphaCoins = 1;
 
 posSelecionado = -1; // Guarda a posição do item selecionado
 

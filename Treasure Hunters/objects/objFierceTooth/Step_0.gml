@@ -19,6 +19,18 @@ if lifes <= 0 {
 		var _effect = instance_create_layer(x - 5, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 	}
+	
+	// Da moedas ao player
+	if (sprite_index == sprFierceToothDead && image_index == 0) {
+		if (objGui.drawCoin == sprGoldCoin) {
+			objGui.myCoins = 0;
+		}
+		global.coinsSilver += 30;
+		objGui.drawCoin = sprSilverCoin;
+		objGui.myCoins += 30;
+		objGui.alphaCoins = 1;
+		objGui.alarm[2] =  1 * game_get_speed(gamespeed_fps);
+	}
 }
 #endregion
 

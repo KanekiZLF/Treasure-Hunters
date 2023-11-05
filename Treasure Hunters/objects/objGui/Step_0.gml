@@ -34,6 +34,16 @@ if (keyboard_check_pressed(ord("L"))) {
 	}
 }
 
+if (myCoins > 0) {
+	if alarm[2] <= 0 {
+		alphaCoins -= 0.08;
+	}
+}
+
+if (alphaCoins <= 0) {
+	myCoins = 0;
+}
+
 
 
 
