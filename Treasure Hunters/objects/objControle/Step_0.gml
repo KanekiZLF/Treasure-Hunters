@@ -15,15 +15,6 @@ if (global.coinsSilver) >= 999 {
 }
 
 #endregion
-if instance_exists(objEntidade) {
-var layer_id = layer_get_id("Enemys"); // Obtém o ID da camada "Inimigos"
-
-	if (layer_id == layer_get_id(layer_get_name(objEntidade.layer))) {
-	    show_debug_message("A instância está na camada 'Inimigos'");
-	} else {
-	    show_debug_message("A instância não está na camada 'Inimigos'");
-	}
-}
 
 #region Efeitos da espada
 

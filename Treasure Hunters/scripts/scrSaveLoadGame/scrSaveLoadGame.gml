@@ -9,6 +9,7 @@ function scrSaveGame() {
 			currentRoom : room_get_name(room),
 			y : y,
 			x : x,
+			layer : layer,
 			
 			// Variaveis globais
 			coinsSilver : global.coinsSilver,
@@ -113,7 +114,7 @@ function scrLoadGame(){
 			}
 			
 			if (room == _room) {
-				with(instance_create_layer(0, 0, layer, asset_get_index(_loadEntity.obj))) {
+				with(instance_create_layer(0, 0, _loadEntity.layer, asset_get_index(_loadEntity.obj))) {
 				
 					global.coinsSilver = _loadEntity.coinsSilver;
 					global.coinsGold = _loadEntity.coinsGold;

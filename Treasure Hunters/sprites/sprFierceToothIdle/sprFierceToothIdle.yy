@@ -3,7 +3,7 @@
   "resourceVersion": "1.0",
   "name": "sprFierceToothIdle",
   "bbox_bottom": 22,
-  "bbox_left": 3,
+  "bbox_left": 2,
   "bbox_right": 19,
   "bbox_top": 0,
   "bboxMode": 2,

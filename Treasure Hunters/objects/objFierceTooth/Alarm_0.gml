@@ -12,5 +12,7 @@ if (!global.gamepause) {
 			direita = 0;
 			esquerda = 1;
 		}
+	} else {
+		velocidade = velocidade;
 	}
 }

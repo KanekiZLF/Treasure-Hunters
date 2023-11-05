@@ -5,7 +5,7 @@ function scrIAEnemys(){
 	var _enemyName = argument0;
 	randomise();
 	if (!isDead) {
-		if (!perseg) {
+		if (!perseg && walk) {
 			if (place_meeting(x + 1, y, objParede) && image_xscale == -1) {
 				// Colisão à direita
 				direita = 0;
@@ -26,15 +26,16 @@ function scrIAEnemys(){
 		//Verifica se tem algo colidindo, na direita ou esquerda, se tiver, diminui o campo de visao, até sair da colisao
 		vision = clamp(vision, 0, 81); //<-- Limita o campo de visao até limite em px
 		var _centerSpriteY = sprite_get_height(sprite_index)/2;
+		var _linePlayer = collision_line(x, y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objPlayer, false, true);
 		var _lineWall = collision_line(x, y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objColisParede, false, true);
 		var _lineWall2 = collision_line(x, y - sprite_get_height(sprite_index)*2, x - (vision * image_xscale), y - sprite_get_height(sprite_index)*2, objParede, false, true);
 		// Verifica se a linha colidiu com alguma parede
 		if (_lineWall) {
 			vision -= 5;
-			if (vision  <= 30) {
+			if (vision  <= 20) {
 				walk = false;
 				// Verifica se não esta pulando e se a linha 2 não colidiu com uma parede, ai ele pode pular !
-				if (!isJumping && !_lineWall2) {
+				if (!isJumping && !_lineWall2 && !_linePlayer) {
 					cima = 1;
 					velocidade = 1;
 				}
@@ -62,7 +63,6 @@ function scrIAEnemys(){
 
 		// Verifica se o player existe na room
 		if (instance_exists(objPlayer)) {
-		var _linePlayer = collision_line(x, y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objPlayer, false, true);
 	    var _distPlayer = point_distance(x, y, objPlayer.x, objPlayer.y);
 	    var _distX = objPlayer.x - x; // <-- Define se  player esta na frente ou atrás
 	
@@ -90,21 +90,25 @@ function scrIAEnemys(){
 	            _instEffect.imageSpeed = 2;
 	            isEffect = true;
 	        }
-        
+			
 			// Se a distancia for superior ou igual a 30
-			if (_distPlayer >= 40) {
+			if (_distPlayer >= 30 && objPlayer.velocidadeV == 0) {
 				// Verifica se o inimigo esta atras ou na frente do player
 		        if (_distX > 0) {
 		            // Inimigo está atrás do jogador, mova-o para a direita
 		            direita = 1;
 		            esquerda = 0;
-		        } else if (_distX < 0) {
+					velocidade = 1.5;
+		        } else if (_distX < 0 && objPlayer.velocidadeV == 0) {
 		            // Inimigo está na frente do jogador, mova-o para a esquerda
 		            direita = 0;
 		            esquerda = 1;
-		        }
+					velocidade = 1.5;
+		        } else {
+					velocidade = 0;
+				}
 			// Player ta na sua frente, ai entra no modo de ataque
-		    } else if (velocidadeV == 0) {
+		    } else if (velocidadeV == 0 && _linePlayer) {
 				velocidade = 0;
 				var _count;
 				if (_enemyName == "fierceTooth") {

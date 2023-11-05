@@ -1,6 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 //scrPrint(lifes)
+event_inherited();
 script_execute(estado);
 randomize();
 lifes = clamp(lifes, 0, maxLifes);
