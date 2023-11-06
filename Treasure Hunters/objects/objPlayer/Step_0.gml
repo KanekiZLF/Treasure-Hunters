@@ -8,7 +8,7 @@ if (!_pause) {
 }
 
 attackCombo = clamp(attackCombo, -1, 3);
-lifes2 = clamp(lifes2, 0, maxLifes2);
+lifes2 = clamp(lifes2, 0, real(maxLifes2));
 stamina2 = clamp(stamina2, 0, maxStamina2);
 poison2 = clamp(poison2, 0, maxPoison2);
 
@@ -32,8 +32,10 @@ if global.lifes <= 0 {
 	// Cria a espada quando morre
 	if dropSword && arraySprite == 1 {
 		var _newSword  = instance_create_layer(x + (25 * image_xscale), y - 12, layer, objSword);
+		//var _newSword  = instance_create_layer(x, y, layer, objSword);
 			_newSword.direc = (image_xscale == 1) ? 0 : 1;
 			_newSword.float = false;
+			_newSword.drop = true;
 			arraySprite = 0;
 			dropSword = false;	
 	}

@@ -4,6 +4,7 @@
   "name": "objCoinSilver",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -11,7 +12,10 @@
     "name": "objItens",
     "path": "folders/Objetos/objItens.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objSaveMe",
+    "path": "objects/objSaveMe/objSaveMe.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,

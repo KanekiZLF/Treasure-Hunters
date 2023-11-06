@@ -14,7 +14,7 @@ isEffect2 = false;
 tempoAndar = 30; // Tempo para volta a andar;
 isJumping = false;
 walk = true;
-distLimit = 80; // <-- Distancia limite de perseguição
+distLimit = 100; // <-- Distancia limite de perseguição
 isFall = false;
 
 // Variaveis de modificação
@@ -26,8 +26,6 @@ isEffect = false;
 barLife = false; // <-- Define se barra de vida aparece ou some
 
 // Variaveis de combate
-lifes = 5;
-maxLifes = lifes;
 dano = 1;
 vision = 10;
 perseg = false;

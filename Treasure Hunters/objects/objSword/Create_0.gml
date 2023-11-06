@@ -17,12 +17,16 @@ toThrow = false; // <-- Define se a espada foi lançada ou não
 efeito = false; // <-- Cria efeito de fumaça
 autoDestroy = false; // <-- Se auto destroi se for true
 isSpeed = 0; // <-- Armazena a velocidade em que a espada foi lançada
+drop = false;
 
 // Variaveis de colisão
 velocidadeV = 0;
 velocidadeH = 0;
 velocidade = 1;
 gravidade = .2;
+direita = 0;
+esquerda = 0;
+cima = 0;
 objColisParede = objParede;
 vision = 7; // <-- Define um raio para saber qual distancia a espada esta do chão
 

@@ -1,6 +1,5 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-//scrPrint(lifes)
 event_inherited();
 script_execute(estado);
 randomize();
@@ -54,15 +53,4 @@ if (!global.gamepause && !isDead) {
 			isEffect2 = false;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
 
