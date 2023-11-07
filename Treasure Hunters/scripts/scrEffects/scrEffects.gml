@@ -21,6 +21,8 @@ function scrEffects(){
 		sprSkullEffect,		// 13:
 		sprPotionEffect,	// 14:
 		sprChestKeyEffect,	// 15:
+	// Efeitos dos Baus
+		sprChestPadLock,	// 16:
 	]
 	
 	if(!variable_instance_exists(id, "spriteIndex")){

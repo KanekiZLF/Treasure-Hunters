@@ -209,7 +209,7 @@ if !isDead && (!_pause) {
 }
 
 //Verifica se tem algo colidindo, na direita ou esquerda, se tiver, diminui o campo de visao, até sair da colisao
-vision = clamp(vision, 0, 100); //<-- Limita o campo de visao até 100px
+vision = clamp(real(vision), 0, 100); //<-- Limita o campo de visao até 100px
 var _lineWall = collision_line(x, y - 20, x + (vision * image_xscale), y - 20, objColisParede, false, true)
 if (_lineWall) {
 	vision--;
