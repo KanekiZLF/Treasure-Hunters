@@ -21,6 +21,18 @@ function scrDirec() {
         sprPlayerHit,    // 15: Esquerda
 		sprPlayerDeadGround, // 16: Direita
 		sprPlayerDeadGround,  // 17: Esquerda
+		sprPlayerSwordAtack2, // 18: Direita
+		sprPlayerSwordAtack2, // 19: Esquerda
+		sprPlayerSwordAtack3, // 20: Direita
+		sprPlayerSwordAtack3, // 21: Esquerda
+		sprPlayerSwordAirAtack1, // 22: Direita
+		sprPlayerSwordAirAtack1, // 23: Esquerda
+		sprPlayerSwordAirAtack2, // 24: Direita
+		sprPlayerSwordAirAtack2, // 25: Esquerda
+		sprPlayerSwordThowSword, // 26: Direita
+		sprPlayerSwordThowSword, // 27: Esquerda
+		sprPlayerDeadGround, // 28: Direita
+		sprPlayerDeadGround, // 29: Esquerda
     ];
 	
 	var spriteMap1 = [

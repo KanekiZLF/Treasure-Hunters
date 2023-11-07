@@ -9,8 +9,8 @@ if (!_pause) {
 
 attackCombo = clamp(attackCombo, -1, 3);
 lifes2 = clamp(lifes2, 0, real(maxLifes2));
-stamina2 = clamp(stamina2, 0, maxStamina2);
-poison2 = clamp(poison2, 0, maxPoison2);
+stamina2 = clamp(real(stamina2), 0, real(maxStamina2));
+poison2 = clamp(real(poison2), 0, real(maxPoison2));
 
 if global.lifes <= 0 {
 	isDead = true;

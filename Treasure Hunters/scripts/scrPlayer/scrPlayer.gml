@@ -222,7 +222,7 @@ function scrAtacando() {
 	var inimigos = instance_place_list(x, y, objEntidade, inimigosHB, false);
 	
 	//Se tiver algum inimigo atingido
-	if (inimigos) > 0{
+	if (inimigos) > 0 {
 		
 		//Usar o loop para checar a ID de cada inimigo atingido
 		for (var i = 0; i < inimigos; i++){

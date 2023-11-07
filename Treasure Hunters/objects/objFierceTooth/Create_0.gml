@@ -29,4 +29,3 @@ barLife = false; // <-- Define se barra de vida aparece ou some
 dano = 1;
 vision = 10;
 perseg = false;
-hit = false;
