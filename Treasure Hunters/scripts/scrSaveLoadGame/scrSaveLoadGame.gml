@@ -10,6 +10,8 @@ function scrSaveGame() {
 		y : y,
 		x : x,
 		layer : layer,
+		sprite_index : sprite_index,
+		image_number : image_number,
 
 		// Variaveis globais
 		coinsSilver : global.coinsSilver,
@@ -38,11 +40,18 @@ function scrSaveGame() {
 		arraySprite : objPlayer.arraySprite,
 
 		// Variaveis do inimigo
-		enemyLifes : -1 // Inicialize com um valor padrão
+		enemyLifes : -1,
+		
+		// Variaveis de itens coletaveis
+		isOpen : -1,
 	}
 
 	if (instance_exists(objEntidade)) {
 		_saveEntitys.enemyLifes = objEntidade.lifes;
+	}
+	
+	if (instance_exists(objChest)) {
+		_saveEntitys.isOpen = objChest.isOpen;
 	}
 
 	array_push(_saveData, _saveEntitys);
@@ -73,7 +82,7 @@ function scrSaveGame() {
 	}
 	buffer_save(_buffer, _file);
 	//scrPrint("Jogo Salvo: " + _string);
-	var _inst = instance_create_layer(x, y, "Effects", objTextUp);
+	var _inst = instance_create_layer(x, y, "Effects", objTextUpGui);
 	_inst.texto = "Jogo salvo com sucesso !";
 	_inst.fontSize = .4;
 }
@@ -127,6 +136,8 @@ function scrLoadGame(){
 					if (room != rmInit) {
 						x = _loadEntity.x;
 						y = _loadEntity.y;
+						sprite_index = _loadEntity.sprite_index;
+						image_index = _loadEntity.image_number;
 						global.upgradeLifes = _loadEntity.upgLifes;
 						global.upgradeStam  = _loadEntity.upgStam;
 						global.upgradeVeneno  = _loadEntity.upgVeneno;
@@ -156,6 +167,10 @@ function scrLoadGame(){
 					
 					if (instance_exists(objEntidade)) {
 						objEntidade.lifes = _loadEntity.enemyLifes;
+					}
+					
+					if (instance_exists(objChest)) {
+						objChest.isOpen = _loadEntity.isOpen;
 					}
 				}
 			}

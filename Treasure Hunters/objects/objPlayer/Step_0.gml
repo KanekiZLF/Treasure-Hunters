@@ -201,6 +201,11 @@ if !isDead && (!_pause) {
 			if (_inst.sprite == 3 || _inst.sprite == 4 || _inst.sprite == 5) {
 				var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);
 				_effect.direc = 9;
+			}
+			
+			if (_inst.sprite == 7) {
+				var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);
+				_effect.direc = 15;
 			} 
             instance_destroy(_inst);
         }

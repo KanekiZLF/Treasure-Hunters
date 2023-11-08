@@ -10,10 +10,7 @@ function scrItens(){
 		sprSaphireCoin,		// 4: Pedra de Saphira
 		sprRubyCoin,		// 5: Pedra de Ruby
 		sprGoldenSkull,		// 6: Caveira de Ouro
-		sprChestIdle,		// 7: Bau Parado
-		sprChestOpen,		// 8: Bau Aberto
-		sprChestGoldOpen,	// 9: Bau de Ouro Aberto
-		sprChestGoldClose,	// 10: Bau de Ouro Fechado
+		sprChestKeyIdle,	// 7: Chave de Ouro
 	];
 	
 	// Se a variavel não existir, ele cria

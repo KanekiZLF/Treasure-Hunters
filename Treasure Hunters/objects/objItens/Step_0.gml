@@ -26,4 +26,3 @@ if (!global.gamepause) {
 	}
 }
 
-

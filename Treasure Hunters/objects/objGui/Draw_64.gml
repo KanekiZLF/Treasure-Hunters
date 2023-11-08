@@ -475,7 +475,10 @@ if (_pause || global.gameover) {
 				
 				// Dropa item no chao
 				if (keyboard_check_pressed(ord("G")) && gridItems[# Infos.Item, i] != -1) {
-					var _inst = instance_create_layer(objPlayer.x + (30 * objPlayer.image_xscale), objPlayer.y - 40, "Instances", objItens);
+					var _cordX = objPlayer.x + (30 * objPlayer.image_xscale);
+					var _cordY = objPlayer.y - 10;
+				
+					var _inst = instance_create_layer(_cordX, _cordY, "Itens", objItens);
 						_inst.sprite = gridItems[# Infos.Item, i];
 						_inst.quantidade = gridItems[# Infos.Quantidade, i];
 					

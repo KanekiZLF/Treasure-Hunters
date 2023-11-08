@@ -26,8 +26,8 @@ function scrDrawOutLine() {
       //draw_text_ext(argument0+lengthdir_x(argument3,dto_i),argument1+lengthdir_y(argument3,dto_i),argument2,argument6,argument7);
       //draw_text_ext(argument0+round(lengthdir_x(argument3,dto_i)),argument1+round(lengthdir_y(argument3,dto_i)),argument2,argument6,argument7);
 	  draw_text_ext_transformed (
-	  argument0+round(lengthdir_x(argument3,dto_i)),
-	  argument1+round(lengthdir_y(argument3,dto_i)),
+	  argument0+lengthdir_x(argument3,dto_i),
+	  argument1+lengthdir_y(argument3,dto_i),
 	  argument2,
 	  argument6,
 	  argument7, 
