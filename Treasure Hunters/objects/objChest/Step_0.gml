@@ -4,8 +4,9 @@ scrCollision();
 scrItens();
 
 if (instance_exists(objPlayer)) {
-	if (instance_place(x, y, objPlayer)) {
+	if (instance_place(x, y, objPlayer) && scrFindItem(Items.Key)) {
 		sprite = 8;
+		scrRemoveItem(Items.Key);
 	}
 }
 

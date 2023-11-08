@@ -16,7 +16,8 @@ if (
     sprite_index == sprMapOutEffect || 
     sprite_index == sprMapInEffect || 
     sprite_index == sprPotionEffect || 
-    sprite_index == sprSkullEffect
+    sprite_index == sprSkullEffect	||
+	sprite_index == sprChestKeyEffect
 )
 {
     image_index = image_number - 1;

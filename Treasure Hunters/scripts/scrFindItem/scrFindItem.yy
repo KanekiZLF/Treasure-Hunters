@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrCollision",
+  "name": "scrFindItem",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

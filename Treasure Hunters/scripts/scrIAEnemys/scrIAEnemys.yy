@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "scrInimigos",
-    "path": "folders/Objetos/objItens/Scripts/scrInimigos.yy",
+    "path": "folders/Scripts/scrInimigos.yy",
   },
 }

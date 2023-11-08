@@ -6,7 +6,7 @@ function scrDsGridProcess() {
 	///@param venda
 	
     var _grid = objGui.gridItems;
-    var _itensShop = [Items.Life, Items.Stamina, Items.Poison, Items.Diamond, Items.Saphire, Items.Ruby, Items.Skull];
+    var _itensShop = [Items.Life, Items.Stamina, Items.Poison, Items.Diamond, Items.Saphire, Items.Ruby, Items.Skull, Items.Key];
     var gridSizeX = ds_grid_width(_grid); 
     var gridSizeY = ds_grid_height(_grid);
     var _itemToCompare = _itensShop[argument0];
@@ -100,6 +100,11 @@ function scrDsGridProcess() {
 			
 			case Items.Skull: 
 				_itemName = "Caveira de Ouro"; 
+				_itemDescricao = "Parece que voce encontrou algo estranho. tente vende-lo no mercado !";
+			break;
+			
+			case Items.Key: 
+				_itemName = "Chave do Bau";
 				_itemDescricao = "Parece que voce encontrou algo estranho. tente vende-lo no mercado !";
 			break;
 			

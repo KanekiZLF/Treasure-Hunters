@@ -40,6 +40,7 @@ enum Items {
 	Saphire, 
 	Ruby,
 	Skull,
+	Key,
 	Altura
 }
 

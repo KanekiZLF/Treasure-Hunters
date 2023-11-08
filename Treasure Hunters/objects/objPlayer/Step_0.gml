@@ -185,6 +185,7 @@ if !isDead && (!_pause) {
 			isEffect = false;
 	}
 	
+	// Adiciona item ao inventario
 	if (instance_exists(objItens) && !global.inventory) {
     var _inst = instance_nearest(x, y, objItens);
     
