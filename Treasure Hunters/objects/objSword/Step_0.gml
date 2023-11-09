@@ -27,7 +27,7 @@ if (!_pause) {
 	}
 
 
-	if place_meeting(x, y, objParede) && !efeito && !objPlayer.isDead {
+	if place_meeting(x, y, objParede) && !efeito {
 		// Cria o efeito de fumaça na parede
 		var _effect = instance_create_layer(x + (3 * image_xscale), y - 5, layer, objEffects);
 			_effect.direc = 2;

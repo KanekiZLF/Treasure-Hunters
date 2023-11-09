@@ -533,7 +533,14 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	// Play
 	else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2, _recY2, _recX2 + _recSpace2 + (28 * _escala), _recY2 + (14 * _escala))) {
 		if (_mouseClick && global.gameover) {
+			scrLoadGame();
+			scrLoadInventory();
 			global.gameover = false;
+			global.gamepause = false;
+			if (objGui.alarm[1] <= 0) {
+				objGui.alarm[1] = 10;
+			}
+			/*global.gameover = false;
 			global.gamepause = false;
 			objPlayer.direc = 0;
 			objPlayer.isDead = false;
@@ -541,7 +548,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 			objPlayer.piscando = true;
 			image_alpha = objPlayer.alphaMin;
 			objPlayer.alarm[0] = game_get_speed(gamespeed_fps) * 1; //<-- Intervalo para tomar dano
-			scrRecharge(10, 10) //<-- Define a recarga para Lifes, Stamina e Poison
+			scrRecharge(10, 10) //<-- Define a recarga para Lifes, Stamina e Poison*/
 		}
 	}
 	// Sair

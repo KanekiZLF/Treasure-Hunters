@@ -40,6 +40,7 @@ isFall = false; //<-- Define se estou caindo
 isDead = false; //<-- Define se estou morto ou vivo
 moveOn = true; //<-- Define se posso ou não andar
 inimigos_atingidos = ds_list_create(); //<-- Cria uma lista
+checkPoint = 0; // <-- Define o checkpoint da fase
 
 objColisParede = objParede; //<-- Define qual é o objeto de parede
 arraySprite = 0; //<-- Define qual array de sprites ira usar

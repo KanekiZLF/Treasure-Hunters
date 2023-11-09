@@ -25,7 +25,6 @@ if (direc == 14 || direc == 15) && !isDead {
 
 if isAttacking && (sprite_index == sprPlayerSwordAtack1 || sprite_index == sprPlayerSwordAtack2 || sprite_index == sprPlayerSwordAtack3){
 	//Verifica qual lado esta atacando e qual combo é !
-	scrPrint("Terminou");
 	if direita || direc = 4 || direc = 18 || direc = 20 {
 		direc = 0; //<<-- Parado Direita
 	}

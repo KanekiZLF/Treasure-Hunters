@@ -205,7 +205,7 @@ function scrAtacando() {
 		}
 	}
 	
-	if(isAirAttacking && !isDead) {
+	if(isAirAttacking && (isJumping || isFall) && !isDead) {
 		if (attackCombo = 0) {
 			mask_index = sprPlayerSwordAirAtack1HB;
 		} else if (attackCombo = 1) {

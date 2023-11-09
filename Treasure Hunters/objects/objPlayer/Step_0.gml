@@ -18,6 +18,7 @@ poison2 = clamp(real(poison2), 0, real(maxPoison2));
 
 if global.lifes <= 0 {
 	isDead = true;
+	hit = false;
 	
 	if (!global.gameover) {
 		global.option = 8;
