@@ -21,14 +21,7 @@ if lifes <= 0 {
 	
 	// Da moedas ao player
 	if (sprite_index == sprFierceToothDead && image_index == 0) {
-		if (objGui.drawCoin == sprGoldCoin) {
-			objGui.myCoins = 0;
-		}
-		global.coinsSilver += 30;
-		objGui.drawCoin = sprSilverCoin;
-		objGui.myCoins += 30;
-		objGui.alphaCoins = 1;
-		objGui.alarm[2] =  1 * game_get_speed(gamespeed_fps);
+		scrCoinColected("silver", irandom(100))
 	}
 }
 #endregion

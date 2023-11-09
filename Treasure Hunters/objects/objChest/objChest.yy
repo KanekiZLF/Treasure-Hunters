@@ -37,6 +37,9 @@
     "name": "sprChestIdle",
     "path": "sprites/sprChestIdle/sprChestIdle.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "sprChestIdle",
+    "path": "sprites/sprChestIdle/sprChestIdle.yy",
+  },
   "visible": true,
 }

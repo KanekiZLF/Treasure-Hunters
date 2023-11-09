@@ -18,8 +18,10 @@ if (sprite_index == sprChestOpen && image_index == 2) {
 		_padLock.image_xscale = 1 * objPlayer.image_xscale;
 		_padLock.velocidadeV = -2;
 		_padLock.velocidadeH = 2 * _padLock.image_xscale;
-		
-		coinValue = irandom_range(0, 4);
+}
+
+if (sprite_index == sprChestOpen && image_index == 6) {
+	coinValue = irandom_range(0, 4);
 		var _quantSilver = irandom(500);
 		var _quantGold = irandom(35);
 		var _quantDiamond = irandom_range(1, 5);

@@ -7,6 +7,10 @@ if (!_pause) {
 	image_speed = 1;
 }
 
+//scrPrint("Direc: "+string(direc));
+
+//scrPrint("Direita: " + string(direita) + " Esquerda: " + string(esquerda) + " Direc: "+string(direc));
+
 attackCombo = clamp(attackCombo, -1, 3);
 lifes2 = clamp(lifes2, 0, real(maxLifes2));
 stamina2 = clamp(real(stamina2), 0, real(maxStamina2));
@@ -109,10 +113,12 @@ if !isDead && (!_pause) {
 	
 		if velocidadeV < 0.3 {
 			isAttacking = true;
+			isAirAttacking = false;
 		}
 	
 		if (isJumping || isFall) && attackCombo <= 1 { 
-			isAirAttacking = true; 
+			isAirAttacking = true;
+			isAttacking = false;
 		}
 	
 		alarm[2] = 10; //<-- Intervalo entre ataques 

@@ -28,9 +28,15 @@ function scrPlayer() {
 	y += velocidadeV;
 	
 	// Movimentação
-	if moveOn && !isDead {
-		direita = keyboard_check(ord("D"));
-		esquerda = keyboard_check(ord("A"));
+	if moveOn && !isDead && !isAttacking {
+		if !esquerda {
+			direita = keyboard_check(ord("D"));
+		}
+		
+		if !direita {
+			esquerda = keyboard_check(ord("A"));
+		}
+		
 		cima = keyboard_check_pressed(ord("W"));
 	}
 	velocidadeH = (direita - esquerda) * velocidade;
@@ -128,20 +134,16 @@ function scrPlayer() {
 	if(isAirAttacking && !isDead) {
 		if direita || direc = 6 || direc = 8 {
 			if (attackCombo = 0) {
-				mask_index = sprPlayerSwordAirAtack1HB;
 				direc = 22; //<<-- Ataque1 Direita
 			} else if (attackCombo = 1) {
-				mask_index = sprPlayerSwordAirAtack2HB;
 				direc = 24; //<<-- Ataque2 Direita
 			}
 		}
 		
 		if esquerda || direc = 7 || direc = 9 {
 			if (attackCombo = 0) {
-				mask_index = sprPlayerSwordAirAtack1HB;
 				direc = 23;	//<<-- Ataque1 Esquerda
 			} else if (attackCombo = 1) {
-				mask_index = sprPlayerSwordAirAtack2HB;
 				direc = 25; //<<-- Ataque2 Esquerda
 			}
 		}
@@ -153,13 +155,10 @@ function scrPlayer() {
 			
 		if direita || direc = 0 || direc = 2 {
 			if (attackCombo = 0) {
-				mask_index = sprPlayerSwordAtack1HB;
 				direc = 4; //<<-- Ataque1 Direita
 			} else if (attackCombo = 1) {
-				mask_index = sprPlayerSwordAtack2HB;
 				direc = 18; //<<-- Ataque2 Direita
 			} else if (attackCombo = 2) {
-				mask_index = sprPlayerSwordAtack3HB;
 				direc = 20; //<<-- Ataque3 Direita
 			}
 		}
@@ -252,6 +251,8 @@ function scrAtacando() {
 function scrHit() {
 	scrDirec();
 	scrCollision();
+	isAttacking = false;
+	isAirAttacking = false;
 	
 	if velocidadeV < 0 {
 		velocidadeV = 5;
@@ -267,9 +268,9 @@ function scrHit() {
 	}
 	
 	if direita || esquerda || cima {
-		direita = noone;
-		esquerda = noone;
-		cima = noone;
+		direita = 0;
+		esquerda = 0;
+		cima = 0;
 	}
 
 	
