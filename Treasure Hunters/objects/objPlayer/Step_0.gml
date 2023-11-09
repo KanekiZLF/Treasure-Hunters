@@ -204,7 +204,7 @@ if !isDead && (!_pause) {
 			}
 			
 			if (_inst.sprite == 7) {
-				var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);
+				var _effect = instance_create_layer(_inst.x, _inst.y, "Effects", objEffects);
 				_effect.direc = 15;
 			} 
             instance_destroy(_inst);

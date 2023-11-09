@@ -954,18 +954,3 @@ if (_pause || global.gameover) {
 
 #endregion
 
-
-#region Coins Gui
-if (myCoins > 0) {
-	draw_set_alpha(alphaCoins)
-	var _posX = _guiLarg + (-10 * _escala);
-	var _posY = _guiAlt/2 + (-65 * _escala);
-
-	draw_sprite_ext(drawCoin, 0, _posX, _posY, 3, 3, 0, c_white, alphaCoins);
-	draw_text_ext_transformed(_posX + (-6 * _escala), _posY + (-5.5 * _escala),"x", 10, 300, .5, .5, 0);
-	draw_text_ext_transformed(_posX + (-12 * _escala), _posY + (-6 * _escala), string(myCoins), 10, 300, .6, .6, 0);
-	draw_set_alpha(1);
-}
-
-
-#endregion

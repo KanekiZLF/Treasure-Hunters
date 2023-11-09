@@ -9,5 +9,6 @@ direita = 0;
 esquerda = 0;
 objColisParede = objParede;
 isOpen = false;
+coinValue = undefined;
 
 
