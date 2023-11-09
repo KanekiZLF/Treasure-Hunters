@@ -28,7 +28,7 @@ function scrPlayer() {
 	y += velocidadeV;
 	
 	// Movimentação
-	if moveOn && !isDead && (!isAttacking || !isAirAttacking) {
+	if moveOn && !isDead && !isAttacking {
 		if !esquerda {
 			direita = keyboard_check(ord("D"));
 		}
