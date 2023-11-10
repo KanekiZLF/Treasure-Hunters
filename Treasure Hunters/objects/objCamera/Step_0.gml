@@ -6,6 +6,8 @@ if (instance_exists(objPlayer)) {
 
 if global.cameraActive && instance_exists(objPlayer) {
 	//Seguir o player
+	//camera_destroy(view_camera[0]);
+	//view_camera[0] = camera_create_view(0, 0, 320, 180, 0, noone, 5, 5, 32, 32);
 	x = lerp(x, alvo.x, .2);
 	y =  lerp(y, alvo.y, .2);
 

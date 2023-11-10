@@ -1,9 +1,5 @@
 #region Variaveis do Player
 
-if (room != rmInit && !instance_exists(objPlayer)) {
-	instance_create_layer(display_get_gui_width()/3, display_get_gui_height()/3, "Instances", objPlayer);
-}
-
 if (instance_exists(objPlayer)) {
 	global.lifes = clamp(real(global.lifes), 0, objPlayer.maxLifes);
 	global.stamina = clamp(real(global.stamina), 0, objPlayer.maxStamina);
