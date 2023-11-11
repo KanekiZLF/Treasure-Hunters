@@ -1,131 +1,136 @@
 // Script desenvolvido por Luiz F. R. Pimentel
 // https://github.com/KanekiZLF
 function scrSaveGame() {
-	var _saveData = array_create(0);
+    var _saveData = array_create(0);
+	var _saveEntitys;
 	
-	with (objSaveMe) {
-	var _saveEntitys = {
-		obj : object_get_name(object_index),
-		currentRoom : room_get_name(room),
-		y : y,
-		x : x,
-		layer : layer,
-		sprite_index : sprite_index,
-		image_number : image_number,
+    with (objSaveMe) {
+        _saveEntitys = {
+            obj: object_get_name(object_index),
+            currentRoom: room_get_name(room),
+            y: y,
+            x: x,
+            layer: layer,
+            sprite_index: sprite_index,
+            image_number: image_number,
 
-		// Variaveis globais
-		coinsSilver : global.coinsSilver,
-		coinsGold : global.coinsGold,
-		coinsDiamond : global.coinsDiamond,
-		coinsSaphire : global.coinsSaphire,
-		coinsRuby : global.coinsRuby,
-		lifes : global.lifes,
-		stam : global.stamina,
-		upgLifes : global.upgradeLifes,
-		upgStam : global.upgradeStam,
-		upgVeneno : global.upgradeVeneno,
-		upgDano : global.upgradeDano,
-		upgPrice0 : global.upgPrice0,
-		upgPrice1 : global.upgPrice1,
-		upgPrice2 : global.upgPrice2,
-		upgPrice3 : global.upgPrice3,
+            // Variáveis globais
+            coinsSilver: global.coinsSilver,
+            coinsGold: global.coinsGold,
+            coinsDiamond: global.coinsDiamond,
+            coinsSaphire: global.coinsSaphire,
+            coinsRuby: global.coinsRuby,
+            lifes: global.lifes,
+            stam: global.stamina,
+            upgLifes: global.upgradeLifes,
+            upgStam: global.upgradeStam,
+            upgVeneno: global.upgradeVeneno,
+            upgDano: global.upgradeDano,
+            upgPrice0: global.upgPrice0,
+            upgPrice1: global.upgPrice1,
+            upgPrice2: global.upgPrice2,
+            upgPrice3: global.upgPrice3,
 
-		// Variaveis do objPlayer
-		lifes2 : objPlayer.lifes2,
-		maxLifes : objPlayer.maxLifes,
-		maxLifes2 : objPlayer.maxLifes2,
-		stamina2 : objPlayer.stamina2,
-		maxStamina : objPlayer.maxStamina,
-		maxStamina2 : objPlayer.maxStamina2,
-		arraySprite : objPlayer.arraySprite,
-		direcPlayer : objPlayer.direc,
+            // Variáveis do objPlayer
+            lifes2: objPlayer.lifes2,
+            maxLifes: objPlayer.maxLifes,
+            maxLifes2: objPlayer.maxLifes2,
+            stamina2: objPlayer.stamina2,
+            maxStamina: objPlayer.maxStamina,
+            maxStamina2: objPlayer.maxStamina2,
+            arraySprite: objPlayer.arraySprite,
+            direcPlayer: objPlayer.direc,
 
-		// Variaveis do inimigo
-		enemysLife : -1,
-		
-		// Variaveis de itens coletaveis
-		isOpen : -1,
-		mySprite : -1,
-		myFrame : -1,
-		spriteIten : -1,
-		chestInfo : -1,
-	}
+            // Variáveis do inimigo
+            enemysLife: -1,
 
-	if (instance_exists(objEntidade)) {
-		_saveEntitys.enemysLife = ds_list_create();
-		
-		for (var i = 0; i < instance_number(objEntidade); i++) {
-			var _enemysNum = instance_find(objEntidade, i);
-			var _enemysInfo = ds_map_create();
-			
-			_enemysInfo[? "lifes"] = _enemysNum.lifes;
-			
-			ds_list_add(_saveEntitys.enemysLife, _enemysInfo);
-		}
-	}
-	
-	if (instance_exists(objChest)) {
-	    _saveEntitys.chestInfo = ds_list_create(); // Crie uma lista para armazenar as informações dos baús
-    
-	    for (var i = 0; i < instance_number(objChest); i++) {
-	        var _chest = instance_find(objChest, i);
-	        var _chestInfo = ds_map_create();
-        
-	        _chestInfo[? "isOpen"] = _chest.isOpen;
-	        _chestInfo[? "sprite_index"] = _chest.sprite_index;
-	        _chestInfo[? "image_index"] = _chest.image_index;
-        
-	        ds_list_add(_saveEntitys.chestInfo, _chestInfo);
+            // Variáveis de itens coletáveis
+            isOpen: -1,
+            mySprite: -1,
+            sprIndex: -1,
+            spriteIten: -1,
+            chestInfo: -1,
+			enemysLife: ds_list_create(),
+	        chestInfo: ds_list_create(),
+	        spriteIten: ds_list_create(),
+        };
+
+        // Salvando listas
+	    if (instance_exists(objEntidade)) {
+	        for (var i = 0; i < instance_number(objEntidade); i++) {
+	            var _enemysNum = instance_find(objEntidade, i);
+	            var _enemysInfo = ds_map_create();
+
+	            _enemysInfo[? "lifes"] = _enemysNum.lifes;
+
+	            ds_list_add(_saveEntitys.enemysLife, _enemysInfo);
+	        }
 	    }
-	}
-	
-	if (instance_exists(objItens)) {
-	    _saveEntitys.spriteIten = ds_list_create(); // Crie uma lista para armazenar as informações de sprites dos inimigos
-    
-	    for (var i = 0; i < instance_number(objItens); i++) {
-	        var _itens = instance_find(objItens, i);
-	        var _itensInfo = ds_map_create();
 
-	        _itensInfo[? "sprite"] = _itens.sprite;
-        
-	        ds_list_add(_saveEntitys.spriteIten, _itensInfo);
+	    if (instance_exists(objChest)) {
+	        for (var i = 0; i < instance_number(objChest); i++) {
+	            var _chest = instance_find(objChest, i);
+	            var _chestInfo = ds_map_create();
+
+	            _chestInfo[? "isOpen"] = _chest.isOpen;
+	            _chestInfo[? "sprite_index"] = _chest.sprite_index;
+	            _chestInfo[? "image_index"] = _chest.image_index;
+
+	            ds_list_add(_saveEntitys.chestInfo, _chestInfo);
+	        }
 	    }
+
+	    if (instance_exists(objItens)) {
+	        for (var i = 0; i < instance_number(objItens); i++) {
+	            var _itens = instance_find(objItens, i);
+	            var _itensInfo = ds_map_create();
+
+	            _itensInfo[? "sprite"] = _itens.sprite;
+				_itensInfo[? "sprIndex"] = _itens.sprite_index;
+
+	            ds_list_add(_saveEntitys.spriteIten, _itensInfo);
+	        }
+	    }
+
+	    array_push(_saveData, _saveEntitys);
 	}
 
-	array_push(_saveData, _saveEntitys);
-}
+    // Salvando dentro do Json
+    var _string = json_stringify(_saveData);
+    var _buffer = buffer_create(string_byte_length(_string) + 1, buffer_fixed, 1);
+    buffer_write(_buffer, buffer_string, _string);
+    var _file = "";
+    switch (global.save) {
+        default:
+            show_message("Erro ao definir save !");
+            break;
 
-	
-	//Salvando dentro do Json
-	var _string = json_stringify(_saveData);
-	var _buffer = buffer_create(string_byte_length(_string) +1, buffer_fixed, 1);
-	buffer_write(_buffer, buffer_string, _string);
-	var _file = "";
-	switch(global.save) {
-		default:
-			show_message("Erro ao definir save !");
-		break
-		
-		case 1:
-			_file = "saveGame0.save";
-		break;
-		
-		case 2:
-			_file = "saveGame1.save";
-		break;
-		
-		case 3:
-			_file = "saveGame2.save";
-		break;
-	}
-	buffer_save(_buffer, _file);
+        case 1:
+            _file = "saveGame0.save";
+            break;
+
+        case 2:
+            _file = "saveGame1.save";
+            break;
+
+        case 3:
+            _file = "saveGame2.save";
+            break;
+    }
+    buffer_save(_buffer, _file);
+
+    // Liberando recursos (listas e mapas)
+    if (_saveEntitys.enemysLife != -1) ds_list_destroy(_saveEntitys.enemysLife);
+    if (_saveEntitys.chestInfo != -1) ds_list_destroy(_saveEntitys.chestInfo);
+    if (_saveEntitys.spriteIten != -1) ds_list_destroy(_saveEntitys.spriteIten);
 	//scrPrint("Jogo Salvo: " + _string);
 	var _inst = instance_create_layer(x, y, "Effects", objTextUpGui);
 	_inst.texto = "Jogo salvo com sucesso !";
 	_inst.fontSize = .4;
+	
 }
 
-function scrLoadGame(){
+function scrLoadGame() {
 	
 	var _file = "";
 	switch(global.save) {
@@ -204,39 +209,45 @@ function scrLoadGame(){
 						objPlayer.direc = _loadEntity.direcPlayer;
 					}
 					
-					if (instance_exists(objEntidade)) {
-						for (var i = 0; i < instance_number(objEntidade); i++) {
-							var _enemysLife = instance_find(objEntidade, i);
-							
-							var _enemysInfo = ds_list_find_value(_loadEntity.enemysLife, i);
-							
-							_enemysLife.lifes = _enemysInfo[? "lifes"];
-						}	
-					}
-					
-					if (instance_exists(objChest)) {
-					    for (var i = 0; i < instance_number(objChest); i++) {
-					        var _chest = instance_find(objChest, i);
-        
-					        // Obtém as informações do baú salvas
-					        var _chestInfo = ds_list_find_value(_loadEntity.chestInfo, i);
-        
-					        // Aplica as informações do baú salvo para cada baú
-					        _chest.isOpen = _chestInfo[? "isOpen"];
-					        _chest.sprite_index = _chestInfo[? "sprite_index"];
-					        _chest.image_index = _chestInfo[? "image_index"];
-					    }
-					}
-					
-					if (instance_exists(objItens)) {
-					    for (var i = 0; i < instance_number(objItens); i++) {
-					        var _itens = instance_find(objItens, i);
+					// Carregando listas
+			        if (instance_exists(objEntidade)) {
+			            for (var i = 0; i < instance_number(objEntidade); i++) {
+			                var _enemysLife = instance_find(objEntidade, i);
 
-					        var _itensInfo = ds_list_find_value(_loadEntity.spriteIten, i);
+			                // Obtém as informações do inimigo salvas
+			                var _enemysInfo = ds_list_find_value(_loadEntity.enemysLife, i);
 
-					        _itens.sprite = _itensInfo[? "sprite"];
-					    }
-					}
+			                // Aplica as informações do inimigo salvo para cada inimigo
+			                _enemysLife.lifes = _enemysInfo[? "lifes"];
+			            }
+			        }
+
+			        if (instance_exists(objChest) && ds_exists(_loadEntity.chestInfo, ds_type_list)) {
+			            for (var i = 0; i < instance_number(objChest); i++) {
+			                var _chest = instance_find(objChest, i);
+
+			                // Obtém as informações do baú salvas
+			                var _chestInfo = ds_list_find_value(_loadEntity.chestInfo, i);
+
+			                // Aplica as informações do baú salvo para cada baú
+			                _chest.isOpen = _chestInfo[? "isOpen"];
+			                _chest.sprite_index = _chestInfo[? "sprite_index"];
+			                _chest.image_index = _chestInfo[? "image_index"];
+			            }
+			        }
+
+			        if (instance_exists(objItens) && ds_exists(_loadEntity.spriteIten, ds_type_list)) {
+			            for (var i = 0; i < instance_number(objItens); i++) {
+			                var _itens = instance_find(objItens, i);
+
+			                // Obtém as informações do item salvo
+			                var _itensInfo = ds_list_find_value(_loadEntity.spriteIten, i);
+
+			                // Aplica as informações do item salvo para cada item
+			                _itens.sprite = _itensInfo[? "sprite"];
+							_itens.sprite_index = _itensInfo[? "sprIndex"];
+			            }
+			        }
 				}
 			}
 		}
