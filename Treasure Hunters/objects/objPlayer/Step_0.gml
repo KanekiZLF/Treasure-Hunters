@@ -195,10 +195,24 @@ if !isDead && (!_pause) {
 	// Adiciona item ao inventario
 	if (instance_exists(objItens) && !global.inventory) {
     var _inst = instance_nearest(x, y, objItens);
-    
     if (distance_to_point(_inst.x, _inst.y) <= 20) {
         if (place_meeting(x, y, _inst)) {
 			scrDsGridProcess(_inst.sprite, _inst.quantidade);
+			
+			switch (_inst.sprite) {
+				case 3:
+					scrCoinColected("diamond", _inst.quantidade);
+				break;
+				
+				case 4:
+					scrCoinColected("saphire", _inst.quantidade);
+				break;
+				
+				case 5:
+					scrCoinColected("ruby", _inst.quantidade);
+				break;
+			}
+			
 			
 			if (_inst.sprite == 0 || _inst.sprite == 1 || _inst.sprite == 2) {
 				var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);

@@ -38,20 +38,58 @@ function scrSaveGame() {
 		maxStamina : objPlayer.maxStamina,
 		maxStamina2 : objPlayer.maxStamina2,
 		arraySprite : objPlayer.arraySprite,
+		direcPlayer : objPlayer.direc,
 
 		// Variaveis do inimigo
-		enemyLifes : -1,
+		enemysLife : -1,
 		
 		// Variaveis de itens coletaveis
 		isOpen : -1,
+		mySprite : -1,
+		myFrame : -1,
+		spriteIten : -1,
+		chestInfo : -1,
 	}
 
 	if (instance_exists(objEntidade)) {
-		_saveEntitys.enemyLifes = objEntidade.lifes;
+		_saveEntitys.enemysLife = ds_list_create();
+		
+		for (var i = 0; i < instance_number(objEntidade); i++) {
+			var _enemysNum = instance_find(objEntidade, i);
+			var _enemysInfo = ds_map_create();
+			
+			_enemysInfo[? "lifes"] = _enemysNum.lifes;
+			
+			ds_list_add(_saveEntitys.enemysLife, _enemysInfo);
+		}
 	}
 	
 	if (instance_exists(objChest)) {
-		_saveEntitys.isOpen = objChest.isOpen;
+	    _saveEntitys.chestInfo = ds_list_create(); // Crie uma lista para armazenar as informações dos baús
+    
+	    for (var i = 0; i < instance_number(objChest); i++) {
+	        var _chest = instance_find(objChest, i);
+	        var _chestInfo = ds_map_create();
+        
+	        _chestInfo[? "isOpen"] = _chest.isOpen;
+	        _chestInfo[? "sprite_index"] = _chest.sprite_index;
+	        _chestInfo[? "image_index"] = _chest.image_index;
+        
+	        ds_list_add(_saveEntitys.chestInfo, _chestInfo);
+	    }
+	}
+	
+	if (instance_exists(objItens)) {
+	    _saveEntitys.spriteIten = ds_list_create(); // Crie uma lista para armazenar as informações de sprites dos inimigos
+    
+	    for (var i = 0; i < instance_number(objItens); i++) {
+	        var _itens = instance_find(objItens, i);
+	        var _itensInfo = ds_map_create();
+
+	        _itensInfo[? "sprite"] = _itens.sprite;
+        
+	        ds_list_add(_saveEntitys.spriteIten, _itensInfo);
+	    }
 	}
 
 	array_push(_saveData, _saveEntitys);
@@ -163,14 +201,41 @@ function scrLoadGame(){
 						objPlayer.maxStamina = _loadEntity.maxStamina;
 						objPlayer.maxStamina2 = _loadEntity.maxStamina2;
 						objPlayer.arraySprite = _loadEntity.arraySprite;
+						objPlayer.direc = _loadEntity.direcPlayer;
 					}
 					
 					if (instance_exists(objEntidade)) {
-						objEntidade.lifes = _loadEntity.enemyLifes;
+						for (var i = 0; i < instance_number(objEntidade); i++) {
+							var _enemysLife = instance_find(objEntidade, i);
+							
+							var _enemysInfo = ds_list_find_value(_loadEntity.enemysLife, i);
+							
+							_enemysLife.lifes = _enemysInfo[? "lifes"];
+						}	
 					}
 					
 					if (instance_exists(objChest)) {
-						objChest.isOpen = _loadEntity.isOpen;
+					    for (var i = 0; i < instance_number(objChest); i++) {
+					        var _chest = instance_find(objChest, i);
+        
+					        // Obtém as informações do baú salvas
+					        var _chestInfo = ds_list_find_value(_loadEntity.chestInfo, i);
+        
+					        // Aplica as informações do baú salvo para cada baú
+					        _chest.isOpen = _chestInfo[? "isOpen"];
+					        _chest.sprite_index = _chestInfo[? "sprite_index"];
+					        _chest.image_index = _chestInfo[? "image_index"];
+					    }
+					}
+					
+					if (instance_exists(objItens)) {
+					    for (var i = 0; i < instance_number(objItens); i++) {
+					        var _itens = instance_find(objItens, i);
+
+					        var _itensInfo = ds_list_find_value(_loadEntity.spriteIten, i);
+
+					        _itens.sprite = _itensInfo[? "sprite"];
+					    }
 					}
 				}
 			}

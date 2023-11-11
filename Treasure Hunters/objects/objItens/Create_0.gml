@@ -14,7 +14,7 @@ gravidade = 0.2;
 objColisParede = objParede;
 vision = 3; // <-- Define um raio para saber qual distancia a espada esta do chão
 quantidade = 1;
-sprite = 0;
+sprite = -1;
 
 switch(image_index) {
 	case 0:

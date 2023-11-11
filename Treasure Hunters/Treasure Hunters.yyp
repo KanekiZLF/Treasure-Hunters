@@ -233,7 +233,6 @@
     {"id":{"name":"sprHead3Attack1","path":"sprites/sprHead3Attack1/sprHead3Attack1.yy",},},
     {"id":{"name":"sprPalmFront","path":"sprites/sprPalmFront/sprPalmFront.yy",},},
     {"id":{"name":"sprPinkStarJump","path":"sprites/sprPinkStarJump/sprPinkStarJump.yy",},},
-    {"id":{"name":"objTextUp","path":"objects/objTextUp/objTextUp.yy",},},
     {"id":{"name":"sprParede","path":"sprites/sprParede/sprParede.yy",},},
     {"id":{"name":"sprCannonIdle","path":"sprites/sprCannonIdle/sprCannonIdle.yy",},},
     {"id":{"name":"sprPlayerSwordGround","path":"sprites/sprPlayerSwordGround/sprPlayerSwordGround.yy",},},

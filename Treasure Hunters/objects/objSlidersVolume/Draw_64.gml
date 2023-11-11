@@ -2,6 +2,7 @@
 // Você pode escrever seu código neste editor
 
 if (global.option == 3) {
+	depth = -3;
 	var _guiLarg = display_get_gui_width();
 	var _guiAlt = display_get_gui_height();
 	x = _guiLarg/2 - 130;

@@ -26,3 +26,35 @@ if (!global.gamepause) {
 	}
 }
 
+/*switch(sprite) {
+	case 0:
+		sprite_index = sprRedPotion;
+	break;
+	
+	case 1: 
+		sprite_index = sprBluePotion;
+	 break;	
+	 
+	 case 2:
+		sprite_index = sprGreenBottle;
+	 break;	
+	 
+	 case 3: 
+		sprite_index = sprDiamondCoin;
+	 break;	
+	 
+	 case 4: 
+		sprite_index = sprSaphireCoin;
+	 break;	
+	 
+	 case 5: 
+		sprite_index = sprRubyCoin;
+	 break;	
+	 
+	 case 6: 
+		sprite_index = sprGoldenSkull;
+	 break;	
+}*/
+
+
+

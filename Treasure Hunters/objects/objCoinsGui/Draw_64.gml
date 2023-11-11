@@ -6,11 +6,21 @@ if (myCoinsSilver > 0) {
 }
 
 if (myCoinsGold > 0) {
-	scrDrawCoinInfo(sprGoldCoin, myCoinsGold, alphaCoins, -60.5);
+	if (myCoinsSilver <= 0) {
+		scrDrawCoinInfo(sprGoldCoin, myCoinsGold, alphaCoins, -70.5);
+	} else {
+		scrDrawCoinInfo(sprGoldCoin, myCoinsGold, alphaCoins, -60.5);
+	}
 }
 
 if (myCoinsDiamond > 0) {
-	scrDrawCoinInfo(sprDiamondCoin, myCoinsDiamond, alphaCoins, -50.5);
+	if (myCoinsSilver <= 0 && myCoinsGold <= 0) {
+		scrDrawCoinInfo(sprGoldCoin, myCoinsGold, alphaCoins, -70.5);
+	} else if (myCoinsGold <= 0) {
+		scrDrawCoinInfo(sprGoldCoin, myCoinsGold, alphaCoins, -60.5);
+	} else {
+		scrDrawCoinInfo(sprDiamondCoin, myCoinsDiamond, alphaCoins, -50.5);
+	}
 }
 
 if (myCoinsSaphire > 0) {
