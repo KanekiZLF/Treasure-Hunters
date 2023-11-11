@@ -12,7 +12,7 @@ var _sprAlt = sprite_get_height(sprLifeBar) * _escala;
 var _sprAlt2 = sprite_get_height(sprStaminaBar) * _escala + 8;
 var _hudAlt = _guiAlt/15;
 
-if (instance_exists(objPlayer) && room != rmInit) {
+if (objControle.alarm[1] <= 0 && instance_exists(objPlayer) && room != rmInit) {
 	var _lifes = objPlayer.lifes2 // <-- Vida count
 	var _stamina = objPlayer.stamina2;  // <-- Estamina count
 	var _maxLifes = objPlayer.maxLifes2;  // <-- Max Vida count
@@ -946,8 +946,6 @@ if (_pause || global.gameover) {
 			draw_sprite_ext(sprHoverClose, 0, _xx, _yy, _escala, _escala, 0, c_white, 1);
 		}
 	}
-	
-} else if (!_pause) {
 	draw_set_alpha(1); // Restaura a opacidade padrão (opcional, dependendo do que você deseja fazer a seguir)
 	draw_set_color(c_white); // Restaura a cor padrão
 }

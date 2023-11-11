@@ -496,7 +496,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					global.gamepause = false;
 					global.option = noone;
 					if (alarm[0] <= 0) {
-						alarm[0] = 10;
+						alarm[0] = 1;
 					}
 				} 
 				else {
@@ -530,12 +530,12 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2, _recY2, _recX2 + _recSpace2 + (28 * _escala), _recY2 + (14 * _escala))) {
 		if (_mouseClick && global.gameover) {
 			scrLoadGame();
-			scrLoadInventory();
-			global.gameover = false;
-			global.gamepause = false;
-			if (objGui.alarm[1] <= 0) {
-				objGui.alarm[1] = 10;
-			}
+				scrLoadInventory();
+				global.gamepause = false;
+				global.gameover = false;
+				if (alarm[0] <= 0) {
+					alarm[0] = 1;
+				}
 			/*global.gameover = false;
 			global.gamepause = false;
 			objPlayer.direc = 0;

@@ -27,9 +27,16 @@ if (keyboard_check_pressed(ord("S"))) {
 }
 
 if (keyboard_check_pressed(ord("L"))) {
-	var _load = instance_create_layer(0, 0, layer, objBackgroundLoad);
+	//var _load = instance_create_layer(0, 0, layer, objBackgroundLoad);
+	scrLoadGame();
+	scrLoadInventory();
+	global.gameover = false;
+	global.gamepause = false;
+	
+	if (objControle.alarm[0] <= 0) {
+		objControle.alarm[0] = 1;
+	}
 }
-
 
 
 

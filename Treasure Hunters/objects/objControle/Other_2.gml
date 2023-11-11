@@ -11,7 +11,6 @@ global.cameraActive = true; // <-- Ativa ou desativa a camera do PLAYER !!
 global.gamepause = true; // <-- Define se o jogo esta pausado ou não
 global.isLoading = false;
 global.fullScreen = false;
-global.loadingProgress = 0;
 global.inventory = false;
 global.coinsSilver = 180;
 global.coinsGold = 0;
