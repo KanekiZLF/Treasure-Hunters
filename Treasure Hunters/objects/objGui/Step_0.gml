@@ -30,6 +30,7 @@ if (keyboard_check_pressed(ord("L"))) {
 	//var _load = instance_create_layer(0, 0, layer, objBackgroundLoad);
 	scrLoadGame();
 	scrLoadInventory();
+	scrLoadData();
 	global.gameover = false;
 	global.gamepause = false;
 	

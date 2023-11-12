@@ -2,6 +2,7 @@
 // Você pode escrever seu código neste editor
 scrCollision();
 randomize();
+
 if (instance_exists(objPlayer)) {
 	if (instance_place(x, y, objPlayer)) {
 		

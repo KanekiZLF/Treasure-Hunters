@@ -1,6 +1,5 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-event_inherited();
 potion = 0;
 floatSpeed = .3; // <-- Velocidade de flutuação
 float = false; // <-- Define se pode ou não flutuar
@@ -15,7 +14,6 @@ objColisParede = objParede;
 vision = 3; // <-- Define um raio para saber qual distancia a espada esta do chão
 quantidade = 1;
 sprite = -1;
-
 switch(image_index) {
 	case 0:
 		sprite = 0;

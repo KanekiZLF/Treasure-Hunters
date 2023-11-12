@@ -94,6 +94,7 @@
     {"name":"sprConfirmationBoard","order":16,"path":"sprites/sprConfirmationBoard/sprConfirmationBoard.yy",},
     {"name":"sprBannerInfoExit","order":2,"path":"sprites/sprBannerInfoExit/sprBannerInfoExit.yy",},
     {"name":"Fase1","order":1,"path":"rooms/Fase1/Fase1.yy",},
+    {"name":"objDiamond","order":7,"path":"objects/objDiamond/objDiamond.yy",},
     {"name":"sprSwordAttack2","order":2,"path":"sprites/sprSwordAttack2/sprSwordAttack2.yy",},
     {"name":"sprSailTransitionToWind","order":3,"path":"sprites/sprSailTransitionToWind/sprSailTransitionToWind.yy",},
     {"name":"scrIAEnemys","order":2,"path":"scripts/scrIAEnemys/scrIAEnemys.yy",},

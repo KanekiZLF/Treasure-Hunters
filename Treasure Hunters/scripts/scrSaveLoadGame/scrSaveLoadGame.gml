@@ -2,18 +2,20 @@
 // https://github.com/KanekiZLF
 
 function scrSaveGame() {
+	scrSaveData();
     var _saveData = array_create(0);
     var _saveEntitys;
 
     with (objSaveMe) {
         _saveEntitys = {
-            obj: object_get_name(object_index),
-            currentRoom: room_get_name(room),
+            obj: object_index,
+            currentRoom: room,
             y: y,
             x: x,
             layer: layer,
             sprite_index: sprite_index,
             image_number: image_number,
+			image_xscale : image_xscale,
 
             // Variáveis globais
             coinsSilver: global.coinsSilver,
@@ -41,48 +43,9 @@ function scrSaveGame() {
             maxStamina2: objPlayer.maxStamina2,
             arraySprite: objPlayer.arraySprite,
             direcPlayer: objPlayer.direc,
+		
         };
-
-       /* // Salvando listas
-        if (instance_exists(objEntidade)) {
-            _saveEntitys.enemysLife = ds_list_create();
-            for (var i = 0; i < instance_number(objEntidade); i++) {
-                var _enemysNum = instance_find(objEntidade, i);
-                var _enemysInfo = ds_map_create();
-
-                _enemysInfo[? "lifes"] = _enemysNum.lifes;
-
-                ds_list_add(_saveEntitys.enemysLife, _enemysInfo);
-            }
-        }
-
-        if (instance_exists(objChest)) {
-            _saveEntitys.chestInfo = ds_list_create();
-            for (var i = 0; i < instance_number(objChest); i++) {
-                var _chest = instance_find(objChest, i);
-                var _chestInfo = ds_map_create();
-
-                _chestInfo[? "isOpen"] = _chest.isOpen;
-                _chestInfo[? "sprite_index"] = _chest.sprite_index;
-                _chestInfo[? "image_index"] = _chest.image_index;
-
-                ds_list_add(_saveEntitys.chestInfo, _chestInfo);
-            }
-        }
-
-        if (instance_exists(objItens)) {
-            _saveEntitys.spriteIten = ds_list_create();
-            for (var i = 0; i < instance_number(objItens); i++) {
-                var _itens = instance_find(objItens, i);
-                var _itensInfo = ds_map_create();
-
-                _itensInfo[? "sprite"] = _itens.sprite;
-                _itensInfo[? "sprIndex"] = _itens.sprite_index;
-
-                ds_list_add(_saveEntitys.spriteIten, _itensInfo);
-            }
-        }*/
-
+		// Converter a lista em um array
         array_push(_saveData, _saveEntitys);
     }
 
@@ -116,8 +79,8 @@ function scrSaveGame() {
     _inst.fontSize = .4;
 }
 
-function scrLoadGame(){
-	
+function scrLoadGame() {
+	scrLoadData();
 	var _file = "";
 	switch(global.save) {
 		default:
@@ -150,14 +113,14 @@ function scrLoadGame(){
 		while (array_length(_loadData) > 0) {
 			
 			var _loadEntity = array_pop(_loadData);
-			var _room = asset_get_index(_loadEntity.currentRoom);
+			var _room = _loadEntity.currentRoom;
 			
 			if (!global.isLoading) {
 				room_goto(_room);
 			}
 			
 			if (room == _room) {
-				with(instance_create_layer(0, 0, _loadEntity.layer, asset_get_index(_loadEntity.obj))) {
+				with(instance_create_layer(0, 0, _loadEntity.layer, _loadEntity.obj)) {
 				
 					global.coinsSilver = _loadEntity.coinsSilver;
 					global.coinsGold = _loadEntity.coinsGold;
@@ -167,6 +130,7 @@ function scrLoadGame(){
 						y = _loadEntity.y;
 						sprite_index = _loadEntity.sprite_index;
 						image_index = _loadEntity.image_number;
+						image_xscale = _loadEntity.image_xscale;
 						global.upgradeLifes = _loadEntity.upgLifes;
 						global.upgradeStam  = _loadEntity.upgStam;
 						global.upgradeVeneno  = _loadEntity.upgVeneno;
@@ -194,6 +158,7 @@ function scrLoadGame(){
 						objPlayer.arraySprite = _loadEntity.arraySprite;
 						objPlayer.direc = _loadEntity.direcPlayer;
 					}
+					
 				}
 			}
 		}
@@ -260,4 +225,92 @@ function scrLoadCoins() {
 	} else if (!file_exists(_file)) {
 		global.coinsSilver = 180;
 	}
+}
+
+function scrSaveData() {
+    var _saveData = array_create(0);
+    var _saveEntitys;
+
+    if (instance_exists(objChest)) {
+        for (var i = 0; i < instance_number(objChest); i++) {
+            var _chest = instance_find(objChest, i);
+            _saveEntitys = {
+                x : _chest.x,
+                y : _chest.y,
+				id : id,
+                sprite_index : _chest.sprite_index,
+                image_index : _chest.image_index,
+                isOpen : _chest.isOpen,
+            };
+            // Converter a lista em um array
+            array_push(_saveData, _saveEntitys);
+        }
+    }
+
+    // Salvando dentro do Json
+    var _string = json_stringify(_saveData);
+    var _buffer = buffer_create(string_byte_length(_string) + 1, buffer_fixed, 1);
+    buffer_write(_buffer, buffer_string, _string);
+    var _file = "";
+    switch (global.save) {
+        default:
+            show_message("Erro ao definir save !");
+            break;
+
+        case 1:
+            _file = "saveData0.dat";
+            break;
+
+        case 2:
+            _file = "saveData1.dat";
+            break;
+
+        case 3:
+            _file = "saveData2.dat";
+            break;
+    }
+    buffer_save(_buffer, _file);
+}
+
+function scrLoadData() {
+    var _file = "";
+    switch(global.save) {
+        default:
+            show_message("Erro ao definir save !");
+            break;
+
+        case 1:
+            _file = "saveData0.dat";
+            break;
+
+        case 2:
+            _file = "saveData1.dat";
+            break;
+
+        case 3:
+            _file = "saveData2.dat";
+            break;
+    }
+
+    if (file_exists(_file)) {
+        var _buffer = buffer_load(_file);
+        var _string = buffer_read(_buffer, buffer_string);
+        buffer_delete(_buffer);
+
+        var _loadData = json_parse(_string); // <-- Transforma o Json em Array
+
+        while (array_length(_loadData) > 0) {
+            var _loadEntity = array_pop(_loadData);
+
+            if (instance_exists(objChest)) {
+                var _chest = instance_nearest(_loadEntity.x, _loadEntity.y, objChest);
+                // Atribuir os valores apenas à instância correspondente
+                if (_chest != noone) {
+                    _chest.isOpen = _loadEntity.isOpen;
+                    _chest.image_index = _loadEntity.image_index;
+                    _chest.sprite_index = _loadEntity.sprite_index;
+                }
+            }
+        }
+    } 
 }
