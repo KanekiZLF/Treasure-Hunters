@@ -36,8 +36,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprItems",
-    "path": "sprites/sprItems/sprItems.yy",
+    "name": "sprItensModel",
+    "path": "sprites/sprItensModel/sprItensModel.yy",
   },
   "spriteMaskId": null,
   "visible": true,
