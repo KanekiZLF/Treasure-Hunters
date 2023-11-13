@@ -91,6 +91,3 @@ coinsRuby = global.coinsRuby;
 
 
 
-
-
-

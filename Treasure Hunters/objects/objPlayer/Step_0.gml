@@ -198,7 +198,6 @@ if !isDead && (!_pause) {
     if (distance_to_point(_inst.x, _inst.y) <= 20) {
         if (place_meeting(x, y, _inst)) {
 			scrDsGridProcess(_inst.sprite, _inst.quantidade);
-			
 			switch (_inst.sprite) {
 				case 3:
 					scrCoinColected("diamond", _inst.quantidade);

@@ -14,9 +14,8 @@ function scrSaveGame() {
             x: x,
             layer: layer,
             sprite_index: sprite_index,
-            image_number: image_number,
+            image_index: image_index,
 			image_xscale : image_xscale,
-
             // Variáveis globais
             coinsSilver: global.coinsSilver,
             coinsGold: global.coinsGold,
@@ -129,7 +128,7 @@ function scrLoadGame() {
 						x = _loadEntity.x;
 						y = _loadEntity.y;
 						sprite_index = _loadEntity.sprite_index;
-						image_index = _loadEntity.image_number;
+						image_index = _loadEntity.image_index;
 						image_xscale = _loadEntity.image_xscale;
 						global.upgradeLifes = _loadEntity.upgLifes;
 						global.upgradeStam  = _loadEntity.upgStam;
@@ -158,7 +157,6 @@ function scrLoadGame() {
 						objPlayer.arraySprite = _loadEntity.arraySprite;
 						objPlayer.direc = _loadEntity.direcPlayer;
 					}
-					
 				}
 			}
 		}
@@ -246,7 +244,7 @@ function scrSaveData() {
             array_push(_saveData, _saveEntitys);
         }
     }
-
+	
     // Salvando dentro do Json
     var _string = json_stringify(_saveData);
     var _buffer = buffer_create(string_byte_length(_string) + 1, buffer_fixed, 1);
@@ -305,7 +303,7 @@ function scrLoadData() {
             if (instance_exists(objChest)) {
                 var _chest = instance_nearest(_loadEntity.x, _loadEntity.y, objChest);
                 // Atribuir os valores apenas à instância correspondente
-                if (_chest != noone) {
+                if (_chest != noone && variable_instance_exists(_chest, "isOpen")) {
                     _chest.isOpen = _loadEntity.isOpen;
                     _chest.image_index = _loadEntity.image_index;
                     _chest.sprite_index = _loadEntity.sprite_index;
