@@ -3,7 +3,7 @@
 if (instance_exists(objPlayer)) {
 	global.lifes = clamp(real(global.lifes), 0, objPlayer.maxLifes);
 	global.stamina = clamp(real(global.stamina), 0, objPlayer.maxStamina);
-	global.poison = clamp(real(global.poison), 0, objPlayer.maxPoison);
+	global.poison = clamp(real(global.poison), 0, real(objPlayer.maxPoison));
 }
 
 if (global.coinsSilver) >= 999 {
