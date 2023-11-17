@@ -4,9 +4,8 @@ scrCollision();
 randomize();
 
 if (instance_exists(objPlayer)) {
-	if (instance_place(x, y, objPlayer)) {
-		
-		if (keyboard_check_pressed(ord("F")) && scrFindItem(Items.Key) && !isOpen) {
+	if (instance_place(x, y, objPlayer) && scrFindItem(Items.Key)) {
+		if (keyboard_check_pressed(ord("F")) && !isOpen) {
 			sprite_index = sprChestOpen;
 			isOpen = true;
 			scrRemoveItem(Items.Key);
@@ -22,7 +21,7 @@ if (sprite_index == sprChestOpen && image_index == 2) {
 }
 
 if (sprite_index == sprChestOpen && image_index == 6) {
-	coinValue = irandom_range(0, 4);
+	coinValue = irandom_range(1, 4);
 		var _quantSilver = irandom(500);
 		var _quantGold = irandom(35);
 		var _quantDiamond = irandom_range(1, 5);
@@ -33,26 +32,30 @@ if (sprite_index == sprChestOpen && image_index == 6) {
 
 		case 0:
 			_quantGold = irandom(10);
-			scrCoinColected("silver", _quantSilver);
-			scrCoinColected("gold", _quantGold);
+			scrColected("silver", _quantSilver);
+			scrColected("gold", _quantGold);
 		break;
 	
 		case 1:
-			scrCoinColected("gold", _quantGold);
+			scrColected("silver", _quantSilver);
+			scrColected("gold", _quantGold);
 		break;
 	
 		case 2:
-			scrCoinColected("diamond", _quantDiamond);
+			scrColected("diamond", _quantDiamond);
+			scrColected("silver", _quantSilver);
 			scrDsGridProcess(Items.Diamond, _quantDiamond);
 		break;
 	
 		case 3:
-			scrCoinColected("saphire", _quantSaphire);
+			scrColected("saphire", _quantSaphire);
+			scrColected("silver", _quantSilver);
 			scrDsGridProcess(Items.Saphire, _quantSaphire);
 		break;
 	
 		case 4:
-			scrCoinColected("ruby", _quantRuby);
+			scrColected("ruby", _quantRuby);
+			scrColected("silver", _quantSilver);
 			scrDsGridProcess(Items.Ruby, _quantRuby);
 		break;
 	}

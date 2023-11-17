@@ -21,7 +21,7 @@ if lifes <= 0 {
 	
 	// Da moedas ao player
 	if (sprite_index == sprFierceToothDead && image_index == 0) {
-		scrCoinColected("silver", irandom(100))
+		scrColected("silver", irandom(100))
 	}
 }
 #endregion

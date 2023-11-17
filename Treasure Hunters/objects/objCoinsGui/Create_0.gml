@@ -1,9 +1,11 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-myCoinsSilver = 00;
-myCoinsGold = 00;
-myCoinsDiamond = 00;
-myCoinsSaphire = 00;
-myCoinsRuby = 00;
-
+myCoinsSilver = 0;
+myCoinsGold = 0;
+myCoinsDiamond = 0;
+myCoinsSaphire = 0;
+myCoinsRuby = 0;
+myElxLife = 0;
+myElxStam = 0;
+myElxPoison = 0;
 alphaCoins = 1;

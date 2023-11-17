@@ -3,6 +3,7 @@
 
 function scrSaveGame() {
 	scrSaveData();
+	scrSaveInventory();
     var _saveData = array_create(0);
     var _saveEntitys;
 
@@ -80,6 +81,7 @@ function scrSaveGame() {
 
 function scrLoadGame() {
 	scrLoadData();
+	scrLoadInventory();
 	var _file = "";
 	switch(global.save) {
 		default:
@@ -115,7 +117,9 @@ function scrLoadGame() {
 			var _room = _loadEntity.currentRoom;
 			
 			if (!global.isLoading) {
-				room_goto(_room);
+				if (room != _room) {
+					room_goto(_room);
+				}
 			}
 			
 			if (room == _room) {

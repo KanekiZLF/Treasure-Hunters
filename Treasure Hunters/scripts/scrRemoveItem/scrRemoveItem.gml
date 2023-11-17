@@ -17,7 +17,8 @@ function scrRemoveItem() {
             if (xx >= 0 && xx < _gridWidth && yy >= 0 && yy < _gridHeight) {
                 // Verifica se o item na célula atual é igual ao item desejado
                 if (_grid[# xx, yy] == _itemName) {
-                    // O item foi encontrado, retornamos true
+                    // O item foi encontrado, ele é removido
+					_grid[# Infos.Item, yy]--;
                     _grid[# Infos.Quantidade, yy]--;
                 }
 			}

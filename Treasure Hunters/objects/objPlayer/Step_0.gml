@@ -200,15 +200,15 @@ if !isDead && (!_pause) {
 			scrDsGridProcess(_inst.sprite, _inst.quantidade);
 			switch (_inst.sprite) {
 				case 3:
-					scrCoinColected("diamond", _inst.quantidade);
+					scrColected("diamond", _inst.quantidade);
 				break;
 				
 				case 4:
-					scrCoinColected("saphire", _inst.quantidade);
+					scrColected("saphire", _inst.quantidade);
 				break;
 				
 				case 5:
-					scrCoinColected("ruby", _inst.quantidade);
+					scrColected("ruby", _inst.quantidade);
 				break;
 			}
 			

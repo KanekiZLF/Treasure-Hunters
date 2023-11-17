@@ -18,6 +18,7 @@ efeito = false; // <-- Cria efeito de fumaça
 autoDestroy = false; // <-- Se auto destroi se for true
 isSpeed = 0; // <-- Armazena a velocidade em que a espada foi lançada
 drop = false;
+damage = false;
 
 // Variaveis de colisão
 velocidadeV = 0;

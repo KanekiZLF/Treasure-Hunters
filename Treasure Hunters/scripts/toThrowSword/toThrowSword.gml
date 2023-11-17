@@ -18,5 +18,6 @@ function toThrowSword() {
 		_newSword.toThrow = true;
 		_newSword.float = false;
 		_newSword.autoDestroy = true;
+		_newSword.damage = true;
     }
 }

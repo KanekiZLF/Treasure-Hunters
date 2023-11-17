@@ -1,6 +1,6 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-scrCoinColected("gold", 1);
+scrColected("gold", 1);
 objCoinsGui.alphaCoins = 1;
 if (!isEffect) {
 	var _effect = instance_create_layer(x, y, "Effects", objEffects);
