@@ -110,6 +110,7 @@
     {"name":"sprSealShellOpen","order":1,"path":"sprites/sprSealShellOpen/sprSealShellOpen.yy",},
     {"name":"objKey","order":7,"path":"objects/objKey/objKey.yy",},
     {"name":"sprHoverExit","order":9,"path":"sprites/sprHoverExit/sprHoverExit.yy",},
+    {"name":"objGoldSkull","order":11,"path":"objects/objGoldSkull/objGoldSkull.yy",},
     {"name":"sprNoone","order":11,"path":"sprites/sprNoone/sprNoone.yy",},
     {"name":"sprCannonHit","order":7,"path":"sprites/sprCannonHit/sprCannonHit.yy",},
     {"name":"sprSealShellDestroyedPieces","order":8,"path":"sprites/sprSealShellDestroyedPieces/sprSealShellDestroyedPieces.yy",},

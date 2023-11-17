@@ -140,6 +140,7 @@
     {"id":{"name":"sprSealShellOpen","path":"sprites/sprSealShellOpen/sprSealShellOpen.yy",},},
     {"id":{"name":"objKey","path":"objects/objKey/objKey.yy",},},
     {"id":{"name":"sprHoverExit","path":"sprites/sprHoverExit/sprHoverExit.yy",},},
+    {"id":{"name":"objGoldSkull","path":"objects/objGoldSkull/objGoldSkull.yy",},},
     {"id":{"name":"sprNoone","path":"sprites/sprNoone/sprNoone.yy",},},
     {"id":{"name":"sprCannonHit","path":"sprites/sprCannonHit/sprCannonHit.yy",},},
     {"id":{"name":"sprSealShellDestroyedPieces","path":"sprites/sprSealShellDestroyedPieces/sprSealShellDestroyedPieces.yy",},},
