@@ -42,7 +42,7 @@ moveOn = true; //<-- Define se posso ou não andar
 inimigos_atingidos = ds_list_create(); //<-- Cria uma lista
 checkPoint = 0; // <-- Define o checkpoint da fase
 
-objColisParede = objParede; //<-- Define qual é o objeto de parede
+objColisParede = layer_tilemap_get_id("Paredes"); //<-- Define qual é o objeto de parede
 arraySprite = 0; //<-- Define qual array de sprites ira usar
 toThrow = false; //<-- Define se joguei ou não a espada
 noTake = false; //<-- Impede de pegar a espada lançada até tocar na parede

@@ -8,7 +8,7 @@ gravidade = 0.2;
 direita = 0;
 esquerda = 0;
 cima = 0;
-objColisParede = objParede;
+objColisParede = layer_tilemap_get_id("Paredes");
 visionX = 20;
 visionY = 20;
 

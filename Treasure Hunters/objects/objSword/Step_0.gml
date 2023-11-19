@@ -12,11 +12,11 @@ if (!_pause) {
 		scrCollision();
 	}
 
-	if (!place_meeting(x, y, objParede)) && !toThrow && float {
+	if (!place_meeting(x, y, objColisParede)) && !toThrow && float {
 		scrFloat();
 	}
 
-	if (place_meeting(x, y, objParede)) && !camDef2 {
+	if (place_meeting(x, y, objColisParede)) && !camDef2 {
 		global.cameraActive = false;
 		alarm[0] = 10;
 		camDef2 = true;
@@ -27,7 +27,7 @@ if (!_pause) {
 	}
 
 
-	if place_meeting(x, y, objParede) && !efeito {
+	if place_meeting(x, y, objColisParede) && !efeito {
 		// Cria o efeito de fumaça na parede
 		var _effect = instance_create_layer(x + (3 * image_xscale), y - 5, layer, objEffects);
 			_effect.direc = 2;
@@ -71,4 +71,15 @@ if (!_pause) {
 	if (x < camera_left || x > camera_right || y < camera_top || y > camera_bottom) {
 	
 	}*/
+}
+
+if (place_meeting(x + (1 * image_xscale), y, objColisParede)) {
+	damage = false;
+	if (objPlayer.isDead && speed == 0 && (direc != 4 && direc != 5)) {
+		   x+= -15 * image_xscale;
+	} else {
+		objPlayer.noTake = true;
+		speed = 0;
+		direc = (image_xscale == 1) ? 4 : 5;
+	}
 }

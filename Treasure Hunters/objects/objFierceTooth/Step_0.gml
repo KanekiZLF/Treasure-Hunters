@@ -14,7 +14,7 @@ if lifes <= 0 {
 	perseg = false;
 	
 	// Cria o efeito de fumaça
-	if sprite_index == sprFierceToothDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede) {
+	if sprite_index == sprFierceToothDeadGround && image_index == 1 && place_meeting(x, y + 1, objColisParede) {
 		var _effect = instance_create_layer(x - 5, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 	}
@@ -40,7 +40,7 @@ if (!global.gamepause && !isDead) {
 			_effect.direc = 5
 	}
 	
-	if (place_meeting(x, y + 1, objParede)) && isEffect2 {
+	if (place_meeting(x, y + 1, objColisParede)) && isEffect2 {
 		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 			isEffect2 = false;

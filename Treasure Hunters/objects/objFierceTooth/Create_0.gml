@@ -21,7 +21,7 @@ isFall = false;
 estado = scrFierceTooth;
 direc = 0;
 arraySprite = 0;
-objColisParede = objParede; //<-- Define qual é o objeto de parede
+objColisParede = layer_tilemap_get_id("Paredes"); //<-- Define qual é o objeto de parede
 isEffect = false;
 barLife = false; // <-- Define se barra de vida aparece ou some
 

@@ -21,6 +21,11 @@ if (!global.gamepause) {
 	if (!_lineWall) {
 		vision++;
 	}
+	
+	if (place_meeting(x, y, objColisParede)) {
+		x -= 10 * (objPlayer.image_xscale);
+		y -= 10;
+	}
 }
 
 

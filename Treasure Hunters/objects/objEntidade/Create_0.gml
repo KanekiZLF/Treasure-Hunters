@@ -5,3 +5,4 @@ lifes = 5;
 maxLifes = lifes;
 isSword = false;
 hit = false;
+objColisParede = layer_tilemap_get_id("Paredes");

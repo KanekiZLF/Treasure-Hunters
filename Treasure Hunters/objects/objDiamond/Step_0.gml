@@ -25,6 +25,11 @@ if (!global.gamepause) {
 	} else {
 		scrCollision();
 	}
+	
+	if (place_meeting(x, y, objColisParede)) {
+		x -= 10 * (objPlayer.image_xscale);
+		y -= 10;
+	}
 }
 
 /*switch(sprite) {

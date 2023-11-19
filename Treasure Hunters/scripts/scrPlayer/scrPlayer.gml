@@ -261,7 +261,7 @@ function scrHit() {
 	var _velocidadeV = 0;
 	var _gravidade = .2;
 	
-	if (instance_place(x, y - 1, objParede)) {
+	if (instance_place(x, y - 1, objColisParede)) {
 		_velocidadeV = -.5;
 	} else {
 		_velocidadeV = -2.5;
@@ -293,7 +293,7 @@ function scrHit() {
 		_velocidadeV += _gravidade;
 	}
 
-	if place_meeting(x, y + 1, objParede) && !isDead {
+	if place_meeting(x, y + 1, objColisParede) && !isDead {
 		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 		if velocidadeH != 0 {

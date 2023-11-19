@@ -6,13 +6,13 @@ function scrIAEnemys(){
 	randomise();
 	if (!isDead) {
 		if (!perseg && walk) {
-			if (place_meeting(x + 1, y, objParede) && image_xscale == -1) {
+			if (place_meeting(x + 1, y, objColisParede) && image_xscale == -1) {
 				// Colisão à direita
 				direita = 0;
 				esquerda = 1;
 			}
 
-			if (place_meeting(x - 1, y, objParede) && image_xscale == 1) {
+			if (place_meeting(x - 1, y, objColisParede) && image_xscale == 1) {
 				// Colisão à esquerda
 				direita = 1;
 				esquerda = 0;
@@ -28,7 +28,7 @@ function scrIAEnemys(){
 		var _centerSpriteY = sprite_get_height(sprite_index)/2;
 		var _linePlayer = collision_line(x, y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objPlayer, false, true);
 		var _lineWall = collision_line(x, y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objColisParede, false, true);
-		var _lineWall2 = collision_line(x, y - sprite_get_height(sprite_index)*2, x - (vision * image_xscale), y - sprite_get_height(sprite_index)*2, objParede, false, true);
+		var _lineWall2 = collision_line(x, y - sprite_get_height(sprite_index)*2, x - (vision * image_xscale), y - sprite_get_height(sprite_index)*2, objColisParede, false, true);
 		// Verifica se a linha colidiu com alguma parede
 		if (_lineWall) {
 			vision -= 5;
@@ -110,7 +110,6 @@ function scrIAEnemys(){
 			// Player ta na sua frente, ai entra no modo de ataque
 		    } else if (velocidadeV == 0 && _distPlayer <= 25) {
 				velocidade = 0;
-				var _count;
 				if (_enemyName == "fierceTooth") {
 					if (alarm[1] <= 0) {
 						estado = scrFierceToothAtack;
@@ -128,7 +127,7 @@ function scrIAEnemys(){
 
 	#endregion
 
-		if instance_place(x, y + 1, objParede) {
+		if instance_place(x, y + 1, objColisParede) {
 			isJumping = false;
 			walk = true;
 		}

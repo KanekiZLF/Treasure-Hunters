@@ -98,11 +98,9 @@ function scrFierceToothAtack() {
 		}
 	
 		if endAnimation() && (sprite_index == sprFierceToothAntecipation) {
-			if wait("fierceAtack", .25) {
-				mask_index = sprFierceToothAttackHB;
-				if direc == 12 direc = 10;
-				else if direc == 13 direc = 11;
-			}
+			mask_index = sprFierceToothAttackHB;
+			if direc == 12 direc = 10;
+			else if direc == 13 direc = 11;
 		}
 	
 		if endAnimation() && (sprite_index == sprFierceToothAttack) {
@@ -125,7 +123,7 @@ function scrFierceToothHit() {
 	var _velocidadeV = 0;
 	var _gravidade = .2;
 	
-	if (instance_place(x, y - 1, objParede)) {
+	if (instance_place(x, y - 1, objColisParede)) {
 		_velocidadeV = -.5;
 	} else {
 		_velocidadeV = -2.5;
@@ -157,7 +155,7 @@ function scrFierceToothHit() {
 		_velocidadeV += _gravidade;
 	}
 
-	if place_meeting(x, y + 1, objParede) && !isDead {
+	if place_meeting(x, y + 1, objColisParede) && !isDead {
 		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 		if velocidadeH != 0 {

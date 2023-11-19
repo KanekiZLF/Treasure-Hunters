@@ -28,7 +28,7 @@ gravidade = .2;
 direita = 0;
 esquerda = 0;
 cima = 0;
-objColisParede = objParede;
+objColisParede = layer_tilemap_get_id("Paredes");
 vision = 7; // <-- Define um raio para saber qual distancia a espada esta do chão
 
 //Variaveis de controle de pause

@@ -7,7 +7,7 @@ gravidade = 0.2;
 cima = 0;
 direita = 0;
 esquerda = 0;
-objColisParede = objParede;
+objColisParede = layer_tilemap_get_id("Paredes");
 isOpen = false;
 coinValue = undefined;
 

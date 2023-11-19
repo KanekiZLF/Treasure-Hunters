@@ -12,7 +12,7 @@ if (sprite_index == sprPlayerDeadGround) {
 
 if (direc == 14 || direc == 15) && !isDead {
 	image_index = image_number -1;
-	if (!direita || !esquerda) && place_meeting(x, y + 1, objParede) {
+	if (!direita || !esquerda) && place_meeting(x, y + 1, objColisParede) {
 		direc = (image_xscale == 1) ? 0 : 1;
 	}
 	hit = false;
