@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "objItens",
-    "path": "folders/Objetos/objItens.yy",
+    "name": "Elixirs",
+    "path": "folders/Objetos/objItens/Elixirs.yy",
   },
   "parentObjectId": null,
   "persistent": false,

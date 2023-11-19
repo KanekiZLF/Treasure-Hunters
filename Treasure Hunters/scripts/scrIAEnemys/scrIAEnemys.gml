@@ -108,7 +108,7 @@ function scrIAEnemys(){
 					velocidade = 0;
 				}
 			// Player ta na sua frente, ai entra no modo de ataque
-		    } else if (velocidadeV == 0 && _linePlayer) {
+		    } else if (velocidadeV == 0 && _distPlayer <= 25) {
 				velocidade = 0;
 				var _count;
 				if (_enemyName == "fierceTooth") {

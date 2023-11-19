@@ -12,7 +12,13 @@ function scrDrawInfo(sprite, amount, alpha, posYOffset) {
         draw_set_alpha(alpha);
         draw_sprite_ext(sprite, 0, posX, posY, 3, 3, 0, c_white, alpha);
         draw_text_ext_transformed(posX - (7 * escala), posY - (6 * escala), "x", 10, 300, 0.5, 0.5, 0);
-        draw_text_ext_transformed(posX - (12 * escala), posY - (7 * escala), string(amount), 10, 300, 0.6, 0.6, 0);
+		if (amount > 99) {
+			draw_text_ext_transformed(posX - (16 * escala), posY - (7 * escala), string(amount), 10, 300, 0.6, 0.6, 0);
+		} else if (amount > 9) {
+			draw_text_ext_transformed(posX - (14 * escala), posY - (7 * escala), string(amount), 10, 300, 0.6, 0.6, 0);
+		} else {
+			draw_text_ext_transformed(posX - (12 * escala), posY - (7 * escala), string(amount), 10, 300, 0.6, 0.6, 0);
+		}
         draw_set_alpha(1);
     }
 }
