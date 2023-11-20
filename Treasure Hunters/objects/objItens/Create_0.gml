@@ -9,10 +9,11 @@ velocidadeV = 0;
 velocidadeH = 0;
 velocidade = 1;
 gravidade = 0.2;
-objColisParede = objParede;
+objColisParede = layer_tilemap_get_id("Paredes");
 vision = 3; // <-- Define um raio para saber qual distancia a espada esta do chão
 quantidade = 1;
 sprite = -1;
+inWall = false;
 isOpen = false; // <-- Usa a mesma variavel do bau, serve para saber se foi coletado
 switch(image_index) {
 	case 0:

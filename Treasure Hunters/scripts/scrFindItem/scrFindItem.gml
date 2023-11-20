@@ -16,7 +16,7 @@ function scrFindItem() {
            // Verifica se o índice x e y está dentro dos limites da grid
             if (xx >= 0 && xx < _gridWidth && yy >= 0 && yy < _gridHeight) {
                 // Verifica se o item na célula atual é igual ao item desejado
-                if (_grid[# xx, yy] == _itemName) {
+                if (_grid[# xx, yy] == _itemName && _grid[# Infos.Quantidade, yy] >= 1) {
                     // O item foi encontrado, retornamos true
                     return true;
                 }

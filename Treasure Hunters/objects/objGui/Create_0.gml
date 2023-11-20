@@ -7,7 +7,7 @@ iconClose = 4;
 itemSelecionado = -1; // Verifica se selecionamos algum item
 itemSelecionado2 = -1; // Verifica se selecionamos algum item
 current_page = 1;
-
+objColisParede = layer_tilemap_get_id("Paredes");
 posSelecionado = -1; // Guarda a posição do item selecionado
 
 mouseTimer = 0; // <-- Cria um delay para mover os items

@@ -6,6 +6,7 @@ function scrRemoveItem() {
     // Substitua "grid" pelo nome da sua grid
 	
 	var _itemName = argument0;
+	var _quantidade = (argument1 != undefined) ? argument1 : 1;
     var _grid = objGui.gridItems; // Substitua "grid_name" pelo nome da sua grid
 	var _gridWidth = ds_grid_width(_grid);
 	var _gridHeight = ds_grid_height(_grid);
@@ -18,8 +19,7 @@ function scrRemoveItem() {
                 // Verifica se o item na célula atual é igual ao item desejado
                 if (_grid[# xx, yy] == _itemName) {
                     // O item foi encontrado, ele é removido
-					_grid[# Infos.Item, yy]--;
-                    _grid[# Infos.Quantidade, yy]--;
+                    _grid[# Infos.Quantidade, yy] -= _quantidade;
                 }
 			}
         }

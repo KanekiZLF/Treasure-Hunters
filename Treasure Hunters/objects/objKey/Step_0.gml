@@ -22,9 +22,24 @@ if (!global.gamepause) {
 		vision++;
 	}
 	
+	if (float && !inWall) {
+		scrFloat();
+	} else if (!inWall) {
+		scrCollision();
+	}
+	
 	if (place_meeting(x, y, objColisParede)) {
-		x -= 10 * (objPlayer.image_xscale);
-		y -= 10;
+		if (instance_exists(objPlayer)) {
+			inWall = true;
+			var interpFactor = 0.08; // Ajuste conforme necessário para controlar a velocidade
+			// Obtenha as coordenadas do objPlayer
+			var targetX = objPlayer.x;
+			var targetY = objPlayer.y;
+
+			// Interpolação linear para suavizar o movimento em direção ao jogador
+			x = lerp(x, targetX, interpFactor);
+			y = lerp(y, targetY, interpFactor);
+		}
 	}
 }
 

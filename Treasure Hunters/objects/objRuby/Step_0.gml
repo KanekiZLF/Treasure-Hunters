@@ -26,12 +26,6 @@ if (!global.gamepause) {
 		scrCollision();
 	}
 	
-	if (float && !inWall) {
-		scrFloat();
-	} else if (!inWall) {
-		scrCollision();
-	}
-	
 	if (place_meeting(x, y, objColisParede)) {
 		if (instance_exists(objPlayer)) {
 			inWall = true;
@@ -46,6 +40,9 @@ if (!global.gamepause) {
 		}
 	}
 }
+
+
+
 
 /*switch(sprite) {
 	case 0:
