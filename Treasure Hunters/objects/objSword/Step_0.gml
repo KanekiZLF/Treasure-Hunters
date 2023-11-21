@@ -62,28 +62,16 @@ if (!_pause) {
 		vision++;
 	}
 	
-	if (ricochete) {
+	if (ricochete && !place_meeting(x, y, objColisParede)) {
+		if (alarm[2] > 0) {
+			y -= 2;
+			x -= (-.1 * image_xscale);
+			speed = (-1 * image_xscale);
+		}
+		
 		if alarm[2] <= 0 {
-			// Calcula o novo ângulo de ricochete (45 graus para cima)
-		    var newDirection = direction + 45;
-
-		    // Aplica o novo ângulo
-		    direction = newDirection;
-
-		    // Calcula as novas velocidades usando lengthdir
-		    var x_speed = lengthdir_x(speed, newDirection);
-		    var y_speed = lengthdir_y(speed, newDirection);
-
-		    // Inverte as velocidades para ricochetear
-		    x_speed *= -1;
-		    y_speed *= -1;
-
-		    // Aplica as novas velocidades
-		    speed = sqrt(x_speed * x_speed + y_speed * y_speed);
-		    direction = point_direction(0, 0, x_speed, y_speed);
-		    x += x_speed;
-		    y += y_speed;
-			ricochete = false;
+			y += 2;
+			speed = (-.8 * image_xscale);
 		} 
 	}
 
@@ -106,5 +94,10 @@ if (place_meeting(x + (1 * image_xscale), y, objColisParede) || place_meeting(x 
 		objPlayer.noTake = true;
 		speed = 0;
 		direc = (image_xscale == 1) ? 4 : 5;
+	}
+	
+	if (ricochete) {
+		image_angle = (-60 * image_xscale)
+		ricochete = false;
 	}
 }

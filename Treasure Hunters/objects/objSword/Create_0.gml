@@ -8,6 +8,7 @@ camDirec = 0; // <<-- Define a direção em que a camera ira tremer
 camDef = false; // <-- Após a camera armazenar as posições X, Y, fica true, para não fica alterando as posições
 camDef2 = false; // <-- mesma coisa do acima
 
+
 // Variaveis de definição
 floatSpeed = .2; // <-- Velocidade de flutuação
 float = true; // <-- Define se pode ou não flutuar
@@ -24,7 +25,7 @@ ricochete = false // <-- Define se a espada ricocheteou
 // Variaveis de colisão
 velocidadeV = 0;
 velocidadeH = 0;
-velocidade = 1;
+velocidade = 2;
 gravidade = .2;
 direita = 0;
 esquerda = 0;
