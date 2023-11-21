@@ -1,6 +1,8 @@
 /// @description Desenha os efeitos
 // You can write your code in this editor
 draw_self();
+//draw_line(x - 14, y + 2, x + 10, y + 2);
+//draw_line(x - 14, y - 28, x + 10, y - 28);
 
 /*
 // Define o efeito de ataque no chao

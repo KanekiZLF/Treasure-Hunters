@@ -25,3 +25,29 @@ function scrCollision() {
 		velocidadeV += gravidade;
 	}
 }
+
+function scrCollisionPalm() {
+
+//Colisao X
+	if place_meeting(x + velocidadeH, y, objPalmFront)  {
+	while !place_meeting(x + sign(velocidadeH), y, objPalmFront)  {
+		x += sign(velocidadeH);
+	}
+		velocidadeH = 0;
+	}
+	x += velocidadeH;
+
+//Colisao Y
+	if place_meeting(x, y + velocidadeV, objPalmFront) {
+		while !place_meeting(x, y + sign(velocidadeV), objPalmFront) {
+			y += sign(velocidadeV); 
+	}
+		velocidadeV = 0;
+	}
+	y += velocidadeV;
+
+//Gravidade
+	if !place_meeting(x, y + 1, objPalmFront) {
+		velocidadeV += gravidade;
+	}
+}

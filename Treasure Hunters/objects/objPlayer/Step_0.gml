@@ -26,7 +26,7 @@ if global.lifes <= 0 {
 	
 	global.gameover = true;
 	// Cria o efeito de fumaça
-	if sprite_index == sprPlayerDeadGround && image_index == 1 && place_meeting(x, y + 1, objParede) {
+	if sprite_index == sprPlayerDeadGround && image_index == 1 && place_meeting(x, y + 1, objColisParede) {
 		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 		var _effect2 = instance_create_layer(x, y, layer, objEffects)
@@ -186,7 +186,7 @@ if !isDead && (!_pause) {
 			_effect.direc = 5
 	}
 
-	if (place_meeting(x, y + 1, objParede)) && isEffect {
+	if (place_meeting(x, y + 1, objColisParede)) && isEffect {
 		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
 			isEffect = false;
@@ -195,54 +195,52 @@ if !isDead && (!_pause) {
 	// Adiciona item ao inventario
 	if (instance_exists(objItens) && !global.inventory) {
     var _inst = instance_nearest(x, y, objItens);
-    if (distance_to_point(_inst.x, _inst.y) <= 20) {
-        if (place_meeting(x, y, _inst)) {
-			scrDsGridProcess(_inst.sprite, _inst.quantidade);
-			switch (_inst.sprite) {
-				case 3:
-					scrColected("diamond", _inst.quantidade);
-				break;
+	    if (distance_to_point(_inst.x, _inst.y) <= 20) {
+	        if (place_meeting(x, y, _inst)) {
+				scrDsGridProcess(_inst.sprite, _inst.quantidade);
+				switch (_inst.sprite) {
+					case 3:
+						scrColected("diamond", _inst.quantidade);
+					break;
 				
-				case 4:
-					scrColected("saphire", _inst.quantidade);
-				break;
+					case 4:
+						scrColected("saphire", _inst.quantidade);
+					break;
 				
-				case 5:
-					scrColected("ruby", _inst.quantidade);
-				break;
+					case 5:
+						scrColected("ruby", _inst.quantidade);
+					break;
+				}
+			
+			
+				if (_inst.sprite == 0 || _inst.sprite == 1 || _inst.sprite == 2) {
+					var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);
+					_effect.direc = 14;
+				} 
+			
+				if (_inst.sprite == 3 || _inst.sprite == 4 || _inst.sprite == 5) {
+					var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);
+					_effect.direc = 9;
+				}
+			
+				if (_inst.sprite == 7) {
+					var _effect = instance_create_layer(_inst.x, _inst.y, "Effects", objEffects);
+					_effect.direc = 15;
+				} 
+				instance_destroy(_inst);
 			}
-			
-			
-			if (_inst.sprite == 0 || _inst.sprite == 1 || _inst.sprite == 2) {
-				var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);
-				_effect.direc = 14;
-			} 
-			
-			if (_inst.sprite == 3 || _inst.sprite == 4 || _inst.sprite == 5) {
-				var _effect = instance_create_layer(_inst.x, _inst.y + 9, "Effects", objEffects);
-				_effect.direc = 9;
-			}
-			
-			if (_inst.sprite == 7) {
-				var _effect = instance_create_layer(_inst.x, _inst.y, "Effects", objEffects);
-				_effect.direc = 15;
-			} 
-            instance_destroy(_inst);
-        }
-    }
+		}
+	}
+	
+	//Verifica se esta colidindo com alguma palmeira
+	var _linePalm1 = collision_line(x - 14, y + 2, x + 10, y + 2, objPalmFront, false, true);
+	var _linePalm2 = collision_line(x - 14, y - 28, x + 10, y - 28, objPalmFront, false, true);
+	var _linePalm3 = collision_line(x - 14, y - 28, x + 10, y - 28, layer_tilemap_get_id("Paredes"), false, true);
+	if (!place_meeting(x + (1 * image_xscale), y + 1, layer_tilemap_get_id("Paredes")) && place_meeting(x, y + 6, objPalmFront) && !_linePalm1 && !_linePalm2 && !baixo && !_linePalm3) {
+		objColisParede = objPalmFront;
+	} else {
+		objColisParede = layer_tilemap_get_id("Paredes");
+	}
 }
 
-}
 
-//Verifica se tem algo colidindo, na direita ou esquerda, se tiver, diminui o campo de visao, até sair da colisao
-vision = clamp(real(vision), 0, 100); //<-- Limita o campo de visao até 100px
-var _lineWall = collision_line(x, y - 20, x + (vision * image_xscale), y - 20, objColisParede, false, true)
-if (_lineWall) {
-	vision--;
-}
-
-//Se nao tiver nada colidindo, aumenta o campo de visao
-var _lineWall2 = !collision_line(x, y - 20, x + (vision * image_xscale), y - 20, objColisParede, false, true)
-if (_lineWall2) {
-	vision++;
-}

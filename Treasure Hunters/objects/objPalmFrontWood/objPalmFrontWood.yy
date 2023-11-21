@@ -26,8 +26,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprPalmFront",
-    "path": "sprites/sprPalmFront/sprPalmFront.yy",
+    "name": "sprFrontPalmWood",
+    "path": "sprites/sprFrontPalmWood/sprFrontPalmWood.yy",
   },
   "spriteMaskId": null,
   "visible": true,

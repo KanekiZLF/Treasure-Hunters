@@ -38,6 +38,10 @@ function scrPlayer() {
 		}
 		
 		cima = keyboard_check_pressed(ord("W"));
+		
+		if (keyboard_check_pressed(ord("S")) && place_meeting(x, y + 1, objPalmFront)) {
+			baixo = true;
+		}	
 	}
 	velocidadeH = (direita - esquerda) * velocidade;
 
@@ -186,6 +190,10 @@ function scrPlayer() {
 			direc = 15; //<-- Hit Esquerda
 			estado = scrHit;
 		}
+	}
+	
+	if (place_meeting(x, y + 1, layer_tilemap_get_id("Paredes")) || isFall) && !place_meeting(x, y + 1, objPalmFront) {
+		baixo = false;
 	}
 }
 

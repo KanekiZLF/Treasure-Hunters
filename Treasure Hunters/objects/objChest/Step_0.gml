@@ -4,7 +4,7 @@ scrCollision();
 randomize();
 
 if (instance_exists(objPlayer)) {
-	if (instance_place(x, y, objPlayer) && scrFindItem(Items.Key)) {
+	if (instance_place(x, y, objPlayer) && scrFindItem(Items.Key) && !objPlayer.isAttacking && !objPlayer.isAirAttacking) {
 		if (keyboard_check_pressed(ord("F")) && !isOpen) {
 			sprite_index = sprChestOpen;
 			isOpen = true;

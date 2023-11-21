@@ -15,6 +15,7 @@ gravidade   = 0.2;
 direita = 0;
 esquerda = 0;
 cima = 0;
+baixo = false;
 pulo = -4;
 alturaPulo = pulo;
 doubleJump = 0;
@@ -42,12 +43,13 @@ moveOn = true; //<-- Define se posso ou não andar
 inimigos_atingidos = ds_list_create(); //<-- Cria uma lista
 checkPoint = 0; // <-- Define o checkpoint da fase
 
+
 objColisParede = layer_tilemap_get_id("Paredes"); //<-- Define qual é o objeto de parede
 arraySprite = 0; //<-- Define qual array de sprites ira usar
 toThrow = false; //<-- Define se joguei ou não a espada
 noTake = false; //<-- Impede de pegar a espada lançada até tocar na parede
 dropSword = false; // <-- Solta espada quando morre
-vision = 50;
+vision = 50; // <-- Define o tamanho da linha de visão
 stamCost = 0; // <-- Define o valor que custa para usar a habilidade
 lifeCost = 0;
 poisonCost = 0;
