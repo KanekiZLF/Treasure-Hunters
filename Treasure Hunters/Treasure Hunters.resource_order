@@ -8,6 +8,7 @@
     {"name":"Extensões","order":13,"path":"folders/Extensões.yy",},
     {"name":"Fontes","order":8,"path":"folders/Fontes.yy",},
     {"name":"Linhas do tempo","order":11,"path":"folders/Linhas do tempo.yy",},
+    {"name":"Cenario","order":5,"path":"folders/Objetos/Cenario.yy",},
     {"name":"objBlocos","order":3,"path":"folders/Objetos/objBlocos.yy",},
     {"name":"objConfiguracoes","order":2,"path":"folders/Objetos/objConfiguracoes.yy",},
     {"name":"objGui","order":7,"path":"folders/Objetos/objConfiguracoes/objGui.yy",},
@@ -65,7 +66,6 @@
     {"name":"sprTraps","order":13,"path":"folders/Sprites/sprTraps.yy",},
     {"name":"sprSpike","order":1,"path":"folders/Sprites/sprTraps/sprSpike.yy",},
     {"name":"sprWater","order":8,"path":"folders/Sprites/sprWater.yy",},
-    {"name":"Cenario","order":5,"path":"folders/Objetos/Cenario.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprPlayerSwordAtack2HB","order":18,"path":"sprites/sprPlayerSwordAtack2HB/sprPlayerSwordAtack2HB.yy",},
@@ -292,6 +292,7 @@
     {"name":"sprAdditionalSky","order":8,"path":"sprites/sprAdditionalSky/sprAdditionalSky.yy",},
     {"name":"sprSealShellBite","order":2,"path":"sprites/sprSealShellBite/sprSealShellBite.yy",},
     {"name":"fnYuGothic","order":2,"path":"fonts/fnYuGothic/fnYuGothic.yy",},
+    {"name":"sprFrontPalmWood","order":5,"path":"sprites/sprFrontPalmWood/sprFrontPalmWood.yy",},
     {"name":"scrColected","order":1,"path":"scripts/scrColected/scrColected.yy",},
     {"name":"sprHead2Attack1","order":2,"path":"sprites/sprHead2Attack1/sprHead2Attack1.yy",},
     {"name":"sprPlayerDead","order":7,"path":"sprites/sprPlayerDead/sprPlayerDead.yy",},
