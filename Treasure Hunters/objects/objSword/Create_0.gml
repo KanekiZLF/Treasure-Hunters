@@ -19,6 +19,7 @@ autoDestroy = false; // <-- Se auto destroi se for true
 isSpeed = 0; // <-- Armazena a velocidade em que a espada foi lançada
 drop = false;
 damage = false;
+ricochete = false // <-- Define se a espada ricocheteou
 
 // Variaveis de colisão
 velocidadeV = 0;

@@ -1,25 +1,33 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 // No evento de colisão do item com o inimigo
+
+// Verificar colisão com objEntidade
 if (place_meeting(x, y, objEntidade)) {
     // Calcula o novo ângulo de ricochete (45 graus para cima)
-    var newDirection = direction + 45;
+    var newDirection = direction - 45;
 
-    // Garante que o ângulo permanece entre 0 e 360 graus
-    if (newDirection < 0) {
-        newDirection += 360;
-    } else if (newDirection >= 360) {
-        newDirection -= 360;
-    }
-
-    // Aplica o novo ângulo e inverte a velocidade para ricochetear
+    // Aplica o novo ângulo
     direction = newDirection;
-    speed *= -1;
 
-    // Ajusta a posição para evitar que fique preso no inimigo
-    x += lengthdir_x(2, newDirection);
-    y += lengthdir_y(2, newDirection);
+    // Calcula as novas velocidades usando lengthdir
+    var x_speed = lengthdir_x(speed, newDirection);
+    var y_speed = lengthdir_y(speed, newDirection);
+
+    // Inverte as velocidades para ricochetear
+    x_speed *= -1;
+    y_speed *= -1;
+
+    // Aplica as novas velocidades
+    speed = sqrt(x_speed * x_speed + y_speed * y_speed);
+    direction = point_direction(0, 0, x_speed, y_speed);
+    x += x_speed;
+    y += y_speed;
+	alarm[2] = 30;
+	ricochete = true;
 }
+
+
 
 
 

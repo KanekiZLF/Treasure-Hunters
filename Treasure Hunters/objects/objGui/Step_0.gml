@@ -28,7 +28,7 @@ if (keyboard_check_pressed(ord("S"))) {
 	scrSaveGame();
 	scrSaveInventory();
 }
-
+*/
 if (keyboard_check_pressed(ord("L"))) {
 	//var _load = instance_create_layer(0, 0, layer, objBackgroundLoad);
 	scrLoadGame();

@@ -27,7 +27,7 @@ if lifes <= 0 {
 #endregion
 
 if (!global.gamepause && !isDead) {
-	scrIAEnemys("fierceTooth");
+	//scrIAEnemys("fierceTooth");
 	
 	// Crie os efeitos de fumaça quando anda ou pula
 	if (wait("runDust1", .2)) && direita && !isJumping && !isFall && !isDead && velocidade > 0 {
