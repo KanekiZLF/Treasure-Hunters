@@ -8,4 +8,6 @@ myCoinsRuby = 0;
 myElxLife = 0;
 myElxStam = 0;
 myElxPoison = 0;
+mySkull = 0;
+myKey = 0;
 alphaCoins = 1;

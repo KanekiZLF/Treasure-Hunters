@@ -24,11 +24,24 @@ function scrIAEnemys(){
 		}
 
 		//Verifica se tem algo colidindo, na direita ou esquerda, se tiver, diminui o campo de visao, até sair da colisao
-		vision = clamp(vision, 0, 101); //<-- Limita o campo de visao até limite em px
 		var _centerSpriteY = sprite_get_height(sprite_index)/2;
-		var _linePlayer = collision_line(x, y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objPlayer, false, true);
+		var _linePlayer;
 		var _lineWall = collision_line(x, y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objColisParede, false, true);
 		var _lineWall2 = collision_line(x, y - sprite_get_height(sprite_index)*2, x - (vision * image_xscale), y - sprite_get_height(sprite_index)*2, objColisParede, false, true);
+		
+		switch(_enemyName) {
+			
+			case "fierceTooth":
+				vision = clamp(vision, 0, 101); //<-- Limita o campo de visao até limite em px
+				_linePlayer = collision_line(x, y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objPlayer, false, true);
+			break;
+			
+			case "crabby":
+				vision = clamp(vision, 0, 60); //<-- Limita o campo de visao até limite em px
+				_linePlayer = collision_line(x + (vision * image_xscale), y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objPlayer, false, true);
+			break;
+		}
+		
 		// Verifica se a linha colidiu com alguma parede
 		if (_lineWall) {
 			vision -= 5;
@@ -63,7 +76,8 @@ function scrIAEnemys(){
 
 		// Verifica se o player existe na room
 		if (instance_exists(objPlayer)) {
-	    var _distPlayer = point_distance(x, y, objPlayer.x, objPlayer.y);
+	    var _distPlayerX = point_distance(x, 0, objPlayer.x, 0);
+		var _distPlayerY = point_distance(0, y, 0, objPlayer.y);
 	    var _distX = objPlayer.x - x; // <-- Define se  player esta na frente ou atrás
 	
 		// Usa linha para verificar se esta colidindo com player
@@ -71,15 +85,15 @@ function scrIAEnemys(){
 	        perseg = true;
 			barLife = true;
 	    } 
-	
+		scrPrint(_distPlayerY);
 		// Para de seguir o player se a distancia for maior que o limite definido
-		if (_distPlayer >= distLimit) {
+		if (_distPlayerX >= distLimit || (_distPlayerY >= 30 && objPlayer.doubleJump == 2)) {
 	        perseg = false;
 	        isEffect = false;
 			barLife = false;
 	    }
 	    // Aumenta a velocidade para perseguir o player
-	    if (perseg && !global.gameover) {
+	    if (perseg && !global.gameover && !isDead) {
 	        velocidade = 1.5;
 
 	        // Cria o efeito dos pontos de exclamação !!
@@ -92,7 +106,7 @@ function scrIAEnemys(){
 	        }
 			
 			// Se a distancia for superior ou igual a 30
-			if (_distPlayer >= 30 && objPlayer.velocidadeV == 0) {
+			if (_distPlayerX >= distAttack && objPlayer.velocidadeV == 0) {
 				// Verifica se o inimigo esta atras ou na frente do player
 		        if (_distX > 0) {
 		            // Inimigo está atrás do jogador, mova-o para a direita
@@ -108,7 +122,7 @@ function scrIAEnemys(){
 					velocidade = 0;
 				}
 			// Player ta na sua frente, ai entra no modo de ataque
-		    } else if (velocidadeV == 0 && _distPlayer <= 25) {
+		    } else if (velocidadeV == 0 && _distPlayerX <= distAttack - 5) {
 				velocidade = 0;
 				if (_enemyName == "fierceTooth") {
 					if (alarm[1] <= 0) {
@@ -116,12 +130,26 @@ function scrIAEnemys(){
 						alarm[1] = 1.3 * game_get_speed(gamespeed_fps);// <-- Intervalo entre ataques
 					}
 				}
+				
+				if (_enemyName == "crabby") {
+					if (alarm[1] <= 0) {
+						estado = scrCrabbyAtack;
+						alarm[1] = 1.3 * game_get_speed(gamespeed_fps);// <-- Intervalo entre ataques
+					}
+				}
 			}
-		} else if (global.gameover) {
+		} else if (global.gameover || isDead) {
 			perseg = false;
 	        isEffect = false;
-			mask_index = sprFierceToothIdle;
-			estado = scrFierceTooth;
+			if (_enemyName == "fierceTooth") {
+				mask_index = sprFierceToothIdle;
+				estado = scrFierceTooth;
+			}
+			
+			if (_enemyName == "crabby") {
+				mask_index = sprCrabbyIdle;
+				estado = scrCrabby;
+			}
 		}
 	}
 

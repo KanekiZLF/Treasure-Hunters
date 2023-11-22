@@ -1,6 +1,6 @@
 /// @description Tomo dano
 // You can write your code in this editor
-var _pause = global.gamepause;
+/*var _pause = global.gamepause;
 var _enemy = instance_place(x, y, objEntidade);
 
 // Verifica se o inimigo está vivo e se o jogador pode tomar dano

@@ -50,6 +50,18 @@ if (myElxStam > 0) {
 // Elixir de Vida
 if (myElxPoison > 0) {
     scrDrawInfo(sprGreenBottle, myElxPoison, alphaCoins, posicaoBase);
+	posicaoBase += passoPosicao;
+}
+
+// Caveira de Ouro
+if (mySkull > 0) {
+    scrDrawInfo(sprSkullSell, mySkull, alphaCoins, posicaoBase);
+	posicaoBase += passoPosicao;
+}
+
+// Chave do Bau
+if (myKey > 0) {
+    scrDrawInfo(sprChestKeyIdle, myKey, alphaCoins, posicaoBase);
 }
 
 

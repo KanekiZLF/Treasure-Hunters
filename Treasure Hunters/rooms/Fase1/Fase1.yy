@@ -7,7 +7,6 @@
   "inheritCreationOrder": false,
   "inheritLayers": false,
   "instanceCreationOrder": [
-    {"name":"inst_77904767","path":"rooms/Fase1/Fase1.yy",},
     {"name":"inst_36C98F9","path":"rooms/Fase1/Fase1.yy",},
     {"name":"inst_262945B","path":"rooms/Fase1/Fase1.yy",},
     {"name":"inst_6C90525F","path":"rooms/Fase1/Fase1.yy",},
@@ -74,7 +73,9 @@
     {"name":"inst_490C954D","path":"rooms/Fase1/Fase1.yy",},
     {"name":"inst_51C674B3","path":"rooms/Fase1/Fase1.yy",},
     {"name":"inst_6006EB8F","path":"rooms/Fase1/Fase1.yy",},
-    {"name":"inst_2E403E34","path":"rooms/Fase1/Fase1.yy",},
+    {"name":"inst_44B6C89A","path":"rooms/Fase1/Fase1.yy",},
+    {"name":"inst_4F261E0F","path":"rooms/Fase1/Fase1.yy",},
+    {"name":"inst_7B06AEC1","path":"rooms/Fase1/Fase1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -84,8 +85,9 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6006EB8F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objSword","path":"objects/objSword/objSword.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":144.0,"y":405.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Enemys","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_77904767","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objFierceTooth","path":"objects/objFierceTooth/objFierceTooth.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":248.0,"y":442.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2E403E34","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objFierceTooth","path":"objects/objFierceTooth/objFierceTooth.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":69.0,"y":437.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_44B6C89A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objCrabby","path":"objects/objCrabby/objCrabby.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":305.0,"y":436.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4F261E0F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objCrabby","path":"objects/objCrabby/objCrabby.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":473.0,"y":422.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7B06AEC1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objCrabby","path":"objects/objCrabby/objCrabby.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":652.0,"y":342.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Itens","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_36C98F9","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"objChest","path":"objects/objChest/objChest.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":416.0,"y":288.0,},

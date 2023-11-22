@@ -10,7 +10,7 @@ function toThrowSword() {
         var sword_y = objPlayer.y - 2.5;
 
         // Cria a nova espada
-        var _newSword = instance_create_layer(sword_x, sword_y, layer, objSword);
+        var _newSword = instance_create_layer(sword_x, sword_y, "BackPalmTrees", objSword);
 
         // Define as propriedades da nova espada
         _newSword.speed = objPlayer.image_xscale * 4;

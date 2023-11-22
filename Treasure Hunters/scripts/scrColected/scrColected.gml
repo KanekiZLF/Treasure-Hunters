@@ -54,4 +54,16 @@ function scrColected(coinType, quant){
 		objCoinsGui.alphaCoins = 1;
 		objCoinsGui.alarm[0] =  1 * game_get_speed(gamespeed_fps);
 	}
+	
+	if (coinType == "goldSkull") {
+		objCoinsGui.mySkull += quant;
+		objCoinsGui.alphaCoins = 1;
+		objCoinsGui.alarm[0] =  1 * game_get_speed(gamespeed_fps);
+	}
+	
+	if (coinType == "chestKey") {
+		objCoinsGui.myKey += quant;
+		objCoinsGui.alphaCoins = 1;
+		objCoinsGui.alarm[0] =  1 * game_get_speed(gamespeed_fps);
+	}
 }
