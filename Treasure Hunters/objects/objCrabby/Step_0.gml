@@ -45,5 +45,17 @@ if (!global.gamepause && !isDead) {
 			_effect.direc = 2
 			isEffect2 = false;
 	}
+	
+	if isDead || hit {
+		if direc = 0 || direc = 2 || direc = 4 || direc = 6 || direc = 10 || direc == 12 {
+			direc = 14; //<-- Hit Direita
+			estado = scrCrabbyHit;
+		}
+		
+		if direc = 1 || direc = 3 || direc = 5 || direc = 7 || direc = 11 || direc == 13 {
+			direc = 15; //<-- Hit Esquerda
+			estado = scrCrabbyHit;
+		}
+	}
 }
-
+scrPrint(direc);

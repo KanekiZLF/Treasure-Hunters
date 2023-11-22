@@ -85,7 +85,6 @@ function scrIAEnemys(){
 	        perseg = true;
 			barLife = true;
 	    } 
-		scrPrint(_distPlayerY);
 		// Para de seguir o player se a distancia for maior que o limite definido
 		if (_distPlayerX >= distLimit || (_distPlayerY >= 30 && objPlayer.doubleJump == 2)) {
 	        perseg = false;

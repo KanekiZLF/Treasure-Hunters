@@ -70,8 +70,8 @@ function scrEnemysDirec(){
 		sprCrabbyHit, // 15: Hit Esquerda
 		sprCrabbyDead, // 16: Hit Dead Direita
 		sprCrabbyDead, // 17: Hit Dead Esquerda
-		sprCrabbyGround, // 18: Morto Direita
-		sprCrabbyGround, // 19: Morto Esquerda
+		sprCrabbyDeadGround, // 18: Morto Direita
+		sprCrabbyDeadGround, // 19: Morto Esquerda
 	]
 	
 	// SealShell

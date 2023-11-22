@@ -138,7 +138,6 @@ function scrCrabbyHit() {
 	
 	if hit {
 		velocidadeH = random(1.5) * image_xscale;
-		
 		if place_meeting(x, y + _velocidadeV, objColisParede) {
 		while !place_meeting(x, y + sign(_velocidadeV), objColisParede) {
 			y += sign(_velocidadeV); 
@@ -148,8 +147,9 @@ function scrCrabbyHit() {
 		y += _velocidadeV;
 		
 		if !place_meeting(x, y + 1, objColisParede) {
-		_velocidadeV += _gravidade;
-	}
+			_velocidadeV += _gravidade;
+		}
+		//hit = false;
 	} else if !hit {
 		velocidadeH = 0;
 		_velocidadeV += _gravidade;
@@ -158,9 +158,6 @@ function scrCrabbyHit() {
 	if place_meeting(x, y + 1, objColisParede) && !isDead {
 		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
 			_effect.direc = 2
-		if velocidadeH != 0 {
-			direc = (image_xscale == -1) ? 2 : 3;
-		}
 		estado = scrCrabby;
 	}
 
