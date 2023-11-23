@@ -17,6 +17,7 @@ walk = true;
 distLimit = 100; // <-- Distancia limite de perseguição
 distAttack = 30;
 isFall = false;
+dialog = false;
 
 // Variaveis de modificação
 estado = scrFierceTooth;

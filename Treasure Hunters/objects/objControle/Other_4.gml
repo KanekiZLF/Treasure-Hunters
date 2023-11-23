@@ -4,6 +4,9 @@ if (room != rmInit) {
 	global.isLoading = true;
 }
 
-if (room != rmInit && !instance_exists(objPlayer)) {
-	instance_create_layer(display_get_gui_width()/3, display_get_gui_height()/3, "Instances", objPlayer);
+if (!instance_exists(objPlayer)) {
+	if (room != rmInit) {
+		instance_create_layer(50, 430, "Instances", objPlayer);
+	}
 }
+

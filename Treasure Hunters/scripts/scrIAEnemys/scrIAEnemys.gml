@@ -101,6 +101,7 @@ function scrIAEnemys(){
 	            _instEffect.direc = 7;
 	            _instEffect.enemy = true;
 	            _instEffect.imageSpeed = 2;
+				dialog = true;
 	            isEffect = true;
 	        }
 			

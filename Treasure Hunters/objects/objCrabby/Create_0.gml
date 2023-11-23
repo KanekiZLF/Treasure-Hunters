@@ -11,12 +11,13 @@ esquerda = 0;
 cima = 0;
 isEffect = false; //<-- Ativa ou desativa os efeitos de fumaça
 isEffect2 = false;
-tempoAndar = 80; // Tempo para volta a andar;
+tempoAndar = 150; // Tempo para volta a andar;
 distAttack = 40;
 isJumping = false;
 walk = true;
 distLimit = 100; // <-- Distancia limite de perseguição
 isFall = false;
+dialog = false;
 
 // Variaveis de modificação
 estado = scrCrabby;
