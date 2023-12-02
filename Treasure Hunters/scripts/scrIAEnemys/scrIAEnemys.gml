@@ -5,6 +5,13 @@ function scrIAEnemys(){
 	var _enemyName = argument0;
 	randomise();
 	if (!isDead) {
+		
+		if (!perseg && !scrCanFall()) {
+			walk = false;
+			if direita = 0 { direita = 1; esquerda = 0}
+			else if esquerda = 0 {direita = 0; esquerda = 1};
+		}
+		
 		if (!perseg && walk) {
 			if (place_meeting(x + 1, y, objColisParede) && image_xscale == -1) {
 				// Colisão à direita
@@ -47,6 +54,7 @@ function scrIAEnemys(){
 			vision -= 5;
 			if (vision  <= 20) {
 				walk = false;
+				alarm[0] = -1;
 				// Verifica se não esta pulando e se a linha 2 não colidiu com uma parede, ai ele pode pular !
 				if (!isJumping && !_lineWall2 && !_linePlayer) {
 					cima = 1;

@@ -6,8 +6,8 @@ velocidadeH = 0;
 velocidadeV = 0;
 velocidade  = 1;
 gravidade   = 0.2;
-direita = 1;
-esquerda = 0;
+direita = 0;
+esquerda = 1;
 cima = 0;
 isEffect = false; //<-- Ativa ou desativa os efeitos de fumaça
 isEffect2 = false;
@@ -18,6 +18,7 @@ distLimit = 100; // <-- Distancia limite de perseguição
 distAttack = 30;
 isFall = false;
 dialog = false;
+canFall = false;
 
 // Variaveis de modificação
 estado = scrFierceTooth;

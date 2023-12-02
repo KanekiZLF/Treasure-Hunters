@@ -27,8 +27,27 @@ if lifes <= 0 {
 #endregion
 
 if (!global.gamepause && !isDead) {
-	scrIAEnemys("fierceTooth");
 	
+	if (scrCanFall()) {
+		scrIAEnemys("fierceTooth");
+	}
+
+	
+	if (!perseg && !scrCanFall() && !canFall && !isJumping && !isFall) {
+		velocidade = 1;
+
+		if direita = 0 { direita = 1; esquerda = 0}
+		else if esquerda = 0 {direita = 0; esquerda = 1};
+		
+		canFall = true;
+	}
+	
+	if wait("canFallAlrm", .2) {
+		if (canFall) {
+			canFall = false
+		}
+	}
+		
 	// Crie os efeitos de fumaça quando anda ou pula
 	if (wait("runDust1", .2)) && direita && !isJumping && !isFall && !isDead && velocidade > 0 {
 		var _effect = instance_create_layer(x - 10, y + 2.5, layer, objEffects);
@@ -47,3 +66,7 @@ if (!global.gamepause && !isDead) {
 	}
 }
 
+if (keyboard_check_pressed(ord("1"))) {
+	if direita = 0 { direita = 1; esquerda = 0}
+	else if esquerda = 0 {direita = 0; esquerda = 1};
+}

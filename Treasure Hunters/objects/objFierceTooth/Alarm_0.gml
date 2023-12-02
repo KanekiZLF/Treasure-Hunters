@@ -3,7 +3,7 @@
 if (!global.gamepause) {
 	if (!perseg && walk) {
 		velocidade = velocidade ? 0 : 1;
-		var _ranNum = irandom_range(0, 2); // Gere um número aleatório entre 0, 1 e 2
+		var _ranNum = choose(0, 1, 2, 2, 1, 1 , 1, 2, 2); // Gere um número aleatório entre 0, 1 e 2
 
 		if _ranNum == 1 {
 			direita = 1;

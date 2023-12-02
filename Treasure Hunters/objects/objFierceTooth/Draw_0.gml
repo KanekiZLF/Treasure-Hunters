@@ -3,6 +3,9 @@
 draw_self();
 //draw_line(x, y - sprite_get_height(sprite_index)/2, x - (vision * image_xscale), y - sprite_get_height(sprite_index)/2);
 //draw_line(x, y - sprite_get_height(sprite_index)*2, x - (vision * image_xscale), y - sprite_get_height(sprite_index)*2);
+//draw_line(x - (15 * image_xscale), y + 16, x - (35 * image_xscale), y + 16);
+//draw_line(x - (15 * image_xscale), y + 54, x - (35 * image_xscale), y + 54);
+
 
 if (!isDead) {
 	var _spriteCenter = sprite_get_height(sprFierceToothIdle)

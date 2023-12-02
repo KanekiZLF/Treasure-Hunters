@@ -27,7 +27,27 @@ if lifes <= 0 {
 #endregion
 
 if (!global.gamepause && !isDead) {
-	scrIAEnemys("crabby");
+	
+	if (scrCanFall()) {
+		scrIAEnemys("crabby");
+	}
+
+	
+	if (!perseg && !scrCanFall() && !canFall && !isJumping && !isFall) {
+		velocidade = 1;
+
+		if direita = 0 { direita = 1; esquerda = 0}
+		else if esquerda = 0 {direita = 0; esquerda = 1};
+
+	    scrPrint("Entro");
+		canFall = true;
+	}
+	
+	if wait("canFallAlrm", .2) {
+		if (canFall) {
+			canFall = false
+		}
+	}
 	
 	// Crie os efeitos de fumaça quando anda ou pula
 	if (wait("runDust1", .2)) && direita && !isJumping && !isFall && !isDead && velocidade > 0 {

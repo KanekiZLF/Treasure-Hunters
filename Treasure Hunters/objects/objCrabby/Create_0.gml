@@ -17,6 +17,7 @@ isJumping = false;
 walk = true;
 distLimit = 100; // <-- Distancia limite de perseguição
 isFall = false;
+canFall = false;
 dialog = false;
 
 // Variaveis de modificação

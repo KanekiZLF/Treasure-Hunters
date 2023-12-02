@@ -9,6 +9,7 @@
     {"name":"Fontes","order":8,"path":"folders/Fontes.yy",},
     {"name":"Linhas do tempo","order":11,"path":"folders/Linhas do tempo.yy",},
     {"name":"Cenario","order":5,"path":"folders/Objetos/Cenario.yy",},
+    {"name":"objBarco","order":6,"path":"folders/Objetos/objBarco.yy",},
     {"name":"objBlocos","order":3,"path":"folders/Objetos/objBlocos.yy",},
     {"name":"objConfiguracoes","order":2,"path":"folders/Objetos/objConfiguracoes.yy",},
     {"name":"objGui","order":7,"path":"folders/Objetos/objConfiguracoes/objGui.yy",},
@@ -66,7 +67,6 @@
     {"name":"sprTraps","order":12,"path":"folders/Sprites/sprTraps.yy",},
     {"name":"sprSpike","order":1,"path":"folders/Sprites/sprTraps/sprSpike.yy",},
     {"name":"sprWater","order":8,"path":"folders/Sprites/sprWater.yy",},
-    {"name":"objBarco","order":6,"path":"folders/Objetos/objBarco.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprPlayerSwordAtack2HB","order":18,"path":"sprites/sprPlayerSwordAtack2HB/sprPlayerSwordAtack2HB.yy",},
@@ -367,6 +367,7 @@
     {"name":"sprPlayerSwordThowSword","order":11,"path":"sprites/sprPlayerSwordThowSword/sprPlayerSwordThowSword.yy",},
     {"name":"scrSword","order":9,"path":"scripts/scrSword/scrSword.yy",},
     {"name":"sprFierceToothAttack","order":12,"path":"sprites/sprFierceToothAttack/sprFierceToothAttack.yy",},
+    {"name":"scrCanFall","order":5,"path":"scripts/scrCanFall/scrCanFall.yy",},
     {"name":"sprHead2Hit2","order":5,"path":"sprites/sprHead2Hit2/sprHead2Hit2.yy",},
     {"name":"sprSwordSpinig","order":2,"path":"sprites/sprSwordSpinig/sprSwordSpinig.yy",},
     {"name":"sprDoorClosing","order":7,"path":"sprites/sprDoorClosing/sprDoorClosing.yy",},
