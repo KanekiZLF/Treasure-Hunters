@@ -14,7 +14,7 @@ vision = 3; // <-- Define um raio para saber qual distancia a espada esta do chÃ
 quantidade = 1;
 sprite = -1;
 isEffect = false;
-isOpen = false; // <-- Usa a mesma variavel do bau, serve para saber se foi coletado
+wasCollected = false; // <-- Serve para saber se foi coletado
 
 /*switch(image_index) {
 	case 0:

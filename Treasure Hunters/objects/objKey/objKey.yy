@@ -14,8 +14,8 @@
     "path": "folders/Objetos/objItens.yy",
   },
   "parentObjectId": {
-    "name": "objSaveMe",
-    "path": "objects/objSaveMe/objSaveMe.yy",
+    "name": "objChest",
+    "path": "objects/objChest/objChest.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

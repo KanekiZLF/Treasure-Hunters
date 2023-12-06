@@ -8,7 +8,7 @@ cima = 0;
 direita = 0;
 esquerda = 0;
 objColisParede = layer_tilemap_get_id("Paredes");
-isOpen = false;
+wasCollected = false;
 coinValue = undefined;
 
 

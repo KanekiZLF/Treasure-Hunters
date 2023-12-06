@@ -17,6 +17,7 @@ cima = 0;
 inWall = false;
 objColisParede = layer_tilemap_get_id("Paredes");
 vision = 7; // <-- Define um raio para saber qual distancia a espada esta do chão
+wasCollected = false;
 
 
 

@@ -4,7 +4,7 @@ draw_self();
 
 if (instance_exists(objPlayer)) {
 	
-	if (place_meeting(x, y, objPlayer) && !isOpen && !objPlayer.isAttacking && !objPlayer.isAirAttacking) {
+	if (place_meeting(x, y, objPlayer) && !wasCollected && !objPlayer.isAttacking && !objPlayer.isAirAttacking) {
 		draw_set_font(fnPressStart2P);
 		if (scrFindItem(Items.Key)) {
 			scrDrawOutLine(x, y + 20, "Pressione F para abrir o bau", .4, c_black, 5, 150, 900, .15, .15, 0);

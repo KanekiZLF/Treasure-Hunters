@@ -5,4 +5,6 @@ var _effect = instance_create_layer(x, y - 10, "Effects", objEffects);
 	scrColected("chestKey", 1);
 	objCoinsGui.alphaCoins = 1;
 	scrDsGridProcess(Items.Key);
+	wasCollected = true;
+	scrSaveData();
 instance_destroy();
