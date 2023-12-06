@@ -39,7 +39,6 @@ if (!global.gamepause && !isDead) {
 		if direita = 0 { direita = 1; esquerda = 0}
 		else if esquerda = 0 {direita = 0; esquerda = 1};
 
-	    scrPrint("Entro");
 		canFall = true;
 	}
 	
@@ -78,4 +77,3 @@ if (!global.gamepause && !isDead) {
 		}
 	}
 }
-scrPrint(direc);

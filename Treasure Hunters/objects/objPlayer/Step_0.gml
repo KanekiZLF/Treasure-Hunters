@@ -7,10 +7,6 @@ if (!_pause) {
 	image_speed = 1;
 }
 
-//scrPrint("Direc: "+string(direc));
-
-//scrPrint("Direita: " + string(direita) + " Esquerda: " + string(esquerda) + " Direc: "+string(direc));
-
 attackCombo = clamp(attackCombo, -1, 3);
 lifes2 = clamp(real(lifes2), 0, real(maxLifes2));
 stamina2 = clamp(real(stamina2), 0, real(maxStamina2));

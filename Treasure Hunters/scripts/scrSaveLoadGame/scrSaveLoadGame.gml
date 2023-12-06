@@ -4,7 +4,7 @@
 function scrSaveGame() {
 	scrSaveData();
 	scrSaveInventory();
-    var _saveData = array_create(0);
+    var _saveData = array_create(0); // <-- Crie um ARRAY para adicionarmos as informaçoes dos nossos objetos
     var _saveEntitys;
 
     with (objSaveMe) {
@@ -230,29 +230,11 @@ function scrLoadCoins() {
 }
 
 function scrSaveData() {
-    var _saveData = array_create(0);
-    var _saveEntitys;
+    // Criar variáveis globais para armazenar dados da sala atual
+    global.saveData = array_create(0);
+    global.saveEntitys = {};
 
-    if (instance_exists(objChest)) {
-        for (var i = 0; i < instance_number(objChest); i++) {
-            var _chest = instance_find(objChest, i);
-            _saveEntitys = {
-                x : _chest.x,
-                y : _chest.y,
-				id : id,
-                sprite_index : _chest.sprite_index,
-                image_index : _chest.image_index,
-                isOpen : _chest.isOpen,
-            };
-            // Converter a lista em um array
-            array_push(_saveData, _saveEntitys);
-        }
-    }
-	
-    // Salvando dentro do Json
-    var _string = json_stringify(_saveData);
-    var _buffer = buffer_create(string_byte_length(_string) + 1, buffer_fixed, 1);
-    buffer_write(_buffer, buffer_string, _string);
+    // Verificar se o arquivo existe
     var _file = "";
     switch (global.save) {
         default:
@@ -271,8 +253,54 @@ function scrSaveData() {
             _file = "saveData2.dat";
             break;
     }
+
+    var _loadedData = array_create(0);
+    if (file_exists(_file)) {
+        // Carregar dados existentes se o arquivo existir
+        var _buffer = buffer_load(_file);
+        var _string = buffer_read(_buffer, buffer_string);
+        _loadedData = json_parse(_string);
+        buffer_delete(_buffer);
+    }
+
+    if (instance_exists(objChest)) {
+        for (var i = 0; i < instance_number(objChest); i++) {
+            var _chest = instance_find(objChest, i);
+            global.saveEntitys = {
+                x : _chest.x,
+                y : _chest.y,
+                room : room,  // Adiciona a informação da sala
+                id : id,
+                sprite_index : _chest.sprite_index,
+                image_index : _chest.image_index,
+                isOpen : _chest.isOpen,
+            };
+			
+			// Verifica se o item já está na lista para a room atual antes de adicioná-lo
+            var _itemAlreadyExists = false;
+            for (var j = 0; j < array_length(_loadedData); j++) {
+                var _existingItem = _loadedData[j];
+                if ((_existingItem.x == _chest.x && _existingItem.y == _chest.y) || !_chest.isOpen) {
+                    _itemAlreadyExists = true;
+                    break;
+                }
+            }
+            // Converter a lista em um array
+           if (!_itemAlreadyExists) {
+                // Adiciona apenas se o item não existir na lista para a room atual
+                array_push(_loadedData, global.saveEntitys);
+            }
+        }
+    }
+    
+    // Salvando dentro do Json
+    var _string = json_stringify(_loadedData);
+    var _buffer = buffer_create(string_byte_length(_string) + 1, buffer_fixed, 1);
+    buffer_write(_buffer, buffer_string, _string);
     buffer_save(_buffer, _file);
 }
+
+
 
 function scrLoadData() {
     var _file = "";
@@ -307,7 +335,7 @@ function scrLoadData() {
             if (instance_exists(objChest)) {
                 var _chest = instance_nearest(_loadEntity.x, _loadEntity.y, objChest);
                 // Atribuir os valores apenas à instância correspondente
-                if (_chest != noone && variable_instance_exists(_chest, "isOpen")) {
+                if (_chest != noone && variable_instance_exists(_chest, "isOpen") && room == _loadEntity.room) {
                     _chest.isOpen = _loadEntity.isOpen;
                     _chest.image_index = _loadEntity.image_index;
                     _chest.sprite_index = _loadEntity.sprite_index;

@@ -1,15 +1,21 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objTeletransporte",
-  "eventList": [],
+  "name": "objBlocoTeste",
+  "eventList": [
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+  ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
     "name": "objBlocos",
     "path": "folders/Objetos/objBlocos.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objSaveMe",
+    "path": "objects/objSaveMe/objSaveMe.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -26,9 +32,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprTeletransporte",
-    "path": "sprites/sprTeletransporte/sprTeletransporte.yy",
+    "name": "sprParede",
+    "path": "sprites/sprParede/sprParede.yy",
   },
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

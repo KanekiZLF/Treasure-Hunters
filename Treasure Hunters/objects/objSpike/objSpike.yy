@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objPalmBackRegular",
+  "name": "objSpike",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "objCenario",
-    "path": "folders/Objetos/objCenario.yy",
+    "name": "objArmadilhas",
+    "path": "folders/Objetos/objArmadilhas.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -26,8 +26,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprPalmRegular",
-    "path": "sprites/sprPalmRegular/sprPalmRegular.yy",
+    "name": "sprSpike",
+    "path": "sprites/sprSpike/sprSpike.yy",
   },
   "spriteMaskId": null,
   "visible": true,

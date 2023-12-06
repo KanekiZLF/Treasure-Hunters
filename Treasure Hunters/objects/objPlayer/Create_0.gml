@@ -42,6 +42,7 @@ isDead = false; //<-- Define se estou morto ou vivo
 moveOn = true; //<-- Define se posso ou não andar
 inimigos_atingidos = ds_list_create(); //<-- Cria uma lista
 checkPoint = 0; // <-- Define o checkpoint da fase
+isColected = false; // Define se o item foi coletado ou não !
 
 
 objColisParede = layer_tilemap_get_id("Paredes"); //<-- Define qual é o objeto de parede

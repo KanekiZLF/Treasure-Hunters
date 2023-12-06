@@ -2,6 +2,7 @@
 // Você pode escrever seu código neste editor
 if (room != rmInit) {
 	global.isLoading = true;
+	scrLoadData();
 }
 
 if (!instance_exists(objPlayer)) {
@@ -9,4 +10,5 @@ if (!instance_exists(objPlayer)) {
 		instance_create_layer(50, 430, "Instances", objPlayer);
 	}
 }
+
 

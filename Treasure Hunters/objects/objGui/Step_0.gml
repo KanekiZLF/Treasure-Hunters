@@ -23,12 +23,12 @@ if (keyboard_check_pressed(ord("N"))) {
 	ds_grid_copy(gridItems, gridItems2);
 }*/
 
-/*
+
 if (keyboard_check_pressed(ord("S"))) {
 	scrSaveGame();
 	scrSaveInventory();
 }
-*/
+
 if (keyboard_check_pressed(ord("L"))) {
 	//var _load = instance_create_layer(0, 0, layer, objBackgroundLoad);
 	scrLoadGame();

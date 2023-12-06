@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Cenario",
-    "path": "folders/Objetos/Cenario.yy",
+    "name": "objCenario",
+    "path": "folders/Objetos/objCenario.yy",
   },
   "parentObjectId": null,
   "persistent": false,
