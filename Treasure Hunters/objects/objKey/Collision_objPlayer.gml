@@ -7,4 +7,5 @@ var _effect = instance_create_layer(x, y - 10, "Effects", objEffects);
 	scrDsGridProcess(Items.Key);
 	wasCollected = true;
 	scrSaveData();
+	scrSaveDataT()
 instance_destroy();

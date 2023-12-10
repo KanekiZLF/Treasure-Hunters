@@ -9,7 +9,6 @@ if (instance_exists(objPlayer)) {
 if (global.coinsSilver) >= 999 {
 	global.coinsGold += 1;
 }
-
 #endregion
 
 #region Efeitos da espada
@@ -792,7 +791,6 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 			if (_mouseClick) {
 				if (room != rmInit && _option == 12) { 
 					global.option = 7;
-					global.save = 0;
 					global.gameover = false;
 					global.gamepause = true;
 					global.isLoading = false;

@@ -1,7 +1,7 @@
 // Script desenvolvido por Luiz F. R. Pimentel
 // https://github.com/KanekiZLF
 
-function scrSaveGame() {
+function scrSaveGameT() {
 	scrSaveData();
 	scrSaveInventory();
     var _saveData = array_create(0); // <-- Crie um ARRAY para adicionarmos as informaçoes dos nossos objetos
@@ -79,7 +79,7 @@ function scrSaveGame() {
     _inst.fontSize = .4;
 }
 
-function scrLoadGame() {
+function scrLoadGameT() {
 	scrLoadData();
 	scrLoadInventory();
 	var _file = "";
@@ -168,73 +168,11 @@ function scrLoadGame() {
 	}
 }
 
-function scrResetGame() {
-	with (objSaveMe) instance_destroy();
-	ds_grid_clear(objGui.gridItems, -1);
-	ds_grid_clear(objGui.gridItems2, -1);
-	global.lifes = 10; // Define a quantidade de vidas inicial
-	global.stamina = 10; // Define a quantidade de estamina inicial
-	global.poison = 0; // <-- Define o tempo em que o player fica envenedado
-	global.coinsSilver = 0;
-	global.coinsGold = 0;
-	global.coinsDiamond = 0;
-	global.coinsSaphire = 0;
-	global.coinsRuby = 0;
-	global.upgradeLifes = 0;
-	global.upgradeStam = 0;
-	global.upgradeDano = 0;
-	global.upgradeVeneno = 0;
-	objGui.coinLabels2[0] = 15;
-	objGui.coinLabels2[1] = 18;
-	objGui.coinLabels2[2] = 20;
-	objGui.coinLabels2[3] = 35;
-}
-
-function scrLoadCoins() {
-	var _file = "";
-	switch(global.save) {
-		default:
-			show_message("Erro ao definir save !");
-		break
-		
-		case 1:
-			_file = "saveGame0.save";
-		break;
-		
-		case 2:
-			_file = "saveGame1.save";
-		break;
-		
-		case 3:
-			_file = "saveGame2.save";
-		break;
-	}
-	
-	if (file_exists(_file)) {
-		
-		var _buffer = buffer_load(_file);
-		var _string = buffer_read(_buffer, buffer_string);
-		buffer_delete(_buffer);
-		
-		var _loadData = json_parse(_string); // <-- Transforma o Json em Array
-		
-		while (array_length(_loadData) > 0) {
-			
-			var _loadEntity = array_pop(_loadData);
-			global.coinsSilver = _loadEntity.coinsSilver;
-			global.coinsGold = _loadEntity.coinsGold;
-		}
-	} else if (!file_exists(_file)) {
-		global.coinsSilver = 180;
-	}
-}
-
-function scrSaveData() {
+function scrSaveDataT() {
     // Criar variáveis globais para armazenar dados da sala atual
-    var _loadedData = []; // <-- Inicia o array para adicionar os dados
-		_loadedData[0] = array_create(0); // <-- Inicia o array para adicionar os dados
-		_loadedData[1] = array_create(0); // <-- Inicia o array para adicionar os dados
-    global.saveEntitys = {}; // <-- Mantem os dados mesmo após trocar de room
+
+    // Limpa o ARRAY 2 para escrever as novas alterações
+    global.savedItems[2] = array_create(0, 0);
 
     // Verificar se o arquivo existe
     var _file = "";
@@ -256,29 +194,14 @@ function scrSaveData() {
             break;
     }
 
-	if (file_exists(_file)) {
-	    // Carregar dados existentes se o arquivo existir
-	    var _buffer = buffer_load(_file);
-	    if (_buffer != -1) {
-	        var _string = buffer_read(_buffer, buffer_string);
-	        _loadedData = json_parse(_string);
-	        if (is_undefined(_loadedData)) {
-	            show_message("Erro ao analisar dados JSON.");
-	        }
-	        buffer_delete(_buffer);
-	    } else {
-	        show_message("Erro ao carregar o buffer do arquivo.");
-	    }
-	}
-
     if (instance_exists(objChest)) {
         for (var i = 0; i < instance_number(objChest); i++) {
             var _chest = instance_find(objChest, i);
 
             // Verifica se o item já está na lista para a sala atual antes de adicioná-lo
             var _itemAlreadyExists = false;
-            for (var j = 0; j < array_length(_loadedData[0]); j++) {
-                var _existingItem = _loadedData[0][j];
+            for (var j = 0; j < array_length(global.savedItems[0]); j++) {
+                var _existingItem = global.savedItems[0][j];
                 if ( _existingItem.room == room && _existingItem.x == _chest.x && _existingItem.y == _chest.y ) {
                     _itemAlreadyExists = true;
                     break;
@@ -287,16 +210,16 @@ function scrSaveData() {
 
             if (!_itemAlreadyExists && _chest.wasCollected) {
                 // Adiciona apenas se o item não existir na lista e se ele não tiver sido alterado
-                global.saveEntitys = {
-                    x: _chest.x,
-                    y: _chest.y,
-                    room: room,
-                    id: _chest.id,
-                    sprite_index: _chest.sprite_index,
-                    image_index: _chest.image_index,
-                    wasCollected: _chest.wasCollected,
-                };
-                array_push(_loadedData[0], global.saveEntitys);
+				var saveEntity = {
+				    x: _chest.x,
+				    y: _chest.y,
+				    room: room,
+				    id: _chest.id,
+				    sprite_index: _chest.sprite_index,
+				    image_index: _chest.image_index,
+				    wasCollected: _chest.wasCollected,
+				};
+				array_push(global.savedItems[0], saveEntity);
             }
         }
     }
@@ -308,8 +231,8 @@ function scrSaveData() {
 
 	        // Verifica se o item já está na lista para a sala atual antes de adicioná-lo
 	        var _itemAlreadyExistsKey = false;
-	        for (var l = 0; l < array_length(_loadedData[1]); l++) {
-	            var _existingItemKey = _loadedData[1][l];
+	        for (var l = 0; l < array_length(global.savedItems[1]); l++) {
+	            var _existingItemKey = global.savedItems[1][l];
 	            if (_existingItemKey.room == room && _existingItemKey.x == _key.x && _existingItemKey.y == _key.y) {
 	                _itemAlreadyExistsKey = true;
 	                break;
@@ -327,19 +250,62 @@ function scrSaveData() {
 	                image_index: _key.image_index,
 					wasCollected : _key.wasCollected,
 	            };
-	            array_push(_loadedData[1], _saveEntityKey);
+	            array_push(global.savedItems[1], _saveEntityKey);
 	        }
 	    }
 	}
-    
+	
+	// Verificações para SaveMe
+	with (objSaveMe) {
+        var _saveEntitys = {
+            obj: object_index,
+            currentRoom: room,
+            y: y,
+            x: x,
+            layer: layer,
+            sprite_index: sprite_index,
+            image_index: image_index,
+			image_xscale : image_xscale,
+            // Variáveis globais
+            coinsSilver: global.coinsSilver,
+            coinsGold: global.coinsGold,
+            coinsDiamond: global.coinsDiamond,
+            coinsSaphire: global.coinsSaphire,
+            coinsRuby: global.coinsRuby,
+            lifes: global.lifes,
+            stam: global.stamina,
+            upgLifes: global.upgradeLifes,
+            upgStam: global.upgradeStam,
+            upgVeneno: global.upgradeVeneno,
+            upgDano: global.upgradeDano,
+            upgPrice0: global.upgPrice0,
+            upgPrice1: global.upgPrice1,
+            upgPrice2: global.upgPrice2,
+            upgPrice3: global.upgPrice3,
+
+            // Variáveis do objPlayer
+            lifes2: objPlayer.lifes2,
+            maxLifes: objPlayer.maxLifes,
+            maxLifes2: objPlayer.maxLifes2,
+            stamina2: objPlayer.stamina2,
+            maxStamina: objPlayer.maxStamina,
+            maxStamina2: objPlayer.maxStamina2,
+            arraySprite: objPlayer.arraySprite,
+            direcPlayer: objPlayer.direc,
+		
+        };
+		// Converter a lista em um array
+        array_push(global.savedItems[2], _saveEntitys);
+    }
+		
     // Salvando dentro do Json
-    var _string = json_stringify(_loadedData);
+    var _string = json_stringify(global.savedItems);
     var _buffer = buffer_create(string_byte_length(_string) + 1, buffer_fixed, 1);
     buffer_write(_buffer, buffer_string, _string);
     buffer_save(_buffer, _file);
 }
 
-function scrLoadData() {
+function scrLoadDataT() {
     var _file = "";
 
     switch(global.save) {
@@ -359,6 +325,8 @@ function scrLoadData() {
             _file = "saveData2.dat";
             break;
     }
+    
+    with (objSaveMe) instance_destroy();
 
     if (file_exists(_file)) {
         var _buffer = buffer_load(_file);
@@ -377,87 +345,48 @@ function scrLoadData() {
                 for (var i = 0; i < array_length(_currentArray); i++) {
                     var _loadEntity = _currentArray[i];
 
-                    if (instance_exists(objChest) && arrayIndex == 0) {
-                        var _chest = instance_nearest(_loadEntity.x, _loadEntity.y, objChest);
+                    // Verifica o tipo de entidade (0: baú, 1: chave, 2: SaveMe)
+                    switch (arrayIndex) {
+                        case 0: // Baú
+                            if (instance_exists(objChest)) {
+                                var _chest = instance_nearest(_loadEntity.x, _loadEntity.y, objChest);
 
-                        if (_chest != noone && variable_instance_exists(_chest, "wasCollected") && room == _loadEntity.room && _chest.x == _loadEntity.x && _chest.y == _loadEntity.y) {
-                            // Atribuir os valores apenas à instância correspondente
-                            _chest.wasCollected = _loadEntity.wasCollected;
-                            _chest.image_index = _loadEntity.image_index;
-                            _chest.sprite_index = _loadEntity.sprite_index;
-                        }
-                    }
+                                if (_chest != noone && variable_instance_exists(_chest, "wasCollected") && room == _loadEntity.room && _chest.x == _loadEntity.x && _chest.y == _loadEntity.y) {
+                                    // Atribuir os valores apenas à instância correspondente
+                                    _chest.wasCollected = _loadEntity.wasCollected;
+                                    _chest.image_index = _loadEntity.image_index;
+                                    _chest.sprite_index = _loadEntity.sprite_index;
+                                }
+                            }
+                            break;
 
-                    if (instance_exists(objKey) && arrayIndex == 1) {
-                        var _key = instance_nearest(_loadEntity.x, _loadEntity.y, objKey);
+                        case 1: // Chave
+                            if (instance_exists(objKey)) {
+                                var _key = instance_nearest(_loadEntity.x, _loadEntity.y, objKey);
 
-                        if (_key != noone && _key.x == _loadEntity.x) {
-                            // Destruir a instância apenas se ela existir
-                            instance_destroy(_key);
-                        }
+                                if (_key != noone && _key.x == _loadEntity.x) {
+                                    // Destruir a instância apenas se ela existir
+                                    instance_destroy(_key);
+                                }
+                            }
+                            break;
+
+                        case 2: // SaveMe
+                            // Criar uma instância do objeto SaveMe e atribuir os valores
+                            var _saveMe = instance_create(_loadEntity.x, _loadEntity.y, objSaveMe);
+                            with (_saveMe) {
+                                currentRoom = _loadEntity.currentRoom;
+                                sprite_index = _loadEntity.sprite_index;
+                                image_index = _loadEntity.image_index;
+                                image_xscale = _loadEntity.image_xscale;
+                                // ... (atribuir outras variáveis conforme necessário)
+                            }
+                            break;
                     }
                 }
             }
         } else {
             show_message("Erro ao carregar o buffer do arquivo.");
-        }
-    }
-}
-
-
-// Função para verificar e recriar o save excluindo itens ausentes
-function checkAndRecreateSave() {
-    var _file = "";
-    var _newSaveData = array_create(0);
-
-    switch(global.save) {
-        default:
-            show_message("Erro ao definir save !");
-            break;
-
-        case 1:
-            _file = "saveData0.dat";
-            break;
-
-        case 2:
-            _file = "saveData1.dat";
-            break;
-
-        case 3:
-            _file = "saveData2.dat";
-            break;
-    }
-
-    if (file_exists(_file)) {
-        var _buffer = buffer_load(_file);
-        var _string = buffer_read(_buffer, buffer_string);
-        buffer_delete(_buffer);
-
-        var _loadedData = json_parse(_string);
-
-        if (instance_exists(objChest)) {
-            for (var i = 0; i < array_length(_loadedData); i++) {
-                var _existingItem = _loadedData[i];
-
-                // Verifica se o item ainda existe na sala
-                var _itemStillExists = false;
-				var _chest = instance_find(objChest, i)
-
-                if (instance_exists(_chest) && variable_instance_exists(_chest, "wasCollected")) {
-                    _itemStillExists = true;
-                }
-
-                if (_itemStillExists) {
-                    // Adiciona o item de volta ao novo array
-                    array_push(_newSaveData, _existingItem);
-                }
-            }
-
-            // Salva o novo array no arquivo
-            var _newSaveString = json_stringify(_newSaveData);
-            var _newSaveBuffer = buffer_create(string_byte_length(_newSaveString) + 1, buffer_fixed, 1);
-            buffer_write(_newSaveBuffer, buffer_string, _newSaveString);
-            buffer_save(_newSaveBuffer, _file);
         }
     }
 }

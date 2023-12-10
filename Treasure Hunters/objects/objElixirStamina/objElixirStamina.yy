@@ -15,8 +15,8 @@
     "path": "folders/Objetos/objItens/Elixirs.yy",
   },
   "parentObjectId": {
-    "name": "objSaveMe",
-    "path": "objects/objSaveMe/objSaveMe.yy",
+    "name": "objKey",
+    "path": "objects/objKey/objKey.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

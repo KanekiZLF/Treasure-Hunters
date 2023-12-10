@@ -8,6 +8,8 @@ if (!isEffect) {
 	_effect.direc = 14;
 	isEffect = true;
 }
+wasCollected = true;
+scrSaveData();
 instance_destroy();
 
 

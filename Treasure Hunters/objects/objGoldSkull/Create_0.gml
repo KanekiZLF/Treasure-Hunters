@@ -15,7 +15,7 @@ quantidade = 1;
 sprite = -1;
 isEffect = false;
 inWall = false; // <-- Indica se o item esta dentro da parede
-isOpen = false; // <-- Usa a mesma variavel do bau, serve para saber se foi coletado
+wasCollected = false; // <-- Usa a mesma variavel do bau, serve para saber se foi coletado
 
 /*switch(image_index) {
 	case 0:

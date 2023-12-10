@@ -6,7 +6,7 @@ global.stamina = 10; // Define a quantidade de estamina inicial
 global.poison = 0; // <-- Define o tempo em que o player fica envenedado
 global.gameover = false; // <-- Define se suas vidas chegaram a zero ou não
 global.option = 7; // <-- Define qual tela de menu usar
-global.save	= 0; // <-- Define qual save esta sendo usado
+global.save	= 1; // <-- Define qual save esta sendo usado
 global.cameraActive = true; // <-- Ativa ou desativa a camera do PLAYER !!
 global.gamepause = true; // <-- Define se o jogo esta pausado ou não
 global.isLoading = false;
@@ -25,4 +25,10 @@ global.upgPrice0 = 0;
 global.upgPrice1 = 0;
 global.upgPrice2 = 0;
 global.upgPrice3 = 0;
-global.savedItems = array_create(0);
+global.savedItems = [];
+global.savedItems[0] = array_create(0, 0);
+global.savedItems[1] = array_create(0, 0);
+global.savedItems[2] = array_create(0, 0);
+global.savedItems[3] = array_create(0, 0);
+
+
