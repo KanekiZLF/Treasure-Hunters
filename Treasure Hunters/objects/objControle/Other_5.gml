@@ -1,3 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-scrSaveData();
+if (!global.gamepause) {
+	if (room != rmInit) {
+		scrSaveDataT();
+	}
+}

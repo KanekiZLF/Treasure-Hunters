@@ -11,10 +11,8 @@ if (!instance_exists(objPlayer)) {
 	}
 }
 
-
 if (instance_exists(objPlayer)) {
-	if (room != Fase1) {
-		scrSaveDataT();
+	if (room != rmInit) {
+		alarm[1] = 5;
 	}
 }
-

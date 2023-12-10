@@ -327,7 +327,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 						if (file_exists("saveGame0.save")) {
 							global.option = 15;
 						} else {
-							scrSaveGame();
+							scrSaveDataT();
 							scrSaveInventory()
 						}
 					}
@@ -353,7 +353,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 						if (file_exists("saveGame1.save")) {
 							global.option = 15;
 						} else {
-							scrSaveGame();
+							scrSaveDataT();
 							scrSaveInventory()
 						}
 					}
@@ -379,7 +379,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 						if (file_exists("saveGame2.save")) {
 							global.option = 15;
 						} else {
-							scrSaveGame();
+							scrSaveDataT();
 							scrSaveInventory();
 						}
 					}
@@ -799,7 +799,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 				}
 				
 				if (_option == 15) {
-					scrSaveGame();
+					scrSaveDataT()();
 					scrSaveInventory();
 					global.option = 1;
 				}

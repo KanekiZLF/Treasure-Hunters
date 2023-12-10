@@ -1,7 +1,12 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-//scrSaveGame();
-scrPrint(id)
+if (instance_exists(objPlayer)) {
+	if (room != rmInit) {
+		scrSaveDataT();
+	}
+}
+
+
 
 
 
