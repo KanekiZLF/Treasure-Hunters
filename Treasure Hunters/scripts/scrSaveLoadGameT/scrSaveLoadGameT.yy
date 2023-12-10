@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "scrSaveLoadGameTeste",
+  "name": "scrSaveLoadGameT",
   "isCompatibility": false,
   "isDnD": false,
   "parent": {

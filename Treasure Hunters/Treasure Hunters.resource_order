@@ -277,7 +277,7 @@
     {"name":"sprSealShellHit","order":4,"path":"sprites/sprSealShellHit/sprSealShellHit.yy",},
     {"name":"sprSailNoWind","order":1,"path":"sprites/sprSailNoWind/sprSailNoWind.yy",},
     {"name":"sprShipDestroyed","order":2,"path":"sprites/sprShipDestroyed/sprShipDestroyed.yy",},
-    {"name":"scrSaveLoadGameTeste","order":20,"path":"scripts/scrSaveLoadGameTeste/scrSaveLoadGameTeste.yy",},
+    {"name":"scrSaveLoadGameT","order":20,"path":"scripts/scrSaveLoadGameT/scrSaveLoadGameT.yy",},
     {"name":"sprBarrelIdle","order":3,"path":"sprites/sprBarrelIdle/sprBarrelIdle.yy",},
     {"name":"sprWaterBottom","order":3,"path":"sprites/sprWaterBottom/sprWaterBottom.yy",},
     {"name":"sprMapIcon","order":7,"path":"sprites/sprMapIcon/sprMapIcon.yy",},

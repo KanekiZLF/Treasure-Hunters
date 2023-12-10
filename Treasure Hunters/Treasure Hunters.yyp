@@ -330,7 +330,7 @@
     {"id":{"name":"sprSailNoWind","path":"sprites/sprSailNoWind/sprSailNoWind.yy",},},
     {"id":{"name":"sprShipDestroyed","path":"sprites/sprShipDestroyed/sprShipDestroyed.yy",},},
     {"id":{"name":"TileSet1","path":"tilesets/TileSet1/TileSet1.yy",},},
-    {"id":{"name":"scrSaveLoadGameTeste","path":"scripts/scrSaveLoadGameTeste/scrSaveLoadGameTeste.yy",},},
+    {"id":{"name":"scrSaveLoadGameT","path":"scripts/scrSaveLoadGameT/scrSaveLoadGameT.yy",},},
     {"id":{"name":"sprBarrelIdle","path":"sprites/sprBarrelIdle/sprBarrelIdle.yy",},},
     {"id":{"name":"sprWaterBottom","path":"sprites/sprWaterBottom/sprWaterBottom.yy",},},
     {"id":{"name":"sprMapIcon","path":"sprites/sprMapIcon/sprMapIcon.yy",},},

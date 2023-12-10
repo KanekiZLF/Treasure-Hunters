@@ -14,7 +14,7 @@ if (!instance_exists(objPlayer)) {
 
 if (instance_exists(objPlayer)) {
 	if (room != Fase1) {
-		scrSaveGame();
+		scrSaveDataT();
 	}
 }
 

@@ -170,9 +170,10 @@ function scrLoadGameT() {
 
 function scrSaveDataT() {
     // Criar variáveis globais para armazenar dados da sala atual
-
+	scrSaveInventory();
     // Limpa o ARRAY 2 para escrever as novas alterações
     global.savedItems[2] = array_create(0, 0);
+	
 
     // Verificar se o arquivo existe
     var _file = "";
@@ -306,6 +307,7 @@ function scrSaveDataT() {
 }
 
 function scrLoadDataT() {
+	scrLoadInventory();
     var _file = "";
 
     switch(global.save) {
@@ -344,7 +346,7 @@ function scrLoadDataT() {
                 // Verificar se cada item ainda existe na sala antes de aplicar as alterações
                 for (var i = 0; i < array_length(_currentArray); i++) {
                     var _loadEntity = _currentArray[i];
-
+					
                     // Verifica o tipo de entidade (0: baú, 1: chave, 2: SaveMe)
                     switch (arrayIndex) {
                         case 0: // Baú
@@ -373,15 +375,56 @@ function scrLoadDataT() {
 
                         case 2: // SaveMe
                             // Criar uma instância do objeto SaveMe e atribuir os valores
-                            var _saveMe = instance_create(_loadEntity.x, _loadEntity.y, objSaveMe);
-                            with (_saveMe) {
-                                currentRoom = _loadEntity.currentRoom;
-                                sprite_index = _loadEntity.sprite_index;
-                                image_index = _loadEntity.image_index;
-                                image_xscale = _loadEntity.image_xscale;
-                                // ... (atribuir outras variáveis conforme necessário)
-                            }
-                            break;
+							var _room = _loadEntity.currentRoom;
+		
+							if (!global.isLoading) {
+								if (room != _room) {
+									room_goto(_room);
+								}
+							}
+							
+							if (room == _room) {
+								with(instance_create_layer(0, 0, _loadEntity.layer, _loadEntity.obj)) {
+				
+								global.coinsSilver = _loadEntity.coinsSilver;
+								global.coinsGold = _loadEntity.coinsGold;
+					
+								if (room != rmInit) {
+									x = _loadEntity.x;
+									y = _loadEntity.y;
+									sprite_index = _loadEntity.sprite_index;
+									image_index = _loadEntity.image_index;
+									image_xscale = _loadEntity.image_xscale;
+									global.upgradeLifes = _loadEntity.upgLifes;
+									global.upgradeStam  = _loadEntity.upgStam;
+									global.upgradeVeneno  = _loadEntity.upgVeneno;
+									global.upgradeDano  = _loadEntity.upgDano;
+									global.lifes = _loadEntity.lifes;
+									global.stamina = _loadEntity.stam;
+									global.gamepause = false;
+									global.option = noone;
+								}
+					
+								if (instance_exists(objGui)) {
+									objGui.coinLabels2[0] = _loadEntity.upgPrice0;
+									objGui.coinLabels2[1] = _loadEntity.upgPrice1;
+									objGui.coinLabels2[2] = _loadEntity.upgPrice2;
+									objGui.coinLabels2[3] = _loadEntity.upgPrice3;
+								}
+					
+								if (instance_exists(objPlayer)) {
+									objPlayer.lifes2 = _loadEntity.lifes2;
+									objPlayer.maxLifes = _loadEntity.maxLifes;
+									objPlayer.maxLifes = _loadEntity.maxLifes;
+									objPlayer.stamina2 = _loadEntity.stamina2;
+									objPlayer.maxStamina = _loadEntity.maxStamina;
+									objPlayer.maxStamina2 = _loadEntity.maxStamina2;
+									objPlayer.arraySprite = _loadEntity.arraySprite;
+									objPlayer.direc = _loadEntity.direcPlayer;
+								}
+							}
+						}
+						break;
                     }
                 }
             }

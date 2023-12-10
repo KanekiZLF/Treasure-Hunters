@@ -28,15 +28,17 @@ function scrSaveInventory(){
 	// Converter a ds_grid em um ds_map
 	for (var xx = 0; xx < gridWidth; xx++) {
 	    for (var yy = 0; yy < gridHeight; yy++) {
-	        var key = string(xx) + "_" + string(yy); // Chave única para cada célula da ds_grid
+	        var key = string(xx) + "K" + string(yy); // Chave única para cada célula da ds_grid
 	        var value = ds_grid_get(objGui.gridItems, xx, yy);
 	        ds_map_add(mapData, key, value);
 	    }
 	}
-
+	
+	
+	
 	// Converter o ds_map em JSON
 	var mapDataJSON = json_encode(mapData);
-
+	
 	// Criar um buffer e salvar o JSON no buffer
 	var _buffer = buffer_create(string_byte_length(mapDataJSON) + 1, buffer_fixed, 1);
 	buffer_write(_buffer, buffer_string, mapDataJSON);
@@ -85,7 +87,7 @@ function scrLoadInventory(){
         // Recuperar os dados do ds_map e atualiza a ds_grid
         for (var xx = 0; xx < ds_grid_width(objGui.gridItems); xx++) {
             for (var yy = 0; yy < ds_grid_height(objGui.gridItems); yy++) {
-                var key = string(xx) + "_" + string(yy);
+                var key = string(xx) + "K" + string(yy);
                 if (ds_map_exists(mapData, key)) {
                     ds_grid_set(objGui.gridItems, xx, yy, ds_map_find_value(mapData, key));
                 }

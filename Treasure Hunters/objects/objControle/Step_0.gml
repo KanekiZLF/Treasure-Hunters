@@ -309,13 +309,13 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					
 					case 1:
 					if (room == rmInit) {
-						if (file_exists("saveGame0.save")) {
-							scrLoadGame();
+						if (file_exists("saveData0.dat")) {
+							scrLoadDataT();
 							scrLoadInventory();
 							global.gamepause = false;
 							global.option = noone;
 							if (alarm[0] <= 0) {
-								alarm[0] = 10;
+								alarm[0] = 1;
 							}
 						} 
 						else {
@@ -489,8 +489,8 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 		if (_mouseClick) {
 			global.save = 1;
 			if (room == rmInit) {
-				if (file_exists("saveGame0.save")) {
-					scrLoadGame();
+				if (file_exists("saveData0.dat")) {
+					scrLoadDataT();
 					scrLoadInventory();
 					global.gamepause = false;
 					global.option = noone;
