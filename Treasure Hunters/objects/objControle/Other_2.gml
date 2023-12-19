@@ -30,5 +30,7 @@ global.savedItems[0] = array_create(0, 0);
 global.savedItems[1] = array_create(0, 0);
 global.savedItems[2] = array_create(0, 0);
 global.savedItems[3] = array_create(0, 0);
+scrVerificationSave();
+
 
 

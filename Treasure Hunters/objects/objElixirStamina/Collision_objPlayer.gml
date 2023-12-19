@@ -9,7 +9,7 @@ if (!isEffect) {
 	isEffect = true;
 }
 wasCollected = true;
-scrSaveData();
+scrSaveDataT();
 instance_destroy();
 
 

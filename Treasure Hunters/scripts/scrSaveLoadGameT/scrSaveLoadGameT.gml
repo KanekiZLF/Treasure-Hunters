@@ -169,8 +169,8 @@ function scrLoadGameT() {
 }
 
 function scrSaveDataT() {
-    // Criar variáveis globais para armazenar dados da sala atual
 	scrSaveInventory();
+	
     // Limpa o ARRAY 2 para escrever as novas alterações
     global.savedItems[2] = array_create(0, 0);
 	
@@ -312,20 +312,20 @@ function scrLoadDataT() {
 
     switch(global.save) {
         default:
-            show_message("Erro ao definir save !");
-            break;
+            show_message("Nenhum save selecionado !");
+        break;
 
         case 1:
             _file = "saveData0.dat";
-            break;
+        break;
 
         case 2:
             _file = "saveData1.dat";
-            break;
+        break;
 
         case 3:
             _file = "saveData2.dat";
-            break;
+        break;
     }
     
     with (objSaveMe) instance_destroy();

@@ -324,7 +324,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 							room_goto_next();
 						}
 					} else {
-						if (file_exists("saveGame0.save")) {
+						if (file_exists("saveData0.dat")) {
 							global.option = 15;
 						} else {
 							scrSaveDataT();
@@ -335,7 +335,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					
 					case 2:
 					if (room == rmInit) {
-						if (file_exists("saveGame1.save")) {
+						if (file_exists("saveData1.dat")) {
 							global.gamepause = false;
 							global.option = noone;
 							scrLoadGame();
@@ -350,7 +350,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 							room_goto_next();
 						}
 					} else {
-						if (file_exists("saveGame1.save")) {
+						if (file_exists("saveData1.dat")) {
 							global.option = 15;
 						} else {
 							scrSaveDataT();
@@ -361,7 +361,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					
 					case 3:
 					if (room == rmInit) {
-						if (file_exists("saveGame2.save")) {
+						if (file_exists("saveData2.dat")) {
 							global.gamepause = false;
 							global.option = noone;
 							scrLoadGame();
@@ -376,7 +376,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 							room_goto_next();
 						}
 					} else {
-						if (file_exists("saveGame2.save")) {
+						if (file_exists("saveData2.dat")) {
 							global.option = 15;
 						} else {
 							scrSaveDataT();

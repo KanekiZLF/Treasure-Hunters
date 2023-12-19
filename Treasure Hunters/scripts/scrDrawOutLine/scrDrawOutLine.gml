@@ -16,7 +16,7 @@ function scrDrawOutLine() {
 	///@param xscale
 	///@param yscale
     ///@param angle 
-
+	
     //2,c_dkgray,4,20,500 <Personal favorite preset. (For fnt_3)
     var dto_dcol = draw_get_color();
  

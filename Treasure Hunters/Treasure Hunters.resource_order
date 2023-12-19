@@ -246,6 +246,7 @@
     {"name":"sprBigClouds","order":2,"path":"sprites/sprBigClouds/sprBigClouds.yy",},
     {"name":"scrMoveCamera","order":12,"path":"scripts/scrMoveCamera/scrMoveCamera.yy",},
     {"name":"sprStaminaColor","order":2,"path":"sprites/sprStaminaColor/sprStaminaColor.yy",},
+    {"name":"scrVerificationSave","order":21,"path":"scripts/scrVerificationSave/scrVerificationSave.yy",},
     {"name":"sprHead1Destroyed1","order":6,"path":"sprites/sprHead1Destroyed1/sprHead1Destroyed1.yy",},
     {"name":"objAncora44","order":7,"path":"objects/objAncora44/objAncora44.yy",},
     {"name":"sprWatterReflectionBig","order":4,"path":"sprites/sprWatterReflectionBig/sprWatterReflectionBig.yy",},

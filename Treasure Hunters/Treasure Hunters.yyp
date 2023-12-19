@@ -94,7 +94,7 @@
   "isEcma": false,
   "LibraryEmitters": [],
   "MetaData": {
-    "IDEVersion": "2023.11.0.121",
+    "IDEVersion": "2023.11.1.129",
   },
   "resources": [
     {"id":{"name":"sprPlayerSwordAtack2HB","path":"sprites/sprPlayerSwordAtack2HB/sprPlayerSwordAtack2HB.yy",},},
@@ -290,6 +290,7 @@
     {"id":{"name":"sprBigClouds","path":"sprites/sprBigClouds/sprBigClouds.yy",},},
     {"id":{"name":"scrMoveCamera","path":"scripts/scrMoveCamera/scrMoveCamera.yy",},},
     {"id":{"name":"sprStaminaColor","path":"sprites/sprStaminaColor/sprStaminaColor.yy",},},
+    {"id":{"name":"scrVerificationSave","path":"scripts/scrVerificationSave/scrVerificationSave.yy",},},
     {"id":{"name":"sprHead1Destroyed1","path":"sprites/sprHead1Destroyed1/sprHead1Destroyed1.yy",},},
     {"id":{"name":"objAncora44","path":"objects/objAncora44/objAncora44.yy",},},
     {"id":{"name":"sprWatterReflectionBig","path":"sprites/sprWatterReflectionBig/sprWatterReflectionBig.yy",},},
