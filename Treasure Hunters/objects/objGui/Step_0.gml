@@ -25,12 +25,10 @@ if (keyboard_check_pressed(ord("N"))) {
 
 
 if (keyboard_check_pressed(ord("S"))) {
-	scrVerificationSave();
-	scrPrint(global.savedItems[0])
+	scrSaveDataT();
 }
 
 if (keyboard_check_pressed(ord("L"))) {
-	//var _load = instance_create_layer(0, 0, layer, objBackgroundLoad);
 	scrLoadDataT()
 }
 

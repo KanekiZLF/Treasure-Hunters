@@ -16,9 +16,10 @@ if (!_pause) {
 		scrFloat();
 	}
 
-	if (place_meeting(x, y, objColisParede) || place_meeting(x, y, objPalmFrontWood)) && !camDef2 {
+	if (place_meeting(x, y, objColisParede)) && !camDef2 {
 		global.cameraActive = false;
 		alarm[0] = 10;
+		layer = layer_get_id("BackItens");
 		camDef2 = true;
 	}
 
@@ -86,7 +87,7 @@ if (!_pause) {
 	}*/
 }
 
-if (place_meeting(x + (1 * image_xscale), y, objColisParede) || place_meeting(x + (1 * image_xscale), y, objPalmFrontWood)) {
+if (place_meeting(x + (1 * image_xscale), y, objColisParede)) {
 	damage = false;
 	if (objPlayer.isDead && speed == 0 && (direc != 4 && direc != 5)) {
 		   x+= -15 * image_xscale;

@@ -1,7 +1,7 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 var _pause = global.gamepause;
-
+scrPrint(global.cameraActive);
 if (!_pause) {
 	script_execute(estado) //<-- Executa script
 	image_speed = 1;
@@ -106,7 +106,6 @@ if !isDead && (!_pause) {
 	if mouse_check_button_pressed(mb_left) && attack && arraySprite == 1 {
 		attackCombo++;
 		ds_list_clear(inimigos_atingidos);
-		global.cameraActive = false;
 	
 		if velocidadeV < 0.3 {
 			isAttacking = true;
@@ -122,10 +121,12 @@ if !isDead && (!_pause) {
 		alarm[3] = game_get_speed(gamespeed_fps) * 1; //<-- Intervalo para resetar os combos
 		
 		if (isAttacking) {
+			global.cameraActive = false;
 			alarm[5] = 10 //Treme tela
 		}
 		
 		if (isAirAttacking) {
+			global.cameraActive = false;
 			alarm[5] = 10 //Treme tela
 		}
 	
@@ -164,10 +165,10 @@ if !isDead && (!_pause) {
 
 	// Joga a espada
 	if mouse_check_button_pressed(mb_right) && arraySprite == 1 && velocidadeV = 0 && !isJumping && global.stamina >= 2 {
-		toThrow = true;
 		stamCost += 2;
 		global.stamina -= 2;
 		alarm[4] = 10; //<-- Lança a espada
+		toThrow = true;
 	}
 
 
