@@ -96,6 +96,14 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 						}
 					}
 					
+					if (global.music == 2) {
+						if (objGui.iconMusic == 4) {
+							audio_pause_sound(sndFaseInicial2);
+						} else if (objGui.iconMusic == 5) {
+							audio_resume_sound(sndFaseInicial2);
+						}
+					}
+					
 				}
 				
 			}
@@ -113,6 +121,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	var _recBY = 176;
 	if (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), _recBX, _recBY, _recBX + (14 * _escala), _recBY + (14 * _escala))) {
 		if (device_mouse_check_button_pressed(0, mb_left)) {
+			audio_play_sound(sndCancel, 1, 0);
 			switch(_option) {
 				default:
 					show_message("Erro ao selecionar _option");
@@ -170,6 +179,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					break;
 					
 					case 0: // Se _option == 0
+						audio_play_sound(sndCancel, 1, 0);
 						global.gamepause = false;
 						global.option = noone;
 						scrResume();
@@ -204,12 +214,14 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 		 
 			// Salvar / Carregar // Controles
 			if (device_mouse_check_button_pressed(0, mb_left) && i == 1) {
+				
 				switch(_option) {
 					default:
 						show_message("Erro ao definir _option: " + string(i));
 					break;
 					
 					case 0: // Se _option == 0
+						audio_play_sound(sndConfirm, 1, 0);
 						global.option = 1;
 					break;
 					
@@ -218,7 +230,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					break;
 					
 					case 2: // Se _option == 2
-						
+						audio_play_sound(sndConfirm, 1, 0);
 					break;
 					
 					case 3: // Se _option == 3
@@ -230,6 +242,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					break;
 					
 					case 14: // Elixir Estamina
+						audio_play_sound(sndConfirm, 1, 0);
 						global.option = 13;
 					break;
 				}
@@ -243,6 +256,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					break;
 					
 					case 0: // Se _option == 0
+						audio_play_sound(sndConfirm, 1, 0);
 						global.option = 2;
 					break;
 					
@@ -251,6 +265,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					break;
 					
 					case 2: // Se _option == 2
+						audio_play_sound(sndConfirm, 1, 0);
 						global.option = 3;
 					break;
 					
@@ -263,6 +278,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					break;
 					
 					case 14: // Elixir Envenenado
+						audio_play_sound(sndConfirm, 1, 0);
 						global.option = 13;
 					break;
 				}
@@ -296,6 +312,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					break;
 					
 					case 14: // Diamante
+						audio_play_sound(sndConfirm, 1, 0);
 						global.option = 13;
 					break;
 				}
@@ -412,6 +429,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	//Retangulo da seta voltar da tela de save
 	if (point_in_rectangle(_mouseX, _mouseY, _recBX, _recBY, _recBX + (14 * _escala), _recBY + (14 * _escala))) {
 		if (device_mouse_check_button_pressed(0, mb_left)) {
+			audio_play_sound(sndCancel, 1, 0);
 			if (room != rmInit) {
 				objGui.iconSave = 4;
 				global.option = 0;
@@ -471,43 +489,53 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	
 	// Guia
 	if (point_in_rectangle(_mouseX, _mouseY, _recTX, _recTY, _recTX + (33 * _escala), _recTY + (12 * _escala))) {
+		scrHoverSound(_mouseX, _mouseY, _recTX, _recTY, _recTX + (33 * _escala), _recTY + (12 * _escala));
 		if (_mouseClick) {
 			global.option = 4;
+			audio_play_sound(sndConfirm, 1, 0);
 		}
 	} 
 	// Sair	
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX2, _recTY2, _recTX2 + (33 * _escala), _recTY2 + (12 * _escala))) {
+		scrHoverSound(_mouseX, _mouseY, _recTX2, _recTY2, _recTX2 + (33 * _escala), _recTY2 + (12 * _escala));
 		if (_mouseClick) {
 			game_end() // <-- Encerra o jogo
 		}
 	}
 	// Config		
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY - (16 * _escala), _recTX + _recSpaceX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala))) {
+		scrHoverSound(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY - (16 * _escala), _recTX + _recSpaceX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala));
 		if (_mouseClick) {
 			global.option = 2;
+			audio_play_sound(sndConfirm, 1, 0);
 		}
 	}
 	// Inventario		
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY, _recTX +_recSpaceX + (14 * _escala), _recTY + _recSpaceY + (14 * _escala))) {
+		scrHoverSound(_mouseX, _mouseY, _recTX + _recSpaceX, _recTY + _recSpaceY, _recTX +_recSpaceX + (14 * _escala), _recTY + _recSpaceY + (14 * _escala));
 		if (_mouseClick) {
 			
 		}
 	}
 	// Conquistas		
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX, _recTY + _recSpaceY - (16 * _escala), _recTX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala))) {
+		scrHoverSound(_mouseX, _mouseY, _recTX, _recTY + _recSpaceY - (16 * _escala), _recTX + (14 * _escala), _recTY + _recSpaceY - (2 * _escala))
 		if (_mouseClick) {
 			
 		}
 	}
 	// Carrinho		
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (33 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (19 * _escala))) {
+		scrHoverSound(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (33 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (19 * _escala))
 		if (_mouseClick) {
 			global.option = 9;
 		}
 	}
 	// Play / Jogar
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX - (32 * _escala), _recTY - (16 * _escala), _recTX - (32 * _escala) + (28 * _escala), _recTY - (16 * _escala) + (28 * _escala))) {
+		scrHoverSound(_mouseX, _mouseY, _recTX - (32 * _escala), _recTY - (16 * _escala), _recTX - (32 * _escala) + (28 * _escala), _recTY - (16 * _escala) + (28 * _escala))
 		if (_mouseClick) {
+			audio_play_sound(sndConfirm, 1, 0);
 			global.save = 1;
 			if (room == rmInit) {
 				if (file_exists("saveData0.dat")) {
@@ -529,9 +557,12 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 	}
 	// Cifrao		
 	else if (point_in_rectangle(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (52 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (38 * _escala))) {
+		scrHoverSound(_mouseX, _mouseY, _recTX + 156, _recTY + _recSpaceY - (52 * _escala), _recTX + 156 + (14 * _escala), _recTY + _recSpaceY - (38 * _escala));
 		if (_mouseClick) {
 			
 		}
+	} else {
+		global.hoverSound = false;
 	}
 } else if (_option == 8) {
 	var _textX2 = _guiLarg/2 + (-13 * _escala);
@@ -820,7 +851,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 				}
 				
 				if (_option == 15) {
-					scrSaveDataT()();
+					scrSaveDataT();
 					scrSaveInventory();
 					global.option = 1;
 				}
@@ -866,17 +897,10 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 #region Musicas
 if !playSound {
 	if audio_group_is_loaded(audiogroup1) {
-		
 		if (room == rmInit) {
+			scrMusicStopBG();
 			audio_play_sound(sndTelaInicial, 1, 1);
-			audio_stop_sound(sndFaseInicial);
 			global.music = 0; // <--- Tela inicial
-		}
-		
-		if (room == Fase1) {
-			audio_stop_sound(sndTelaInicial);
-			audio_play_sound(sndFaseInicial, 1, 1);
-			global.music = 1; // <--- Tela inicial
 		}
 		playSound = true;	
 	}

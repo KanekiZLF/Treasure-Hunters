@@ -5,8 +5,10 @@ if !audio_group_is_loaded(audiogroup1)
 {
 	audio_group_set_gain(audiogroup1, .5, 0);
     audio_group_load(audiogroup1);
+	audio_group_load(audiogroup2);
 }
 global.music = 0; // Define qual musica esta sendo tocada
+global.hoverSound = false; // <-- Define o som do hover
 global.lifes = 10; // Define a quantidade de vidas inicial
 global.stamina = 10; // Define a quantidade de estamina inicial
 global.poison = 0; // <-- Define o tempo em que o player fica envenedado
