@@ -77,6 +77,27 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 		if (point_in_rectangle(_mouseX, _mouseY,_recBX3, _recBY3, _recBX3 + (14 * _escala), _recBY3 + (14 * _escala))) {
 			if (device_mouse_check_button_pressed(0, mb_left)) {
 			    objGui.iconMusic = (objGui.iconMusic == 5) ? 4 : 5;
+				
+				if (audio_group_is_loaded(audiogroup1)) {
+					// Define qual Musica ira tocar (Musica Ambiente)
+					if (global.music == 0) {
+						if (objGui.iconMusic == 4) {
+							audio_pause_sound(sndTelaInicial);
+						} else if (objGui.iconMusic == 5) {
+							audio_resume_sound(sndTelaInicial);
+						}
+					}
+					
+					if (global.music == 1) {
+						if (objGui.iconMusic == 4) {
+							audio_pause_sound(sndFaseInicial);
+						} else if (objGui.iconMusic == 5) {
+							audio_resume_sound(sndFaseInicial);
+						}
+					}
+					
+				}
+				
 			}
 		}
 		
@@ -840,4 +861,25 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 			}
 		}
 	}
+#endregion
+
+#region Musicas
+if !playSound {
+	if audio_group_is_loaded(audiogroup1) {
+		
+		if (room == rmInit) {
+			audio_play_sound(sndTelaInicial, 1, 1);
+			audio_stop_sound(sndFaseInicial);
+			global.music = 0; // <--- Tela inicial
+		}
+		
+		if (room == Fase1) {
+			audio_stop_sound(sndTelaInicial);
+			audio_play_sound(sndFaseInicial, 1, 1);
+			global.music = 1; // <--- Tela inicial
+		}
+		playSound = true;	
+	}
+}
+
 #endregion

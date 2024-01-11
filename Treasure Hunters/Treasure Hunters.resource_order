@@ -123,6 +123,7 @@
     {"name":"sprSaveBoard","order":8,"path":"sprites/sprSaveBoard/sprSaveBoard.yy",},
     {"name":"sprWatterReflectionMedium","order":5,"path":"sprites/sprWatterReflectionMedium/sprWatterReflectionMedium.yy",},
     {"name":"sprPlayerSwordAtack1HB","order":17,"path":"sprites/sprPlayerSwordAtack1HB/sprPlayerSwordAtack1HB.yy",},
+    {"name":"sndFaseInicial","order":1,"path":"sounds/sndFaseInicial/sndFaseInicial.yy",},
     {"name":"sprJumpDust","order":1,"path":"sprites/sprJumpDust/sprJumpDust.yy",},
     {"name":"sprFierceToothDead","order":9,"path":"sprites/sprFierceToothDead/sprFierceToothDead.yy",},
     {"name":"sprCoinsSell","order":10,"path":"sprites/sprCoinsSell/sprCoinsSell.yy",},

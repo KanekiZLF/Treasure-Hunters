@@ -1,6 +1,12 @@
 /// @description Inicia as variaveis globais
 // Você pode escrever seu código neste editor
-
+//Inicia os grupos de audio
+if !audio_group_is_loaded(audiogroup1)
+{
+	audio_group_set_gain(audiogroup1, .5, 0);
+    audio_group_load(audiogroup1);
+}
+global.music = 0; // Define qual musica esta sendo tocada
 global.lifes = 10; // Define a quantidade de vidas inicial
 global.stamina = 10; // Define a quantidade de estamina inicial
 global.poison = 0; // <-- Define o tempo em que o player fica envenedado
@@ -31,6 +37,3 @@ global.savedItems[1] = array_create(0, 0);
 global.savedItems[2] = array_create(0, 0);
 global.savedItems[3] = array_create(0, 0);
 scrVerificationSave();
-
-
-

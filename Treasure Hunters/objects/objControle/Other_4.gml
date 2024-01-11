@@ -1,5 +1,9 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
+if !audio_is_playing(sndFaseInicial) {
+	playSound = false;
+}
+
 if (room != rmInit) {
 	global.isLoading = true;
 	scrLoadData();

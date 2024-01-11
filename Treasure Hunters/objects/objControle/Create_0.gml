@@ -7,6 +7,8 @@ listSpeed = ds_list_create();
 isPaused = false;
 itemExist = 0;
 pointExist = false;
+playSound = false;
+
 global.upgPrice0 = 0;
 global.upgPrice1 = 0;
 global.upgPrice2 = 0;

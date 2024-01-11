@@ -1,7 +1,6 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
 var _pause = global.gamepause;
-scrPrint(global.cameraActive);
 if (!_pause) {
 	script_execute(estado) //<-- Executa script
 	image_speed = 1;

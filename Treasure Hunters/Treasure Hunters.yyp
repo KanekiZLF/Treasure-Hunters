@@ -4,6 +4,7 @@
   "name": "Treasure Hunters",
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
+    {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup1","targets":-1,},
   ],
   "configs": {
     "children": [],
@@ -154,6 +155,7 @@
     {"id":{"name":"sprSaveBoard","path":"sprites/sprSaveBoard/sprSaveBoard.yy",},},
     {"id":{"name":"sprWatterReflectionMedium","path":"sprites/sprWatterReflectionMedium/sprWatterReflectionMedium.yy",},},
     {"id":{"name":"sprPlayerSwordAtack1HB","path":"sprites/sprPlayerSwordAtack1HB/sprPlayerSwordAtack1HB.yy",},},
+    {"id":{"name":"sndFaseInicial","path":"sounds/sndFaseInicial/sndFaseInicial.yy",},},
     {"id":{"name":"sprJumpDust","path":"sprites/sprJumpDust/sprJumpDust.yy",},},
     {"id":{"name":"sprFierceToothDead","path":"sprites/sprFierceToothDead/sprFierceToothDead.yy",},},
     {"id":{"name":"sprCoinsSell","path":"sprites/sprCoinsSell/sprCoinsSell.yy",},},
@@ -171,6 +173,7 @@
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},},
     {"id":{"name":"sprPinkStarAntecipation","path":"sprites/sprPinkStarAntecipation/sprPinkStarAntecipation.yy",},},
     {"id":{"name":"sprTeletransporte","path":"sprites/sprTeletransporte/sprTeletransporte.yy",},},
+    {"id":{"name":"sndTelaInicial","path":"sounds/sndTelaInicial/sndTelaInicial.yy",},},
     {"id":{"name":"sprMobileButtons","path":"sprites/sprMobileButtons/sprMobileButtons.yy",},},
     {"id":{"name":"objPalmBackRight","path":"objects/objPalmBackRight/objPalmBackRight.yy",},},
     {"id":{"name":"sprHead1Hit1","path":"sprites/sprHead1Hit1/sprHead1Hit1.yy",},},
