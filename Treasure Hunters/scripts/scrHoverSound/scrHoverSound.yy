@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrHoverSound",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "scrConfigs",
-    "path": "folders/Scripts/scrConfigs.yy",
+  "$GMScript":"v1",
+  "%Name":"scrHoverSound",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrHoverSound",
+  "parent":{
+    "name":"scrConfigs",
+    "path":"folders/Scripts/scrConfigs.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

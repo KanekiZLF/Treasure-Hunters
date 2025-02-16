@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrMoveCamera",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "scrConfigs",
-    "path": "folders/Scripts/scrConfigs.yy",
+  "$GMScript":"v1",
+  "%Name":"scrMoveCamera",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrMoveCamera",
+  "parent":{
+    "name":"scrConfigs",
+    "path":"folders/Scripts/scrConfigs.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

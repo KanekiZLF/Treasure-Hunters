@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrMusic",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "scrConfigs",
-    "path": "folders/Scripts/scrConfigs.yy",
+  "$GMScript":"v1",
+  "%Name":"scrMusic",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrMusic",
+  "parent":{
+    "name":"scrConfigs",
+    "path":"folders/Scripts/scrConfigs.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

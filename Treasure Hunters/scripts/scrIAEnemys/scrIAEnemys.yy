@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrIAEnemys",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "scrInimigos",
-    "path": "folders/Scripts/scrInimigos.yy",
+  "$GMScript":"v1",
+  "%Name":"scrIAEnemys",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrIAEnemys",
+  "parent":{
+    "name":"scrInimigos",
+    "path":"folders/Scripts/scrInimigos.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

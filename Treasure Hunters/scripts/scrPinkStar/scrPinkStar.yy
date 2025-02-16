@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scrPinkStar",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrPinkStar",
+  "parent":{
+    "name":"scrInimigos",
+    "path":"folders/Scripts/scrInimigos.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

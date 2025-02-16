@@ -47,6 +47,11 @@ function scrIAEnemys(){
 				vision = clamp(vision, 0, 60); //<-- Limita o campo de visao até limite em px
 				_linePlayer = collision_line(x + (vision * image_xscale), y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objPlayer, false, true);
 			break;
+			
+			case "pinkStar":
+				vision = clamp(vision, 0, 60); //<-- Limita o campo de visao até limite em px
+				_linePlayer = collision_line(x + (vision * image_xscale), y - _centerSpriteY, x - (vision * image_xscale), y - _centerSpriteY, objPlayer, false, true);
+			break;
 		}
 		
 		// Verifica se a linha colidiu com alguma parede
@@ -94,7 +99,7 @@ function scrIAEnemys(){
 			barLife = true;
 	    } 
 		// Para de seguir o player se a distancia for maior que o limite definido
-		if (_distPlayerX >= distLimit || (_distPlayerY >= 30 && objPlayer.doubleJump == 2)) {
+		if (_distPlayerX >= distLimit || _distPlayerY >= 30 || !_linePlayer) {
 	        perseg = false;
 	        isEffect = false;
 			barLife = false;
@@ -145,6 +150,13 @@ function scrIAEnemys(){
 						alarm[1] = 1.3 * game_get_speed(gamespeed_fps);// <-- Intervalo entre ataques
 					}
 				}
+				
+				if (_enemyName == "pinkStar") {
+					if (alarm[1] <= 0) {
+						estado = scrPinkStarAtack;
+						alarm[1] = 1.3 * game_get_speed(gamespeed_fps);// <-- Intervalo entre ataques
+					}
+				}
 			}
 		} else if (global.gameover || isDead) {
 			perseg = false;
@@ -157,6 +169,11 @@ function scrIAEnemys(){
 			if (_enemyName == "crabby") {
 				mask_index = sprCrabbyIdle;
 				estado = scrCrabby;
+			}
+			
+			if (_enemyName == "pinkStar") {
+				mask_index = sprPinkStarIdle;
+				estado = scrPinkStar;
 			}
 		}
 	}

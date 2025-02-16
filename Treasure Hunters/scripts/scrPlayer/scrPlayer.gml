@@ -37,7 +37,7 @@ function scrPlayer() {
 			esquerda = keyboard_check(ord("A"));
 		}
 		
-		cima = keyboard_check_pressed(ord("W"));
+		cima = keyboard_check_pressed(ord("W")) or keyboard_check_pressed(vk_space);
 		
 		if (keyboard_check_pressed(ord("S")) && place_meeting(x, y + 1, objPalmFront)) {
 			baixo = true;

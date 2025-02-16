@@ -3,7 +3,7 @@
 //Inicia os grupos de audio
 if !audio_group_is_loaded(audiogroup1)
 {
-	audio_group_set_gain(audiogroup1, .5, 0);
+	audio_group_set_gain(audiogroup1, volumeMusic, 0);
     audio_group_load(audiogroup1);
 	audio_group_load(audiogroup2);
 }

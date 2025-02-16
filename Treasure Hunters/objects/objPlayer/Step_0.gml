@@ -170,24 +170,27 @@ if !isDead && (!_pause) {
 		toThrow = true;
 	}
 
-
+#region Efeitos
 	// Crie os efeitos de fumaça quando anda ou pula
-	if (wait("runDust1", .2)) && direita && !isJumping && !isFall && !isDead {
-	   var _effect = instance_create_layer(x - 10, y + 2.5, layer, objEffects);
-			_effect.direc = 4
-	}
+	if (global.option != 8) {
+		if (wait("runDust1", .2)) && direita && !isJumping && !isFall && !isDead {
+		   var _effect = instance_create_layer(x - 10, y + 2.5, layer, objEffects);
+				_effect.direc = 4
+		}
 
-	if (wait("runDust2", .2)) && esquerda && !isJumping && !isFall && !isDead {
-	   var _effect = instance_create_layer(x + 10, y + 2.5, layer, objEffects);
-			_effect.direc = 5
-	}
+		if (wait("runDust2", .2)) && esquerda && !isJumping && !isFall && !isDead {
+		   var _effect = instance_create_layer(x + 10, y + 2.5, layer, objEffects);
+				_effect.direc = 5
+		}
 
-	if (place_meeting(x, y + 1, objColisParede)) && isEffect {
-		var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
-			_effect.direc = 2
-			isEffect = false;
+		if (place_meeting(x, y + 1, objColisParede)) && isEffect {
+			var _effect = instance_create_layer(x, y + 2.5, layer, objEffects);
+				_effect.direc = 2
+				isEffect = false;
+		}
 	}
-	
+#endregion
+
 	// Adiciona item ao inventario
 	if (instance_exists(objItens) && !global.inventory) {
     var _inst = instance_nearest(x, y, objItens);

@@ -9,7 +9,7 @@ if (!global.gamepause) {
 }
 
 //Controla os efeitos do Dialogo
-if (direc == 6 || direc == 7 || direc == 8) {
+if (direc == 6 || direc == 7 || direc == 8) && global.option != 8 {
 	if (player) {
 		x = objPlayer.x + 15;
 		y = objPlayer.y - 20;

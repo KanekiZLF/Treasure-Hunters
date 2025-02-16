@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "scrColected",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "scrConfigs",
-    "path": "folders/Scripts/scrConfigs.yy",
+  "$GMScript":"v1",
+  "%Name":"scrColected",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrColected",
+  "parent":{
+    "name":"scrConfigs",
+    "path":"folders/Scripts/scrConfigs.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

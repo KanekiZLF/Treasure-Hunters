@@ -374,12 +374,12 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					case 2:
 					if (room == rmInit) {
 						if (file_exists("saveData1.dat")) {
+							scrLoadDataT();
+							scrLoadInventory();
 							global.gamepause = false;
 							global.option = noone;
-							scrLoadGame();
-							scrLoadInventory();
 							if (alarm[0] <= 0) {
-								alarm[0] = 10;
+								alarm[0] = 1;
 							}
 						} 
 						else {
@@ -405,7 +405,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 							scrLoadGame();
 							scrLoadInventory();
 							if (alarm[0] <= 0) {
-								alarm[0] = 10;
+								alarm[0] = 1;
 							}
 						}
 						else {
@@ -536,8 +536,8 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 		scrHoverSound(_mouseX, _mouseY, _recTX - (32 * _escala), _recTY - (16 * _escala), _recTX - (32 * _escala) + (28 * _escala), _recTY - (16 * _escala) + (28 * _escala))
 		if (_mouseClick) {
 			audio_play_sound(sndConfirm, 1, 0);
-			global.save = 1;
-			if (room == rmInit) {
+			global.option = 1;
+			/*if (room == rmInit && global.save == 1) {
 				if (file_exists("saveData0.dat")) {
 					scrLoadDataT();
 					scrLoadInventory();
@@ -552,7 +552,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 					global.option = noone;
 					room_goto_next();
 				}
-			}
+			}*/
 		}
 	}
 	// Cifrao		
@@ -577,7 +577,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 			
 		}
 	}
-	// Play
+	// Play tela Game Over
 	else if (point_in_rectangle(_mouseX, _mouseY, _recX2 + _recSpace2, _recY2, _recX2 + _recSpace2 + (28 * _escala), _recY2 + (14 * _escala))) {
 		if (_mouseClick && global.gameover) {
 			scrLoadGame();

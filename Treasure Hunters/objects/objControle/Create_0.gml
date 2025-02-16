@@ -8,6 +8,7 @@ isPaused = false;
 itemExist = 0;
 pointExist = false;
 playSound = false;
+volumeMusic = .1;
 
 global.upgPrice0 = 0;
 global.upgPrice1 = 0;
