@@ -1,0 +1,6 @@
+*Fix the menu, we need to improment more the menu = 
+*Create more enemies =
+*Improment more the mecanics of game =
+*Create a tutorial room = 
+*Development a boss =
+*Define a shop, remove from inventory =

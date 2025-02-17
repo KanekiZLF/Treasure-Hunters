@@ -1,3 +1,5 @@
+/// @description Reativar o save !
+
 #region Variaveis do Player
 
 if (instance_exists(objPlayer)) {
@@ -355,7 +357,7 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 							if (alarm[0] <= 0) {
 								alarm[0] = 1;
 							}
-						} 
+						}
 						else {
 							global.gamepause = false;
 							global.option = noone;
@@ -456,6 +458,15 @@ if (_option == 0 || _option == 2 || _option == 3 || _option == 4 || _option == 1
 				global.save = 1;
 				if (room == rmInit) {
 					scrLoadCoins();
+					// Exclui o Save
+					if (scrMouseDBClick()) {
+						if(file_exists("saveData0.dat")) {
+							file_delete("saveData0.dat");
+							file_delete("saveInventory0.save");
+						} else {
+							show_debug_message("Arquivo de save inexistente");
+						}
+					}
 				}
 			}
 			
@@ -907,3 +918,4 @@ if !playSound {
 }
 
 #endregion
+

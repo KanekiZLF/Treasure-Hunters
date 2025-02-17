@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scrMouseDBClick",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrMouseDBClick",
+  "parent":{
+    "name":"scrConfigs",
+    "path":"folders/Scripts/scrConfigs.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
